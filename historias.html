@@ -151,12 +151,13 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
   .modal{align-items:center;padding:20px}
   .mbox{border-radius:16px}
 }
-@media (max-width:420px){ .top .ttl{display:none} }
+@media (max-width:420px){ .top .ttl{display:none} .pill{padding:0 10px} }
+@media (display-mode: standalone){ .dlp{display:none} }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
 </style>
 </head>
 <body>
-<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Bitácora de Obra</span><span class="sp"></span><a class="pill" href="/">← Mi Proyecto Maestro</a></header>
+<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Bitácora de Obra</span><span class="sp"></span><a class="pill dlp" href="/#instalar">Descargar app</a><a class="pill" href="/">← Mi obra</a></header>
 
 <div id="lock" class="lock" hidden>
   <p class="eyebrow">Acceso para alumnas</p>

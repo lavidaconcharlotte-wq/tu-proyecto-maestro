@@ -804,7 +804,7 @@ body.demo .cierre{display:none}
   .gate{padding-bottom:70px}
   .lp-topnav{display:none}
 }
-@media (min-width:760px){ .lp-steps{grid-template-columns:1.15fr 1fr 1fr} .lp-cards{grid-template-columns:repeat(5,1fr)} .lp-plans{grid-template-columns:repeat(3,1fr)} .lp-stages{grid-template-columns:repeat(5,1fr)} .flip{min-height:190px} }
+@media (min-width:760px){ .lp-steps{grid-template-columns:1.15fr 1fr 1fr} .lp-cards{grid-template-columns:repeat(4,1fr)} .lp-plans{grid-template-columns:repeat(3,1fr)} .lp-stages{grid-template-columns:repeat(5,1fr)} .flip{min-height:190px} }
 @media (min-width:1024px){ .lp-hero .g-side{gap:0} }
 
 /* ===== MI HISTORIA ===== */
@@ -845,6 +845,38 @@ body.mh-open{overflow:hidden}
 .app-tab{z-index:45}
 @media (max-width:1023px){ #app main{padding-bottom:80px} }
 @media (min-width:760px){ .mh-hero{grid-template-columns:320px 1fr} .mh-line{grid-auto-flow:column;grid-auto-columns:1fr} .mh-line li{border-left:0;border-top:1px dashed var(--vino);margin:12px 0 0;padding:20px 10px 0 0} .mh-line li::before{left:0;top:-7px} .mh-photos{grid-template-columns:repeat(4,1fr)} .mh-ch{padding:34px 40px 22px} }
+
+.mh-photos{grid-template-columns:repeat(2,1fr)!important;gap:22px 16px!important}
+.pol{position:relative;margin:0;background:#fff;padding:8px 8px 26px;box-shadow:0 12px 30px rgba(42,38,36,.16)}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.mh-photos .pol:nth-child(odd){transform:rotate(-2deg)}.mh-photos .pol:nth-child(even){transform:rotate(2deg)}
+.mh-photos .pol:last-child:nth-child(odd){grid-column:1/-1;width:62%;justify-self:center}
+.tag{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%) rotate(-3deg);max-width:92%;background:#EFE6D6;background-image:radial-gradient(rgba(91,52,59,.06) 1px,transparent 1px);background-size:5px 5px;font-family:var(--hand);font-size:21px;line-height:1.05;color:#2A2624;text-align:center;text-transform:none;letter-spacing:0;font-weight:500;padding:6px 14px 7px;white-space:normal;box-shadow:0 6px 14px rgba(42,38,36,.18);clip-path:polygon(2% 8%,10% 0,22% 6%,35% 1%,48% 7%,62% 0,76% 6%,90% 1%,100% 9%,98% 34%,100% 62%,97% 92%,86% 100%,70% 94%,55% 100%,40% 95%,24% 100%,10% 94%,0 100%,2% 70%,0 40%)}
+.tag.long{font-size:17px;width:88%}
+.mh-duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 30px}
+.mh-duo .pol:first-child{transform:rotate(-2.5deg)}.mh-duo .pol:last-child{transform:rotate(2deg) translateY(10px)}
+.mh-ch em{font-style:italic;color:var(--vino)}
+@media (min-width:760px){ .mh-photos{grid-template-columns:repeat(5,1fr)!important} .mh-photos .pol:last-child:nth-child(odd){grid-column:auto;width:auto} .mh-duo{max-width:560px;margin-left:auto;margin-right:auto} }
+
+.dl-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.dl-pill{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);font-size:11.5px;font-weight:600;letter-spacing:.04em;cursor:pointer}
+.dl-pill:nth-child(2){background:transparent;color:var(--ink)}
+.is-standalone [data-install],.is-standalone [data-install-row]{display:none!important}
+.inst{position:fixed;inset:0;z-index:90;background:rgba(42,38,36,.5);display:flex;align-items:flex-end;justify-content:center}
+.inst-box{position:relative;width:100%;max-width:480px;max-height:92vh;overflow:auto;background:var(--ivory);border-radius:22px 22px 0 0;padding:26px 22px calc(26px + env(safe-area-inset-bottom,0px));text-align:center}
+.inst-ic{width:76px;height:76px;border-radius:18px;box-shadow:0 10px 26px rgba(42,38,36,.2)}
+.inst-box h3{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:22px;margin:14px 0 6px}
+.inst-box>p{font-size:14px;line-height:1.6;margin:0 0 14px}
+.inst-x{position:absolute;right:12px;top:10px;width:44px;height:44px;border:0;background:none;font-size:18px;color:var(--olive);cursor:pointer}
+.inst-tabs{display:flex;gap:6px;justify-content:center;margin-bottom:14px}
+.inst-tabs button{min-height:42px;display:inline-flex;align-items:center;gap:6px;padding:0 14px;border:1px solid var(--champ);border-radius:999px;background:var(--paper);font-size:12px;font-weight:600;color:var(--olive);cursor:pointer}
+.inst-tabs button[aria-selected="true"]{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
+.inst-pane{text-align:left}
+.inst-pane ol{margin:0;padding-left:22px;font-size:15px;line-height:1.7}
+.inst-pane li{margin-bottom:6px}
+.inst-tip{font-size:12.5px;color:var(--olive);margin:10px 0 0}
+.inst-go{margin-bottom:14px}
+@media (min-width:760px){ .inst{align-items:center} .inst-box{border-radius:18px} }
 /* ---------- fondo: bocetos + acuarela ---------- */
 body{overflow-x:hidden}
 .hero,.intro-sec,.lamina,.entrega,.estudio,.cierre{position:relative;overflow:hidden}
@@ -883,14 +915,15 @@ body{overflow-x:hidden}
   <svg class="sk px" style="left:-4%;bottom:6%;width:60%" viewBox="-40 -40 880 580" fill="none" stroke="#6B705C" stroke-opacity="0.16" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M-20 420 L820 420" /><path pathLength="1" d="M40 -10 L40 440" /><path pathLength="1" d="M760 -10 L760 440" /><path pathLength="1" d="M30 90 H770 M30 110 H770" /><path pathLength="1" d="M90 420 V230 A100.0 100.0 0 0 1 290 230 V420" /><path pathLength="1" d="M104 420 V236 A86.0 86.0 0 0 1 276 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M190.0 130 L190.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M300 420 V230 A100.0 100.0 0 0 1 500 230 V420" /><path pathLength="1" d="M314 420 V236 A86.0 86.0 0 0 1 486 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M400.0 130 L400.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M510 420 V230 A100.0 100.0 0 0 1 710 230 V420" /><path pathLength="1" d="M524 420 V236 A86.0 86.0 0 0 1 696 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M610.0 130 L610.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M60 420 V120 M82 420 V120" /><path pathLength="1" d="M290 420 V120 M312 420 V120" /><path pathLength="1" d="M500 420 V120 M522 420 V120" /><path pathLength="1" d="M710 420 V120 M732 420 V120" /><path pathLength="1" d="M40 470 H760 M40 460 V480 M760 460 V480" /><path pathLength="1" d="M400 -30 V60" /><circle pathLength="1" cx="190" cy="500" r="14"/><path pathLength="1" d="M190 486 L190 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="400" cy="500" r="14"/><path pathLength="1" d="M400 486 L400 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="610" cy="500" r="14"/><path pathLength="1" d="M610 486 L610 440" stroke-dasharray=".02 .03"/><text x="190" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.256" stroke="none" text-anchor="middle">A</text><text x="400" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.256" stroke="none" text-anchor="middle">B</text><text x="610" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.256" stroke="none" text-anchor="middle">C</text></g></svg><svg class="sk px" style="right:30%;top:10%;width:120px" viewBox="-10 -10 300 360" fill="none" stroke="#5B343B" stroke-opacity="0.14" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><circle pathLength="1" cx="100" cy="30" r="12"/><path pathLength="1" d="M92 40 L30 260 M108 40 L170 260" /><path pathLength="1" d="M50 190 L150 190" stroke-dasharray=".03 .03"/><path pathLength="1" d="M170 260 A 140 140 0 0 0 30 260" stroke-dasharray=".01 .015"/><path pathLength="1" d="M0 300 L260 240 L268 262 L8 322 Z" /><path pathLength="1" d="M20 296.0 l3 12" /><path pathLength="1" d="M44 290.5 l3 12" /><path pathLength="1" d="M68 285.0 l3 12" /><path pathLength="1" d="M92 279.5 l3 12" /><path pathLength="1" d="M116 274.0 l3 12" /><path pathLength="1" d="M140 268.5 l3 12" /><path pathLength="1" d="M164 263.0 l3 12" /><path pathLength="1" d="M188 257.5 l3 12" /><path pathLength="1" d="M212 252.0 l3 12" /><path pathLength="1" d="M236 246.5 l3 12" /></g></svg><svg class="wc " style="left:-120px;top:10%;width:520px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#D9C7A6" fill-opacity="0.35" filter="url(#wc)"/></svg><svg class="wc " style="right:-80px;bottom:-60px;width:480px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.22" filter="url(#wc)"/></svg>
   <header class="g-top">
     <img src="img/logo.png" alt="Laura Tovar Studio">
-    <span class="meta">Arquitectura Digital <i></i> MMXXVI</span><nav class="lp-topnav"><button type="button" data-historia>Mi historia</button><a href="#gLoginT" data-tologin class="lp-in">Ya tengo cuenta</a></nav>
+    <span class="meta">Arquitectura Digital <i></i> MMXXVI</span><nav class="lp-topnav"><button type="button" data-install="auto">Descargar app</button><button type="button" data-historia>Mi historia</button><a href="#gLoginT" data-tologin class="lp-in">Ya tengo cuenta</a></nav>
   </header>
   <div class="g-body lp-hero">
     <div class="g-copy">
       <p class="eyebrow">Tu Proyecto Maestro · Laura Tovar Studio</p>
-      <h1 class="lp-h1">Construye tu marca personal paso a paso<span>aunque nunca lo hayas hecho.</span></h1>
+      <h1 class="lp-h1">Construye tu marca personal paso a paso <span>aunque nunca lo hayas hecho.</span></h1>
       <p class="intro">Una experiencia guiada para descubrir lo que ya existe en ti y convertirlo en una marca con propósito, estructura y esencia. Sin tecnicismos, a tu ritmo.</p>
       <div class="lp-ctas"><button type="button" class="fc-btn" data-gop0>Empieza gratis <span aria-hidden="true">→</span></button><a class="lp-ghost" href="#gLoginT" data-tologin>Ya tengo cuenta</a></div>
+      <div class="dl-row" data-install-row><button type="button" class="dl-pill" data-install="ios"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3-1.5z"/></svg>Descargar app para iPhone</button><button type="button" class="dl-pill" data-install="android"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.8 10.8 0 0 0 12 8a10.8 10.8 0 0 0-4.8 1.1l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.5 9.5 0 0 0 2 17h20a9.5 9.5 0 0 0-4.4-7.5zM7.5 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>Descargar app para Android</button></div>
     </div>
     <div class="g-side">
       <div class="lp-video">
@@ -998,6 +1031,9 @@ body{overflow-x:hidden}
       <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-laton.jpg)"></i><b>BRIEF</b></span><span class="bk">El pedido de diseño, con textos, colores y medidas, que tu Asistente le prepara a tu Director Creativo.</span></button>
       <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-vino.jpg)"></i><b>Gancho</b></span><span class="bk">La primera frase o imagen que hace que alguien se detenga y quiera ver más.</span></button>
       <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-textil.jpg)"></i><b>CTA</b></span><span class="bk">La invitación final que le dice a la persona qué hacer: escribirte, seguirte o comprar.</span></button>
+      <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-marmol.jpg)"></i><b>Reels</b></span><span class="bk">Videos cortos y verticales, de pocos segundos a unos minutos. Son los que más ayudan a que nuevas personas te descubran.</span></button>
+      <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-arco.jpg)"></i><b>Posts</b></span><span class="bk">Las publicaciones que quedan fijas en tu perfil: una imagen, un video o varias imágenes con su texto.</span></button>
+      <button type="button" class="flip" aria-pressed="false"><span class="fr"><i style="background-image:url(img/mat-travertino.jpg)"></i><b>Carruseles</b></span><span class="bk">Un post con varias imágenes que se deslizan hacia un lado, como las páginas de un mini libro. Ideales para enseñar paso a paso.</span></button>
     </div>
   </section>
 
@@ -1072,6 +1108,18 @@ body{overflow-x:hidden}
   <footer class="g-foot"><div><b>Project</b>Proyecto Maestro</div><div><b>Type</b>Marca personal</div><div><b>Guided by</b>Laura Tovar Studio</div></footer>
 </div>
 
+
+<div class="inst" id="inst" hidden role="dialog" aria-modal="true" aria-labelledby="instT">
+  <div class="inst-box">
+    <button type="button" class="inst-x" data-instclose aria-label="Cerrar">✕</button>
+    <img src="img/icons/icon-180.png" alt="" class="inst-ic">
+    <h3 id="instT">Instala Tu Proyecto en tu celular</h3>
+    <p>Queda en tu pantalla de inicio como una app, a pantalla completa. Es gratis y no ocupa espacio.</p>
+    <div class="inst-tabs" role="tablist"><button type="button" data-itab="ios" role="tab"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3-1.5z"/></svg> iPhone o iPad</button><button type="button" data-itab="android" role="tab"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.8 10.8 0 0 0 12 8a10.8 10.8 0 0 0-4.8 1.1l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.5 9.5 0 0 0 2 17h20a9.5 9.5 0 0 0-4.4-7.5zM7.5 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg> Android</button></div>
+    <div class="inst-pane" data-ipane="ios"><ol><li>Abre esta página en <b>Safari</b>.</li><li>Toca el botón <b>Compartir</b> <span class="ico">⬆︎</span> (el cuadrito con la flecha hacia arriba).</li><li>Desliza y toca <b>"Agregar a pantalla de inicio"</b>.</li><li>Toca <b>Agregar</b>. ¡Listo! Busca el ícono <b>Tu Proyecto</b>.</li></ol><p class="inst-tip">Si estás dentro de Instagram o WhatsApp, primero abre el link en Safari.</p></div>
+    <div class="inst-pane" data-ipane="android"><button type="button" class="fc-btn inst-go" id="instGo" hidden>Instalar ahora</button><ol><li>Abre esta página en <b>Chrome</b>.</li><li>Toca el menú <b>⋮</b> (los tres puntos de arriba a la derecha).</li><li>Toca <b>"Instalar app"</b> o <b>"Agregar a pantalla principal"</b>.</li><li>Confirma con <b>Instalar</b>. ¡Listo! Busca el ícono <b>Tu Proyecto</b>.</li></ol><p class="inst-tip">Si estás dentro de Instagram o WhatsApp, primero abre el link en Chrome.</p></div>
+  </div>
+</div>
 <section id="mh" class="mh" hidden aria-label="Mi historia">
   <header class="mh-top"><button type="button" class="mh-back" data-mhclose>← Volver</button><span>Mi historia</span><img src="img/logo.png" alt="Laura Tovar Studio"></header>
   <div class="mh-hero">
@@ -1092,11 +1140,14 @@ body{overflow-x:hidden}
   </article>
   <article class="mh-ch"><span class="mh-n">02</span><p class="eyebrow">El giro</p><h2>Reconstruir también es diseñar</h2>
     <p>Cuando llegué a Estados Unidos en 2019, mi título y mi experiencia seguían siendo parte de mí, pero reconstruir mi camino profesional implicó adaptarme.</p>
-    <p>Trabajé en cosas muy distintas mientras encontraba nuevamente mi lugar y, poco a poco, regresé al mundo del diseño y la arquitectura desde nuevas oportunidades.</p>
-    <div class="mh-gallery" aria-label="Mi recorrido de obra"><p class="hw">mi recorrido de obra</p><div class="mh-photos"><figure class="ph"><span>Foto pendiente</span></figure><figure class="ph"><span>Foto pendiente</span></figure><figure class="ph"><span>Foto pendiente</span></figure><figure class="ph"><span>Foto pendiente</span></figure></div></div>
-    <p>Años después, convertirme en mamá volvió a mover mis prioridades.</p>
-    <p>Quería seguir creciendo profesionalmente y construyendo algo propio, pero también quería una vida que me permitiera estar presente para mi hija.</p>
-    <p class="mh-hl">Esa necesidad fue el impulso para volver a reinventarme.</p>
+    <p>Trabajé en cosas muy distintas mientras encontraba nuevamente mi lugar:</p>
+    <div class="mh-gallery" aria-label="Mi recorrido de obra"><p class="hw">mi recorrido de obra</p><div class="mh-photos"><figure class="pol"><img src="img/job-pintor.jpg" alt="Laura trabajando como pintora en una obra" loading="lazy"><figcaption class="tag">Pintora</figcaption></figure><figure class="pol"><img src="img/job-housekeeping.jpg" alt="Laura en su uniforme de housekeeping" loading="lazy"><figcaption class="tag">Housekeeping interna</figcaption></figure><figure class="pol"><img src="img/job-lavaautos.jpg" alt="Laura trabajando en un lavadero de autos" loading="lazy"><figcaption class="tag">Lavando autos</figcaption></figure><figure class="pol"><img src="img/job-mesera.jpg" alt="Laura trabajando como mesera" loading="lazy"><figcaption class="tag">Mesera</figcaption></figure><figure class="pol"><img src="img/job-oficinas.jpg" alt="Laura limpiando oficinas de madrugada" loading="lazy"><figcaption class="tag long">Limpiando oficinas de madrugada</figcaption></figure></div></div>
+    <p>Cada uno de esos trabajos también me construyó. Poco a poco regresé al mundo del diseño: empecé a trabajar como diseñadora de gabinetes, en una oficina, con un sueldo fijo y un horario de lunes a viernes. Por fin estaba tranquila… y estaba embarazada.</p>
+    <div class="mh-duo"><figure class="pol"><img src="img/ofi-escritorio.jpg" alt="Laura en su escritorio como diseñadora de gabinetes" loading="lazy"><figcaption class="tag">Diseñadora de gabinetes</figcaption></figure><figure class="pol"><img src="img/ofi-embarazada.jpg" alt="Laura embarazada en la oficina" loading="lazy"><figcaption class="tag">Y llegó la gran pregunta</figcaption></figure></div>
+    <p>Mientras se acercaba el día de dar a luz, empecé a mirar mi vida hacia adelante y a hacerme una pregunta incómoda: <em>¿esto es lo que de verdad quiero? ¿Ser mamá y seguir aquí, sentada en este escritorio?</em></p>
+    <p>Nació mi hija, Charlotte. Tuve 90 días de licencia de maternidad, y no fueron pagados. Cuando estaban por terminar, le escribí a mi jefa para renunciar.</p>
+    <p>No fue una decisión fácil: estaba soltando lo seguro. Pero por primera vez estaba eligiendo una vida en la que pudiera crecer profesionalmente y estar presente para mi hija.</p>
+    <p class="mh-hl">Esa decisión fue el impulso para volver a reinventarme.</p>
   </article>
   <article class="mh-ch"><span class="mh-n">03</span><p class="eyebrow">Hoy</p><h2>Arquitectura digital</h2>
     <p>Hoy sigo siendo arquitecta, pero mi práctica se expandió.</p>
@@ -1123,7 +1174,7 @@ body{overflow-x:hidden}
   <nav class="prog" aria-label="Láminas del proyecto">
     <a href="#l1" data-p="1" aria-label="Lámina 1">01</a><a href="#l2" data-p="2" aria-label="Lámina 2">02</a><a href="#l3" data-p="3" aria-label="Lámina 3">03</a><a href="#l4" data-p="4" aria-label="Lámina 4">04</a>
   </nav>
-  <button type="button" class="logout" id="logoutBtn">Salir</button>
+  <button type="button" class="logout dl-top" data-install="auto">Descargar app</button><button type="button" class="logout" id="logoutBtn">Salir</button>
 </header>
 
 <main>
@@ -1486,7 +1537,7 @@ body{overflow-x:hidden}
         <p class="eyebrow">Lámina 05 · Vida diaria</p>
         <h2>Bitácora de Obra</h2>
         <p>Tu marca ya tiene esencia. Ahora tiene que conectar todos los días. Planifica tus recorridos de obra: series de historias con gancho, contexto, valor, prueba y cierre. Créalos con tu Asistente y pásalos a diseño con el BRIEF.</p>
-        <a class="btn primary" href="/historias" id="l5Go">Abrir mi Bitácora de Obra →</a>
+        <a class="btn primary" href="/historias" id="l5Go">Abrir mi Bitácora de Obra →</a><div class="dl-row" data-install-row><button type="button" class="dl-pill" data-install="ios"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3-1.5z"/></svg>Descargar app para iPhone</button><button type="button" class="dl-pill" data-install="android"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.8 10.8 0 0 0 12 8a10.8 10.8 0 0 0-4.8 1.1l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.5 9.5 0 0 0 2 17h20a9.5 9.5 0 0 0-4.4-7.5zM7.5 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>Descargar app para Android</button></div>
       </div>
     </div>
   </div>
@@ -1546,7 +1597,7 @@ body{overflow-x:hidden}
 
 <section id="p0" class="p0" hidden aria-label="Plano 00 · El Terreno">
   <svg class="sk px" style="right:-160px;top:120px;width:620px" viewBox="-20 -20 680 490" fill="none" stroke="#5B343B" stroke-opacity="0.08" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M20 20 H580 V400 H20 Z" stroke-width="3"/><path pathLength="1" d="M20 180 H250 M250 20 V120 M250 160 V300 M250 300 H420 M420 300 V400 M420 20 V200 M420 240 V300 M20 300 H180 M220 300 H250" /><path pathLength="1" d="M250 120 A40 40 0 0 1 290 160 M180 300 A40 40 0 0 0 220 340 M420 200 A40 40 0 0 1 460 240" stroke-dasharray=".01 .01"/><path pathLength="1" d="M450 50 h110 v70 h-110 z" /><circle pathLength="1" cx="505" cy="85" r="18"/><path pathLength="1" d="M40 40 h160 v90 h-160 z" /><path pathLength="1" d="M300 340 h100 v40 h-100 z" /><path pathLength="1" d="M300 40 h90 v90 h-90 z M300 70 h90 M300 100 h90" /><path pathLength="1" d="M20 440 H580 M20 430 V450 M250 430 V450 M420 430 V450 M580 430 V450" /><path pathLength="1" d="M620 20 V400 M610 20 H630 M610 180 H630 M610 400 H630" /><path pathLength="1" d="M-10 20 H40 M560 -10 V40 M-10 400 H40 M560 380 V430" /></g></svg><svg class="wc " style="left:-160px;top:20%;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#E9DFC9" fill-opacity="0.7" filter="url(#wc)"/></svg><svg class="wc " style="right:-120px;bottom:-60px;width:520px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.2" filter="url(#wc)"/></svg>
-  <header class="p0-top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Plano 00 · El Terreno</span><div class="p0-dots" id="p0Dots" aria-hidden="true"></div><button type="button" class="p0-x" id="p0Close">Salir</button></header>
+  <header class="p0-top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Plano 00 · El Terreno</span><div class="p0-dots" id="p0Dots" aria-hidden="true"></div><button type="button" class="p0-x dl-top" data-install="auto">App</button><button type="button" class="p0-x" id="p0Close">Salir</button></header>
   <main class="p0-main" id="p0Main"></main>
   <nav class="p0-nav" id="p0Nav"><button type="button" class="btn ghost p0-back" id="p0BackBtn" aria-label="Atrás">←</button><button type="button" class="btn primary" id="p0NextBtn">Continuar →</button></nav>
   <div class="p0-modal" id="p0Modal" hidden role="dialog" aria-modal="true" aria-labelledby="p0MTitle">
@@ -2663,6 +2714,18 @@ document.getElementById("logoutBtn").onclick=function(){ var a=getAuth(); if(a) 
 "use strict";
 function $(s){ return document.querySelector(s); }
 if("serviceWorker" in navigator&&location.protocol==="https:"){ window.addEventListener("load",function(){ navigator.serviceWorker.register("/sw.js").catch(function(){}); }); }
+
+var deferred=null; window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); deferred=e; var g=document.getElementById("instGo"); if(g) g.hidden=false; });
+if((window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches)||navigator.standalone) document.documentElement.classList.add("is-standalone");
+function guess(){ var ua=navigator.userAgent; return /iPhone|iPad|iPod|Macintosh/.test(ua)&&("ontouchend" in document)||/iPhone|iPad|iPod/.test(ua)?"ios":/Android/.test(ua)?"android":"ios"; }
+function itab(k){ Array.prototype.forEach.call(document.querySelectorAll("[data-itab]"),function(b){ b.setAttribute("aria-selected",b.dataset.itab===k); }); Array.prototype.forEach.call(document.querySelectorAll("[data-ipane]"),function(p){ p.hidden=p.dataset.ipane!==k; }); }
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-install]"); if(b){ e.preventDefault(); var k=b.dataset.install==="auto"?guess():b.dataset.install; if(k==="android"&&deferred){ deferred.prompt(); deferred=null; return; } itab(k); document.getElementById("inst").hidden=false; return; }
+  var tb=e.target.closest("[data-itab]"); if(tb){ itab(tb.dataset.itab); return; }
+  if(e.target.closest("[data-instclose]")||e.target.id==="inst"){ document.getElementById("inst").hidden=true; return; }
+  if(e.target.id==="instGo"&&deferred){ deferred.prompt(); deferred=null; document.getElementById("inst").hidden=true; }
+});
+if(location.hash==="#instalar"){ setTimeout(function(){ itab(guess()); document.getElementById("inst").hidden=false; },400); }
 var mh=document.getElementById("mh");
 function openMh(){ mh.hidden=false; mh.scrollTop=0; document.body.classList.add("mh-open"); }
 function closeMh(){ mh.hidden=true; document.body.classList.remove("mh-open"); }
