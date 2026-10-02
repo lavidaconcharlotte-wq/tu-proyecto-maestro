@@ -1,0 +1,30 @@
+{
+ "name": "Tu Proyecto Maestro",
+ "short_name": "Tu Proyecto",
+ "description": "Construye tu marca personal paso a paso, con intención y tu esencia.",
+ "lang": "es",
+ "start_url": "/",
+ "scope": "/",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#FAF6F1",
+ "theme_color": "#FAF6F1",
+ "icons": [
+  {
+   "src": "/img/icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/img/icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "/img/icons/icon-512-maskable.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}

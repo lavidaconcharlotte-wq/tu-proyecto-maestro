@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bitácora de Obra · Tu Proyecto Maestro</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/img/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tu Proyecto">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="application-name" content="Tu Proyecto">
+
+<meta name="theme-color" content="#FAF6F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ivory:#FAF6F1;--sand:#E9DFC9;--olive:#6B705C;--olive-d:#5A5F4D;--champ:#D9C7A6;--vino:#5B343B;--ink:#2A2624;--paper:#FFFDF9;--brass:#B8925A;--disp:'Cinzel',Georgia,serif;--sans:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;--hand:'Caveat','Segoe Print',cursive;--ease:cubic-bezier(.2,.7,.2,1);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background-image:linear-gradient(rgba(107,112,92,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(107,112,92,.07) 1px,transparent 1px);background-size:24px 24px;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* header */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 18px;background:rgba(250,246,241,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(217,199,166,.7)}
+.top img{height:40px;width:auto}
+.top .ttl{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--vino);white-space:nowrap}
+.top .sp{flex:1}
+.pill{min-height:40px;border:1px solid var(--champ);border-radius:999px;background:var(--paper);padding:0 14px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--olive);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+main{max-width:1180px;margin:0 auto;padding:26px 18px 120px}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);margin:0 0 8px}
+h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30px,6vw,52px);line-height:1.05;margin:0 0 10px}
+.lead{font-size:15px;line-height:1.7;max-width:40em;margin:0 0 6px}
+.hw{font-family:var(--hand);font-size:24px;color:var(--vino);margin:6px 0 0}
+.btn{min-height:46px;border-radius:999px;border:1px solid var(--olive);background:transparent;color:var(--olive);padding:0 18px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,color .2s}
+.btn.primary{background:var(--olive);color:var(--ivory)}
+.btn.vino{background:var(--vino);border-color:var(--vino);color:var(--ivory)}
+.btn.sm{min-height:38px;padding:0 12px;font-size:10px}
+.btn:active{transform:scale(.98)}
+/* layout */
+.board{margin-top:22px;background:rgba(255,253,249,.96);border:1px solid var(--champ);box-shadow:0 30px 70px rgba(42,38,36,.08)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 12px 0;border-bottom:1px solid var(--champ);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--champ);border-bottom:0;background:var(--ivory);padding:10px 14px;font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--olive);border-radius:10px 10px 0 0}
+.tab[aria-selected="true"]{background:var(--paper);color:var(--vino);box-shadow:inset 0 3px 0 var(--vino)}
+.tab.new{border-style:dashed;color:var(--vino)}
+.pane{padding:20px 16px 22px}
+.fields{display:grid;gap:12px}
+.f label{display:block;font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin-bottom:6px}
+.f input{width:100%;min-height:46px;border:1px solid var(--champ);border-radius:10px;background:#fff;padding:0 14px;font-size:15px}
+.f input:focus,.story textarea:focus,.story select:focus,.modal textarea:focus,.modal input:focus{outline:none;border-color:var(--olive);box-shadow:0 0 0 3px rgba(107,112,92,.15)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.chip{min-height:40px;padding:0 16px;border:1px solid var(--champ);border-radius:999px;background:#fff;font-size:13px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.objhint{font-size:12.5px;color:var(--olive);margin:4px 0 0;min-height:1.3em}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:20px 0 12px}
+.bar h2{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:20px;margin:0 auto 0 0}
+.bar h2 small{font-family:var(--hand);font-size:20px;color:var(--olive);margin-left:8px}
+/* stories */
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 16px;-webkit-overflow-scrolling:touch}
+.story{scroll-snap-align:start;flex:0 0 min(78vw,250px);display:flex;flex-direction:column;background:#fff;border:1px solid var(--champ);border-radius:16px;padding:12px;position:relative}
+.story .prog{display:flex;gap:3px;margin-bottom:10px}
+.story .prog i{flex:1;height:3px;border-radius:2px;background:var(--sand)}
+.story .prog i.on{background:var(--ink)}
+.story .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.story .num{font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--olive)}
+.role{border:0;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:600;appearance:none;-webkit-appearance:none;text-align:center;background:var(--sand);color:var(--ink)}
+.role.r-gancho{background:#E9C46A}.role.r-contexto{background:#E9DFC9}.role.r-valor{background:#B9C4E8}.role.r-prueba{background:var(--ink);color:var(--ivory)}.role.r-detras{background:#D8C9B8}.role.r-cta{background:var(--vino);color:var(--ivory)}
+.story textarea{width:100%;min-height:120px;flex:1;resize:none;border:1px dashed var(--champ);border-radius:10px;padding:10px;font-size:14px;line-height:1.5;background:var(--ivory)}
+.story .cnt{text-align:right;font-size:10px;color:var(--olive);margin:4px 0 8px}
+.story .cnt.over{color:#B3261E;font-weight:600}
+.story .lab{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);margin:6px 0 4px}
+.story select.sel{width:100%;min-height:40px;border:1px solid var(--champ);border-radius:10px;background:#fff;padding:0 10px;font-size:13px}
+.story .ops{display:flex;justify-content:space-between;margin-top:10px}
+.story .ops button{width:40px;height:40px;border:1px solid var(--champ);border-radius:50%;background:var(--paper);font-size:14px;color:var(--olive)}
+.story .ops button:disabled{opacity:.35;cursor:default}
+.addst{flex:0 0 160px;border:2px dashed var(--champ);border-radius:16px;background:transparent;color:var(--vino);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;min-height:200px}
+/* bottom grid */
+.grid2{display:grid;gap:14px;margin-top:10px}
+.card{background:var(--paper);border:1px solid var(--champ);padding:18px 16px}
+.card h3{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:18px;margin:0 0 4px}
+.score{font-family:var(--hand);font-size:26px;color:var(--olive);margin:0 0 10px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
+.checks .ic{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--champ);display:flex;align-items:center;justify-content:center;font-size:12px;color:transparent}
+.checks li.ok .ic{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+.checks b{display:block;font-size:13.5px}
+.checks small{font-size:12px;color:var(--olive)}
+.tpls{display:grid;gap:8px}
+.tpl{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;text-align:left;border:1px solid var(--champ);border-radius:12px;background:#fff;padding:10px 12px}
+.tpl i{width:44px;height:44px;border-radius:50% 50% 6px 6px;background-size:cover;background-position:center}
+.tpl b{display:block;font-family:var(--disp);font-weight:500;color:var(--vino);font-size:14.5px}
+.tpl small{display:block;font-size:12px;color:var(--olive);line-height:1.4}
+.tpl em{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);white-space:nowrap}
+.ai{background:var(--olive);color:var(--ivory);border-color:var(--olive)}
+.ai h3{color:var(--ivory)}
+.ai p{font-size:13.5px;line-height:1.6;margin:0 0 12px;color:#F2ECE1}
+.ai .btn{border-color:var(--ivory);color:var(--ivory)}
+.ai .btn.fill{background:var(--ivory);color:var(--olive)}
+.ai .row{display:flex;flex-wrap:wrap;gap:8px}
+.foot{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--champ);font-size:9.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+/* guía + vistas + calendario */
+.guide{display:grid;gap:8px;margin:18px 0 0;padding:0;list-style:none;counter-reset:g}
+.guide li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--paper);border:1px solid var(--champ);padding:10px 12px;font-size:13px;line-height:1.45}
+.guide li::before{counter-increment:g;content:counter(g);width:34px;height:40px;border-radius:999px 999px 5px 5px;border:1px solid var(--vino);color:var(--vino);font-family:var(--disp);display:flex;align-items:flex-end;justify-content:center;padding-bottom:5px}
+.guide b{color:var(--vino)}
+.views{display:inline-flex;border:1px solid var(--champ);border-radius:999px;padding:4px;background:var(--paper);margin:22px 0 0}
+.views button{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.views button[aria-pressed="true"]{background:var(--olive);color:var(--ivory)}
+.cal{padding:16px}
+.cal-hd{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.cal-hd h2{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:22px;margin:0}
+.cal-hd button{width:44px;height:44px;border:1px solid var(--champ);border-radius:50%;background:var(--paper);color:var(--olive);font-size:16px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal-dow{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-align:center;padding:4px 0}
+.day{min-height:76px;border:1px solid var(--champ);background:#fff;border-radius:8px;padding:5px;text-align:left;display:flex;flex-direction:column;gap:3px;overflow:hidden}
+.day.out{background:transparent;border-style:dashed;opacity:.5}
+.day.today{box-shadow:inset 0 0 0 2px var(--vino)}
+.day .dn{font-size:11px;font-weight:600;color:var(--ink)}
+.ev{display:block;width:100%;border:0;border-radius:5px;padding:3px 5px;font-size:10px;font-weight:600;line-height:1.25;text-align:left;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev.o-alcance{background:#6E83B7}.ev.o-conexion{background:var(--olive)}.ev.o-autoridad{background:var(--brass)}.ev.o-venta{background:var(--vino)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:11.5px;color:var(--olive)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cal-tip{font-size:12.5px;color:var(--olive);margin:10px 0 0}
+@media (max-width:560px){ .day{min-height:58px;padding:3px} .ev{font-size:0;height:8px;padding:0} .day .dn{font-size:10px} }
+@media (min-width:760px){ .guide{grid-template-columns:repeat(3,1fr)} }
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(42,38,36,.45);display:flex;align-items:flex-end;justify-content:center;padding:0}
+.mbox{width:100%;max-width:560px;max-height:90vh;overflow:auto;background:var(--ivory);border:1px solid var(--champ);border-radius:20px 20px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));box-shadow:0 -20px 60px rgba(42,38,36,.25)}
+.mbox h3{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:22px;margin:0 0 6px}
+.mbox p{font-size:14px;line-height:1.6;margin:0 0 14px}
+.mbox textarea,.mbox input{width:100%;border:1px solid var(--champ);border-radius:12px;background:#fff;padding:12px;font-size:15px}
+.mbox textarea{min-height:140px;resize:vertical;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+.mbox .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mbox .x{float:right;width:40px;height:40px;border:0;background:none;font-size:18px;color:var(--olive)}
+.steps{margin:0 0 14px;padding-left:20px;font-size:14px;line-height:1.6}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:var(--ivory);padding:12px 18px;border-radius:999px;font-size:13px;z-index:60;transition:.3s var(--ease);max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.lock{max-width:520px;margin:12vh auto;text-align:center;background:var(--paper);border:1px solid var(--champ);padding:34px 24px}
+.lock h1{font-size:30px}
+@media (min-width:760px){
+  .fields{grid-template-columns:1.4fr 1fr}
+  .grid2{grid-template-columns:1fr 1fr}
+  .grid2 .ai{grid-column:1/-1}
+  .pane{padding:24px 26px}
+  .modal{align-items:center;padding:20px}
+  .mbox{border-radius:16px}
+}
+@media (max-width:420px){ .top .ttl{display:none} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+</style>
+</head>
+<body>
+<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Bitácora de Obra</span><span class="sp"></span><a class="pill" href="/">← Mi Proyecto Maestro</a></header>
+
+<div id="lock" class="lock" hidden>
+  <p class="eyebrow">Acceso para alumnas</p>
+  <h1>Bitácora de Obra</h1>
+  <p class="lead" style="margin:0 auto 18px">Esta herramienta es parte de tu Proyecto Maestro. Inicia sesión para usarla.</p>
+  <a class="btn primary" href="/">Iniciar sesión</a>
+</div>
+
+<main id="app" hidden>
+  <p class="eyebrow">Lámina 05 · Planificador de historias · Recorridos de obra</p>
+  <h1>Bitácora de Obra</h1>
+  <p class="lead">Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.</p>
+  <p class="hw" id="hello"></p>
+  <ol class="guide" aria-label="Cómo funciona">
+    <li><span><b>Crea un recorrido de obra</b>: una serie de historias seguidas, por cada tema o día, con su objetivo.</span></li>
+    <li><span><b>Llena tus historias</b> a mano, con una plantilla o con tu Asistente.</span></li>
+    <li><span><b>Diseña y programa:</b> pide el BRIEF y prográmalas con Muse o Meta Business Suite.</span></li>
+  </ol>
+  <div class="views" role="group" aria-label="Vista"><button type="button" data-view="seq" aria-pressed="true">Recorridos</button><button type="button" data-view="cal" aria-pressed="false">Calendario</button></div>
+
+  <section class="board" id="calBoard" hidden aria-label="Calendario"><div class="cal" id="cal"></div></section>
+  <section class="board" id="seqBoard" aria-label="Recorridos">
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="pane" id="pane"></div>
+    <div class="foot"><span>Planificador de historias</span><span id="saved">Guardado en este dispositivo</span></div>
+  </section>
+</main>
+
+<div class="modal" id="mAsk" hidden role="dialog" aria-modal="true" aria-labelledby="mAskT">
+  <div class="mbox">
+    <button class="x" data-close aria-label="Cerrar">✕</button>
+    <h3 id="mAskT">Pídele el recorrido a tu Asistente</h3>
+    <p>Escribe de qué quieres hablar. Copiamos el pedido listo para tu chat <strong>ASISTENTE Y COMMUNITY MANAGER</strong>, con tu objetivo y estructura.</p>
+    <label class="sr" for="askTopic">Tema</label>
+    <input id="askTopic" placeholder="Ej: por qué empecé mi negocio, un tip de organización…">
+    <div class="row"><button class="btn primary" id="askCopy">Copiar pedido</button></div>
+    <ol class="steps" style="margin-top:16px"><li>Pégalo en tu ASISTENTE.</li><li>Te responderá con una caja de código.</li><li>Toca <strong>Copiar código</strong> y vuelve aquí a <strong>"Pegar recorrido"</strong>.</li></ol>
+  </div>
+</div>
+<div class="modal" id="mPaste" hidden role="dialog" aria-modal="true" aria-labelledby="mPasteT">
+  <div class="mbox">
+    <button class="x" data-close aria-label="Cerrar">✕</button>
+    <h3 id="mPasteT">Pegar recorrido del Asistente</h3>
+    <p>Pega aquí la caja de código que te entregó tu Asistente. El recorrido se arma solo.</p>
+    <label class="sr" for="pasteTxt">Recorrido</label>
+    <textarea id="pasteTxt" placeholder='{ "nombre": "...", "historias": [ ... ] }'></textarea>
+    <div class="row"><button class="btn primary" id="pasteGo">Armar recorrido</button></div>
+    <p id="pasteMsg" style="margin:10px 0 0;font-size:13px;color:var(--vino)"></p>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var ROLES=[["gancho","Gancho"],["contexto","Contexto"],["valor","Valor"],["detras","Detrás de cámaras"],["prueba","Prueba social"],["cta","CTA"]];
+var FORMATOS=["Video a cámara","Texto sobre fondo","Foto con texto","Detrás de cámaras","Carrusel reposteado","Captura de pantalla","Boomerang o clip corto"];
+var STICKERS=["Ninguno","Encuesta","Pregunta","Quiz","Slider de emoji","Enlace","Cuenta regresiva","Mención"];
+var OBJ={alcance:["Alcance","Para que te descubran: temas compartibles y ganchos fuertes."],conexion:["Conexión","Para que te conozcan: tu historia, tu día a día, tu esencia."],autoridad:["Autoridad","Para que confíen: enseña algo concreto y muestra resultados."],venta:["Venta","Para que te compren: problema, solución, prueba y llamado claro."]};
+var TPL=[
+ {id:"real",t:"Historia real",d:"Un hecho que estás viviendo, convertido en conexión y en una decisión. Comparte solo lo que quieras contar.",o:"conexion",img:"mat-arco",h:[["gancho","Video a cámara","Ninguno","Esta semana pasó algo que no esperaba…"],["contexto","Foto con texto","Ninguno","Así era mi día a día antes de esto…"],["detras","Video a cámara","Slider de emoji","Lo que más me movió fue…"],["valor","Texto sobre fondo","Ninguno","Pero entendí algo: pude estar presente."],["prueba","Video a cámara","Ninguno","Y eso fue posible porque un día decidí… ¿Fácil? Para nada. ¿Quién dijo que la vida lo era?"],["cta","Texto sobre fondo","Pregunta","Es cuestión de actitud y decisión. ¿Y tú, cuándo tomarás la tuya?"]]},
+ {id:"esencia",t:"Historia de esencia",d:"Cuenta un momento real que explica por qué haces lo que haces.",o:"conexion",img:"mat-textil",h:[["gancho","Video a cámara","Encuesta","¿Te ha pasado que…?"],["contexto","Video a cámara","Ninguno","Hace un tiempo yo…"],["valor","Texto sobre fondo","Ninguno","Lo que aprendí fue…"],["detras","Detrás de cámaras","Ninguno","Por eso hoy…"],["cta","Texto sobre fondo","Pregunta","Cuéntame: ¿y tú?"]]},
+ {id:"detras",t:"Detrás de cámaras",d:"Muestra tu proceso y abre conversación.",o:"conexion",img:"mat-plano",h:[["gancho","Boomerang o clip corto","Encuesta","¿Quieres ver cómo lo hago?"],["detras","Detrás de cámaras","Ninguno","Así empieza…"],["detras","Detrás de cámaras","Slider de emoji","Esta es mi parte favorita"],["cta","Texto sobre fondo","Pregunta","¿Qué te gustaría ver?"]]},
+ {id:"quiz",t:"Tip con quiz",d:"Enseña algo concreto en 4 historias.",o:"autoridad",img:"mat-laton",h:[["gancho","Texto sobre fondo","Quiz","¿Sabías que…?"],["valor","Video a cámara","Ninguno","La respuesta es…"],["valor","Foto con texto","Ninguno","Hazlo así:"],["cta","Texto sobre fondo","Pregunta","¿Lo vas a probar?"]]},
+ {id:"venta",t:"Venta suave",d:"De un problema común a una conversación por DM.",o:"venta",img:"mat-vino",h:[["gancho","Video a cámara","Encuesta","¿Te pasa que…?"],["contexto","Texto sobre fondo","Ninguno","A muchas personas les pasa porque…"],["valor","Video a cámara","Ninguno","Lo que funciona es…"],["prueba","Captura de pantalla","Ninguno","Así le fue a…"],["cta","Texto sobre fondo","Enlace","Escríbeme PALABRA y te cuento"]]},
+ {id:"lanz",t:"Lanzamiento",d:"Cuenta regresiva para abrir cupos.",o:"venta",img:"mat-marmol",h:[["gancho","Video a cámara","Cuenta regresiva","Algo nuevo viene…"],["contexto","Video a cámara","Ninguno","Lo creé porque…"],["valor","Carrusel reposteado","Ninguno","Esto es lo que incluye"],["prueba","Captura de pantalla","Ninguno","Lo que dicen quienes ya…"],["cta","Texto sobre fondo","Enlace","Abre el día… Actívale el recordatorio"]]}
+];
+var AKEY="pm-auth", KEY="pm-historias", S={seqs:[],cur:0}, who="";
+function $(s){ return document.querySelector(s); }
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function toast(m){ var t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(toast._t); toast._t=setTimeout(function(){ t.classList.remove("show"); },2600); }
+function copy(txt,ok){ if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(txt).then(ok,function(){ fb(); }); } else fb(); function fb(){ var a=document.createElement("textarea"); a.value=txt; a.style.position="fixed"; a.style.opacity="0"; document.body.appendChild(a); a.select(); try{ document.execCommand("copy"); ok(); }catch(e){ toast("No se pudo copiar"); } a.remove(); } }
+var tcl; function save(){ S.updatedAt=Date.now(); if(who&&who!=="demo@local"){ clearTimeout(tcl); tcl=setTimeout(function(){ cloud("PUT",S); },1500); } try{ localStorage.setItem(KEY,JSON.stringify(S)); $("#saved").textContent="Guardado ✓"; clearTimeout(save._t); save._t=setTimeout(function(){ $("#saved").textContent="Guardado en este dispositivo"; },1500); }catch(e){} }
+function today(){ var d=new Date(); return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+function blank(name,date){ return {name:name||"Nuevo recorrido",date:date||today(),time:"19:00",obj:"conexion",h:[{r:"gancho",t:"",f:"Video a cámara",s:"Encuesta"},{r:"contexto",t:"",f:"Video a cámara",s:"Ninguno"},{r:"valor",t:"",f:"Texto sobre fondo",s:"Ninguno"},{r:"cta",t:"",f:"Texto sobre fondo",s:"Pregunta"}]}; }
+function cur(){ return S.seqs[S.cur]; }
+function roleName(r){ for(var i=0;i<ROLES.length;i++) if(ROLES[i][0]===r) return ROLES[i][1]; return r; }
+function opts(list,val){ return list.map(function(o){ return '<option'+(o===val?' selected':'')+'>'+esc(o)+'</option>'; }).join(""); }
+
+function renderTabs(){
+  $("#tabs").innerHTML=S.seqs.map(function(q,i){ return '<button class="tab" role="tab" aria-selected="'+(i===S.cur)+'" data-tab="'+i+'">'+esc(q.name||"Sin nombre")+'</button>'; }).join("")+'<button class="tab new" data-new>+ Nuevo recorrido (otro tema o día)</button>';
+}
+function checks(q){
+  var h=q.h, inter=["Encuesta","Pregunta","Quiz","Slider de emoji","Cuenta regresiva"];
+  return [
+    [h.length&&h[0].r==="gancho","Abre con un gancho","La primera historia decide si siguen tocando o se van."],
+    [h.some(function(x){ return inter.indexOf(x.s)>=0; }),"Tiene al menos un sticker interactivo","Encuesta, pregunta, quiz o slider suman respuestas."],
+    [h.length&&h[h.length-1].r==="cta","Cierra con un CTA","Dile a la persona qué hacer después."],
+    [h.length>=3&&h.length<=8,"Entre 3 y 8 historias","Ahora tienes "+h.length+"."],
+    [h.length&&h.every(function(x){ return x.t.trim()&&x.t.length<=120; }),"Textos listos y breves (máx. 120)","Cada historia se lee en pocos segundos."]
+  ];
+}
+function renderChecks(){ var c=checks(cur()), n=c.filter(function(x){ return x[0]; }).length; var el=$("#checks"); if(!el) return;
+  $("#score").textContent=n+" de "+c.length+" listos";
+  el.innerHTML=c.map(function(x){ return '<li class="'+(x[0]?"ok":"")+'"><span class="ic">✓</span><span><b>'+x[1]+'</b><small>'+esc(x[2])+'</small></span></li>'; }).join(""); }
+function storyHTML(x,i,n){
+  return '<article class="story" aria-label="Historia '+(i+1)+'"><div class="prog">'+Array.apply(null,Array(n)).map(function(_,k){ return '<i class="'+(k<=i?"on":"")+'"></i>'; }).join("")+'</div>'+
+  '<div class="hd"><span class="num">'+("0"+(i+1)).slice(-2)+'/'+("0"+n).slice(-2)+'</span><label class="sr" for="r'+i+'">Rol</label><select id="r'+i+'" class="role r-'+x.r+'" data-i="'+i+'" data-k="r">'+ROLES.map(function(r){ return '<option value="'+r[0]+'"'+(r[0]===x.r?' selected':'')+'>'+r[1]+'</option>'; }).join("")+'</select></div>'+
+  '<label class="sr" for="t'+i+'">Texto</label><textarea id="t'+i+'" data-i="'+i+'" data-k="t" maxlength="200" placeholder="Qué dices o qué se lee…">'+esc(x.t)+'</textarea><div class="cnt'+(x.t.length>120?" over":"")+'" id="c'+i+'">'+x.t.length+'/120</div>'+
+  '<div class="lab">Formato</div><select class="sel" data-i="'+i+'" data-k="f" aria-label="Formato">'+opts(FORMATOS,x.f)+'</select>'+
+  '<div class="lab">Sticker</div><select class="sel" data-i="'+i+'" data-k="s" aria-label="Sticker">'+opts(STICKERS,x.s)+'</select>'+
+  '<div class="ops"><button data-mv="-1" data-i="'+i+'" aria-label="Mover a la izquierda"'+(i===0?" disabled":"")+'>←</button><button data-del="'+i+'" aria-label="Eliminar historia">✕</button><button data-mv="1" data-i="'+i+'" aria-label="Mover a la derecha"'+(i===n-1?" disabled":"")+'>→</button></div></article>';
+}
+function renderStrip(){ var q=cur(), n=q.h.length; $("#strip").innerHTML=q.h.map(function(x,i){ return storyHTML(x,i,n); }).join("")+(n<8?'<button class="addst" data-add>+ Agregar historia</button>':''); $("#cnt").textContent=n+" historias · ~"+(n*15)+" s"; renderChecks(); }
+function render(){
+  if(!S.seqs.length){ S.seqs.push(blank("Mi primer recorrido")); S.cur=0; }
+  if(S.cur>=S.seqs.length) S.cur=S.seqs.length-1;
+  renderTabs(); var q=cur();
+  $("#pane").innerHTML='<div class="fields"><div class="f"><label for="sName">Nombre del recorrido</label><input id="sName" value="'+esc(q.name)+'" maxlength="60"></div><div class="f"><label for="sDate">Fecha y hora de publicación</label><div style="display:flex;gap:8px"><input id="sDate" type="date" value="'+esc(q.date)+'" style="flex:1.4"><input id="sTime" type="time" value="'+esc(q.time||"19:00")+'" style="flex:1"></div></div></div>'+
+   '<div class="chips" role="group" aria-label="Objetivo">'+Object.keys(OBJ).map(function(k){ return '<button class="chip" data-obj="'+k+'" aria-pressed="'+(q.obj===k)+'">'+OBJ[k][0]+'</button>'; }).join("")+'</div><p class="objhint">'+esc(OBJ[q.obj][1])+'</p>'+
+   '<div class="bar"><h2>Recorrido <small id="cnt"></small></h2><button class="btn sm" id="copyScript">Copiar guion</button><button class="btn sm" id="dup">Duplicar</button><button class="btn sm" id="delSeq">Eliminar</button></div>'+
+   '<div class="strip" id="strip"></div>'+
+   '<div class="grid2">'+
+     '<div class="card ai"><h3>Créala con tu Asistente</h3><p>Tu ASISTENTE conoce tu marca, tu voz y tus pilares. Pídele el recorrido y pégalo aquí: se arma solo. Cuando esté lista, pídele el BRIEF para que tu Director Creativo diseñe las historias.</p><div class="row"><button class="btn fill" id="askOpen">Pedir recorrido</button><button class="btn" id="pasteOpen">Pegar recorrido</button><button class="btn" id="briefCopy">Pedir BRIEF de diseño</button><button class="btn" id="museCopy">Programar con Muse</button></div><p style="margin:12px 0 0;font-size:12px;opacity:.85">Programar con Muse copia el pedido con tu guion, fecha y hora. Adjunta tus historias diseñadas en orden. Si Muse no puede programar historias en tu cuenta, usa Meta Business Suite.</p></div>'+
+     '<div class="card"><h3>Revisión del recorrido</h3><p class="score" id="score"></p><ul class="checks" id="checks"></ul></div>'+
+     '<div class="card"><h3>Empezar desde una plantilla</h3><p class="score" style="font-size:20px">reemplaza el recorrido actual</p><div class="tpls">'+TPL.map(function(t){ return '<button class="tpl" data-tpl="'+t.id+'"><i style="background-image:url(img/'+t.img+'.jpg)"></i><span><b>'+t.t+'</b><small>'+t.d+'</small></span><em>'+t.h.length+' · '+OBJ[t.o][0]+'</em></button>'; }).join("")+'</div></div>'+
+   '</div>';
+  renderStrip();
+}
+var VIEW="seq", CM=null;
+function setView(v){ VIEW=v; $("#seqBoard").hidden=v!=="seq"; $("#calBoard").hidden=v!=="cal"; Array.prototype.forEach.call(document.querySelectorAll("[data-view]"),function(b){ b.setAttribute("aria-pressed",b.dataset.view===v); }); if(v==="cal") renderCal(); else render(); }
+function ymd(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+function renderCal(){
+  if(!CM){ var n=new Date(); CM=new Date(n.getFullYear(),n.getMonth(),1); }
+  var y=CM.getFullYear(), m=CM.getMonth(), first=new Date(y,m,1), start=new Date(y,m,1-((first.getDay()+6)%7)), td=today();
+  var mes=first.toLocaleDateString("es",{month:"long",year:"numeric"}); mes=mes.charAt(0).toUpperCase()+mes.slice(1); var html='<div class="cal-hd"><button data-cm="-1" aria-label="Mes anterior">←</button><h2>'+mes+'</h2><button data-cm="1" aria-label="Mes siguiente">→</button></div><div class="cal-grid">'+["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(function(d){ return '<div class="cal-dow">'+d+'</div>'; }).join("");
+  for(var i=0;i<42;i++){ var d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i), k=ymd(d), evs=[];
+    S.seqs.forEach(function(q,qi){ if(q.date===k) evs.push('<button class="ev o-'+q.obj+'" data-open="'+qi+'" title="'+esc(q.name)+'">'+esc(q.time||"")+' '+esc(q.name)+'</button>'); });
+    html+='<div class="day'+(d.getMonth()!==m?" out":"")+(k===td?" today":"")+'" data-day="'+k+'" role="button" tabindex="0" aria-label="'+d.getDate()+' · '+evs.length+' recorridos"><span class="dn">'+d.getDate()+'</span>'+evs.join("")+'</div>'; }
+  html+='</div><div class="legend">'+Object.keys(OBJ).map(function(k){ return '<span><i class="ev o-'+k+'" style="width:10px;height:10px;padding:0"></i>'+OBJ[k][0]+'</span>'; }).join("")+'</div><p class="cal-tip">Toca un recorrido para abrirlo, o un día vacío para crear una nueva con esa fecha.</p>';
+  $("#cal").innerHTML=html;
+}
+function script(q){ return "RECORRIDO: "+q.name+"\nObjetivo: "+OBJ[q.obj][0]+" · Fecha: "+q.date+" · Hora: "+(q.time||"19:00")+"\n\n"+q.h.map(function(x,i){ return (i+1)+". "+roleName(x.r).toUpperCase()+" · "+x.f+(x.s!=="Ninguno"?" · Sticker: "+x.s:"")+"\n   "+(x.t||"(por escribir)"); }).join("\n\n"); }
+
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.view){ setView(b.dataset.view); return; }
+  if(b.dataset.cm){ CM=new Date(CM.getFullYear(),CM.getMonth()+(+b.dataset.cm),1); renderCal(); return; }
+  if(b.dataset.open!==undefined){ S.cur=+b.dataset.open; save(); setView("seq"); return; }
+  if(b.dataset.tab!==undefined){ S.cur=+b.dataset.tab; save(); render(); return; }
+  if(b.hasAttribute("data-new")){ S.seqs.push(blank()); S.cur=S.seqs.length-1; save(); render(); return; }
+  if(b.dataset.obj){ cur().obj=b.dataset.obj; save(); render(); return; }
+  if(b.hasAttribute("data-add")){ cur().h.splice(cur().h.length-1,0,{r:"valor",t:"",f:"Video a cámara",s:"Ninguno"}); if(cur().h.length===1) cur().h[0].r="gancho"; save(); renderStrip(); return; }
+  if(b.dataset.del!==undefined){ cur().h.splice(+b.dataset.del,1); save(); renderStrip(); return; }
+  if(b.dataset.mv){ var i=+b.dataset.i, j=i+(+b.dataset.mv), h=cur().h; if(j<0||j>=h.length) return; var t=h[i]; h[i]=h[j]; h[j]=t; save(); renderStrip(); return; }
+  if(b.dataset.tpl){ var T=TPL.filter(function(x){ return x.id===b.dataset.tpl; })[0], q=cur(); if(q.h.some(function(x){ return x.t.trim(); })&&!confirm("Esto reemplaza las historias de este recorrido. ¿Continuar?")) return; q.obj=T.o; if(!q.name||/^Nueva|^Mi primera/.test(q.name)) q.name=T.t; q.h=T.h.map(function(x){ return {r:x[0],f:x[1],s:x[2],t:x[3]}; }); save(); render(); toast("Plantilla aplicada ✦ Ajusta los textos a tu voz"); return; }
+  if(b.id==="copyScript"){ copy(script(cur()),function(){ toast("Guion copiado ♡"); }); return; }
+  if(b.id==="dup"){ var c=JSON.parse(JSON.stringify(cur())); c.name+=" (copia)"; S.seqs.splice(S.cur+1,0,c); S.cur++; save(); render(); return; }
+  if(b.id==="delSeq"){ if(!confirm("¿Eliminar este recorrido?")) return; S.seqs.splice(S.cur,1); S.cur=Math.max(0,S.cur-1); save(); render(); return; }
+  if(b.id==="askOpen"){ $("#mAsk").hidden=false; setTimeout(function(){ $("#askTopic").focus(); },50); return; }
+  if(b.id==="pasteOpen"){ $("#mPaste").hidden=false; $("#pasteMsg").textContent=""; return; }
+  if(b.hasAttribute("data-close")){ b.closest(".modal").hidden=true; return; }
+  if(b.id==="askCopy"){ var topic=$("#askTopic").value.trim(), q2=cur();
+    var p="Créame un recorrido de historias de Instagram (una serie de historias seguidas que cuentan una sola idea) con mi marca, mi voz y mis pilares.\n\nTEMA: "+(topic||"elige tú el más estratégico para mí esta semana")+"\nOBJETIVO: "+OBJ[q2.obj][0]+" ("+OBJ[q2.obj][1]+")\n\nReglas:\n- Entre 4 y 7 historias.\n- La primera es un GANCHO y la última un CTA.\n- Al menos una historia con sticker interactivo (encuesta, pregunta, quiz o slider).\n- Cada texto de máximo 120 caracteres, con mi forma real de hablar.\n- Roles posibles: gancho, contexto, valor, detras, prueba, cta.\n- Formatos posibles: "+FORMATOS.join(", ")+".\n- Stickers posibles: "+STICKERS.join(", ")+".\n\nEntrégamela SOLO dentro de un único bloque de código (```json), sin texto antes ni después, con este formato exacto:\n{\"nombre\":\"\",\"objetivo\":\""+q2.obj+"\",\"historias\":[{\"rol\":\"gancho\",\"texto\":\"\",\"formato\":\"\",\"sticker\":\"\"}]}";
+    copy(p,function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
+  if(b.id==="pasteGo"){ var raw=$("#pasteTxt").value.replace(/```json|```/g,"").trim(), m=raw.indexOf("{"), n=raw.lastIndexOf("}");
+    try{ var o=JSON.parse(raw.slice(m,n+1)); var hs=(o.historias||o.stories||[]).map(function(x){ var r=String(x.rol||x.role||"valor").toLowerCase(); r=/ganch/.test(r)?"gancho":/context/.test(r)?"contexto":/detr/.test(r)?"detras":/prueba/.test(r)?"prueba":/cta|cierre/.test(r)?"cta":"valor"; return {r:r,t:String(x.texto||x.text||""),f:FORMATOS.indexOf(x.formato)>=0?x.formato:"Video a cámara",s:STICKERS.indexOf(x.sticker)>=0?x.sticker:"Ninguno"}; });
+      if(!hs.length) throw 0;
+      S.seqs.push({name:o.nombre||"Recorrido del Asistente",date:today(),obj:OBJ[o.objetivo]?o.objetivo:cur().obj,h:hs.slice(0,8)}); S.cur=S.seqs.length-1; save(); render(); $("#mPaste").hidden=true; $("#pasteTxt").value=""; toast("¡Recorrido armado! ✦"); }
+    catch(err){ $("#pasteMsg").textContent="No reconocimos el recorrido. Asegúrate de pegar la caja de código completa que te dio tu Asistente."; }
+    return; }
+  if(b.id==="museCopy"){ var qm=cur(); copy("ORDEN DE PUBLICACIÓN\n\nPLATAFORMA: Instagram\nTIPO: historias ("+qm.h.length+", en recorrido)\nFECHA Y HORA: "+qm.date+" a las "+(qm.time||"19:00")+"\nARCHIVOS: adjunto "+qm.h.length+" imágenes o videos, en el mismo orden del recorrido.\n\nTEXTO Y STICKER DE CADA HISTORIA:\n"+qm.h.map(function(x,i){ return (i+1)+". "+(x.t||"(sin texto)")+(x.s!=="Ninguno"?"  · Sticker: "+x.s:""); }).join("\n")+"\n\nMuse, antes de publicar o programar, muéstrame la vista previa de cada historia y espera mi aprobación. No cambies ningún texto.",function(){ toast("Pedido copiado ♡ Pégalo en Muse con tus historias"); }); return; }
+  if(b.id==="briefCopy"){ var q3=cur(); copy("Este es mi recorrido de historias. Prepárame el BRIEF para mi DIRECTOR CREATIVO de las historias que necesitan diseño (formato 1080x1920, 9:16, texto en la zona segura central). Indica en cada una si lleva mi cara.\n\n"+script(q3),function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
+});
+document.addEventListener("input",function(e){ var t=e.target, q=cur(); if(!q) return;
+  if(t.id==="sName"){ q.name=t.value; save(); var tb=document.querySelector('.tab[aria-selected="true"]'); if(tb) tb.textContent=t.value||"Sin nombre"; return; }
+  if(t.id==="sDate"){ q.date=t.value; save(); return; }
+  if(t.id==="sTime"){ q.time=t.value; save(); return; }
+  if(t.dataset.k==="t"){ var i=+t.dataset.i; q.h[i].t=t.value; var c=$("#c"+i); c.textContent=t.value.length+"/120"; c.classList.toggle("over",t.value.length>120); save(); renderChecks(); }
+});
+document.addEventListener("change",function(e){ var t=e.target, q=cur(); if(!q||!t.dataset.k||t.dataset.k==="t") return; var i=+t.dataset.i; q.h[i][t.dataset.k]=t.value; save(); if(t.dataset.k==="r"){ renderStrip(); } else renderChecks(); });
+document.addEventListener("click",function(e){ var d=e.target.closest(".day"); if(!d||e.target.closest(".ev")) return; S.seqs.push(blank("Nuevo recorrido",d.dataset.day)); S.cur=S.seqs.length-1; save(); setView("seq"); toast("Nuevo recorrido para el "+d.dataset.day); });
+document.addEventListener("keydown",function(e){ if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("day")){ e.preventDefault(); e.target.click(); } if(e.key==="Escape") Array.prototype.forEach.call(document.querySelectorAll(".modal"),function(m){ m.hidden=true; }); });
+
+/* acceso: alumnas con sesión de Proyecto Maestro */
+function cloud(method,data){ var a=getAuth(); if(!a) return Promise.reject(0); return fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ return r.ok?r.json():null; }).then(function(t){ var at=a.at; if(t&&t.access_token){ at=t.access_token; try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify({at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem})); }catch(e){} } return fetch("/.netlify/functions/sync?k=hist",{method:method,headers:{Authorization:"Bearer "+at,"Content-Type":"application/json"},cache:"no-store",body:method==="PUT"?JSON.stringify(data):undefined}); }).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+function start(email,name){ who=email; KEY="pm-historias:"+email.toLowerCase(); try{ var s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.seqs) S=s; }catch(e){}
+  var localTs=S.updatedAt||0;
+  if(email!=="demo@local"){ cloud("GET").then(function(r){ if(r&&r.seqs&&r.updatedAt&&r.updatedAt>localTs){ S=r; try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} if(VIEW==="cal") renderCal(); else render(); toast("Tu bitácora se sincronizó ✦"); } else if(S.seqs&&S.seqs.length){ cloud("PUT",S).catch(function(){}); } }).catch(function(){}); } if(name) $("#hello").textContent="Hola, "+name+" ✦ ¿qué vas a contar hoy?"; $("#app").hidden=false; render(); }
+function getAuth(){ try{ return JSON.parse(localStorage.getItem(AKEY)||sessionStorage.getItem(AKEY)); }catch(e){ return null; } }
+var a=getAuth();
+if(/demo/.test(location.search)){ start("demo@local","María"); return; }
+if(!a){ $("#lock").hidden=false; return; }
+fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+a.at}}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(u){ start(u.email,(u.user_metadata&&u.user_metadata.full_name)||""); }).catch(function(){
+  fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(t){ var na={at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem}; try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify(na)); }catch(e){} return fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+na.at}}).then(function(r){ return r.json(); }); }).then(function(u){ start(u.email,(u.user_metadata&&u.user_metadata.full_name)||""); }).catch(function(){ $("#lock").hidden=false; });
+});
+})();
+</script>
+</body>
+</html>
