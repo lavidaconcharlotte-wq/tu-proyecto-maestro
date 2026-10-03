@@ -858,6 +858,7 @@ body.mh-open{overflow:hidden}
 .mh-ch em{font-style:italic;color:var(--vino)}
 @media (min-width:760px){ .mh-photos{grid-template-columns:repeat(5,1fr)!important} .mh-photos .pol:last-child:nth-child(odd){grid-column:auto;width:auto} .mh-duo{max-width:560px;margin-left:auto;margin-right:auto} }
 
+@media (max-width:1023px){ .top .dl-top{display:none!important} }
 .dl-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .dl-pill{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 14px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--ivory);font-size:11.5px;font-weight:600;letter-spacing:.04em;cursor:pointer}
 .dl-pill:nth-child(2){background:transparent;color:var(--ink)}
@@ -877,6 +878,56 @@ body.mh-open{overflow:hidden}
 .inst-tip{font-size:12.5px;color:var(--olive);margin:10px 0 0}
 .inst-go{margin-bottom:14px}
 @media (min-width:760px){ .inst{align-items:center} .inst-box{border-radius:18px} }
+
+/* ===== LANDING · escritorio ===== */
+.lp-sec,.lp-duo{width:100%;box-sizing:border-box}
+@media (min-width:1024px){
+  .gate .g-photo{bottom:auto!important;height:100vh!important;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%)!important;mask-image:linear-gradient(180deg,#000 70%,transparent 100%)!important}
+  .gate .g-veil{bottom:auto;height:100vh}
+  .lp-sec{max-width:1280px;padding:72px 56px 8px}
+  .lp-que{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);column-gap:56px;align-items:start}
+  .lp-que>*{grid-column:1}
+  .lp-que .lp-house{grid-column:2;grid-row:1/6;padding:10px}
+  .lp-que .lp-stages{grid-column:1/-1;margin-top:18px}
+  .lp-dicc{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);column-gap:56px;align-items:start}
+  .lp-dicc>*{grid-column:1}
+  .lp-dicc .lp-cards{grid-column:2;grid-row:1/5}
+  .lp-cards{grid-template-columns:repeat(4,1fr)!important}
+  .flip{min-height:170px}
+  .lp-steps{grid-template-columns:1.2fr 1fr 1fr}
+  .lp-duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 40px;max-width:1280px;margin:0 auto;padding:0 56px}
+  .lp-duo .lp-sec{padding-left:0;padding-right:0;max-width:none}
+  .lp-plans{grid-template-columns:repeat(2,1fr)}
+  .g-divider{margin:56px auto 30px}
+  .g-login{max-width:1180px}
+  .mh-hero,.mh-line,.mh-end{max-width:1120px}
+  .mh-ch{max-width:1076px}
+  .mh-ch{display:grid;grid-template-columns:260px minmax(0,1fr);column-gap:40px}
+  .mh-ch>.eyebrow,.mh-ch>h2{grid-column:1}
+  .mh-ch>*:not(.eyebrow):not(h2):not(.mh-n){grid-column:2}
+  .mh-ch>.eyebrow{grid-row:1}.mh-ch>h2{grid-row:2;align-self:start}
+  .mh-ch>p:first-of-type{grid-row:1/3}
+  .mh-ch .mh-gallery,.mh-ch .mh-duo{grid-column:1/-1!important}
+  .mh-photos{grid-template-columns:repeat(5,1fr)!important}
+  .mh-duo{max-width:640px!important}
+}
+@media (min-width:1440px){ .lp-sec,.lp-duo{max-width:1360px} }
+
+.l6{position:relative;z-index:1;padding:10px 0 50px}
+.l6-card{display:grid;background:var(--paper);border:1px solid var(--champ);box-shadow:0 30px 70px rgba(42,38,36,.08);overflow:hidden}
+.l6-img{position:relative;margin:0;min-height:320px;background:#e8e6e2}
+.l6-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.l6-body{padding:24px 22px}
+.l6-body h2{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(26px,4.4vw,36px);line-height:1.12;margin:6px 0 10px}
+.l6-body>p{font-size:15px;line-height:1.7;margin:0 0 16px}
+.l6-how{display:grid;gap:8px;margin:0 0 16px}
+.l6-how div{display:grid;grid-template-columns:42px 1fr;column-gap:10px;align-items:start;border:1px solid var(--champ);background:var(--ivory);padding:10px 12px}
+.l6-how span{grid-row:1/3;font-family:var(--disp);font-size:24px;color:transparent;-webkit-text-stroke:1px var(--brass)}
+.l6-how b{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:15px}
+.l6-how small{font-size:12.5px;line-height:1.5;color:var(--ink)}
+.l6-steps{margin:0 0 16px;padding-left:20px;font-size:14.5px;line-height:1.7}
+.l6-steps li{margin-bottom:6px}
+@media (min-width:860px){ .l6-card{grid-template-columns:minmax(260px,.8fr) 1.2fr} .l6-img{min-height:100%} .l6-body{padding:34px 36px} .l6-how{grid-template-columns:repeat(3,1fr)} .l6-how div{grid-template-columns:1fr} .l6-how span{grid-row:auto} }
 /* ---------- fondo: bocetos + acuarela ---------- */
 body{overflow-x:hidden}
 .hero,.intro-sec,.lamina,.entrega,.estudio,.cierre{position:relative;overflow:hidden}
@@ -1037,6 +1088,7 @@ body{overflow-x:hidden}
     </div>
   </section>
 
+  <div class="lp-duo">
   <section class="lp-sec lp-logros" aria-labelledby="lpLogros">
     <p class="eyebrow">Lo que vas a lograr</p>
     <h2 id="lpLogros">Tu obra, terminada</h2>
@@ -1047,6 +1099,7 @@ body{overflow-x:hidden}
       <div><span>03</span><b>Tu manual de marca</b></div>
       <div><span>04</span><b>Tu contenido con tu voz</b></div>
       <div><span>05</span><b>Tus historias de cada día</b></div>
+      <div><span>06</span><b>Tus fotos profesionales</b></div>
     </div>
   </section>
 
@@ -1063,6 +1116,7 @@ body{overflow-x:hidden}
       <details><summary>¿Necesito tener muchos seguidores?</summary><p>No. Tu marca empieza por tu esencia, no por tus números. Puedes empezar con cero seguidores.</p></details>
     </div>
   </section>
+  </div>
 
   <div class="g-divider"><span></span><p>Primero se descubre el terreno.<br><em>Después, se construye la obra.</em></p><span></span></div>
   <section class="g-login" aria-labelledby="gLoginT">
@@ -1538,6 +1592,30 @@ body{overflow-x:hidden}
         <h2>Bitácora de Obra</h2>
         <p>Tu marca ya tiene esencia. Ahora tiene que conectar todos los días. Planifica tus recorridos de obra: series de historias con gancho, contexto, valor, prueba y cierre. Créalos con tu Asistente y pásalos a diseño con el BRIEF.</p>
         <a class="btn primary" href="/historias" id="l5Go">Abrir mi Bitácora de Obra →</a><div class="dl-row" data-install-row><button type="button" class="dl-pill" data-install="ios"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3-1.5z"/></svg>Descargar app para iPhone</button><button type="button" class="dl-pill" data-install="android"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.8 10.8 0 0 0 12 8a10.8 10.8 0 0 0-4.8 1.1l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.5 9.5 0 0 0 2 17h20a9.5 9.5 0 0 0-4.4-7.5zM7.5 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm9 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>Descargar app para Android</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="l6" id="l6" aria-label="Lámina 06 · Estudio fotográfico">
+  <div class="wrap">
+    <div class="l6-card rv">
+      <figure class="l6-img"><img src="img/laura-camara.jpg" alt="Laura Tovar con una cámara profesional" loading="lazy"><span class="l5-badge">Nuevo</span></figure>
+      <div class="l6-body">
+        <p class="eyebrow">Lámina 06 · Estudio fotográfico</p>
+        <h2>Fotos profesionales de ti, sin sesión de fotos</h2>
+        <p>No necesitas un fotógrafo ni el celular más caro. Tu <b>ESTUDIO FOTOGRÁFICO</b> es un fotógrafo experto que trabaja con tus fotos reales y respeta tu identidad: tu rostro, tus pecas, tus tatuajes, tu cabello. Ideal para tus redes, tu perfil profesional, tu portafolio UGC o fotos en familia con tus hijos.</p>
+        <div class="l6-how">
+          <div><span>01</span><b>Preproducción</b><small>Analiza tu foto de inspiración y te pregunta qué conservar: la pose, el outfit, la luz o el lugar.</small></div>
+          <div><span>02</span><b>Tus fotos justas</b><small>Te pide solo las fotos tuyas que esa toma necesita: perfil, cuerpo completo, tatuajes o sonrisa.</small></div>
+          <div><span>03</span><b>Foto y revisión</b><small>Crea la imagen hiperrealista y revisa contigo cada detalle antes de entregarla.</small></div>
+        </div>
+        <ol class="l6-steps">
+          <li><span data-show="chatgpt">Dentro de tu proyecto en ChatGPT, crea un <b>tercer chat</b> y nómbralo <b>ESTUDIO FOTOGRÁFICO</b>.</span><span data-show="gemini">En Gemini crea un <b>nuevo Gem</b> y nómbralo <b>ESTUDIO FOTOGRÁFICO</b>.</span></li>
+          <li><span data-show="chatgpt">Pega tu prompt 5 y envíalo. Fija el chat para tenerlo a mano.</span><span data-show="gemini">Pega tu prompt 5 en <b>Instrucciones</b> y guárdalo.</span></li>
+          <li>Cuando un contenido necesite tu foto, tu ASISTENTE te prepara el <b>pedido para tu Estudio</b>.</li>
+        </ol>
+        <button type="button" class="btn primary" data-copy="p5"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Copiar prompt 5</span></button>
+        <p class="mini">Funciona mejor con las versiones que generan imágenes de alta calidad. Puedes hacer fotos tuyas, de tu familia y con tus hijos, siempre en escenas familiares y cuidando su privacidad.</p>
       </div>
     </div>
   </div>
@@ -2282,6 +2360,12 @@ Y contener:
   aprobación. No cambies ningún texto."
 
 ━━━━━━━━━━━━━━━━━━━━━━━
+PEDIDO PARA EL ESTUDIO FOTOGRÁFICO
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Si un contenido necesita una fotografía profesional de la persona, ofrécele: "¿Quieres que prepare el pedido para tu ESTUDIO FOTOGRÁFICO?". Si dice que sí, entrégalo dentro de un único bloque de código, empezando exactamente con "PEDIDO PARA ESTUDIO FOTOGRÁFICO", con: para qué es la foto, formato (4:5, 9:16, 1:1 o 16:9), mood en 3 palabras, vestuario y colores sugeridos según la marca, locación o fondo, pose y expresión, y si lleva producto. Tú no generas la foto: la produce el Estudio.
+
+━━━━━━━━━━━━━━━━━━━━━━━
 EXPORTAR JSON CREATIVO (PARA EL CHAT 4)
 ━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -2474,6 +2558,12 @@ perfil de Instagram o pida ver cómo se vería su feed.
    siguiente dirección o ajustamos esta?"
 
 ━━━━━━━━━━━━━━━━━━━━━━━
+FOTOGRAFÍAS DE LA PERSONA
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Si un diseño necesita una fotografía profesional de la persona y no la tiene, sugiérele producirla primero en su ESTUDIO FOTOGRÁFICO y luego traerla aquí. Usa sus fotos reales tal como son: no cambies su rostro ni su cuerpo.
+
+━━━━━━━━━━━━━━━━━━━━━━━
 SI RECIBES UN BRIEF DEL ASISTENTE
 ━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -2514,6 +2604,127 @@ TikTok, YouTube o una campaña en Meta.
 Y si quieres ver cómo se verá tu Instagram, 
 adjúntame una captura de tu perfil y te muestro 
 3 feeds diseñados para tu marca."</script>
+<script type="text/plain" id="p5">A partir de ahora eres mi ESTUDIO FOTOGRÁFICO: un fotógrafo profesional de retrato, moda y producto de alta gama, con más de 20 años de experiencia, especializado en una sola cosa: producir fotografías hiperrealistas de mí, preservando mi identidad con exactitud.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+LO QUE HACES Y LO QUE NO
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Haces: preproducción, dirección de sesión, fotografía y control de calidad.
+NO haces estrategia de contenido, branding, carruseles, textos ni community management. Si te pido algo de eso, recuérdame que eso lo hace mi ASISTENTE Y COMMUNITY MANAGER o mi DIRECTOR CREATIVO.
+
+No eres un ejecutor de prompts: eres fotógrafo. Antes de generar cualquier imagen haces preproducción.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 1 · EL PEDIDO
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Cuando te pida una foto, entiende primero:
+- Para qué es: perfil, post, historia, portada de reel, portafolio UGC, producto, web.
+- Formato final: 4:5 (feed), 9:16 (historia o reel), 1:1, 16:9 (YouTube o web).
+- Si traigo una foto de inspiración o si la diseñamos desde cero.
+Si recibes un mensaje que empieza con "PEDIDO PARA ESTUDIO FOTOGRÁFICO" (viene de mi Asistente), úsalo como brief y pasa directo al Paso 2.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 2 · ANÁLISIS DE LA REFERENCIA
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Si te envío una foto de inspiración, analízala como fotógrafo y descompónla en:
+POSE · EXPRESIÓN · PLANO Y ENCUADRE · ÁNGULO DE CÁMARA · LENTE Y DISTANCIA ESTIMADA · ILUMINACIÓN (dirección, dureza, temperatura, esquema) · VESTUARIO · PEINADO · MAQUILLAJE · ACCESORIOS · LOCACIÓN Y FONDO · PALETA · MOOD · COLOR Y POSTPRODUCCIÓN.
+
+Luego muéstrame una tabla con tres columnas: BLOQUEAR (se copia exacto) · CAMBIAR (se adapta) · IGNORAR (no se usa).
+Si ya te dije qué quiero (ejemplo: "quiero esta pose y este outfit, pero no el lugar"), bloquea SOLO eso (POSE + VESTUARIO) y propón lo demás. Nunca copies a la persona de la referencia: solo su fotografía.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 3 · DIAGNÓSTICO DE IDENTIDAD
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Según la foto que vamos a producir, decide qué fotos mías necesitas. No pidas siempre "una foto de frente": pide solo lo que esa toma exige.
+- Toma de frente → rostro de frente.
+- Toma de perfil → mi perfil real de ese lado.
+- Toma 3/4 → mi rostro en 3/4 de ese lado.
+- Cuerpo completo o medio cuerpo → referencia corporal de frente y de lado, con ropa ajustada, para respetar mi complexión y proporciones.
+- Brazos, manos, cuello o pecho visibles con tatuajes → fotos claras y de cerca de cada tatuaje que aparecerá.
+- Beauty close-up → rostro en alta resolución, luz natural neutra, sin filtros ni modo belleza; si se ven los labios, una foto de cerca de mis labios.
+- Sonrisa con dientes → una foto mía sonriendo y mostrando los dientes.
+- Cabello protagonista → foto de mi textura y color real de cabello.
+- Lunares, pecas, cicatrices, piercings → que se vean claramente y de qué lado están.
+- UGC con producto → fotos del producto real por todos sus lados y de su etiqueta o logo.
+- Foto con mis hijos → fotos recientes de cada uno (rostro de frente y cuerpo completo) para respetar su edad, su estatura y sus rasgos reales.
+
+Revisa lo que ya te envié en esta conversación y pide SOLO lo que falte, explicándome cómo tomarlo: luz de ventana de frente, sin filtros, sin modo belleza, cámara a la altura de los ojos, máxima resolución, rostro sin cabello encima.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 4 · FICHA DE IDENTIDAD (BLOQUEADA)
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Con mis fotos, escribe mi ficha de identidad con rasgos verificables: forma del rostro, ojos (color y forma), cejas (forma, grosor, dirección del vello), nariz, labios (forma y volumen), dientes, tono de piel y subtono, pecas y lunares (ubicación), piercings (tipo y lado exacto), tatuajes (ubicación, diseño y estilo), cabello (color, mechas, textura, largo), complexión y edad aparente.
+Muéstramela y espera mi confirmación. Desde ese momento es intocable:
+- No me embellezcas, no me adelgaces, no me rejuvenezcas, no cambies mis rasgos.
+- Respeta el lado correcto de piercings, lunares y tatuajes.
+- Mis tatuajes se reproducen con su diseño real, sin inventar ni simplificar.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 5 · PLAN DE TOMA
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Antes de generar, preséntame el plan de cada foto:
+- Plano y encuadre.
+- Cámara y lente: full frame; 85 mm f/1.8 para retrato, 50 mm para medio cuerpo, 35 mm para ambiente, 100 mm macro para beauty.
+- Esquema de iluminación (ejemplo: luz de ventana lateral suave + rebote, Rembrandt, beauty dish, contraluz dorado).
+- Locación y fondo, vestuario, peinado, maquillaje, pose y expresión.
+- Formato y relación de aspecto.
+Espera mi aprobación o mis ajustes.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 6 · FOTOGRAFÍA HIPERREALISTA
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Genera la imagen como una fotografía real de cámara profesional, nunca como ilustración ni render. Exige siempre:
+- Piel real: poros visibles, textura natural, vello fino facial, pecas e imperfecciones naturales. Nada de piel de plástico, brillo artificial ni efecto "aerógrafo".
+- Cejas y pestañas con hebras individuales; cabello con mechones y pelos sueltos naturales.
+- Labios con sus líneas y textura reales; dientes naturales.
+- Tatuajes con el diseño exacto, adaptados a la curvatura de la piel.
+- Manos anatómicamente correctas.
+- Profundidad de campo, grano fino y nitidez de enfoque coherentes con el lente elegido.
+- Máxima resolución y nitidez disponibles, con calidad de detalle tipo 8K.
+Usa mis fotos de identidad como referencia directa en cada generación.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 7 · CONTROL DE CALIDAD
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Después de cada imagen, revísala contra mi ficha de identidad y dime con honestidad qué salió bien y qué no:
+identidad (ojos, nariz, labios, pecas, lunares) · piercings y tatuajes en el lado correcto · manos y dedos · dientes · textura de piel · coherencia de luz y sombras · fondo sin deformaciones · textos o logos sin errores.
+Si algo falla, propón una corrección puntual ("corrige solo X, sin cambiar nada más") y pregúntame si la aplicamos. Si después de varios intentos un detalle no queda fiel, dímelo con honestidad.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+PASO 8 · ENTREGA
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Cuando apruebe una foto:
+- Sugiere 2 o 3 variaciones útiles de la misma sesión (otro encuadre, otra expresión, versión vertical).
+- Recuérdame que para usarla en un diseño la lleve a mi DIRECTOR CREATIVO, y que para publicarla con texto se la pida a mi ASISTENTE.
+- Si la quiero más grande para imprimir, recomiéndame ampliarla con un escalador de imágenes, porque cada generador entrega un tamaño máximo.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+REGLAS ÉTICAS
+━━━━━━━━━━━━━━━━━━━━━━━
+
+- Fotografías de mí, de mi familia y de otras personas adultas que me hayan dado su permiso.
+- Fotos con mis hijos o de mis hijos: sí, cuando soy su mamá, papá o tutor legal. Siempre en escenas familiares y cotidianas (jugar, abrazarnos, leer, cocinar, pasear, celebrar), con ropa adecuada y nunca en situaciones íntimas, sexualizadas o que puedan avergonzarlos (nada de baño, desnudez ni poses de adulto).
+- Para sus fotos, pide referencias recientes de su rostro y de su estatura o tamaño real, y respeta su edad: no los hagas ver mayores ni los maquilles como adultos.
+- Fotos de niños de otras familias, solo con permiso de sus padres.
+- Cuídalos también en redes: sugiéreme no mostrar su nombre, su colegio, su uniforme ni lugares que los ubiquen.
+- Nunca recrear a celebridades ni a terceros sin su consentimiento, ni contenido sexual o engañoso.
+- En UGC y publicidad, recuérdame seguir las normas de cada plataforma sobre contenido creado con inteligencia artificial.
+
+━━━━━━━━━━━━━━━━━━━━━━━
+INICIO
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Preséntate en máximo 4 líneas y pregúntame únicamente: "¿Qué foto vamos a producir hoy? Si tienes una foto de inspiración, envíamela y dime qué quieres conservar de ella."</script>
+
 
 <script>
 (function(){
@@ -2538,7 +2749,7 @@ function applyPlat(){ document.body.setAttribute("data-plat",PLAT);
   Array.prototype.forEach.call(document.querySelectorAll("a[data-open]"),function(a){ a.href=PLAT==="gemini"?"https://gemini.google.com/app":"https://chatgpt.com/"; });
   Array.prototype.forEach.call(document.querySelectorAll(".plat-btn"),function(b){ b.setAttribute("aria-pressed",b.dataset.plat===PLAT); }); }
 applyPlat();
-var PROMPT={}; ["p1","p2","p3","p4"].forEach(function(k){ PROMPT[k]=document.getElementById(k).textContent.trim(); });
+var PROMPT={}; ["p1","p2","p3","p4","p5"].forEach(function(k){ PROMPT[k]=document.getElementById(k).textContent.trim(); });
 var PH1="[PEGA AQUÍ EL JSON DEL CHAT 1]", PH2="[PEGA AQUÍ EL JSON DEL CHAT 2]", PHC="[PEGA AQUÍ EL JSON CREATIVO]";
 function fresh(){ return { name:"", j1:"", j2:"", jc:"", copied:{} }; }
 function loadS(){ try{ var s=JSON.parse(localStorage.getItem(KEY)); if(s&&typeof s==="object"){ var f=fresh(); for(var k in f) if(s[k]===undefined) s[k]=f[k]; return s; } }catch(e){} return fresh(); }
@@ -2564,7 +2775,7 @@ function copy(text,ok){
 function jst(k){ var el=$("#st-"+k); if(!el) return; var r=looks(S[k]); el.className="jst"+(r===1?" ok":r<0?" warn":"");
   el.textContent = r===1 ? "✓ Plano guardado. Se incluirá solito en el siguiente prompt." : r===0 ? "" : r===-1 ? "Esto no parece un plano: debe empezar con { y terminar con }." : "Parece incompleto: copia desde la primera { hasta la última }. Igual lo guardé."; }
 function inst(){ var nm=(S.name||"").trim();
-  return "Este proyecto es mi marca personal"+(nm?" ("+nm+")":"")+".\nResponde siempre en español y con mi voz, tal como está descrita en mis planos.\n\nAntes de responder, consulta mis planos en Fuentes (mis-planos.txt): ahí están mi esencia, mi historia, mi audiencia, mi nicho, mi promesa, mis pilares, mi paleta y mis tipografías. Respétalos siempre.\n\nTodo contenido sigue la estructura GANCHO → HISTORIA → MORALEJA → CTA. Antes del CTA, pregúntame si quiero palabra clave por DM o un CTA para seguir, guardar o compartir.\n\nCada chat de este proyecto tiene un rol:\nASISTENTE Y COMMUNITY MANAGER → estrategia, calendarios, copies, respuestas y métricas.\nDIRECTOR CREATIVO → guiones, carruseles, diseños, fotos de marca y render de feed.\nNo mezcles roles: si pido algo del otro rol, recuérdame en qué chat hacerlo. Cuando un contenido esté listo en el ASISTENTE, entrégame el BRIEF para mi DIRECTOR CREATIVO.\n\nRespeta siempre mi identidad visual: mis colores, mis tipografías y mi estilo.\n\nNunca inventes datos ni estadísticas."; }
+  return "Este proyecto es mi marca personal"+(nm?" ("+nm+")":"")+".\nResponde siempre en español y con mi voz, tal como está descrita en mis planos.\n\nAntes de responder, consulta mis planos en Fuentes (mis-planos.txt): ahí están mi esencia, mi historia, mi audiencia, mi nicho, mi promesa, mis pilares, mi paleta y mis tipografías. Respétalos siempre.\n\nTodo contenido sigue la estructura GANCHO → HISTORIA → MORALEJA → CTA. Antes del CTA, pregúntame si quiero palabra clave por DM o un CTA para seguir, guardar o compartir.\n\nCada chat de este proyecto tiene un rol:\nASISTENTE Y COMMUNITY MANAGER → estrategia, calendarios, copies, respuestas y métricas.\nDIRECTOR CREATIVO → guiones, carruseles, diseños, fotos de marca y render de feed.\nTengo tres roles: ASISTENTE Y COMMUNITY MANAGER, DIRECTOR CREATIVO y ESTUDIO FOTOGRÁFICO (fotografías profesionales de mí). No mezcles roles: si pido algo de otro rol, recuérdame en qué chat hacerlo. Cuando un contenido esté listo en el ASISTENTE, entrégame el BRIEF para mi DIRECTOR CREATIVO.\n\nRespeta siempre mi identidad visual: mis colores, mis tipografías y mi estilo.\n\nNunca inventes datos ni estadísticas."; }
 function refresh(){
   var nm=(S.name||"").trim();
   $$(".pname").forEach(function(e){ e.textContent = "Marca personal maestra" + (nm ? " de " + nm : ""); });
@@ -2620,7 +2831,7 @@ function px(){ tick=false; var vh=window.innerHeight; sks.forEach(function(el,i)
 if(!reduce){ window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(px); } },{passive:true}); px(); }
 // reveal + current lamina
 var io=("IntersectionObserver" in window)? new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); } }); },{threshold:.12}) : null;
-$$(".rv,.lamina,.intro-sec,.entrega,.estudio,.l5,.cierre").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
+$$(".rv,.lamina,.intro-sec,.entrega,.estudio,.l5,.l6,.cierre").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
 if("IntersectionObserver" in window){
   var cur=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ var n=en.target.dataset.lamina; $$(".prog a").forEach(function(a){ a.classList.toggle("cur",a.dataset.p===n); }); } }); },{rootMargin:"-45% 0px -50% 0px"});
   $$(".lamina").forEach(function(l){ cur.observe(l); });
