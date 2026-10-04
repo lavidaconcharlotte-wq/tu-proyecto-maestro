@@ -76,6 +76,14 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 .story .cnt.over{color:#B3261E;font-weight:600}
 .story .lab{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);margin:6px 0 4px}
 .story select.sel{width:100%;min-height:40px;border:1px solid var(--champ);border-radius:10px;background:#fff;padding:0 10px;font-size:13px}
+.story input.sd{width:100%;min-height:40px;margin-top:6px;border:1px solid var(--champ);border-radius:10px;background:var(--ivory);padding:0 10px;font-size:12.5px}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.who button{min-height:38px;border:1px solid var(--champ);border-radius:10px;background:#fff;font-size:10.5px;font-weight:600;color:var(--olive);padding:4px}
+.who button[aria-pressed="true"]{background:var(--vino);border-color:var(--vino);color:var(--ivory)}
+.mstep{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:6px}
+.mstep li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:13px;line-height:1.5;color:#F2ECE1}
+.mstep b{color:#fff}
+.mstep span.n{width:26px;height:26px;border-radius:50%;border:1px solid rgba(250,246,241,.6);display:flex;align-items:center;justify-content:center;font-size:11px}
 .story .ops{display:flex;justify-content:space-between;margin-top:10px}
 .story .ops button{width:40px;height:40px;border:1px solid var(--champ);border-radius:50%;background:var(--paper);font-size:14px;color:var(--olive)}
 .story .ops button:disabled{opacity:.35;cursor:default}
@@ -129,6 +137,25 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 .cal-tip{font-size:12.5px;color:var(--olive);margin:10px 0 0}
 @media (max-width:560px){ .day{min-height:58px;padding:3px} .ev{font-size:0;height:8px;padding:0} .day .dn{font-size:10px} }
 @media (min-width:760px){ .guide{grid-template-columns:repeat(3,1fr)} }
+.flow{margin:18px 0 22px;background:var(--olive);color:var(--ivory);padding:22px 18px 10px;border-radius:4px}
+.fl-ey{margin:0;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--sand)}
+.fl-h{font-family:var(--disp);font-weight:500;font-size:clamp(22px,4.6vw,30px);line-height:1.15;margin:6px 0 16px;color:var(--ivory)}
+.fl-step{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-top:1px solid rgba(250,246,241,.25)}
+.fl-n{width:34px;height:40px;border-radius:999px 999px 6px 6px;border:1px solid var(--ivory);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-family:var(--disp);font-size:16px}
+.fl-b h3{font-family:var(--disp);font-weight:500;font-size:18px;margin:2px 0 6px;color:var(--ivory)}
+.fl-b p{font-size:13.5px;line-height:1.6;margin:0 0 10px;color:#F2ECE1}
+.fl-b b{color:#fff}
+.fl-ta{width:100%;min-height:96px;border:0;border-radius:10px;padding:12px;font-size:15px;line-height:1.5;color:var(--ink);background:var(--ivory);resize:vertical;margin-bottom:12px}
+.fl-ta.code{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;min-height:80px}
+.fl-lab{font-size:11px!important;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sand)!important;margin:2px 0 8px!important}
+.flow .chips{margin:0 0 6px}
+.flow .chip{background:transparent;border-color:rgba(250,246,241,.6);color:var(--ivory)}
+.flow .chip[aria-pressed="true"]{background:var(--ivory);border-color:var(--ivory);color:var(--olive)}
+.flow .objhint{color:var(--sand);margin:0 0 12px}
+.flow .btn{border-color:var(--ivory);color:var(--ivory)}
+.flow .btn.primary{background:var(--ivory);color:var(--olive);border-color:var(--ivory)}
+.fl-note{font-size:12px!important;opacity:.85;margin:8px 0 0!important}
+.fl-msg{font-size:13px;color:#fff;margin:8px 0 0}
 /* modal */
 .modal{position:fixed;inset:0;z-index:50;background:rgba(42,38,36,.45);display:flex;align-items:flex-end;justify-content:center;padding:0}
 .mbox{width:100%;max-width:560px;max-height:90vh;overflow:auto;background:var(--ivory);border:1px solid var(--champ);border-radius:20px 20px 0 0;padding:24px 20px calc(24px + env(safe-area-inset-bottom,0px));box-shadow:0 -20px 60px rgba(42,38,36,.25)}
@@ -171,11 +198,7 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
   <h1>Bitácora de Obra</h1>
   <p class="lead">Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.</p>
   <p class="hw" id="hello"></p>
-  <ol class="guide" aria-label="Cómo funciona">
-    <li><span><b>Crea un recorrido de obra</b>: una serie de historias seguidas, por cada tema o día, con su objetivo.</span></li>
-    <li><span><b>Llena tus historias</b> a mano, con una plantilla o con tu Asistente.</span></li>
-    <li><span><b>Diseña y programa:</b> pide el BRIEF y prográmalas con Muse o Meta Business Suite.</span></li>
-  </ol>
+  
   <div class="views" role="group" aria-label="Vista"><button type="button" data-view="seq" aria-pressed="true">Recorridos</button><button type="button" data-view="cal" aria-pressed="false">Calendario</button></div>
 
   <section class="board" id="calBoard" hidden aria-label="Calendario"><div class="cal" id="cal"></div></section>
@@ -186,28 +209,8 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
   </section>
 </main>
 
-<div class="modal" id="mAsk" hidden role="dialog" aria-modal="true" aria-labelledby="mAskT">
-  <div class="mbox">
-    <button class="x" data-close aria-label="Cerrar">✕</button>
-    <h3 id="mAskT">Pídele el recorrido a tu Asistente</h3>
-    <p>Escribe de qué quieres hablar. Copiamos el pedido listo para tu chat <strong>ASISTENTE Y COMMUNITY MANAGER</strong>, con tu objetivo y estructura.</p>
-    <label class="sr" for="askTopic">Tema</label>
-    <input id="askTopic" placeholder="Ej: por qué empecé mi negocio, un tip de organización…">
-    <div class="row"><button class="btn primary" id="askCopy">Copiar pedido</button></div>
-    <ol class="steps" style="margin-top:16px"><li>Pégalo en tu ASISTENTE.</li><li>Te responderá con una caja de código.</li><li>Toca <strong>Copiar código</strong> y vuelve aquí a <strong>"Pegar recorrido"</strong>.</li></ol>
-  </div>
-</div>
-<div class="modal" id="mPaste" hidden role="dialog" aria-modal="true" aria-labelledby="mPasteT">
-  <div class="mbox">
-    <button class="x" data-close aria-label="Cerrar">✕</button>
-    <h3 id="mPasteT">Pegar recorrido del Asistente</h3>
-    <p>Pega aquí la caja de código que te entregó tu Asistente. El recorrido se arma solo.</p>
-    <label class="sr" for="pasteTxt">Recorrido</label>
-    <textarea id="pasteTxt" placeholder='{ "nombre": "...", "historias": [ ... ] }'></textarea>
-    <div class="row"><button class="btn primary" id="pasteGo">Armar recorrido</button></div>
-    <p id="pasteMsg" style="margin:10px 0 0;font-size:13px;color:var(--vino)"></p>
-  </div>
-</div>
+
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -216,7 +219,7 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 var ROLES=[["gancho","Gancho"],["contexto","Contexto"],["valor","Valor"],["detras","Detrás de cámaras"],["prueba","Prueba social"],["cta","CTA"]];
 var FORMATOS=["Video a cámara","Texto sobre fondo","Foto con texto","Detrás de cámaras","Carrusel reposteado","Captura de pantalla","Boomerang o clip corto"];
 var STICKERS=["Ninguno","Encuesta","Pregunta","Quiz","Slider de emoji","Enlace","Cuenta regresiva","Mención"];
-var OBJ={alcance:["Alcance","Para que te descubran: temas compartibles y ganchos fuertes."],conexion:["Conexión","Para que te conozcan: tu historia, tu día a día, tu esencia."],autoridad:["Autoridad","Para que confíen: enseña algo concreto y muestra resultados."],venta:["Venta","Para que te compren: problema, solución, prueba y llamado claro."]};
+var OBJ={alcance:["Alcance","Para que te descubran: temas compartibles y ganchos fuertes."],conexion:["Conexión y día a día","Para que te conozcan: tu historia, tu día a día, tu esencia."],autoridad:["Autoridad","Para que confíen: enseña algo concreto y muestra resultados."],venta:["Venta","Para que te compren: problema, solución, prueba y llamado claro."]};
 var TPL=[
  {id:"real",t:"Historia real",d:"Un hecho que estás viviendo, convertido en conexión y en una decisión. Comparte solo lo que quieras contar.",o:"conexion",img:"mat-arco",h:[["gancho","Video a cámara","Ninguno","Esta semana pasó algo que no esperaba…"],["contexto","Foto con texto","Ninguno","Así era mi día a día antes de esto…"],["detras","Video a cámara","Slider de emoji","Lo que más me movió fue…"],["valor","Texto sobre fondo","Ninguno","Pero entendí algo: pude estar presente."],["prueba","Video a cámara","Ninguno","Y eso fue posible porque un día decidí… ¿Fácil? Para nada. ¿Quién dijo que la vida lo era?"],["cta","Texto sobre fondo","Pregunta","Es cuestión de actitud y decisión. ¿Y tú, cuándo tomarás la tuya?"]]},
  {id:"esencia",t:"Historia de esencia",d:"Cuenta un momento real que explica por qué haces lo que haces.",o:"conexion",img:"mat-textil",h:[["gancho","Video a cámara","Encuesta","¿Te ha pasado que…?"],["contexto","Video a cámara","Ninguno","Hace un tiempo yo…"],["valor","Texto sobre fondo","Ninguno","Lo que aprendí fue…"],["detras","Detrás de cámaras","Ninguno","Por eso hoy…"],["cta","Texto sobre fondo","Pregunta","Cuéntame: ¿y tú?"]]},
@@ -232,6 +235,9 @@ function toast(m){ var t=$("#toast"); t.textContent=m; t.classList.add("show"); 
 function copy(txt,ok){ if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(txt).then(ok,function(){ fb(); }); } else fb(); function fb(){ var a=document.createElement("textarea"); a.value=txt; a.style.position="fixed"; a.style.opacity="0"; document.body.appendChild(a); a.select(); try{ document.execCommand("copy"); ok(); }catch(e){ toast("No se pudo copiar"); } a.remove(); } }
 var tcl; function save(){ S.updatedAt=Date.now(); if(who&&who!=="demo@local"){ clearTimeout(tcl); tcl=setTimeout(function(){ cloud("PUT",S); },1500); } try{ localStorage.setItem(KEY,JSON.stringify(S)); $("#saved").textContent="Guardado ✓"; clearTimeout(save._t); save._t=setTimeout(function(){ $("#saved").textContent="Guardado en este dispositivo"; },1500); }catch(e){} }
 function today(){ var d=new Date(); return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+var DFMT=["Texto sobre fondo","Foto con texto","Carrusel reposteado"];
+function isD(x){ return x.d===undefined? DFMT.indexOf(x.f)>=0 : !!x.d; }
+var SHINT={"Encuesta":"Pregunta y opciones. Ej: ¿Te pasa? · Sí / No","Pregunta":"Texto de la caja. Ej: Cuéntame tu caso","Quiz":"Pregunta, opciones y la correcta","Slider de emoji":"Pregunta y emoji. Ej: ¿Cuánto te identificas? 🔥","Enlace":"Link y texto del botón","Cuenta regresiva":"Nombre y fecha del evento","Mención":"@usuario a mencionar"};
 function blank(name,date){ return {name:name||"Nuevo recorrido",date:date||today(),time:"19:00",obj:"conexion",h:[{r:"gancho",t:"",f:"Video a cámara",s:"Encuesta"},{r:"contexto",t:"",f:"Video a cámara",s:"Ninguno"},{r:"valor",t:"",f:"Texto sobre fondo",s:"Ninguno"},{r:"cta",t:"",f:"Texto sobre fondo",s:"Pregunta"}]}; }
 function cur(){ return S.seqs[S.cur]; }
 function roleName(r){ for(var i=0;i<ROLES.length;i++) if(ROLES[i][0]===r) return ROLES[i][1]; return r; }
@@ -259,6 +265,8 @@ function storyHTML(x,i,n){
   '<label class="sr" for="t'+i+'">Texto</label><textarea id="t'+i+'" data-i="'+i+'" data-k="t" maxlength="200" placeholder="Qué dices o qué se lee…">'+esc(x.t)+'</textarea><div class="cnt'+(x.t.length>120?" over":"")+'" id="c'+i+'">'+x.t.length+'/120</div>'+
   '<div class="lab">Formato</div><select class="sel" data-i="'+i+'" data-k="f" aria-label="Formato">'+opts(FORMATOS,x.f)+'</select>'+
   '<div class="lab">Sticker</div><select class="sel" data-i="'+i+'" data-k="s" aria-label="Sticker">'+opts(STICKERS,x.s)+'</select>'+
+  (x.s!=="Ninguno"?'<input class="sel sd" data-i="'+i+'" data-k="sd" value="'+esc(x.sd||"")+'" placeholder="'+esc(SHINT[x.s]||"Detalle del sticker")+'" aria-label="Detalle del sticker">':'')+
+  '<div class="lab">¿Quién la crea?</div><div class="who"><button type="button" data-who="1" data-i="'+i+'" aria-pressed="'+isD(x)+'">Director creativo</button><button type="button" data-who="0" data-i="'+i+'" aria-pressed="'+!isD(x)+'">Video o foto mía</button></div>'+
   '<div class="ops"><button data-mv="-1" data-i="'+i+'" aria-label="Mover a la izquierda"'+(i===0?" disabled":"")+'>←</button><button data-del="'+i+'" aria-label="Eliminar historia">✕</button><button data-mv="1" data-i="'+i+'" aria-label="Mover a la derecha"'+(i===n-1?" disabled":"")+'>→</button></div></article>';
 }
 function renderStrip(){ var q=cur(), n=q.h.length; $("#strip").innerHTML=q.h.map(function(x,i){ return storyHTML(x,i,n); }).join("")+(n<8?'<button class="addst" data-add>+ Agregar historia</button>':''); $("#cnt").textContent=n+" historias · ~"+(n*15)+" s"; renderChecks(); }
@@ -267,14 +275,23 @@ function render(){
   if(S.cur>=S.seqs.length) S.cur=S.seqs.length-1;
   renderTabs(); var q=cur();
   $("#pane").innerHTML='<div class="fields"><div class="f"><label for="sName">Nombre del recorrido</label><input id="sName" value="'+esc(q.name)+'" maxlength="60"></div><div class="f"><label for="sDate">Fecha y hora de publicación</label><div style="display:flex;gap:8px"><input id="sDate" type="date" value="'+esc(q.date)+'" style="flex:1.4"><input id="sTime" type="time" value="'+esc(q.time||"19:00")+'" style="flex:1"></div></div></div>'+
-   '<div class="chips" role="group" aria-label="Objetivo">'+Object.keys(OBJ).map(function(k){ return '<button class="chip" data-obj="'+k+'" aria-pressed="'+(q.obj===k)+'">'+OBJ[k][0]+'</button>'; }).join("")+'</div><p class="objhint">'+esc(OBJ[q.obj][1])+'</p>'+
-   '<div class="bar"><h2>Recorrido <small id="cnt"></small></h2><button class="btn sm" id="copyScript">Copiar guion</button><button class="btn sm" id="dup">Duplicar</button><button class="btn sm" id="delSeq">Eliminar</button></div>'+
+   
+   '<section class="flow" aria-label="Crea tus historias con tu Asistente">'+
+     '<p class="fl-ey">Empieza aquí</p><h2 class="fl-h">Crea tus historias con tu Asistente</h2>'+
+     '<div class="fl-step"><span class="fl-n">1</span><div class="fl-b"><h3>¿De qué quieres hablar hoy?</h3><p>Aquí vas a colocar de qué quieres hablar. Sé específico, como si le estuvieras contando a un amigo: qué pasó, qué quieres compartir o qué quieres vender.</p>'+
+       '<label class="sr" for="topic">Tema de tus historias</label><textarea id="topic" class="fl-ta" placeholder="Ej: hoy quiero contar cómo organizo mi mañana con mi hija antes de trabajar desde casa…">'+esc(q.topic||"")+'</textarea>'+
+       '<p class="fl-lab">¿Qué tipo de historias quieres crear?</p><div class="chips" role="group" aria-label="Tipo de historias">'+Object.keys(OBJ).map(function(k){ return '<button class="chip" data-obj="'+k+'" aria-pressed="'+(q.obj===k)+'">'+OBJ[k][0]+'</button>'; }).join("")+'</div><p class="objhint">'+esc(OBJ[q.obj][1])+'</p>'+
+       '<button class="btn primary" id="askCopy">Copiar pedido para mi Asistente</button><p class="fl-note">Pégalo en tu chat ASISTENTE. Te responderá con una caja de código: toca <b>Copiar código</b>.</p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">2</span><div class="fl-b"><h3>Pega aquí la respuesta de tu Asistente</h3><label class="sr" for="pasteTxt">Respuesta del Asistente</label><textarea id="pasteTxt" class="fl-ta code" placeholder="Pega aquí la caja de código que te dio tu Asistente"></textarea><button class="btn primary" id="pasteGo">Armar mis historias</button><p class="fl-msg" id="pasteMsg"></p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">3</span><div class="fl-b"><h3>Revisa y marca quién crea cada historia</h3><p>Abajo verás tus historias. En cada una elige <b>Director creativo</b> (diseño) o <b>Video o foto mía</b> (lo grabas tú). Luego pide el diseño:</p><button class="btn" id="briefCopy">Copiar pedido de BRIEF</button><p class="fl-note">Pégalo en tu ASISTENTE y lleva el BRIEF a tu Director Creativo.</p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">4</span><div class="fl-b"><h3>Prográmalas con Muse</h3><p>Guarda tus archivos numerados en orden (1, 2, 3…). Copia la orden y pégala en Muse junto con tus archivos: le dice exactamente qué publicar, cuándo y con qué texto y sticker.</p><button class="btn" id="museCopy">Copiar orden para Muse</button><p class="fl-note">Si Muse no puede programar historias en tu cuenta, usa la orden como guía en Meta Business Suite.</p></div></div>'+
+   '</section>'+
+   '<div class="bar"><h2>Tus historias <small id="cnt"></small></h2><button class="btn sm" id="copyScript">Copiar guion</button><button class="btn sm" id="dup">Duplicar</button><button class="btn sm" id="delSeq">Eliminar</button></div>'+
    '<div class="strip" id="strip"></div>'+
    '<div class="grid2">'+
-     '<div class="card ai"><h3>Créala con tu Asistente</h3><p>Tu ASISTENTE conoce tu marca, tu voz y tus pilares. Pídele el recorrido y pégalo aquí: se arma solo. Cuando esté lista, pídele el BRIEF para que tu Director Creativo diseñe las historias.</p><div class="row"><button class="btn fill" id="askOpen">Pedir recorrido</button><button class="btn" id="pasteOpen">Pegar recorrido</button><button class="btn" id="briefCopy">Pedir BRIEF de diseño</button><button class="btn" id="museCopy">Programar con Muse</button></div><p style="margin:12px 0 0;font-size:12px;opacity:.85">Programar con Muse copia el pedido con tu guion, fecha y hora. Adjunta tus historias diseñadas en orden. Si Muse no puede programar historias en tu cuenta, usa Meta Business Suite.</p></div>'+
      '<div class="card"><h3>Revisión del recorrido</h3><p class="score" id="score"></p><ul class="checks" id="checks"></ul></div>'+
      '<div class="card"><h3>Empezar desde una plantilla</h3><p class="score" style="font-size:20px">reemplaza el recorrido actual</p><div class="tpls">'+TPL.map(function(t){ return '<button class="tpl" data-tpl="'+t.id+'"><i style="background-image:url(img/'+t.img+'.jpg)"></i><span><b>'+t.t+'</b><small>'+t.d+'</small></span><em>'+t.h.length+' · '+OBJ[t.o][0]+'</em></button>'; }).join("")+'</div></div>'+
-   '</div>';
+      '</div>';
   renderStrip();
 }
 var VIEW="seq", CM=null;
@@ -290,10 +307,11 @@ function renderCal(){
   html+='</div><div class="legend">'+Object.keys(OBJ).map(function(k){ return '<span><i class="ev o-'+k+'" style="width:10px;height:10px;padding:0"></i>'+OBJ[k][0]+'</span>'; }).join("")+'</div><p class="cal-tip">Toca un recorrido para abrirlo, o un día vacío para crear una nueva con esa fecha.</p>';
   $("#cal").innerHTML=html;
 }
-function script(q){ return "RECORRIDO: "+q.name+"\nObjetivo: "+OBJ[q.obj][0]+" · Fecha: "+q.date+" · Hora: "+(q.time||"19:00")+"\n\n"+q.h.map(function(x,i){ return (i+1)+". "+roleName(x.r).toUpperCase()+" · "+x.f+(x.s!=="Ninguno"?" · Sticker: "+x.s:"")+"\n   "+(x.t||"(por escribir)"); }).join("\n\n"); }
+function script(q){ return "RECORRIDO: "+q.name+"\nObjetivo: "+OBJ[q.obj][0]+" · Fecha: "+q.date+" · Hora: "+(q.time||"19:00")+"\n\n"+q.h.map(function(x,i){ return (i+1)+". "+roleName(x.r).toUpperCase()+" · "+x.f+(x.s!=="Ninguno"?" · Sticker: "+x.s+(x.sd?" ("+x.sd+")":""):"")+" · "+(isD(x)?"Diseño: Director creativo":"Video o foto mía")+"\n   "+(x.t||"(por escribir)"); }).join("\n\n"); }
 
 document.addEventListener("click",function(e){
   var b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.who!==undefined){ cur().h[+b.dataset.i].d=b.dataset.who==="1"; save(); renderStrip(); return; }
   if(b.dataset.view){ setView(b.dataset.view); return; }
   if(b.dataset.cm){ CM=new Date(CM.getFullYear(),CM.getMonth()+(+b.dataset.cm),1); renderCal(); return; }
   if(b.dataset.open!==undefined){ S.cur=+b.dataset.open; save(); setView("seq"); return; }
@@ -303,32 +321,42 @@ document.addEventListener("click",function(e){
   if(b.hasAttribute("data-add")){ cur().h.splice(cur().h.length-1,0,{r:"valor",t:"",f:"Video a cámara",s:"Ninguno"}); if(cur().h.length===1) cur().h[0].r="gancho"; save(); renderStrip(); return; }
   if(b.dataset.del!==undefined){ cur().h.splice(+b.dataset.del,1); save(); renderStrip(); return; }
   if(b.dataset.mv){ var i=+b.dataset.i, j=i+(+b.dataset.mv), h=cur().h; if(j<0||j>=h.length) return; var t=h[i]; h[i]=h[j]; h[j]=t; save(); renderStrip(); return; }
-  if(b.dataset.tpl){ var T=TPL.filter(function(x){ return x.id===b.dataset.tpl; })[0], q=cur(); if(q.h.some(function(x){ return x.t.trim(); })&&!confirm("Esto reemplaza las historias de este recorrido. ¿Continuar?")) return; q.obj=T.o; if(!q.name||/^Nueva|^Mi primera/.test(q.name)) q.name=T.t; q.h=T.h.map(function(x){ return {r:x[0],f:x[1],s:x[2],t:x[3]}; }); save(); render(); toast("Plantilla aplicada ✦ Ajusta los textos a tu voz"); return; }
+  if(b.dataset.tpl){ var T=TPL.filter(function(x){ return x.id===b.dataset.tpl; })[0], q=cur(); if(q.h.some(function(x){ return x.t.trim(); })&&!confirm("Esto reemplaza las historias de este recorrido. ¿Continuar?")) return; q.obj=T.o; q.h=T.h.map(function(x){ return {r:x[0],f:x[1],s:x[2],t:x[3]}; }); save(); render(); toast("Plantilla aplicada ✦ Ajusta los textos a tu voz"); return; }
   if(b.id==="copyScript"){ copy(script(cur()),function(){ toast("Guion copiado ♡"); }); return; }
   if(b.id==="dup"){ var c=JSON.parse(JSON.stringify(cur())); c.name+=" (copia)"; S.seqs.splice(S.cur+1,0,c); S.cur++; save(); render(); return; }
   if(b.id==="delSeq"){ if(!confirm("¿Eliminar este recorrido?")) return; S.seqs.splice(S.cur,1); S.cur=Math.max(0,S.cur-1); save(); render(); return; }
   if(b.id==="askOpen"){ $("#mAsk").hidden=false; setTimeout(function(){ $("#askTopic").focus(); },50); return; }
   if(b.id==="pasteOpen"){ $("#mPaste").hidden=false; $("#pasteMsg").textContent=""; return; }
   if(b.hasAttribute("data-close")){ b.closest(".modal").hidden=true; return; }
-  if(b.id==="askCopy"){ var topic=$("#askTopic").value.trim(), q2=cur();
-    var p="Créame un recorrido de historias de Instagram (una serie de historias seguidas que cuentan una sola idea) con mi marca, mi voz y mis pilares.\n\nTEMA: "+(topic||"elige tú el más estratégico para mí esta semana")+"\nOBJETIVO: "+OBJ[q2.obj][0]+" ("+OBJ[q2.obj][1]+")\n\nReglas:\n- Entre 4 y 7 historias.\n- La primera es un GANCHO y la última un CTA.\n- Al menos una historia con sticker interactivo (encuesta, pregunta, quiz o slider).\n- Cada texto de máximo 120 caracteres, con mi forma real de hablar.\n- Roles posibles: gancho, contexto, valor, detras, prueba, cta.\n- Formatos posibles: "+FORMATOS.join(", ")+".\n- Stickers posibles: "+STICKERS.join(", ")+".\n\nEntrégamela SOLO dentro de un único bloque de código (```json), sin texto antes ni después, con este formato exacto:\n{\"nombre\":\"\",\"objetivo\":\""+q2.obj+"\",\"historias\":[{\"rol\":\"gancho\",\"texto\":\"\",\"formato\":\"\",\"sticker\":\"\"}]}";
+  if(b.id==="askCopy"){ var topic=($("#topic")?$("#topic").value:"").trim(), q2=cur(); if(!topic){ toast("Escribe primero de qué quieres hablar ✦"); $("#topic").focus(); return; }
+    var p="Créame un recorrido de historias de Instagram (una serie de historias seguidas que cuentan una sola idea) con mi marca, mi voz y mis pilares.\n\nTEMA: "+(topic||"elige tú el más estratégico para mí esta semana")+"\nOBJETIVO: "+OBJ[q2.obj][0]+" ("+OBJ[q2.obj][1]+")\n\nReglas:\n- Entre 4 y 7 historias.\n- La primera es un GANCHO y la última un CTA.\n- Al menos una historia con sticker interactivo (encuesta, pregunta, quiz o slider).\n- Cada texto de máximo 120 caracteres, con mi forma real de hablar.\n- Roles posibles: gancho, contexto, valor, detras, prueba, cta.\n- Formatos posibles: "+FORMATOS.join(", ")+".\n- Stickers posibles: "+STICKERS.join(", ")+".\n- Para cada historia indica \"crea\": \"director\" si es un diseño gráfico o \"yo\" si es un video o foto que grabo yo.\n- Si lleva sticker, en \"detalle_sticker\" escribe exactamente su contenido (pregunta y opciones, texto de la caja, link…).\n\nEntrégamela SOLO dentro de un único bloque de código (```json), sin texto antes ni después, con este formato exacto:\n{\"nombre\":\"\",\"objetivo\":\""+q2.obj+"\",\"historias\":[{\"rol\":\"gancho\",\"texto\":\"\",\"formato\":\"\",\"sticker\":\"\",\"detalle_sticker\":\"\",\"crea\":\"yo\"}]}";
     copy(p,function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
   if(b.id==="pasteGo"){ var raw=$("#pasteTxt").value.replace(/```json|```/g,"").trim(), m=raw.indexOf("{"), n=raw.lastIndexOf("}");
-    try{ var o=JSON.parse(raw.slice(m,n+1)); var hs=(o.historias||o.stories||[]).map(function(x){ var r=String(x.rol||x.role||"valor").toLowerCase(); r=/ganch/.test(r)?"gancho":/context/.test(r)?"contexto":/detr/.test(r)?"detras":/prueba/.test(r)?"prueba":/cta|cierre/.test(r)?"cta":"valor"; return {r:r,t:String(x.texto||x.text||""),f:FORMATOS.indexOf(x.formato)>=0?x.formato:"Video a cámara",s:STICKERS.indexOf(x.sticker)>=0?x.sticker:"Ninguno"}; });
+    try{ var o=JSON.parse(raw.slice(m,n+1)); var hs=(o.historias||o.stories||[]).map(function(x){ var r=String(x.rol||x.role||"valor").toLowerCase(); r=/ganch/.test(r)?"gancho":/context/.test(r)?"contexto":/detr/.test(r)?"detras":/prueba/.test(r)?"prueba":/cta|cierre/.test(r)?"cta":"valor"; var o2={r:r,t:String(x.texto||x.text||""),f:FORMATOS.indexOf(x.formato)>=0?x.formato:"Video a cámara",s:STICKERS.indexOf(x.sticker)>=0?x.sticker:"Ninguno",sd:String(x.detalle_sticker||"")}; if(x.crea) o2.d=/director|dise/i.test(String(x.crea)); return o2; });
       if(!hs.length) throw 0;
-      S.seqs.push({name:o.nombre||"Recorrido del Asistente",date:today(),obj:OBJ[o.objetivo]?o.objetivo:cur().obj,h:hs.slice(0,8)}); S.cur=S.seqs.length-1; save(); render(); $("#mPaste").hidden=true; $("#pasteTxt").value=""; toast("¡Recorrido armado! ✦"); }
+      var qc=cur(); if(qc.h.some(function(x){ return x.t.trim(); })&&!confirm("Esto reemplaza las historias de este recorrido. ¿Continuar?")) return; qc.h=hs.slice(0,8); if(OBJ[o.objetivo]) qc.obj=o.objetivo; save(); render(); toast("¡Tus historias están listas! ✦ Revísalas abajo"); setTimeout(function(){ var st=$("#strip"); if(st) st.scrollIntoView({behavior:"smooth",block:"start"}); },150); }
     catch(err){ $("#pasteMsg").textContent="No reconocimos el recorrido. Asegúrate de pegar la caja de código completa que te dio tu Asistente."; }
     return; }
-  if(b.id==="museCopy"){ var qm=cur(); copy("ORDEN DE PUBLICACIÓN\n\nPLATAFORMA: Instagram\nTIPO: historias ("+qm.h.length+", en recorrido)\nFECHA Y HORA: "+qm.date+" a las "+(qm.time||"19:00")+"\nARCHIVOS: adjunto "+qm.h.length+" imágenes o videos, en el mismo orden del recorrido.\n\nTEXTO Y STICKER DE CADA HISTORIA:\n"+qm.h.map(function(x,i){ return (i+1)+". "+(x.t||"(sin texto)")+(x.s!=="Ninguno"?"  · Sticker: "+x.s:""); }).join("\n")+"\n\nMuse, antes de publicar o programar, muéstrame la vista previa de cada historia y espera mi aprobación. No cambies ningún texto.",function(){ toast("Pedido copiado ♡ Pégalo en Muse con tus historias"); }); return; }
-  if(b.id==="briefCopy"){ var q3=cur(); copy("Este es mi recorrido de historias. Prepárame el BRIEF para mi DIRECTOR CREATIVO de las historias que necesitan diseño (formato 1080x1920, 9:16, texto en la zona segura central). Indica en cada una si lleva mi cara.\n\n"+script(q3),function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
+  if(b.id==="museCopy"){ var qm=cur(), n=qm.h.length;
+    var ord="ORDEN DE PUBLICACIÓN\n\nCONTEXTO: Muse, publica estas historias en mi cuenta de Instagram conectada. Son un recorrido de "+n+" historias seguidas que cuentan una sola idea; deben salir en este orden exacto, una detrás de otra.\n\nRECORRIDO: "+qm.name+"\nPLATAFORMA: Instagram · Historias\nFECHA Y HORA: "+qm.date+" a las "+(qm.time||"19:00")+" (mi hora local)\nARCHIVOS: te adjunto "+n+" archivos numerados del 1 al "+n+", en el mismo orden de esta lista.\n\n"+
+      qm.h.map(function(x,i){ return "HISTORIA "+(i+1)+" → archivo "+(i+1)+"\n   Tipo: "+(isD(x)?"diseño terminado (ya trae el texto en la imagen; no agregues texto)":(x.f==="Video a cámara"||x.f==="Detrás de cámaras"||x.f==="Boomerang o clip corto"?"video mío":"foto mía"))+
+        (!isD(x)&&x.t?"\n   Texto para poner encima: \""+x.t+"\"":"")+
+        (x.s!=="Ninguno"?"\n   Sticker: "+x.s+(x.sd?" → "+x.sd:""):"\n   Sticker: ninguno"); }).join("\n\n")+
+      "\n\nREGLAS: no cambies ningún texto, no agregues hashtags ni música si no te lo pido, y respeta el orden. Antes de publicar o programar, muéstrame la vista previa de cada historia y espera mi aprobación.";
+    copy(ord,function(){ toast("Orden copiada ♡ Pégala en Muse con tus "+n+" archivos en orden"); }); return; }
+  if(b.id==="briefCopy"){ var q3=cur(), ds=q3.h.map(function(x,i){ return [x,i]; }).filter(function(p){ return isD(p[0]); });
+    if(!ds.length){ toast("Marca primero qué historias crea tu Director creativo"); return; }
+    copy("Prepárame el BRIEF para mi DIRECTOR CREATIVO solo de estas historias de mi recorrido \""+q3.name+"\" (formato historia 1080x1920, 9:16, texto en la zona segura central). Las demás historias son videos o fotos que grabo yo.\n\nObjetivo: "+OBJ[q3.obj][0]+"\n\n"+ds.map(function(p){ var x=p[0]; return "HISTORIA "+(p[1]+1)+" de "+q3.h.length+" · "+roleName(x.r)+" · "+x.f+"\n   Texto: "+(x.t||"(por escribir)")+(x.s!=="Ninguno"?"\n   Espacio para sticker: "+x.s+(x.sd?" ("+x.sd+")":""):""); }).join("\n\n")+"\n\nIndica en cada una si lleva mi cara. Si lleva sticker, deja libre el espacio donde irá.",function(){ toast("Pedido de BRIEF copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
 });
 document.addEventListener("input",function(e){ var t=e.target, q=cur(); if(!q) return;
   if(t.id==="sName"){ q.name=t.value; save(); var tb=document.querySelector('.tab[aria-selected="true"]'); if(tb) tb.textContent=t.value||"Sin nombre"; return; }
   if(t.id==="sDate"){ q.date=t.value; save(); return; }
   if(t.id==="sTime"){ q.time=t.value; save(); return; }
+  if(t.id==="topic"){ q.topic=t.value; save(); return; }
+  if(t.dataset.k==="sd"){ q.h[+t.dataset.i].sd=t.value; save(); return; }
   if(t.dataset.k==="t"){ var i=+t.dataset.i; q.h[i].t=t.value; var c=$("#c"+i); c.textContent=t.value.length+"/120"; c.classList.toggle("over",t.value.length>120); save(); renderChecks(); }
 });
-document.addEventListener("change",function(e){ var t=e.target, q=cur(); if(!q||!t.dataset.k||t.dataset.k==="t") return; var i=+t.dataset.i; q.h[i][t.dataset.k]=t.value; save(); if(t.dataset.k==="r"){ renderStrip(); } else renderChecks(); });
+document.addEventListener("change",function(e){ var t=e.target, q=cur(); if(!q||!t.dataset.k||t.dataset.k==="t") return; var i=+t.dataset.i; q.h[i][t.dataset.k]=t.value; save(); if(t.dataset.k==="r"||t.dataset.k==="s"){ renderStrip(); } else renderChecks(); });
 document.addEventListener("click",function(e){ var d=e.target.closest(".day"); if(!d||e.target.closest(".ev")) return; S.seqs.push(blank("Nuevo recorrido",d.dataset.day)); S.cur=S.seqs.length-1; save(); setView("seq"); toast("Nuevo recorrido para el "+d.dataset.day); });
 document.addEventListener("keydown",function(e){ if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("day")){ e.preventDefault(); e.target.click(); } if(e.key==="Escape") Array.prototype.forEach.call(document.querySelectorAll(".modal"),function(m){ m.hidden=true; }); });
 
