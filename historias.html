@@ -367,7 +367,7 @@ function start(email,name){ who=email; KEY="pm-historias:"+email.toLowerCase(); 
   if(email!=="demo@local"){ cloud("GET").then(function(r){ if(r&&r.seqs&&r.updatedAt&&r.updatedAt>localTs){ S=r; try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} if(VIEW==="cal") renderCal(); else render(); toast("Tu bitácora se sincronizó ✦"); } else if(S.seqs&&S.seqs.length){ cloud("PUT",S).catch(function(){}); } }).catch(function(){}); } if(name) $("#hello").textContent="Hola, "+name+" ✦ ¿qué vas a contar hoy?"; $("#app").hidden=false; render(); }
 function getAuth(){ try{ return JSON.parse(localStorage.getItem(AKEY)||sessionStorage.getItem(AKEY)); }catch(e){ return null; } }
 var a=getAuth();
-if(/demo/.test(location.search)){ start("demo@local","María"); return; }
+
 if(!a){ $("#lock").hidden=false; return; }
 fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+a.at}}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(u){ start(u.email,(u.user_metadata&&u.user_metadata.full_name)||""); }).catch(function(){
   fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(t){ var na={at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem}; try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify(na)); }catch(e){} return fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+na.at}}).then(function(r){ return r.json(); }); }).then(function(u){ start(u.email,(u.user_metadata&&u.user_metadata.full_name)||""); }).catch(function(){ $("#lock").hidden=false; });

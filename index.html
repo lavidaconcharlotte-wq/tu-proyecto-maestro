@@ -797,7 +797,7 @@ body.demo .cierre{display:none}
 .lp-qs p{margin:0;padding:0 16px 16px;font-size:14.5px;line-height:1.7}
 .lp-tabbar{display:none}
 @media (max-width:1023px){
-  .lp-tabbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(250,246,241,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--champ);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+  .lp-tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(250,246,241,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--champ);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
   .lp-tabbar button,.lp-tabbar a{min-height:52px;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--olive);text-decoration:none;cursor:pointer}
   .lp-tabbar svg{width:22px;height:22px}
   .lp-tabbar .hl{color:var(--vino)}
@@ -842,7 +842,7 @@ body.demo .cierre{display:none}
 .mh-ctas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .mh-ctas .fc-btn{width:auto;padding:0 24px}
 body.mh-open{overflow:hidden}
-.app-tab{z-index:45}
+.app-tab{z-index:45;grid-template-columns:repeat(5,1fr)!important}
 @media (max-width:1023px){ #app main{padding-bottom:80px} }
 @media (min-width:760px){ .mh-hero{grid-template-columns:320px 1fr} .mh-line{grid-auto-flow:column;grid-auto-columns:1fr} .mh-line li{border-left:0;border-top:1px dashed var(--vino);margin:12px 0 0;padding:20px 10px 0 0} .mh-line li::before{left:0;top:-7px} .mh-photos{grid-template-columns:repeat(4,1fr)} .mh-ch{padding:34px 40px 22px} }
 
@@ -944,6 +944,28 @@ body.mh-open{overflow:hidden}
 .how5 div{border:1px solid var(--champ);background:var(--ivory);padding:8px 10px}
 .how5 b{display:block;font-family:var(--disp);font-weight:500;color:var(--vino);font-size:14px}
 .how5 span{font-size:12.5px;line-height:1.5}
+
+/* ===== LÁMINA 07 · PORTAFOLIO ===== */
+.pf-flow{list-style:none;margin:6px 0 18px;padding:0;display:grid;gap:8px}
+.pf-flow li{border:1px solid var(--champ);background:var(--ivory);padding:10px 14px;display:grid;gap:2px}
+.pf-flow b{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:15px}
+.pf-flow span{font-size:13px;line-height:1.5}
+.pf-box{background:var(--paper);border:1px solid var(--champ);padding:18px 16px;box-shadow:0 20px 50px rgba(42,38,36,.06)}
+.pf-mode{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+.pf-mode button{min-height:50px;border:1px solid var(--olive);border-radius:999px;background:transparent;color:var(--olive);font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer}
+.pf-mode button[aria-pressed="true"]{background:var(--olive);color:var(--ivory)}
+.pf-lab{display:block;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin:14px 0 8px}
+.pf-chips{display:flex;flex-wrap:wrap;gap:6px}
+.pf-chips button{min-height:40px;padding:0 13px;border:1px solid var(--champ);border-radius:999px;background:#fff;font-size:12.5px;color:var(--ink);cursor:pointer}
+.pf-chips button[aria-pressed="true"]{background:var(--vino);border-color:var(--vino);color:var(--ivory)}
+#pfPresets button{border-style:dashed;color:var(--vino)}
+.pf-ta,.pf-in{width:100%;border:1px solid var(--champ);border-radius:10px;background:#fff;padding:12px;font:inherit;font-size:14px}
+.pf-ta{min-height:80px;resize:vertical}
+.pf-out{margin-top:16px;border-top:1px dashed var(--champ);padding-top:4px}
+#pfOut{white-space:pre-wrap;word-break:break-word;background:var(--ivory);border:1px solid var(--champ);border-radius:10px;padding:12px;font:12.5px/1.6 ui-monospace,Menlo,monospace;color:var(--ink);max-height:280px;overflow:auto;margin:0 0 12px}
+.pf-rules{margin-top:18px}
+.pf-rules ul{margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.7}
+@media (min-width:900px){ .pf-flow{grid-template-columns:repeat(3,1fr)} .pf-box{padding:24px 26px} .pf-wrap2{display:grid;grid-template-columns:1fr 1fr;gap:20px} }
 /* ---------- fondo: bocetos + acuarela ---------- */
 body{overflow-x:hidden}
 .hero,.intro-sec,.lamina,.entrega,.estudio,.cierre{position:relative;overflow:hidden}
@@ -973,6 +995,7 @@ body{overflow-x:hidden}
   <nav class="lp-tabbar" aria-label="Navegación">
     <button type="button" data-top><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Inicio</button>
     <button type="button" data-gop0 class="hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M5 20l3-9 4 5 3-4 4 8"/></svg>Gratis</button>
+    <a href="/portafolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg>Portafolio</a>
     <button type="button" data-historia><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Mi historia</button>
     <a href="#gLoginT" data-tologin><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Entrar</a>
   </nav>
@@ -1116,6 +1139,7 @@ body{overflow-x:hidden}
       <div><span>04</span><b>Tu contenido con tu voz</b></div>
       <div><span>05</span><b>Tus historias de cada día</b></div>
       <div><span>06</span><b>Tus fotos profesionales</b></div>
+      <div><span>07</span><b>Tu portafolio en foto y video</b></div>
     </div>
   </section>
 
@@ -1242,7 +1266,7 @@ body{overflow-x:hidden}
   <span class="pn">Proyecto Maestro</span>
   <span class="who" id="who"></span>
   <nav class="prog" aria-label="Láminas del proyecto">
-    <a href="#l1" data-p="1" aria-label="Lámina 1">01</a><a href="#l2" data-p="2" aria-label="Lámina 2">02</a><a href="#l3" data-p="3" aria-label="Lámina 3">03</a><a href="#l4" data-p="4" aria-label="Lámina 4">04</a><a href="#l5" data-p="5" aria-label="Lámina 5">05</a><a href="#l6" data-p="6" aria-label="Lámina 6">06</a>
+    <a href="#l1" data-p="1" aria-label="Lámina 1">01</a><a href="#l2" data-p="2" aria-label="Lámina 2">02</a><a href="#l3" data-p="3" aria-label="Lámina 3">03</a><a href="#l4" data-p="4" aria-label="Lámina 4">04</a><a href="#l5" data-p="5" aria-label="Lámina 5">05</a><a href="#l6" data-p="6" aria-label="Lámina 6">06</a><a href="#l7" data-p="7" aria-label="Lámina 7">07</a>
   </nav>
   <button type="button" class="logout dl-top" data-install="auto">Descargar app</button><button type="button" class="logout" id="logoutBtn">Salir</button>
 </header>
@@ -1300,7 +1324,7 @@ body{overflow-x:hidden}
       <div class="plat-pick" role="group" aria-label="Plataforma"><span class="hw">¿dónde vas a construir tu marca?</span><div class="plat-btns"><button type="button" class="plat-btn" data-plat="chatgpt">ChatGPT</button><button type="button" class="plat-btn" data-plat="gemini">Gemini</button></div></div>
       <p>Esta página es tu mesa de trabajo. Aquí copias cada prompt; allá, en <span data-pn>ChatGPT</span>, respondes con tu voz. Cada conversación levanta una parte de la obra.</p>
     </div>
-    <div class="rooms rv"><a class="room" href="#l1"><span class="room-img" style="background-image:url(img/mat-travertino.jpg)"></span><span class="room-n">01</span><span class="eyebrow">Cimientos</span><strong>Manifiesto de marca</strong><span class="room-d">Tu historia, esencia, voz y estilo.</span></a><a class="room" href="#l2"><span class="room-img" style="background-image:url(img/mat-plano.jpg)"></span><span class="room-n">02</span><span class="eyebrow">Estructura</span><strong>Nicho y promesa</strong><span class="room-d">Propósito, visión, nicho y audiencia.</span></a><a class="room" href="#l3"><span class="room-img" style="background-image:url(img/mat-marmol.jpg)"></span><span class="room-n">03</span><span class="eyebrow">Fachada</span><strong>Cerebro de marca</strong><span class="room-d">Tu manual y tu estratega diario.</span></a><a class="room" href="#l4"><span class="room-img" style="background-image:url(img/mat-vino.jpg)"></span><span class="room-n">04</span><span class="eyebrow">Interiores</span><strong>Director creativo</strong><span class="room-d">Tu contenido visual listo.</span></a><a class="room" href="#l5"><span class="room-img" style="background-image:url(img/mat-textil.jpg)"></span><span class="room-n">05</span><span class="eyebrow">Estudio</span><strong>Estudio fotográfico</strong><span class="room-d">Tus fotos profesionales.</span></a><a class="room" href="#l6"><span class="room-img" style="background-image:url(img/mat-laton.jpg)"></span><span class="room-n">06</span><span class="eyebrow">Vida diaria</span><strong>Bitácora de Obra</strong><span class="room-d">Tus historias de cada día.</span></a></div>
+    <div class="rooms rv"><a class="room" href="#l1"><span class="room-img" style="background-image:url(img/mat-travertino.jpg)"></span><span class="room-n">01</span><span class="eyebrow">Cimientos</span><strong>Manifiesto de marca</strong><span class="room-d">Tu historia, esencia, voz y estilo.</span></a><a class="room" href="#l2"><span class="room-img" style="background-image:url(img/mat-plano.jpg)"></span><span class="room-n">02</span><span class="eyebrow">Estructura</span><strong>Nicho y promesa</strong><span class="room-d">Propósito, visión, nicho y audiencia.</span></a><a class="room" href="#l3"><span class="room-img" style="background-image:url(img/mat-marmol.jpg)"></span><span class="room-n">03</span><span class="eyebrow">Fachada</span><strong>Cerebro de marca</strong><span class="room-d">Tu manual y tu estratega diario.</span></a><a class="room" href="#l4"><span class="room-img" style="background-image:url(img/mat-vino.jpg)"></span><span class="room-n">04</span><span class="eyebrow">Interiores</span><strong>Director creativo</strong><span class="room-d">Tu contenido visual listo.</span></a><a class="room" href="#l5"><span class="room-img" style="background-image:url(img/mat-textil.jpg)"></span><span class="room-n">05</span><span class="eyebrow">Estudio</span><strong>Estudio fotográfico</strong><span class="room-d">Tus fotos profesionales.</span></a><a class="room" href="#l6"><span class="room-img" style="background-image:url(img/mat-laton.jpg)"></span><span class="room-n">06</span><span class="eyebrow">Vida diaria</span><strong>Bitácora de Obra</strong><span class="room-d">Tus historias de cada día.</span></a><a class="room" href="#l7"><span class="room-img" style="background-image:url(img/mat-marmol.jpg)"></span><span class="room-n">07</span><span class="eyebrow">Portafolio</span><strong>Fotografía y video</strong><span class="room-d">Tu clon en foto y video.</span></a></div>
     <div class="notes rv">
       <div class="plano-card">
         <svg class="plan" viewBox="0 0 600 420" fill="none" stroke="#6B705C" stroke-opacity="0.35" stroke-width="1.4" aria-hidden="true"><rect x="10" y="10" width="580" height="400" stroke-width="4"/><path d="M10 180 H250 M250 10 V120 M250 160 V300 M250 300 H420 M420 300 V410 M420 10 V200 M420 240 V300 M10 300 H180 M220 300 H250"/><path d="M250 120 A40 40 0 0 1 290 160 M180 300 A40 40 0 0 0 220 340 M420 200 A40 40 0 0 1 460 240" stroke-dasharray="4 4"/><rect x="450" y="40" width="110" height="70"/><circle cx="505" cy="75" r="18"/><rect x="40" y="40" width="160" height="90"/><rect x="290" y="330" width="100" height="50"/><path d="M300 40 h90 v90 h-90 z M300 70 h90 M300 100 h90"/></svg>
@@ -1570,47 +1594,6 @@ body{overflow-x:hidden}
     </footer>
   </div>
 </section>
-
-<section class="lamina" id="l6" data-lamina="6" aria-labelledby="t6">
-  <svg class="sk px" style="left:-6%;bottom:2%;width:112%" viewBox="0 -20 900 460" fill="none" stroke="#6B705C" stroke-opacity="0.15" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M0 380 H900" /><path pathLength="1" d="M60 380 V120 L450 20 L840 120 V380" /><path pathLength="1" d="M60 120 H840" /><path pathLength="1" d="M120 380 V160 M780 380 V160" /><path pathLength="1" d="M300 380 V220 A150 150 0 0 1 600 220 V380" /><path pathLength="1" d="M200 380 h40 v-30 h40 v-30 h40 v-30 h40 v-30" /><path pathLength="1" d="M660 380 V300 H760 V380" /><path pathLength="1" d="M20 420 H880 M20 410 V430 M450 410 V430 M880 410 V430" /><path pathLength="1" d="M450 -10 V60" stroke-dasharray=".02 .02"/></g></svg><svg class="sk px" style="right:-180px;top:0;width:560px" viewBox="0 0 800 500" fill="none" stroke="#5B343B" stroke-opacity="0.1" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M250 150 H550 V350 H250 Z" /><path pathLength="1" d="M0 0 L250 150" /><path pathLength="1" d="M800 0 L550 150" /><path pathLength="1" d="M0 500 L250 350" /><path pathLength="1" d="M800 500 L550 350" /><path pathLength="1" d="M325.0 350 L212.5 500" stroke-opacity=".6"/><path pathLength="1" d="M400.0 350 L400.0 500" stroke-opacity=".6"/><path pathLength="1" d="M475.0 350 L587.5 500" stroke-opacity=".6"/><path pathLength="1" d="M200.0 380 L600.0 380" stroke-opacity=".6"/><path pathLength="1" d="M133.33333333333331 420 L666.6666666666666 420" stroke-opacity=".6"/><path pathLength="1" d="M50.0 470 L750.0 470" stroke-opacity=".6"/><path pathLength="1" d="M340 350 V250 A60 60 0 0 1 460 250 V350" /><path pathLength="1" d="M400 0 V120 M370 140 C 372 115, 428 115, 430 140 Z" /><path pathLength="1" d="M620 470 C 640 420, 660 380, 700 340 M650 410 C 670 400, 690 400, 700 390 M640 430 C 620 420, 610 405, 612 395" /><path pathLength="1" d="M392 250 L408 250" /><path pathLength="1" d="M400 242 L400 258" /></g></svg><svg class="wc " style="left:-120px;top:10%;width:480px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.26" filter="url(#wc)"/></svg><svg class="wc " style="right:-120px;bottom:-40px;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#E9DFC9" fill-opacity="0.7" filter="url(#wc)"/></svg>
-  <div class="sheet">
-    <div class="corner-marks" aria-hidden="true"></div>
-    <header class="lh">
-      <div class="num" aria-hidden="true">06</div>
-      <div>
-        <p class="eyebrow">Lámina 06 · Vida diaria</p>
-        <h2 id="t6">Tu Bitácora de Obra</h2>
-        <p class="intro">Tu marca ya tiene esencia, equipo y fotos. Ahora tiene que conectar todos los días. Aquí planificas tus historias, las creas con tu Asistente, las diseñas y las programas.</p>
-      </div>
-    </header>
-    <div class="lgrid">
-      <aside class="discover">
-        <p class="hw-title">lo que vas a lograr</p>
-        <ul class="matlist"><li><span class="dot" style="background-image:url(img/mat-laton.jpg)"></span><span class="hw">tu calendario</span></li><li><span class="dot" style="background-image:url(img/mat-plano.jpg)"></span><span class="hw">tus recorridos de obra</span></li><li><span class="dot" style="background-image:url(img/mat-vino.jpg)"></span><span class="hw">tus historias con objetivo</span></li><li><span class="dot" style="background-image:url(img/mat-arco.jpg)"></span><span class="hw">tu publicación con Muse</span></li></ul>
-        <div class="swatches" aria-hidden="true"><figure><span style="background-image:url(img/mat-laton.jpg)"></span><figcaption>latón</figcaption></figure><figure><span style="background-image:url(img/mat-plano.jpg)"></span><figcaption>plano</figcaption></figure></div>
-      </aside>
-      <div class="visual">
-        <div class="wash w1"></div><div class="wash w2"></div>
-        <svg class="arches" viewBox="0 0 240 300" preserveAspectRatio="xMidYMid meet" overflow="visible" fill="none" stroke="#D9C7A6" stroke-width="1" aria-hidden="true"><path d="M32 300 V150 A88 88 0 0 1 208 150 V300"/><path d="M23 300 V150 A97 97 0 0 1 217 150 V300"/><path d="M14 300 V150 A106 106 0 0 1 226 150 V300"/><path d="M5 300 V150 A115 115 0 0 1 235 150 V300"/><path d="M-4 300 V150 A124 124 0 0 1 244 150 V300"/></svg>
-        <figure class="arch-photo"><img src="img/laura-planos.jpg" alt="Laura Tovar" style="object-position:center 20%"></figure>
-        <svg class="lamp" width="70" viewBox="0 0 70 110" fill="none" stroke="#6B705C" stroke-width="1.2" aria-hidden="true"><path d="M35 0 V62"/><path d="M8 92 C 10 70, 60 70, 62 92 Z" fill="#D9C7A6" fill-opacity=".35"/><path d="M28 92 a7 5 0 0 0 14 0"/></svg>
-        <div class="ann a1"><span class="hw">una historia suelta entretiene</span><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#5B343B" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M100 8 C 70 40, 40 50, 8 60 M18 50 L7 60 L20 66"/></svg></div>
-        <div class="ann a2"><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#6B705C" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 8 C 30 40, 60 50, 100 56 M88 46 L101 56 L88 64"/></svg><span class="hw">un recorrido conecta</span></div>
-        <svg class="sprig" width="170" viewBox="0 0 160 80" fill="none" stroke="#6B705C" stroke-width="1.1" aria-hidden="true"><g transform="scale(-1,1) translate(-160,0)"><path d="M10 72 C 50 50, 90 26, 150 10"/><g fill="#6B705C" fill-opacity=".18"><ellipse cx="30" cy="52" rx="11" ry="4.5" transform="rotate(-35 30 52)"/><ellipse cx="42" cy="38" rx="11" ry="4.5" transform="rotate(-50 42 38)"/><ellipse cx="56" cy="30" rx="11" ry="4.5" transform="rotate(-20 56 30)"/><ellipse cx="70" cy="22" rx="11" ry="4.5" transform="rotate(-45 70 22)"/><ellipse cx="86" cy="18" rx="11" ry="4.5" transform="rotate(-15 86 18)"/><ellipse cx="100" cy="14" rx="11" ry="4.5" transform="rotate(-40 100 14)"/><ellipse cx="116" cy="12" rx="11" ry="4.5" transform="rotate(-10 116 12)"/><ellipse cx="38" cy="64" rx="11" ry="4.5" transform="rotate(30 38 64)"/><ellipse cx="54" cy="50" rx="11" ry="4.5" transform="rotate(25 54 50)"/><ellipse cx="72" cy="40" rx="11" ry="4.5" transform="rotate(35 72 40)"/><ellipse cx="90" cy="34" rx="11" ry="4.5" transform="rotate(20 90 34)"/><ellipse cx="108" cy="28" rx="11" ry="4.5" transform="rotate(30 108 28)"/><ellipse cx="126" cy="24" rx="11" ry="4.5" transform="rotate(15 126 24)"/></g></g></svg>
-      </div>
-      <div class="steps">
-        <p class="hw-title">cómo se usa</p>
-        <ol><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Abre tu Bitácora</h3><p>Tu calendario y tus historias viven en un solo lugar, guardados en tu cuenta.</p><a class="btn primary" href="/historias" id="l6Go"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Abrir mi Bitácora de Obra</span></a></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Crea un recorrido de obra</h3><p>Un recorrido es una serie de historias seguidas que cuentan una sola idea: gancho, contexto, valor, prueba y cierre. Elige el día, la hora y su objetivo: alcance, conexión, autoridad o venta.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Llénalo con tu Asistente</h3><p>Toca <strong>Pedir recorrido</strong>, pégalo en tu ASISTENTE y luego <strong>Pegar recorrido</strong>: se arma solo, con tu voz. También puedes empezar desde una plantilla, como <em>Historia real</em>.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Diseña y programa</h3><p>Pide el <strong>BRIEF</strong> para que tu Director Creativo diseñe tus historias, y prográmalas con Muse o Meta Business Suite.</p></div></li></ol>
-      </div>
-    </div>
-    <footer class="lfoot">
-      <p class="quote">Una historia suelta entretiene. Un recorrido conecta.</p>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>06 · Vida diaria</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
-    </footer>
-  </div>
-</section>
-
-<!-- ============ ENTREGA ============ -->
 <section class="entrega" id="entrega">
   <svg class="sk px" style="left:-4%;bottom:-2%;width:108%" viewBox="0 -20 900 460" fill="none" stroke="#6B705C" stroke-opacity="0.14" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M0 380 H900" /><path pathLength="1" d="M60 380 V120 L450 20 L840 120 V380" /><path pathLength="1" d="M60 120 H840" /><path pathLength="1" d="M120 380 V160 M780 380 V160" /><path pathLength="1" d="M300 380 V220 A150 150 0 0 1 600 220 V380" /><path pathLength="1" d="M200 380 h40 v-30 h40 v-30 h40 v-30 h40 v-30" /><path pathLength="1" d="M660 380 V300 H760 V380" /><path pathLength="1" d="M20 420 H880 M20 410 V430 M450 410 V430 M880 410 V430" /><path pathLength="1" d="M450 -10 V60" stroke-dasharray=".02 .02"/></g></svg><svg class="wc " style="right:-140px;top:0;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#D9C7A6" fill-opacity="0.5" filter="url(#wc)"/></svg><svg class="wc " style="left:-160px;bottom:0;width:480px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.24" filter="url(#wc)"/></svg>
   <div class="wrap">
@@ -1693,6 +1676,86 @@ body{overflow-x:hidden}
 <!-- ============ CIERRE + CTA ============ -->
 
 
+
+<section class="lamina" id="l6" data-lamina="6" aria-labelledby="t6">
+  <svg class="sk px" style="left:-6%;bottom:2%;width:112%" viewBox="0 -20 900 460" fill="none" stroke="#6B705C" stroke-opacity="0.15" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M0 380 H900" /><path pathLength="1" d="M60 380 V120 L450 20 L840 120 V380" /><path pathLength="1" d="M60 120 H840" /><path pathLength="1" d="M120 380 V160 M780 380 V160" /><path pathLength="1" d="M300 380 V220 A150 150 0 0 1 600 220 V380" /><path pathLength="1" d="M200 380 h40 v-30 h40 v-30 h40 v-30 h40 v-30" /><path pathLength="1" d="M660 380 V300 H760 V380" /><path pathLength="1" d="M20 420 H880 M20 410 V430 M450 410 V430 M880 410 V430" /><path pathLength="1" d="M450 -10 V60" stroke-dasharray=".02 .02"/></g></svg><svg class="sk px" style="right:-180px;top:0;width:560px" viewBox="0 0 800 500" fill="none" stroke="#5B343B" stroke-opacity="0.1" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M250 150 H550 V350 H250 Z" /><path pathLength="1" d="M0 0 L250 150" /><path pathLength="1" d="M800 0 L550 150" /><path pathLength="1" d="M0 500 L250 350" /><path pathLength="1" d="M800 500 L550 350" /><path pathLength="1" d="M325.0 350 L212.5 500" stroke-opacity=".6"/><path pathLength="1" d="M400.0 350 L400.0 500" stroke-opacity=".6"/><path pathLength="1" d="M475.0 350 L587.5 500" stroke-opacity=".6"/><path pathLength="1" d="M200.0 380 L600.0 380" stroke-opacity=".6"/><path pathLength="1" d="M133.33333333333331 420 L666.6666666666666 420" stroke-opacity=".6"/><path pathLength="1" d="M50.0 470 L750.0 470" stroke-opacity=".6"/><path pathLength="1" d="M340 350 V250 A60 60 0 0 1 460 250 V350" /><path pathLength="1" d="M400 0 V120 M370 140 C 372 115, 428 115, 430 140 Z" /><path pathLength="1" d="M620 470 C 640 420, 660 380, 700 340 M650 410 C 670 400, 690 400, 700 390 M640 430 C 620 420, 610 405, 612 395" /><path pathLength="1" d="M392 250 L408 250" /><path pathLength="1" d="M400 242 L400 258" /></g></svg><svg class="wc " style="left:-120px;top:10%;width:480px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.26" filter="url(#wc)"/></svg><svg class="wc " style="right:-120px;bottom:-40px;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#E9DFC9" fill-opacity="0.7" filter="url(#wc)"/></svg>
+  <div class="sheet">
+    <div class="corner-marks" aria-hidden="true"></div>
+    <header class="lh">
+      <div class="num" aria-hidden="true">06</div>
+      <div>
+        <p class="eyebrow">Lámina 06 · Vida diaria</p>
+        <h2 id="t6">Tu Bitácora de Obra</h2>
+        <p class="intro">Tu marca ya tiene esencia, equipo y fotos. Ahora tiene que conectar todos los días. Aquí planificas tus historias, las creas con tu Asistente, las diseñas y las programas.</p>
+      </div>
+    </header>
+    <div class="lgrid">
+      <aside class="discover">
+        <p class="hw-title">lo que vas a lograr</p>
+        <ul class="matlist"><li><span class="dot" style="background-image:url(img/mat-laton.jpg)"></span><span class="hw">tu calendario</span></li><li><span class="dot" style="background-image:url(img/mat-plano.jpg)"></span><span class="hw">tus recorridos de obra</span></li><li><span class="dot" style="background-image:url(img/mat-vino.jpg)"></span><span class="hw">tus historias con objetivo</span></li><li><span class="dot" style="background-image:url(img/mat-arco.jpg)"></span><span class="hw">tu publicación con Muse</span></li></ul>
+        <div class="swatches" aria-hidden="true"><figure><span style="background-image:url(img/mat-laton.jpg)"></span><figcaption>latón</figcaption></figure><figure><span style="background-image:url(img/mat-plano.jpg)"></span><figcaption>plano</figcaption></figure></div>
+      </aside>
+      <div class="visual">
+        <div class="wash w1"></div><div class="wash w2"></div>
+        <svg class="arches" viewBox="0 0 240 300" preserveAspectRatio="xMidYMid meet" overflow="visible" fill="none" stroke="#D9C7A6" stroke-width="1" aria-hidden="true"><path d="M32 300 V150 A88 88 0 0 1 208 150 V300"/><path d="M23 300 V150 A97 97 0 0 1 217 150 V300"/><path d="M14 300 V150 A106 106 0 0 1 226 150 V300"/><path d="M5 300 V150 A115 115 0 0 1 235 150 V300"/><path d="M-4 300 V150 A124 124 0 0 1 244 150 V300"/></svg>
+        <figure class="arch-photo"><img src="img/laura-planos.jpg" alt="Laura Tovar" style="object-position:center 20%"></figure>
+        <svg class="lamp" width="70" viewBox="0 0 70 110" fill="none" stroke="#6B705C" stroke-width="1.2" aria-hidden="true"><path d="M35 0 V62"/><path d="M8 92 C 10 70, 60 70, 62 92 Z" fill="#D9C7A6" fill-opacity=".35"/><path d="M28 92 a7 5 0 0 0 14 0"/></svg>
+        <div class="ann a1"><span class="hw">una historia suelta entretiene</span><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#5B343B" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M100 8 C 70 40, 40 50, 8 60 M18 50 L7 60 L20 66"/></svg></div>
+        <div class="ann a2"><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#6B705C" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 8 C 30 40, 60 50, 100 56 M88 46 L101 56 L88 64"/></svg><span class="hw">un recorrido conecta</span></div>
+        <svg class="sprig" width="170" viewBox="0 0 160 80" fill="none" stroke="#6B705C" stroke-width="1.1" aria-hidden="true"><g transform="scale(-1,1) translate(-160,0)"><path d="M10 72 C 50 50, 90 26, 150 10"/><g fill="#6B705C" fill-opacity=".18"><ellipse cx="30" cy="52" rx="11" ry="4.5" transform="rotate(-35 30 52)"/><ellipse cx="42" cy="38" rx="11" ry="4.5" transform="rotate(-50 42 38)"/><ellipse cx="56" cy="30" rx="11" ry="4.5" transform="rotate(-20 56 30)"/><ellipse cx="70" cy="22" rx="11" ry="4.5" transform="rotate(-45 70 22)"/><ellipse cx="86" cy="18" rx="11" ry="4.5" transform="rotate(-15 86 18)"/><ellipse cx="100" cy="14" rx="11" ry="4.5" transform="rotate(-40 100 14)"/><ellipse cx="116" cy="12" rx="11" ry="4.5" transform="rotate(-10 116 12)"/><ellipse cx="38" cy="64" rx="11" ry="4.5" transform="rotate(30 38 64)"/><ellipse cx="54" cy="50" rx="11" ry="4.5" transform="rotate(25 54 50)"/><ellipse cx="72" cy="40" rx="11" ry="4.5" transform="rotate(35 72 40)"/><ellipse cx="90" cy="34" rx="11" ry="4.5" transform="rotate(20 90 34)"/><ellipse cx="108" cy="28" rx="11" ry="4.5" transform="rotate(30 108 28)"/><ellipse cx="126" cy="24" rx="11" ry="4.5" transform="rotate(15 126 24)"/></g></g></svg>
+      </div>
+      <div class="steps">
+        <p class="hw-title">cómo se usa</p>
+        <ol><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Abre tu Bitácora</h3><p>Tu calendario y tus historias viven en un solo lugar, guardados en tu cuenta.</p><a class="btn primary" href="/historias" id="l6Go"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Abrir mi Bitácora de Obra</span></a></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Crea un recorrido de obra</h3><p>Un recorrido es una serie de historias seguidas que cuentan una sola idea: gancho, contexto, valor, prueba y cierre. Elige el día, la hora y su objetivo: alcance, conexión, autoridad o venta.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Llénalo con tu Asistente</h3><p>Toca <strong>Pedir recorrido</strong>, pégalo en tu ASISTENTE y luego <strong>Pegar recorrido</strong>: se arma solo, con tu voz. También puedes empezar desde una plantilla, como <em>Historia real</em>.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Diseña y programa</h3><p>Pide el <strong>BRIEF</strong> para que tu Director Creativo diseñe tus historias, y prográmalas con Muse o Meta Business Suite.</p></div></li></ol>
+      </div>
+    </div>
+    <footer class="lfoot">
+      <p class="quote">Una historia suelta entretiene. Un recorrido conecta.</p>
+      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>06 · Vida diaria</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+    </footer>
+  </div>
+</section>
+
+<section class="lamina" id="l7" data-lamina="7" aria-labelledby="t7">
+  <svg class="sk px" style="left:-8%;top:10%;width:116%" viewBox="-40 -40 880 580" fill="none" stroke="#6B705C" stroke-opacity="0.14" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M-20 420 L820 420" /><path pathLength="1" d="M40 -10 L40 440" /><path pathLength="1" d="M760 -10 L760 440" /><path pathLength="1" d="M30 90 H770 M30 110 H770" /><path pathLength="1" d="M90 420 V230 A100.0 100.0 0 0 1 290 230 V420" /><path pathLength="1" d="M104 420 V236 A86.0 86.0 0 0 1 276 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M190.0 130 L190.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M300 420 V230 A100.0 100.0 0 0 1 500 230 V420" /><path pathLength="1" d="M314 420 V236 A86.0 86.0 0 0 1 486 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M400.0 130 L400.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M510 420 V230 A100.0 100.0 0 0 1 710 230 V420" /><path pathLength="1" d="M524 420 V236 A86.0 86.0 0 0 1 696 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M610.0 130 L610.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M60 420 V120 M82 420 V120" /><path pathLength="1" d="M290 420 V120 M312 420 V120" /><path pathLength="1" d="M500 420 V120 M522 420 V120" /><path pathLength="1" d="M710 420 V120 M732 420 V120" /><path pathLength="1" d="M40 470 H760 M40 460 V480 M760 460 V480" /><path pathLength="1" d="M400 -30 V60" /><circle pathLength="1" cx="190" cy="500" r="14"/><path pathLength="1" d="M190 486 L190 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="400" cy="500" r="14"/><path pathLength="1" d="M400 486 L400 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="610" cy="500" r="14"/><path pathLength="1" d="M610 486 L610 440" stroke-dasharray=".02 .03"/><text x="190" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.22400000000000003" stroke="none" text-anchor="middle">A</text><text x="400" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.22400000000000003" stroke="none" text-anchor="middle">B</text><text x="610" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.22400000000000003" stroke="none" text-anchor="middle">C</text></g></svg><svg class="wc " style="right:-120px;top:20%;width:460px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#5B343B" fill-opacity="0.16" filter="url(#wc)"/></svg><svg class="wc " style="left:-140px;bottom:-40px;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#D9C7A6" fill-opacity="0.5" filter="url(#wc)"/></svg>
+  <div class="sheet">
+    <div class="corner-marks" aria-hidden="true"></div>
+    <header class="lh">
+      <div class="num" aria-hidden="true">07</div>
+      <div>
+        <p class="eyebrow">Lámina 07 · Portafolio</p>
+        <h2 id="t7">Fotografía y video con tu clon</h2>
+        <p class="intro">Crea fotos y videos de 8 segundos de ti, hiperrealistas y con movimientos naturales, como si los hubieras grabado tú. Trabaja con tu Director Creativo y tu Estudio Fotográfico.</p>
+      </div>
+    </header>
+    <div class="lgrid">
+      <aside class="discover">
+        <p class="hw-title">lo que vas a crear</p>
+        <ul class="matlist"><li><span class="dot" style="background-image:url(img/mat-marmol.jpg)"></span><span class="hw">tus fotos hiperrealistas</span></li><li><span class="dot" style="background-image:url(img/mat-vino.jpg)"></span><span class="hw">tus videos de 8 segundos</span></li><li><span class="dot" style="background-image:url(img/mat-laton.jpg)"></span><span class="hw">tus UGC para marcas</span></li><li><span class="dot" style="background-image:url(img/mat-arco.jpg)"></span><span class="hw">tu portafolio completo</span></li></ul>
+        <div class="swatches" aria-hidden="true"><figure><span style="background-image:url(img/mat-marmol.jpg)"></span><figcaption>mármol</figcaption></figure><figure><span style="background-image:url(img/mat-vino.jpg)"></span><figcaption>vino</figcaption></figure></div>
+      </aside>
+      <div class="visual">
+        <div class="wash w1"></div><div class="wash w2"></div>
+        <svg class="arches" viewBox="0 0 240 300" preserveAspectRatio="xMidYMid meet" overflow="visible" fill="none" stroke="#D9C7A6" stroke-width="1" aria-hidden="true"><path d="M32 300 V150 A88 88 0 0 1 208 150 V300"/><path d="M23 300 V150 A97 97 0 0 1 217 150 V300"/><path d="M14 300 V150 A106 106 0 0 1 226 150 V300"/><path d="M5 300 V150 A115 115 0 0 1 235 150 V300"/><path d="M-4 300 V150 A124 124 0 0 1 244 150 V300"/></svg>
+        <figure class="arch-photo"><img src="img/pf-hero.jpg" alt="Laura Tovar con una cámara" style="object-position:center 22%"></figure>
+        <div class="ann a1"><span class="hw">sin sesión de fotos</span><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#5B343B" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M100 8 C 70 40, 40 50, 8 60 M18 50 L7 60 L20 66"/></svg></div>
+        <div class="ann a2"><svg class="arr" width="110" height="70" viewBox="0 0 110 70" fill="none" stroke="#6B705C" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M8 8 C 30 40, 60 50, 100 56 M88 46 L101 56 L88 64"/></svg><span class="hw">tu clon, tu dirección</span></div>
+        <svg class="sprig" width="170" viewBox="0 0 160 80" fill="none" stroke="#6B705C" stroke-width="1.1" aria-hidden="true"><g transform="scale(-1,1) translate(-160,0)"><path d="M10 72 C 50 50, 90 26, 150 10"/><g fill="#6B705C" fill-opacity=".18"><ellipse cx="30" cy="52" rx="11" ry="4.5" transform="rotate(-35 30 52)"/><ellipse cx="42" cy="38" rx="11" ry="4.5" transform="rotate(-50 42 38)"/><ellipse cx="56" cy="30" rx="11" ry="4.5" transform="rotate(-20 56 30)"/><ellipse cx="70" cy="22" rx="11" ry="4.5" transform="rotate(-45 70 22)"/><ellipse cx="86" cy="18" rx="11" ry="4.5" transform="rotate(-15 86 18)"/><ellipse cx="100" cy="14" rx="11" ry="4.5" transform="rotate(-40 100 14)"/><ellipse cx="116" cy="12" rx="11" ry="4.5" transform="rotate(-10 116 12)"/><ellipse cx="38" cy="64" rx="11" ry="4.5" transform="rotate(30 38 64)"/><ellipse cx="54" cy="50" rx="11" ry="4.5" transform="rotate(25 54 50)"/><ellipse cx="72" cy="40" rx="11" ry="4.5" transform="rotate(35 72 40)"/><ellipse cx="90" cy="34" rx="11" ry="4.5" transform="rotate(20 90 34)"/><ellipse cx="108" cy="28" rx="11" ry="4.5" transform="rotate(30 108 28)"/><ellipse cx="126" cy="24" rx="11" ry="4.5" transform="rotate(15 126 24)"/></g></g></svg>
+      </div>
+      <div class="steps">
+        <p class="hw-title">cómo se usa</p>
+        <ol><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Abre tu Portafolio</h3><p>Elige foto o video de 8 segundos y toca las opciones: para qué es, quién aparece, locación, luz, vestuario y estilo de cámara.</p><a class="btn primary" href="/portafolio" id="l7Go"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Abrir mi Portafolio</span></a></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Pégalo en tu Director Creativo</h3><p>Tu pedido se escribe solo. Tu Director, que conoce tu marca y tu esencia, te devuelve el prompt final.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Produce tu video</h3><p>Pega el prompt en Higgsfield, Kling AI o Google Flow junto con tu <strong>foto maestra</strong>.</p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Produce tu foto</h3><p>Lleva el prompt a tu <strong>Estudio Fotográfico</strong> junto con tus fotos de identidad.</p></div></li></ol>
+      </div>
+    </div>
+    <footer class="lfoot">
+      <p class="quote">Tu mejor portafolio no depende de una sesión: depende de tu dirección.</p>
+      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>07 · Portafolio</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+    </footer>
+  </div>
+</section>
+
+
+<!-- ============ ENTREGA ============ -->
 <section class="demo-cta" id="demoCta" aria-label="Inicia tu Proyecto Maestro">
   <div class="wrap">
     <p class="eyebrow">Fin de la vista previa</p>
@@ -1741,6 +1804,7 @@ body{overflow-x:hidden}
 <nav class="lp-tabbar app-tab" aria-label="Navegación de la app">
   <button type="button" data-top><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Mi obra</button>
   <a href="/historias" class="hl" id="tabBit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Bitácora</a>
+  <a href="/portafolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg>Portafolio</a>
   <button type="button" data-historia><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Mi historia</button>
   <button type="button" data-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></svg>Salir</button>
 </nav>
@@ -2637,6 +2701,37 @@ FOTOGRAFÍAS DE LA PERSONA
 Si un diseño necesita una fotografía profesional de la persona y no la tiene, sugiérele producirla primero en su ESTUDIO FOTOGRÁFICO y luego traerla aquí. Usa sus fotos reales tal como son: no cambies su rostro ni su cuerpo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━
+PORTAFOLIO: FOTOS Y VIDEOS CON MI CLON
+━━━━━━━━━━━━━━━━━━━━━━━
+
+También eres mi director de fotografía y de video. Conoces mi marca y mi esencia, así que conviertes mis ideas en prompts finales hiperrealistas. Si te pego un mensaje que empieza con "PEDIDO DE PORTAFOLIO", trabaja así:
+
+DIRECCIÓN VISUAL (SIEMPRE)
+- Hiperrealista y cinematográfica, con detalle tipo 8K, aunque el estilo sea "grabado con celular".
+- Piel real: poros, vello fino, pecas, textura de labios; cejas y pestañas con hebras individuales; cabello con mechones naturales.
+- Una luz con dirección y sombras coherentes; nada de luz plana ni piel de plástico.
+- Mi identidad exacta: misma cara, mismas proporciones, piercings, lunares y tatuajes del lado correcto. No embellecer, no adelgazar, no rejuvenecer.
+- Con mis hijos: solo escenas familiares y cotidianas, respetando su edad y sus rasgos reales.
+- Nunca testimonios, resultados ni opiniones inventadas: solo mi experiencia real.
+
+SI ES VIDEO DE 8 SEGUNDOS
+Entrega, dentro de un único bloque de código, el PROMPT FINAL EN INGLÉS listo para pegar en la plataforma elegida (Higgsfield, Kling AI, Google Flow/Veo u otra), con:
+- Sujeto e identidad: "the exact person from the reference image", sin describir mi cara con palabras.
+- Escena, vestuario, locación y luz.
+- Cámara: estilo (smartphone handheld UGC o cinematic), lente, movimiento.
+- Línea de tiempo: 0–2 s (gancho), 2–6 s (acción), 6–8 s (cierre).
+- Diálogo: si hablo, la frase exacta entre comillas, en mi idioma, con sincronía de labios natural; si no, sonido ambiente.
+- Naturalidad: parpadeo, respiración, microgestos, manos y dedos correctos, sin deformaciones ni cambios de rostro.
+- Prohibiciones: no beauty filter, no plastic skin, no morphing, no extra fingers, no subtitles or text unless I ask.
+Fuera del bloque, dame la configuración recomendada (duración 8 s, formato, calidad máxima) y recuérdame subir mi FOTO MAESTRA como imagen de referencia o primer cuadro.
+
+SI ES FOTO
+No la generes tú. Entrégame, dentro de un único bloque de código, un mensaje que empiece con "PROMPT PARA ESTUDIO FOTOGRÁFICO", con la escena completa (plano, ángulo, lente, luz, locación, vestuario, pose, expresión, formato y uso), para que lo pegue en mi ESTUDIO FOTOGRÁFICO junto con mis fotos de identidad.
+
+MI FOTO MAESTRA
+Si todavía no tengo una foto maestra (un retrato mío de frente, nítido, con luz neutra, que sirve de referencia para todos mis videos), pídemela producir primero en mi ESTUDIO FOTOGRÁFICO.
+
+━━━━━━━━━━━━━━━━━━━━━━━
 SI RECIBES UN BRIEF DEL ASISTENTE
 ━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -2697,6 +2792,8 @@ Cuando te pida una foto, entiende primero:
 - Formato final: 4:5 (feed), 9:16 (historia o reel), 1:1, 16:9 (YouTube o web).
 - Si traigo una foto de inspiración o si la diseñamos desde cero.
 Si recibes un mensaje que empieza con "PEDIDO PARA ESTUDIO FOTOGRÁFICO" (viene de mi Asistente), úsalo como brief y pasa directo al Paso 2.
+Si recibes un mensaje que empieza con "PROMPT PARA ESTUDIO FOTOGRÁFICO" (viene de mi DIRECTOR CREATIVO), esa es la escena aprobada: pasa directo al Paso 3 (diagnóstico de identidad) y luego produce la foto.
+Si te pido mi FOTO MAESTRA, produce un retrato mío de frente, nítido, a la altura de los ojos, con luz neutra y suave, fondo liso y expresión natural: será la referencia de todos mis videos.
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 PASO 2 · ANÁLISIS DE LA REFERENCIA
@@ -2904,7 +3001,7 @@ function px(){ tick=false; var vh=window.innerHeight; sks.forEach(function(el,i)
 if(!reduce){ window.addEventListener("scroll",function(){ if(!tick){ tick=true; requestAnimationFrame(px); } },{passive:true}); px(); }
 // reveal + current lamina
 var io=("IntersectionObserver" in window)? new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); } }); },{threshold:.12}) : null;
-$$(".rv,.lamina,.intro-sec,.entrega,.estudio,.l5,.l6,.cierre").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
+$$(".rv,.lamina,.intro-sec,.entrega,.estudio,.l5,.l6,.pf,.cierre").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
 if("IntersectionObserver" in window){
   var cur=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ var n=en.target.dataset.lamina; $$(".prog a").forEach(function(a){ a.classList.toggle("cur",a.dataset.p===n); }); } }); },{rootMargin:"-45% 0px -50% 0px"});
   $$(".lamina").forEach(function(l){ cur.observe(l); });
@@ -3029,6 +3126,8 @@ else if("IntersectionObserver" in window&&house){ new IntersectionObserver(funct
 else play();
 })();
 </script>
+
+
 <script>
 (function(){
 "use strict";
