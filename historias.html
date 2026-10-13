@@ -149,6 +149,29 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 .st-o{margin-top:4px}
 .st-c{display:grid;grid-template-columns:42px minmax(0,1fr);gap:6px}
 .st-c input[type=color]{width:42px;height:42px;border:0;border-radius:10px;padding:2px;background:var(--ivory)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:440px;border:1.5px solid var(--vino);border-radius:999px;overflow:hidden;margin:16px 0 14px}
+.modes button{min-height:52px;border:0;background:transparent;font-family:var(--disp);font-size:17px;letter-spacing:.06em;color:var(--vino)}
+.modes button[aria-pressed="true"]{background:var(--vino);color:var(--ivory)}
+.lab-s{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);margin:6px 0 8px}
+.brand{border:1px solid var(--champ);background:var(--ivory);border-radius:10px;padding:0 14px;margin:14px 0 4px}
+.brand summary{cursor:pointer;list-style:none;padding:14px 0;font-family:var(--disp);color:var(--vino);font-size:16px}
+.brand summary::-webkit-details-marker{display:none}
+.brand summary small{display:block;font-family:var(--sans);font-size:11px;color:var(--olive);letter-spacing:.04em;margin-top:3px}
+.brand p{font-size:13px;line-height:1.6;margin:0 0 10px}
+.brand textarea{width:100%;min-height:90px;border:1px solid var(--champ);border-radius:10px;padding:10px;font:12.5px/1.5 ui-monospace,Menlo,monospace;margin-bottom:10px;background:#fff}
+.bf{display:grid;gap:8px;margin:14px 0}
+.bf label{display:grid;gap:4px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.bf input{min-height:42px;border:1px solid var(--champ);border-radius:10px;padding:0 10px;font-size:13px;letter-spacing:0;text-transform:none;font-weight:400;background:#fff;color:var(--ink)}
+.hooks{display:grid;gap:6px;margin:0 0 12px}
+.hook{text-align:left;border:1px dashed rgba(250,246,241,.6);background:rgba(250,246,241,.08);color:var(--ivory);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.45;font-family:var(--disp)}
+.ideas{margin:0 0 14px;padding-left:18px;font-size:13px;line-height:1.7;color:#F2ECE1}
+.ev.post{background:var(--paper);color:var(--vino);border:1px solid var(--vino)}
+.ev.post.st-pub{background:var(--olive);color:var(--ivory);border-color:var(--olive)}
+.gsync{margin:16px 0 4px;border:1px solid var(--champ);border-left:3px solid var(--vino);background:var(--paper);padding:16px}
+.gsync h3{font-family:var(--disp);font-weight:500;color:var(--vino);margin:0 0 6px;font-size:18px}
+.gsync p{font-size:13px;line-height:1.6;margin:0 0 10px}
+.gsync .mini{font-size:12px;color:var(--olive);margin:10px 0 0}
+#ppane .row{display:flex;flex-wrap:wrap;gap:8px}
 .flow{margin:18px 0 22px;background:var(--olive);color:var(--ivory);padding:22px 18px 10px;border-radius:4px}
 .fl-ey{margin:0;font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--sand)}
 .fl-h{font-family:var(--disp);font-weight:500;font-size:clamp(22px,4.6vw,30px);line-height:1.15;margin:6px 0 16px;color:var(--ivory)}
@@ -206,18 +229,24 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 </div>
 
 <main id="app" hidden>
-  <p class="eyebrow">Lámina 05 · Planificador de historias · Recorridos de obra</p>
+  <p class="eyebrow">Láminas 06 y 08 · Historias y contenido</p>
   <h1>Bitácora de Obra</h1>
-  <p class="lead">Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.</p>
+  <div class="modes" role="group" aria-label="Sección"><button type="button" data-mode="hist" aria-pressed="true">Historias</button><button type="button" data-mode="cont" aria-pressed="false">Contenido</button></div>
+  <p class="lead" id="modeLead">Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.</p>
   <p class="hw" id="hello"></p>
   
-  <div class="views" role="group" aria-label="Vista"><button type="button" data-view="seq" aria-pressed="true">Recorridos</button><button type="button" data-view="cal" aria-pressed="false">Calendario</button></div>
+  <div class="views" role="group" aria-label="Vista"><button type="button" data-view="seq" aria-pressed="true">Planificar</button><button type="button" data-view="cal" aria-pressed="false">Calendario</button></div>
 
   <section class="board" id="calBoard" hidden aria-label="Calendario"><div class="cal" id="cal"></div></section>
   <section class="board" id="seqBoard" aria-label="Recorridos">
     <div class="tabs" id="tabs" role="tablist"></div>
     <div class="pane" id="pane"></div>
     <div class="foot"><span>Planificador de historias</span><span id="saved">Guardado en este dispositivo</span></div>
+  </section>
+  <section class="board" id="postBoard" hidden aria-label="Contenido">
+    <div class="tabs" id="ptabs" role="tablist"></div>
+    <div class="pane" id="ppane"></div>
+    <div class="foot"><span>Taller de contenido</span><span>Guardado en tu cuenta</span></div>
   </section>
 </main>
 
@@ -291,7 +320,7 @@ function render(){
   if(!S.seqs.length){ S.seqs.push(blank("Mi primer recorrido")); S.cur=0; }
   if(S.cur>=S.seqs.length) S.cur=S.seqs.length-1;
   renderTabs(); var q=cur();
-  $("#pane").innerHTML='<div class="fields"><div class="f"><label for="sName">Nombre del recorrido</label><input id="sName" value="'+esc(q.name)+'" maxlength="60"></div><div class="f"><label for="sDate">Fecha y hora de publicación</label><div style="display:flex;gap:8px"><input id="sDate" type="date" value="'+esc(q.date)+'" style="flex:1.4"><input id="sTime" type="time" value="'+esc(q.time||"19:00")+'" style="flex:1"></div></div></div>'+
+  $("#pane").innerHTML='<div class="fields"><div class="f"><label for="sName">Nombre del recorrido</label><input id="sName" value="'+esc(q.name)+'" maxlength="60"></div><div class="f"><label for="sDate">Fecha y hora de publicación</label><div style="display:flex;gap:8px"><input id="sDate" type="date" value="'+esc(q.date)+'" style="flex:1.4"><input id="sTime" type="time" value="'+esc(q.time||"19:00")+'" style="flex:1"></div></div></div><div class="row" style="margin:-4px 0 6px"><button type="button" class="btn sm" data-gcal="seq">📅 Agregar a Google Calendar</button></div>'+
    
    '<section class="flow" aria-label="Crea tus historias con tu Asistente">'+
      '<p class="fl-ey">Empieza aquí</p><h2 class="fl-h">Crea tus historias con tu Asistente</h2>'+
@@ -313,7 +342,7 @@ function render(){
   renderStrip();
 }
 var VIEW="seq", CM=null;
-function setView(v){ VIEW=v; $("#seqBoard").hidden=v!=="seq"; $("#calBoard").hidden=v!=="cal"; Array.prototype.forEach.call(document.querySelectorAll("[data-view]"),function(b){ b.setAttribute("aria-pressed",b.dataset.view===v); }); if(v==="cal") renderCal(); else render(); }
+function setView(v){ VIEW=v; $("#seqBoard").hidden=!(v!=="cal"&&MODE==="hist"); $("#postBoard").hidden=!(v!=="cal"&&MODE==="cont"); $("#calBoard").hidden=v!=="cal"; Array.prototype.forEach.call(document.querySelectorAll("[data-view]"),function(b){ b.setAttribute("aria-pressed",b.dataset.view===v); }); if(v==="cal") renderCal(); else if(MODE==="cont") renderPosts(); else render(); }
 function ymd(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
 function renderCal(){
   if(!CM){ var n=new Date(); CM=new Date(n.getFullYear(),n.getMonth(),1); }
@@ -321,8 +350,10 @@ function renderCal(){
   var mes=first.toLocaleDateString("es",{month:"long",year:"numeric"}); mes=mes.charAt(0).toUpperCase()+mes.slice(1); var html='<div class="cal-hd"><button data-cm="-1" aria-label="Mes anterior">←</button><h2>'+mes+'</h2><button data-cm="1" aria-label="Mes siguiente">→</button></div><div class="cal-grid">'+["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(function(d){ return '<div class="cal-dow">'+d+'</div>'; }).join("");
   for(var i=0;i<42;i++){ var d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i), k=ymd(d), evs=[];
     S.seqs.forEach(function(q,qi){ if(q.date===k) evs.push('<button class="ev o-'+q.obj+'" data-open="'+qi+'" title="'+esc(q.name)+'">'+esc(q.time||"")+' '+esc(q.name)+'</button>'); });
+    (S.posts||[]).forEach(function(p,pi){ if(p.date===k) evs.push('<button class="ev post st-'+(p.st||"idea")+'" data-popen="'+pi+'" title="'+esc(p.name)+'">▶ '+esc(p.time||"")+' '+esc(p.name)+'</button>'); });
     html+='<div class="day'+(d.getMonth()!==m?" out":"")+(k===td?" today":"")+'" data-day="'+k+'" role="button" tabindex="0" aria-label="'+d.getDate()+' · '+evs.length+' recorridos"><span class="dn">'+d.getDate()+'</span>'+evs.join("")+'</div>'; }
-  html+='</div><div class="legend">'+Object.keys(OBJ).map(function(k){ return '<span><i class="ev o-'+k+'" style="width:10px;height:10px;padding:0"></i>'+OBJ[k][0]+'</span>'; }).join("")+'</div><p class="cal-tip">Toca un recorrido para abrirlo, o un día vacío para crear una nueva con esa fecha.</p>';
+  html+='</div><div class="legend">'+Object.keys(OBJ).map(function(k){ return '<span><i class="ev o-'+k+'" style="width:10px;height:10px;padding:0"></i>'+OBJ[k][0]+'</span>'; }).join("")+'<span><i class="ev post" style="width:10px;height:10px;padding:0"></i>Contenido</span></div><p class="cal-tip">Toca una historia o un contenido para abrirlo, o un día vacío para crear '+(MODE==="cont"?"una pieza de contenido":"un recorrido")+' con esa fecha.</p>'+
+  '<div class="gsync"><h3>📅 Llévalo a tu calendario de verdad</h3><p>Descarga tu calendario y ábrelo: se agregan todas tus historias y contenidos agendados desde hoy, con aviso 30 minutos antes, en Google Calendar, el calendario de iPhone u Outlook. También puedes agregarlos uno por uno con el botón <b>Agregar a Google Calendar</b> de cada pieza.</p><button type="button" class="btn primary" id="icsAll">Descargar mi calendario</button><p class="mini">En Google Calendar desde la computadora: Configuración → Importar y exportar → Importar. En iPhone: abre el archivo y toca Agregar todo.</p></div>';
   $("#cal").innerHTML=html;
 }
 function script(q){ return "RECORRIDO: "+q.name+"\nObjetivo: "+OBJ[q.obj][0]+" · Fecha: "+q.date+" · Hora: "+(q.time||"19:00")+"\n\n"+q.h.map(function(x,i){ return (i+1)+". "+roleName(x.r).toUpperCase()+" · "+x.f+(x.s!=="Ninguno"?" · Sticker: "+x.s+(x.sd?" ("+x.sd+")":""):"")+" · "+(isD(x)?"Diseño: Director creativo":"Video o foto mía")+"\n   "+(x.t||"(por escribir)"); }).join("\n\n"); }
@@ -379,14 +410,136 @@ document.addEventListener("input",function(e){ var t=e.target, q=cur(); if(!q) r
 });
 document.addEventListener("change",function(e){
   var ts=e.target; if(ts.dataset&&ts.dataset.st){ var k2=ts.dataset.st; if(ts.value==="__otra"){ sty()[k2+"_o"]=true; sty()[k2]=""; } else { sty()[k2+"_o"]=false; sty()[k2]=ts.value; } save(); render(); var d=document.querySelector(".fl-style"); if(d) d.open=true; if(ts.value==="__otra"){ var o=document.querySelector('[data-sto="'+k2+'"]'); if(o) o.focus(); } return; } var t=e.target, q=cur(); if(!q||!t.dataset.k||t.dataset.k==="t") return; var i=+t.dataset.i; q.h[i][t.dataset.k]=t.value; save(); if(t.dataset.k==="r"||t.dataset.k==="s"){ renderStrip(); } else renderChecks(); });
-document.addEventListener("click",function(e){ var d=e.target.closest(".day"); if(!d||e.target.closest(".ev")) return; S.seqs.push(blank("Nuevo recorrido",d.dataset.day)); S.cur=S.seqs.length-1; save(); setView("seq"); toast("Nuevo recorrido para el "+d.dataset.day); });
+document.addEventListener("click",function(e){ var d=e.target.closest(".day"); if(!d||e.target.closest(".ev")) return; if(MODE==="cont"){ posts().push(pblank("Nueva pieza",d.dataset.day)); S.pcur=posts().length-1; save(); setView("seq"); toast("Nueva pieza de contenido para el "+d.dataset.day); return; } S.seqs.push(blank("Nuevo recorrido",d.dataset.day)); S.cur=S.seqs.length-1; save(); setView("seq"); toast("Nuevo recorrido para el "+d.dataset.day); });
 document.addEventListener("keydown",function(e){ if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("day")){ e.preventDefault(); e.target.click(); } if(e.key==="Escape") Array.prototype.forEach.call(document.querySelectorAll(".modal"),function(m){ m.hidden=true; }); });
 
 /* acceso: alumnas con sesión de Proyecto Maestro */
 function cloud(method,data){ var a=getAuth(); if(!a) return Promise.reject(0); return fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ return r.ok?r.json():null; }).then(function(t){ var at=a.at; if(t&&t.access_token){ at=t.access_token; try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify({at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem})); }catch(e){} } return fetch("/.netlify/functions/sync?k=hist",{method:method,headers:{Authorization:"Bearer "+at,"Content-Type":"application/json"},cache:"no-store",body:method==="PUT"?JSON.stringify(data):undefined}); }).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
 function start(email,name){ who=email; KEY="pm-historias:"+email.toLowerCase(); try{ var s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.seqs) S=s; }catch(e){}
   var localTs=S.updatedAt||0;
-  if(email!=="demo@local"){ cloud("GET").then(function(r){ if(r&&r.seqs&&r.updatedAt&&r.updatedAt>localTs){ S=r; try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} if(VIEW==="cal") renderCal(); else render(); toast("Tu bitácora se sincronizó ✦"); } else if(S.seqs&&S.seqs.length){ cloud("PUT",S).catch(function(){}); } }).catch(function(){}); } if(name) $("#hello").textContent="Hola, "+name+" ✦ ¿qué vas a contar hoy?"; $("#app").hidden=false; render(); }
+  if(email!=="demo@local"){ cloud("GET").then(function(r){ if(r&&r.seqs&&r.updatedAt&&r.updatedAt>localTs){ S=r; try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} if(VIEW==="cal") renderCal(); else if(MODE==="cont") renderPosts(); else render(); toast("Tu bitácora se sincronizó ✦"); } else if(S.seqs&&S.seqs.length){ cloud("PUT",S).catch(function(){}); } }).catch(function(){}); } if(name) $("#hello").textContent="Hola, "+name+" ✦ ¿qué vas a contar hoy?"; $("#app").hidden=false; setMode(MODE); }
+/* ===================== CONTENIDO (Lámina 08) ===================== */
+var MODE=/contenido/.test(location.hash)?"cont":"hist";
+var PLATS={ig:"Instagram",fb:"Facebook",tt:"TikTok",yt:"YouTube",th:"Threads",li:"LinkedIn"};
+var FMTS={ig:["Reel","Carrusel","Post de foto"],fb:["Reel","Post","Carrusel","Publicación en grupo"],tt:["Video corto","Carrusel de fotos"],yt:["Short","Video largo"],th:["Post de texto","Hilo","Post con imagen"],li:["Post","Carrusel (PDF)","Video"]};
+var STS=[["idea","Idea"],["guion","Guion listo"],["dis","Diseñado o grabado"],["prog","Programado"],["pub","Publicado"]];
+var CTAS=["Palabra clave por DM","Seguir","Guardar","Compartir","Comentar","Link en bio"];
+var TYPES=[
+ ["conexion","Conexión","Para que te conozcan y se identifiquen contigo.",["Nadie habla de esto, pero a muchas personas como {aud} les pasa…","Esto es lo que nadie ve detrás de {tema}","Si alguna vez sentiste que {dolor}, quédate"],["Lo que me hubiera gustado saber antes de {tema}","Un miedo que tuve y cómo lo enfrenté","3 cosas que me hacen ser quien soy"]],
+ ["diaadia","Día a día","Tu rutina real, cercana y sin filtros.",["Un día real de alguien que {nicho}","Así se ve mi día cuando nadie está mirando","Mi rutina para {tema}, sin filtros"],["Mi mañana en 30 segundos","Lo que hago cuando tengo un mal día","Un día de trabajo real, de principio a fin"]],
+ ["historia","Mi historia","Un momento de tu vida que enseña algo.",["Hace un tiempo estuve a punto de rendirme con {tema}…","El día que todo cambió para mí","Nunca he contado esto en redes"],["El momento que me trajo hasta aquí","Lo que aprendí de mi peor error","La decisión más difícil que tomé y por qué"]],
+ ["educativo","Educativo o de valor","Enseña algo útil que la gente guarda y comparte.",["3 errores que cometen {aud} con {tema}","Guarda esto antes de {tema}","Lo que nadie te explica sobre {tema}"],["Guía rápida de {tema} en 5 pasos","Checklist para {aud}","Las preguntas que más me hacen sobre {tema}"]],
+ ["autoridad","Autoridad","Muestra tu experiencia, tu proceso y resultados reales.",["Después de años en {nicho}, esto es lo que sé","Así trabajo cuando alguien me pide ayuda con {tema}","El proceso que uso para {tema}"],["Mi método explicado en 60 segundos","Un caso real (con permiso) de principio a fin","Lo que cambió en mi forma de trabajar"]],
+ ["opinion","Opinión","Una verdad incómoda o una postura sobre tu tema.",["Opinión impopular sobre {tema}:","Voy a decir lo que nadie en {nicho} se atreve","Deja de creer esto sobre {tema}"],["La mentira más común sobre {tema}","Lo que no haría nunca, aunque esté de moda","Por qué no estoy de acuerdo con este consejo"]],
+ ["tutorial","Tutorial paso a paso","Enseña a hacer algo concreto.",["Cómo {tema} en 3 pasos (sin complicarte)","Te enseño a {tema} en menos de un minuto","Paso a paso para {aud} que están empezando"],["Tutorial de {tema} para principiantes","El truco que más uso","Cómo lo hago yo, paso a paso"]],
+ ["mito","Mito vs. realidad","Rompe una creencia falsa de tu tema.",["Mito: {tema}. Realidad:","Te dijeron que {tema}, pero…","3 mitos sobre {tema} que te están frenando"],["Mito vs. realidad de {nicho}","Lo que creía antes y lo que sé ahora","Creencias que tuve que soltar"]],
+ ["antesdespues","Antes y después","Una transformación real: tuya, de tu trabajo o de alguien con permiso.",["Así era {tema} antes… y así quedó","De esto a esto en {tiempo}","El antes y después que más me emociona"],["Mi antes y después real","La evolución de mi trabajo","Lo que cambió en mí en un año"]],
+ ["detras","Detrás de cámaras","Muestra cómo se hace lo que haces.",["Lo que no ves detrás de {tema}","Así se prepara lo que publico","El caos real detrás de un día bonito"],["Cómo preparo mi contenido","Mi espacio de trabajo","Lo que pasa antes de una entrega"]],
+ ["tendencia","Tendencia","Un audio o formato viral, adaptado a tu marca.",["Cuando alguien me pregunta por {tema}…","POV: eres {aud} y por fin entiendes {tema}","Nadie: / Yo cuando {tema}:"],["La tendencia del momento con tu mensaje","Un POV sobre tu audiencia","Un meme de tu nicho"]],
+ ["faq","Preguntas frecuentes","Responde lo que más te preguntan.",["La pregunta que más me hacen sobre {tema}","Me preguntaste: ¿{tema}? Te respondo","Respondo sus preguntas sobre {nicho}"],["Responder un comentario en video","5 preguntas rápidas sobre {tema}","La duda que nadie se atreve a preguntar"]],
+ ["comunidad","Comunidad","Abre conversación: preguntas, encuestas y opiniones.",["¿Tú qué harías si {tema}?","Necesito tu opinión sobre esto","Cuéntame en comentarios: ¿te pasa?"],["Pregunta abierta a tu comunidad","Este o este","Celebrar un logro de tu comunidad"]],
+ ["venta","Venta","Problema, solución, prueba y un llamado claro.",["Si {dolor}, esto es para ti","Lo que cambia cuando por fin resuelves {tema}","Abrí cupos para {tema}: te cuento cómo funciona"],["Presenta tu oferta como solución","Responde una objeción común","Muestra qué incluye, paso a paso"]]
+];
+function TY(id){ for(var i=0;i<TYPES.length;i++) if(TYPES[i][0]===id) return TYPES[i]; return TYPES[0]; }
+function br(){ if(!S.brand) S.brand={raw:"",nombre:"",nicho:"",promesa:"",mensaje:"",frase:"",aud:"",dolor:"",deseo:"",voz:"",pilares:"",cta:""}; return S.brand; }
+function posts(){ if(!S.posts) S.posts=[]; return S.posts; }
+function pblank(name,date){ return {name:name||"Nueva pieza",date:date||today(),time:"12:00",plat:"ig",fmt:"Reel",type:"conexion",pilar:"",topic:"",cta:"Guardar",st:"idea",script:""}; }
+function pcur(){ var P=posts(); if(!P.length){ P.push(pblank("Mi primera pieza")); S.pcur=0; } if(S.pcur==null||S.pcur>=P.length) S.pcur=P.length-1; return P[S.pcur]; }
+function parseBrand(raw){ var b=br(); b.raw=raw; var t=raw.replace(/```json|```/g,"").trim(), j=null, m=t.indexOf("{"), n=t.lastIndexOf("}");
+  if(m>=0&&n>m){ try{ j=JSON.parse(t.slice(m,n+1)); }catch(e){ j=null; } }
+  if(j){ var g=function(o,p){ return p.split(".").reduce(function(a,k){ return a&&a[k]!=null?a[k]:null; },o); };
+    var first=function(){ for(var i=0;i<arguments.length;i++){ var v=g(j,arguments[i]); if(v) return v; } return ""; };
+    var pl=first("estrategia.pilares","contenido.pilares"); if(Array.isArray(pl)) pl=pl.map(function(x){ return typeof x==="string"?x:(x.nombre||x.pilar||""); }).filter(Boolean).join(", ");
+    var cta=first("estrategia.palabras_clave_cta"); if(Array.isArray(cta)) cta=cta.join(", ");
+    b.nombre=first("marca.nombre","perfil.nombre")||b.nombre; b.nicho=first("marca.nicho","posicionamiento.nicho")||b.nicho; b.promesa=first("marca.promesa","posicionamiento.promesa")||b.promesa;
+    b.mensaje=first("marca.mensaje_central")||b.mensaje; b.frase=first("narrativa.frase_identitaria")||b.frase; b.aud=first("audiencia.descripcion")||b.aud;
+    b.dolor=first("audiencia.dolor","audiencia.dolor_principal")||b.dolor; b.deseo=first("audiencia.deseo","audiencia.deseo_secreto")||b.deseo; b.voz=first("voz.tono_general","voz.como_le_habla_a_su_audiencia")||b.voz;
+    b.pilares=pl||b.pilares; b.cta=cta||b.cta; return true; }
+  var grab=function(lbl){ var r=new RegExp(lbl+"[^\\n:]*:\\s*([^\\n]+)","i").exec(raw); return r?r[1].trim():""; };
+  b.nicho=b.nicho||grab("nicho"); b.promesa=b.promesa||grab("promesa"); b.mensaje=b.mensaje||grab("mensaje central"); b.frase=b.frase||grab("frase identitaria");
+  return !!raw.trim(); }
+function pilList(){ return (br().pilares||"").split(/[,;\n]/).map(function(x){ return x.trim(); }).filter(Boolean); }
+function fill(tpl,p){ var b=br(); return tpl.replace(/\{aud\}/g,b.aud?b.aud.split(/[.,;]/)[0].toLowerCase():"personas como tú").replace(/\{tema\}/g,p.topic?p.topic.split(/[.\n]/)[0].toLowerCase():(p.pilar||"tu tema").toLowerCase()).replace(/\{nicho\}/g,b.nicho?b.nicho.split(/[.,;]/)[0].toLowerCase():"tu tema").replace(/\{dolor\}/g,b.dolor?b.dolor.split(/[.,;]/)[0].toLowerCase():"te sientes así").replace(/\{tiempo\}/g,"poco tiempo"); }
+function chipRow(group,list,val){ return '<div class="chips">'+list.map(function(x){ var v=Array.isArray(x)?x[0]:x, l=Array.isArray(x)?x[1]:x; return '<button type="button" class="chip" data-pc="'+group+'" data-pv="'+esc(v)+'" aria-pressed="'+(val===v)+'">'+esc(l)+'</button>'; }).join("")+'</div>'; }
+function brandSum(){ var b=br(), L=[]; if(b.nombre) L.push("Marca: "+b.nombre); if(b.nicho) L.push("Nicho: "+b.nicho); if(b.promesa) L.push("Promesa: "+b.promesa); if(b.mensaje) L.push("Mensaje central: "+b.mensaje); if(b.frase) L.push("Frase identitaria: "+b.frase); if(b.aud) L.push("Audiencia: "+b.aud); if(b.dolor) L.push("Su dolor: "+b.dolor); if(b.deseo) L.push("Su deseo: "+b.deseo); if(b.voz) L.push("Mi voz: "+b.voz); if(b.pilares) L.push("Mis pilares: "+b.pilares); if(b.cta) L.push("Mis palabras clave de CTA: "+b.cta); return L.join("\n"); }
+function deliver(p){ var f=p.fmt;
+  if(/Reel|Video corto|Short/.test(f)) return "- 3 opciones de gancho para los primeros 3 segundos.\n- Guion por tiempos (0–3 s, 3–20 s, cierre) con lo que digo, las tomas y el texto en pantalla.\n- Duración sugerida y tipo de audio.\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar.";
+  if(/Carrusel/.test(f)) return "- 3 opciones de título para la portada (máximo 7 palabras).\n- Texto exacto de cada diapositiva (entre 7 y 10), con la última como CTA.\n- Qué imagen o elemento visual lleva cada diapositiva.\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar.";
+  if(/Hilo|texto/.test(f)) return "- 3 opciones de primera línea (el gancho).\n- El texto completo"+(/Hilo/.test(f)?" del hilo (entre 3 y 6 publicaciones)":"")+", en mi voz y sin hashtags de más.\n- Una pregunta final para generar conversación.";
+  if(/Video largo/.test(f)) return "- 3 opciones de título y la idea de la miniatura.\n- Estructura del video con capítulos y lo que digo en cada uno.\n- Gancho de los primeros 30 segundos.\n- Descripción con CTA y palabras clave.";
+  return "- 3 opciones de gancho.\n- Idea de la imagen y texto que va sobre ella (si aplica).\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar."; }
+function pedido(p){ var t=TY(p.type), bs=brandSum();
+  return "Créame este contenido para mi marca personal, con mi voz, mi esencia y mis pilares.\n\n"+(bs?"MI MARCA (por si necesitas recordarla):\n"+bs+"\n\n":"")+
+  "PIEZA: "+p.fmt+" para "+PLATS[p.plat]+"\nTIPO DE CONTENIDO: "+t[1]+" ("+t[2]+")\n"+(p.pilar?"PILAR: "+p.pilar+"\n":"")+"DE QUÉ QUIERO HABLAR: "+(p.topic||"propónme tú la mejor idea según mi estrategia")+"\nCTA: "+p.cta+(p.cta==="Palabra clave por DM"&&br().cta?" (usa una de mis palabras clave: "+br().cta+")":"")+"\nFECHA PREVISTA: "+p.date+" a las "+(p.time||"12:00")+"\n\n"+
+  "REGLAS:\n- Estructura GANCHO → HISTORIA → MORALEJA → CTA.\n- Mi voz real: mis expresiones, mi tono y nada de frases genéricas o de gurú.\n- Nunca inventes datos, testimonios ni resultados.\n- Adáptalo a la lógica de "+PLATS[p.plat]+".\n\nENTRÉGAME:\n"+deliver(p)+"\n\nEntrégame el guion final dentro de un único bloque de código, para pegarlo en mi Bitácora de Obra. Después pregúntame si quiero el BRIEF para mi Director Creativo."; }
+function briefReq(p){ return "Prepárame el BRIEF para mi DIRECTOR CREATIVO de esta pieza: "+p.fmt+" para "+PLATS[p.plat]+" ("+(/Reel|Video|Short|Historia/.test(p.fmt)?"portada 1080x1920, 9:16":/Carrusel|Post/.test(p.fmt)?"1080x1350, 4:5":"formato adecuado")+").\n\n"+(p.script?"GUION APROBADO:\n"+p.script:"Tema: "+(p.topic||p.name)); }
+function museOrder(p){ var vert=/Reel|Video|Short/.test(p.fmt);
+  return "ORDEN DE PUBLICACIÓN\n\nPLATAFORMA: "+PLATS[p.plat]+"\nTIPO: "+p.fmt+"\nFECHA Y HORA: "+p.date+" a las "+(p.time||"12:00")+" (mi hora local)\nARCHIVOS: te adjunto los archivos en orden (1, 2, 3…).\nFORMATO: "+(vert?"vertical 9:16 a pantalla completa (1080x1920), sin bandas negras ni marcos.":"4:5 (1080x1350).")+"\nTEXTO EXACTO A PUBLICAR: usa exactamente el caption de este guion, con sus saltos de línea, emojis, CTA y hashtags:\n\n"+(p.script||"[pega aquí tu caption]")+"\n\nREGLAS: no cambies ningún texto. Antes de publicar o programar, muéstrame la vista previa y espera mi aprobación."; }
+function gcalURL(title,date,time,details){ var d=(date||today()).replace(/-/g,""), t=(time||"12:00").split(":"), h=+t[0], mi=+t[1], e=new Date(2000,0,1,h,mi+30);
+  var s=d+"T"+("0"+h).slice(-2)+("0"+mi).slice(-2)+"00", en=d+"T"+("0"+e.getHours()).slice(-2)+("0"+e.getMinutes()).slice(-2)+"00";
+  var tz=""; try{ tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""; }catch(x){}
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(title)+"&dates="+s+"/"+en+"&details="+encodeURIComponent(details)+(tz?"&ctz="+encodeURIComponent(tz):""); }
+function evSeq(q){ return {title:"📲 Historias: "+(q.name||"Recorrido"),date:q.date,time:q.time||"19:00",det:"Recorrido de obra · "+OBJ[q.obj][0]+"\n\n"+script(q)+"\n\nAbre tu Bitácora: "+location.origin+"/historias"}; }
+function evPost(p){ return {title:"🎬 "+p.fmt+" "+PLATS[p.plat]+": "+(p.name||"Contenido"),date:p.date,time:p.time||"12:00",det:TY(p.type)[1]+(p.pilar?" · Pilar: "+p.pilar:"")+"\n\n"+(p.script||p.topic||"")+"\n\nAbre tu Bitácora: "+location.origin+"/historias#contenido"}; }
+function icsEsc(s){ return String(s||"").replace(/\\/g,"\\\\").replace(/\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\;"); }
+function icsAll(){ var ev=[]; S.seqs.forEach(function(q){ ev.push(evSeq(q)); }); posts().forEach(function(p){ ev.push(evPost(p)); });
+  var td=today(); ev=ev.filter(function(x){ return x.date>=td; });
+  if(!ev.length){ toast("No tienes publicaciones agendadas desde hoy"); return; }
+  var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Tu Proyecto Maestro//Bitacora//ES","CALSCALE:GREGORIAN"];
+  ev.forEach(function(x,i){ var d=x.date.replace(/-/g,""), t=(x.time||"12:00").replace(":","")+"00", e=new Date(2000,0,1,+x.time.split(":")[0],+x.time.split(":")[1]+30), te=("0"+e.getHours()).slice(-2)+("0"+e.getMinutes()).slice(-2)+"00";
+    L.push("BEGIN:VEVENT","UID:pm-"+d+"-"+i+"-"+Date.now()+"@tuproyectomaestro","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z","DTSTART:"+d+"T"+t,"DTEND:"+d+"T"+te,"SUMMARY:"+icsEsc(x.title),"DESCRIPTION:"+icsEsc(x.det),"BEGIN:VALARM","TRIGGER:-PT30M","ACTION:DISPLAY","DESCRIPTION:"+icsEsc(x.title),"END:VALARM","END:VEVENT"); });
+  L.push("END:VCALENDAR");
+  var blob=new Blob([L.join("\r\n")],{type:"text/calendar"}), url=URL.createObjectURL(blob), a=document.createElement("a"); a.href=url; a.download="mi-bitacora-de-obra.ics"; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(url); },4000);
+  toast("Calendario descargado ✦ Ábrelo para agregarlo a tu calendario"); }
+function renderPosts(){ var P=posts(), p=pcur(), b=br(), t=TY(p.type), pl=pilList();
+  $("#ptabs").innerHTML=P.map(function(x,i){ return '<button class="tab" role="tab" aria-selected="'+(i===S.pcur)+'" data-ptab="'+i+'">'+esc(x.name||"Sin nombre")+'</button>'; }).join("")+'<button class="tab new" data-pnew>+ Nueva pieza de contenido</button>';
+  var hooks=t[3].map(function(h){ return fill(h,p); }), ideas=t[4].map(function(h){ return fill(h,p); });
+  var conn=!!(b.nicho||b.pilares||b.aud);
+  $("#ppane").innerHTML='<div class="fields"><div class="f"><label for="pName">Nombre de la pieza</label><input id="pName" data-pk="name" value="'+esc(p.name)+'" maxlength="60"></div><div class="f"><label for="pDate">Fecha y hora de publicación</label><div style="display:flex;gap:8px"><input id="pDate" data-pk="date" type="date" value="'+esc(p.date)+'" style="flex:1.4"><input data-pk="time" type="time" value="'+esc(p.time||"12:00")+'" style="flex:1" aria-label="Hora"></div></div></div>'+
+   '<p class="lab-s">Estado</p>'+chipRow("st",STS,p.st)+
+   '<details class="brand"'+(conn?'':' open')+'><summary>✦ Tu marca conectada <small>'+(conn?esc((b.nombre?b.nombre+" · ":"")+(b.nicho||"").slice(0,60)):"conéctala una sola vez")+'</small></summary>'+
+     '<p>En tu ASISTENTE escribe <b>EXPORTA JSON CREATIVO</b> (o <b>EXPORTA MIS PLANOS</b>), copia la caja de código y pégala aquí. Tu Bitácora usará tu nicho, tu audiencia, tus pilares y tu voz en cada pedido.</p>'+
+     '<textarea id="bRaw" class="code" placeholder="Pega aquí tu JSON creativo o tu archivo mis-planos.txt"></textarea><button type="button" class="btn primary" id="bGo">Conectar mi marca</button>'+
+     '<div class="bf"><label>Nicho<input data-bk="nicho" value="'+esc(b.nicho)+'"></label><label>Audiencia<input data-bk="aud" value="'+esc(b.aud)+'"></label><label>Su dolor<input data-bk="dolor" value="'+esc(b.dolor)+'"></label><label>Mis pilares (separados por comas)<input data-bk="pilares" value="'+esc(b.pilares)+'"></label><label>Palabras clave de CTA<input data-bk="cta" value="'+esc(b.cta)+'"></label></div></details>'+
+   '<section class="flow" aria-label="Crea tu contenido con tu Asistente"><p class="fl-ey">Empieza aquí</p><h2 class="fl-h">Crea tu contenido con tu Asistente</h2>'+
+     '<div class="fl-step"><span class="fl-n">1</span><div class="fl-b"><h3>¿Dónde y en qué formato?</h3>'+chipRow("plat",Object.keys(PLATS).map(function(k){ return [k,PLATS[k]]; }),p.plat)+'<p class="fl-lab">Formato</p>'+chipRow("fmt",FMTS[p.plat],p.fmt)+'</div></div>'+
+     '<div class="fl-step"><span class="fl-n">2</span><div class="fl-b"><h3>¿Qué tipo de contenido?</h3>'+chipRow("type",TYPES.map(function(x){ return [x[0],x[1]]; }),p.type)+'<p class="objhint">'+esc(t[2])+'</p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">3</span><div class="fl-b"><h3>¿De qué quieres hablar?</h3>'+(pl.length?'<p class="fl-lab">Tu pilar</p>'+chipRow("pilar",pl,p.pilar):'<p>Conecta tu marca para elegir entre tus pilares.</p>')+
+       '<textarea class="fl-ta" data-pk="topic" placeholder="Cuéntalo como a alguien de confianza: qué pasó, qué quieres enseñar o qué quieres vender…">'+esc(p.topic)+'</textarea>'+
+       '<p class="fl-lab">Llamado a la acción</p>'+chipRow("cta",CTAS,p.cta)+
+       '<p class="fl-lab">Ganchos para inspirarte · toca para copiar</p><div class="hooks">'+hooks.map(function(h){ return '<button type="button" class="hook" data-copyh="'+esc(h)+'">“'+esc(h)+'”</button>'; }).join("")+'</div>'+
+       '<p class="fl-lab">Ideas para este tipo de contenido</p><ul class="ideas">'+ideas.map(function(h){ return '<li>'+esc(h)+'</li>'; }).join("")+'</ul>'+
+       '<button class="btn primary" id="pAsk">Copiar pedido para mi Asistente</button><p class="fl-note">Pégalo en tu chat ASISTENTE. Te devolverá tu guion completo en una caja de código.</p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">4</span><div class="fl-b"><h3>Pega aquí tu guion final</h3><textarea class="fl-ta code" data-pk="script" placeholder="Pega aquí la caja de código que te dio tu Asistente">'+esc(p.script)+'</textarea></div></div>'+
+     '<div class="fl-step"><span class="fl-n">5</span><div class="fl-b"><h3>Diseña, agenda y publica</h3><p>Pide el diseño a tu Director Creativo, agéndalo en tu calendario y prográmalo con Muse.</p><div class="row"><button class="btn" id="pBrief">Copiar pedido de BRIEF</button><button class="btn" id="pMuse">Copiar orden para Muse</button><button class="btn" data-gcal="post">📅 Agregar a Google Calendar</button></div></div></div>'+
+   '</section><div class="row"><button class="btn sm" id="pDup">Duplicar</button><button class="btn sm" id="pDel">Eliminar pieza</button></div>';
+}
+function setMode(m){ MODE=m; try{ history.replaceState(null,"",m==="cont"?"#contenido":location.pathname); }catch(e){}
+  Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"),function(b){ b.setAttribute("aria-pressed",b.dataset.mode===m); });
+  $("#modeLead").innerHTML=m==="cont"?"Una idea suelta se olvida. <strong>Un contenido con estrategia construye tu marca.</strong> Crea guiones para todas tus redes, con tu voz y tus pilares.":"Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.";
+  setView(VIEW==="cal"?"cal":"seq"); }
+document.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.mode){ setMode(b.dataset.mode); return; }
+  if(b.dataset.ptab!==undefined){ S.pcur=+b.dataset.ptab; save(); renderPosts(); return; }
+  if(b.hasAttribute("data-pnew")){ posts().push(pblank()); S.pcur=posts().length-1; save(); renderPosts(); return; }
+  if(b.dataset.popen!==undefined){ S.pcur=+b.dataset.popen; save(); MODE="cont"; setMode("cont"); setView("seq"); return; }
+  if(b.dataset.pc){ var p=pcur(), k=b.dataset.pc, v=b.dataset.pv; p[k]=(k==="pilar"&&p[k]===v)?"":v; if(k==="plat") p.fmt=FMTS[v][0]; save(); renderPosts(); return; }
+  if(b.dataset.copyh){ copy(b.dataset.copyh,function(){ toast("Gancho copiado ♡"); }); return; }
+  if(b.id==="bGo"){ var r=$("#bRaw").value; if(!r.trim()){ toast("Pega primero tu JSON o tu archivo"); return; } var ok=parseBrand(r); save(); renderPosts(); toast(ok?"¡Tu marca quedó conectada! ✦":"Lo guardé. Revisa y completa los campos"); return; }
+  if(b.id==="pAsk"){ copy(pedido(pcur()),function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
+  if(b.id==="pBrief"){ copy(briefReq(pcur()),function(){ toast("Pedido de BRIEF copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
+  if(b.id==="pMuse"){ copy(museOrder(pcur()),function(){ toast("Orden copiada ♡ Pégala en Muse con tus archivos"); }); return; }
+  if(b.id==="pDup"){ var c=JSON.parse(JSON.stringify(pcur())); c.name+=" (copia)"; posts().push(c); S.pcur=posts().length-1; save(); renderPosts(); return; }
+  if(b.id==="pDel"){ if(!confirm("¿Eliminar la pieza \""+pcur().name+"\"? Esta acción no se puede deshacer.")) return; posts().splice(S.pcur,1); S.pcur=Math.max(0,S.pcur-1); save(); renderPosts(); return; }
+  if(b.dataset.gcal){ var x=b.dataset.gcal==="post"?evPost(pcur()):evSeq(cur()); window.open(gcalURL(x.title,x.date,x.time,x.det),"_blank","noopener"); if(b.dataset.gcal==="post"&&pcur().st==="idea"){} return; }
+  if(b.id==="icsAll"){ icsAll(); return; }
+});
+document.addEventListener("input",function(e){ var t=e.target;
+  if(t.dataset&&t.dataset.pk){ var p=pcur(); p[t.dataset.pk]=t.value; if(t.dataset.pk==="script"&&t.value.trim()&&p.st==="idea"){ p.st="guion"; } save(); if(t.dataset.pk==="name"){ var tb=document.querySelector('[data-ptab="'+S.pcur+'"]'); if(tb) tb.textContent=t.value||"Sin nombre"; } return; }
+  if(t.dataset&&t.dataset.bk){ br()[t.dataset.bk]=t.value; save(); return; }
+});
+document.addEventListener("change",function(e){ var t=e.target; if(t.dataset&&(t.dataset.pk==="date"||t.dataset.pk==="time")){ pcur()[t.dataset.pk]=t.value; save(); } if(t.dataset&&(t.dataset.pk==="topic")) renderPosts(); });
+
 function getAuth(){ try{ return JSON.parse(localStorage.getItem(AKEY)||sessionStorage.getItem(AKEY)); }catch(e){ return null; } }
 var a=getAuth();
 
