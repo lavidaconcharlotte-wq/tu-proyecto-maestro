@@ -230,7 +230,7 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 </div>
 
 <main id="app" hidden>
-  <p class="eyebrow">Láminas 06 y 08 · Historias y contenido</p>
+  <p class="eyebrow">Planos 06 y 08 · Historias y contenido</p>
   <h1>Bitácora de Obra</h1>
   <div class="modes" role="group" aria-label="Sección"><button type="button" data-mode="hist" aria-pressed="true">Historias</button><button type="button" data-mode="cont" aria-pressed="false">Contenido</button></div>
   <p class="lead" id="modeLead">Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.</p>
@@ -419,7 +419,7 @@ function cloud(method,data){ var a=getAuth(); if(!a) return Promise.reject(0); r
 function start(email,name){ who=email; KEY="pm-historias:"+email.toLowerCase(); try{ var s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.seqs) S=s; }catch(e){}
   var localTs=S.updatedAt||0;
   if(email!=="demo@local"){ cloud("GET").then(function(r){ if(r&&r.seqs&&r.updatedAt&&r.updatedAt>localTs){ S=r; try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} if(VIEW==="cal") renderCal(); else if(MODE==="cont") renderPosts(); else render(); toast("Tu bitácora se sincronizó ✦"); } else if(S.seqs&&S.seqs.length){ cloud("PUT",S).catch(function(){}); } }).catch(function(){}); } if(name) $("#hello").textContent="Hola, "+name+" ✦ ¿qué vas a contar hoy?"; $("#app").hidden=false; setMode(MODE); }
-/* ===================== CONTENIDO (Lámina 08) ===================== */
+/* ===================== CONTENIDO (Plano 08) ===================== */
 var MODE=/contenido/.test(location.hash)?"cont":"hist";
 var PLATS={ig:"Instagram",fb:"Facebook",tt:"TikTok",yt:"YouTube",th:"Threads",li:"LinkedIn"};
 var FMTS={ig:["Reel","Carrusel","Post de foto"],fb:["Reel","Post","Carrusel","Publicación en grupo"],tt:["Video corto","Carrusel de fotos"],yt:["Short","Video largo"],th:["Post de texto","Hilo","Post con imagen"],li:["Post","Carrusel (PDF)","Video"]};

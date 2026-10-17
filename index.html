@@ -31,7 +31,7 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+html{scroll-behavior:smooth;scroll-padding-top:calc(124px + env(safe-area-inset-top,0px))}
 body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
@@ -52,10 +52,13 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:500;color:var(--vino);margin:0}
 .top{position:fixed;inset:0 0 auto 0;z-index:40;height:calc(64px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 18px 0;display:flex;align-items:center;gap:14px;background:rgba(250,246,241,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(217,199,166,.6)}
 .top .sub{height:40px;width:auto}
 .top .pn{display:none;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--vino)}
-.prog{margin-left:auto;display:flex;align-items:center;gap:6px}
-.prog a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50% 50% 4px 4px;border:1px solid var(--champ);font-size:11px;font-weight:600;text-decoration:none;color:var(--olive);background:var(--paper);transition:background .3s,color .3s}
-.prog a.cur{border-color:var(--vino);color:var(--vino)}
-.prog a.done{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
+.prog{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));z-index:39;display:flex;gap:8px;padding:8px 18px;overflow-x:auto;scrollbar-width:none;background:rgba(250,246,241,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(217,199,166,.6)}
+.prog::-webkit-scrollbar{display:none}
+.prog a{flex:0 0 auto;display:flex;align-items:center;gap:7px;height:32px;padding:0 13px;border-radius:16px 16px 4px 4px;border:1px solid var(--champ);font-size:12px;white-space:nowrap;text-decoration:none;color:var(--ink);background:var(--paper);transition:background .3s,color .3s}
+.prog a b{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--vino)}
+.prog a.cur{border-color:var(--vino);box-shadow:inset 0 0 0 1px var(--vino)}
+.prog a.done{background:var(--olive);border-color:var(--olive);color:var(--ivory)}.prog a.done b{color:var(--champ)}
+#app{padding-top:48px}
 .who{display:none;font-family:var(--hand);font-size:21px;color:var(--vino);white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis}
 
 /* buttons */
@@ -205,7 +208,7 @@ details.full summary::before{content:"+";font-size:18px}
 details.full[open] summary::before{content:"–"}
 details.full pre{margin:6px 0 0;max-height:320px;overflow:auto;background:var(--ivory);border:1px solid var(--champ);padding:14px;font-size:11.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;font-family:ui-monospace,Menlo,Consolas,monospace}
 .lamina .cajetin{margin-top:0}
-/* lámina 03 — fluted olive */
+/* plano 03 — fluted olive */
 .lamina.olive .sheet{background:linear-gradient(90deg,rgba(107,112,92,.1),transparent 40%),var(--paper)}
 .lamina.olive .sheet::before{content:"";position:absolute;left:0;top:0;bottom:0;width:14px;background:repeating-linear-gradient(90deg,#6B705C 0 3px,#5A5F4D 3px 5px,#7A7F6A 5px 7px)}
 .lamina.olive .lh .num{-webkit-text-stroke-color:var(--olive)}
@@ -1211,7 +1214,7 @@ body{overflow-x:hidden}
   <section class="g-login" aria-labelledby="gLoginT">
     <div class="g-login-art">
       <figure class="gl-arch"><img src="img/laura-planos.jpg" alt="Laura Tovar revisando planos" loading="lazy"></figure>
-      <div class="gl-head"><p class="eyebrow">¿Ya tienes tu acceso?</p><h2 id="gLoginT">Tu obra te está esperando.</h2><p>Si ya iniciaste tu Proyecto Maestro, entra aquí y continúa construyendo lámina por lámina.</p></div>
+      <div class="gl-head"><p class="eyebrow">¿Ya tienes tu acceso?</p><h2 id="gLoginT">Tu obra te está esperando.</h2><p>Si ya iniciaste tu Proyecto Maestro, entra aquí y continúa construyendo plano por plano.</p></div>
     </div>
     <div class="g-card" id="gcard">
       <section class="pl-launch sm" data-launch aria-label="Precio de prelanzamiento"><p class="pl-ey" data-pl-ey>Prelanzamiento · 24 de octubre</p><h2 class="pl-title" data-pl-title>Precio de prelanzamiento termina en</h2><div class="pl-cd" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>días</span></div><div><b data-cd="h">00</b><span>horas</span></div><div><b data-cd="m">00</b><span>min</span></div><div><b data-cd="s">00</b><span>seg</span></div></div><div class="pl-price"><span class="lbl" data-pl-lbl>Precio de prelanzamiento</span><span class="amt"><sup>$</sup><span data-pl-amt>47</span></span><span class="old">Precio regular <s>$97</s></span></div><p class="pl-note" data-pl-note>El <b>24 de octubre</b> el precio sube a <b>$67</b>. Asegura hoy tu Proyecto Maestro por <b>$47</b>.</p><a class="pl-btn" data-pl-buy href="#" target="_blank" rel="noopener"><span data-pl-cta>Quiero mi Proyecto Maestro a $47</span> <span aria-hidden="true">→</span></a></section><h2>Accede a tu <strong>Proyecto Maestro</strong></h2>
@@ -1308,15 +1311,13 @@ body{overflow-x:hidden}
   <div class="mh-end"><img src="img/nota-laura.png" alt="Tu esencia ya existe. Ahora vamos a construir desde ella. Arq. Laura Tovar"><div class="mh-ctas"><button type="button" class="fc-btn" data-gop0>Empieza gratis tu Plano 00 →</button><a class="lp-ghost" href="https://chat.whatsapp.com/KE8e7nI6QUQJznRKqzhEsf?mode=gi_t" target="_blank" rel="noopener">Únete a mi comunidad</a></div></div>
 </section>
 <div id="app" hidden>
-<a href="#l1" class="sr">Saltar a la primera lámina</a>
+<a href="#l1" class="sr">Saltar a la primera plano</a>
 
 <header class="top">
   <a href="#inicio" aria-label="Inicio"><img class="sub" src="img/sublogo.png" alt="Laura Tovar Studio"></a>
   <span class="pn">Proyecto Maestro</span>
   <span class="who" id="who"></span>
-  <nav class="prog" aria-label="Láminas del proyecto">
-    <a href="#l1" data-p="1" aria-label="Lámina 1">01</a><a href="#l2" data-p="2" aria-label="Lámina 2">02</a><a href="#l3" data-p="3" aria-label="Lámina 3">03</a><a href="#l4" data-p="4" aria-label="Lámina 4">04</a><a href="#l5" data-p="5" aria-label="Lámina 5">05</a><a href="#l6" data-p="6" aria-label="Lámina 6">06</a><a href="#l7" data-p="7" aria-label="Lámina 7">07</a><a href="#l8" data-p="8" aria-label="Lámina 8">08</a>
-  </nav>
+  <nav class="prog" aria-label="Planos del proyecto"><a href="#como" data-p="como"><span>Cómo funciona</span></a><a href="#l1" data-p="1"><b>Plano 01</b><span>Cimientos · Tu esencia</span></a><a href="#l2" data-p="2"><b>Plano 02</b><span>Estructura · Tu estrategia</span></a><a href="#l3" data-p="3"><b>Plano 03</b><span>Fachada · Tu manual y asistente</span></a><a href="#l4" data-p="4"><b>Plano 04</b><span>Interiores · Tu director creativo</span></a><a href="#l5" data-p="5"><b>Plano 05</b><span>Estudio fotográfico · Tus fotos</span></a><a href="#entrega" data-p="entrega"><span>Entrega · Monta tu estudio</span></a><a href="#l6" data-p="6"><b>Plano 06</b><span>Vida diaria · Tus historias</span></a><a href="#l7" data-p="7"><b>Plano 07</b><span>Portafolio · Fotos y videos</span></a><a href="#l8" data-p="8"><b>Plano 08</b><span>Taller · Tu contenido</span></a></nav>
   <button type="button" class="logout dl-top" data-install="auto">Descargar app</button><button type="button" class="logout" id="logoutBtn">Salir</button>
 </header>
 
@@ -1364,11 +1365,11 @@ body{overflow-x:hidden}
 </section>
 
 <!-- ============ CÓMO FUNCIONA ============ -->
-<section class="intro-sec" id="como">
+<section class="intro-sec" id="como" data-lamina="como">
   <svg class="sk px" style="right:-100px;top:30px;width:620px" viewBox="-20 -20 680 490" fill="none" stroke="#6B705C" stroke-opacity="0.16" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M20 20 H580 V400 H20 Z" stroke-width="3"/><path pathLength="1" d="M20 180 H250 M250 20 V120 M250 160 V300 M250 300 H420 M420 300 V400 M420 20 V200 M420 240 V300 M20 300 H180 M220 300 H250" /><path pathLength="1" d="M250 120 A40 40 0 0 1 290 160 M180 300 A40 40 0 0 0 220 340 M420 200 A40 40 0 0 1 460 240" stroke-dasharray=".01 .01"/><path pathLength="1" d="M450 50 h110 v70 h-110 z" /><circle pathLength="1" cx="505" cy="85" r="18"/><path pathLength="1" d="M40 40 h160 v90 h-160 z" /><path pathLength="1" d="M300 340 h100 v40 h-100 z" /><path pathLength="1" d="M300 40 h90 v90 h-90 z M300 70 h90 M300 100 h90" /><path pathLength="1" d="M20 440 H580 M20 430 V450 M250 430 V450 M420 430 V450 M580 430 V450" /><path pathLength="1" d="M620 20 V400 M610 20 H630 M610 180 H630 M610 400 H630" /><path pathLength="1" d="M-10 20 H40 M560 -10 V40 M-10 400 H40 M560 380 V430" /></g></svg><svg class="wc " style="left:-160px;top:10%;width:620px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#E9DFC9" fill-opacity="0.75" filter="url(#wc)"/></svg><svg class="wc " style="right:-140px;bottom:-60px;width:520px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.24" filter="url(#wc)"/></svg>
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Lámina 00 · Memoria descriptiva</p>
+      <p class="eyebrow">Memoria descriptiva · Cómo funciona</p>
       <h2>Tu marca se construye en cuatro <img class="acc" src="img/acc-conversaciones.png" alt="conversaciones" width="708" height="107" style="height:1.12em;vertical-align:-0.39em"></h2>
       <div class="plat-pick" role="group" aria-label="Plataforma"><span class="hw">¿dónde vas a construir tu marca?</span><div class="plat-btns"><button type="button" class="plat-btn" data-plat="chatgpt">ChatGPT</button><button type="button" class="plat-btn" data-plat="gemini">Gemini</button></div></div>
       <p>Esta página es tu mesa de trabajo. Aquí copias cada prompt; allá, en <span data-pn>ChatGPT</span>, respondes con tu voz. Cada conversación levanta una parte de la obra.</p>
@@ -1420,7 +1421,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">01</div>
       <div>
-        <p class="eyebrow">Lámina 01 · Cimientos</p>
+        <p class="eyebrow">Plano 01 · Cimientos</p>
         <h2 id="t1">Tu historia también es parte del <img class="acc" src="img/acc-terreno.png" alt="terreno" width="572" height="203" style="height:1.89em;vertical-align:-0.59em"></h2>
         <p class="intro">Ningún arquitecto diseña sin estudiar el lugar. En esta conversación vuelves a encontrarte con tu niño o niña interior, tu historia, lo que te mueve y la voz que te frenaba. Aquí empieza tu marca: desde quien ya eres.</p>
       </div>
@@ -1463,7 +1464,7 @@ body{overflow-x:hidden}
     <footer class="lfoot">
       <p class="quote">Tu historia no es ruido. Es información.</p>
       <details class="full"><summary>Ver el prompt completo</summary><pre data-pre="p1"></pre></details>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>01 · Cimientos</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>01 · Cimientos</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1475,7 +1476,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">02</div>
       <div>
-        <p class="eyebrow">Lámina 02 · Estructura</p>
+        <p class="eyebrow">Plano 02 · Estructura</p>
         <h2 id="t2">Tu estructura y tu <img class="acc" src="img/acc-planta.png" alt="planta" width="548" height="243" style="height:2.27em;vertical-align:-0.77em"></h2>
         <p class="intro">Una marca necesita saber qué quiere lograr, por qué, y para quién está diseñando. Aquí defines tu propósito, tu visión, tu nicho y tu promesa.</p>
       </div>
@@ -1504,14 +1505,14 @@ body{overflow-x:hidden}
           <li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Ábrelo en un chat nuevo</h3><p>Pega el prompt en <span data-pn>ChatGPT</span> y envíalo.</p>
             <a class="btn ghost" data-open href="https://chatgpt.com/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg><span>Abrir <span data-pn>ChatGPT</span></span></a></div></li>
           <li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Habla, no escribas</h3><div class="voice mini-v"><div class="voice-top"><span class="tag">Recuerda</span><span class="micb"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span></div><h4>Cuéntaselo como un chisme a tu mejor amigo o amiga</h4><p>Micrófono, cero filtros y toda tu verdad. Así el resultado lleva tu esencia.</p></div></div></li>
-          <li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Guarda tu plano</h3><p>Al final, <span data-pn>ChatGPT</span> te entrega tu plano dentro de una caja de código. Toca el botón <strong>Copiar código</strong> que aparece en esa caja y pégalo aquí: lo meteremos solito en el siguiente prompt.</p><label class="sr" for="jb-j2">plano 2 (JSON de estrategia)</label><textarea id="jb-j2" class="json" data-json="j2" rows="4" spellcheck="false" placeholder="Pega aquí tu plano 2 (JSON de estrategia)…"></textarea><p class="jst" id="st-j2"></p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>¿Ya tienes tus chats organizados?</h3><p>Si ya hiciste tu Proyecto Maestro y quieres profundizar o actualizar tu nicho, no empieces de cero: pega este prompt en tu <strong>ASISTENTE</strong>. Te hará las preguntas del nicho y al final te entregará la actualización para tu <strong>DIRECTOR CREATIVO</strong> y tu nuevo JSON para esta lámina.</p><button type="button" class="btn ghost" data-copy="p2u"><span>Copiar actualización de nicho</span></button></div></li>
+          <li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>Guarda tu plano</h3><p>Al final, <span data-pn>ChatGPT</span> te entrega tu plano dentro de una caja de código. Toca el botón <strong>Copiar código</strong> que aparece en esa caja y pégalo aquí: lo meteremos solito en el siguiente prompt.</p><label class="sr" for="jb-j2">plano 2 (JSON de estrategia)</label><textarea id="jb-j2" class="json" data-json="j2" rows="4" spellcheck="false" placeholder="Pega aquí tu plano 2 (JSON de estrategia)…"></textarea><p class="jst" id="st-j2"></p></div></li><li><span class="bul"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><div><h3>¿Ya tienes tus chats organizados?</h3><p>Si ya hiciste tu Proyecto Maestro y quieres profundizar o actualizar tu nicho, no empieces de cero: pega este prompt en tu <strong>ASISTENTE</strong>. Te hará las preguntas del nicho y al final te entregará la actualización para tu <strong>DIRECTOR CREATIVO</strong> y tu nuevo JSON para esta plano.</p><button type="button" class="btn ghost" data-copy="p2u"><span>Copiar actualización de nicho</span></button></div></li>
         </ol>
       </div>
     </div>
     <footer class="lfoot">
       <p class="quote">Tu diferenciador no siempre es una sola habilidad. Muchas veces es la combinación.</p>
       <details class="full"><summary>Ver el prompt completo</summary><pre data-pre="p2"></pre></details>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>02 · Estructura</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>02 · Estructura</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1523,7 +1524,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">03</div>
       <div>
-        <p class="eyebrow">Lámina 03 · Fachada</p>
+        <p class="eyebrow">Plano 03 · Fachada</p>
         <h2 id="t3">Ahora sí, diseñamos la <img class="acc" src="img/acc-fachada.png" alt="fachada" width="674" height="234" style="height:2.18em;vertical-align:-0.78em"></h2>
         <p class="intro">Tus dos planos se unen. Recibes tu manual de marca y, desde ese momento, este chat trabaja contigo como estratega digital y community manager.</p>
       </div>
@@ -1559,7 +1560,7 @@ body{overflow-x:hidden}
     <footer class="lfoot">
       <p class="quote">“Ahora sí podemos diseñar la fachada.” — Laura</p>
       <details class="full"><summary>Ver el prompt completo</summary><pre data-pre="p3"></pre></details>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>03 · Fachada</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>03 · Fachada</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1571,7 +1572,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">04</div>
       <div>
-        <p class="eyebrow">Lámina 04 · Interiores</p>
+        <p class="eyebrow">Plano 04 · Interiores</p>
         <h2 id="t4">La experiencia de tu <img class="acc" src="img/acc-marca.png" alt="marca" width="367" height="68" style="height:1.02em;vertical-align:-0.34em"></h2>
         <p class="intro">Tu equipo creativo: guiones, carruseles, diseños para Canva, fotos de marca y hasta el render de tu nuevo feed de Instagram, siempre con tus colores, tus tipografías y tu voz.</p>
       </div>
@@ -1607,7 +1608,7 @@ body{overflow-x:hidden}
     <footer class="lfoot">
       <p class="quote">Una marca bien diseñada se siente, no solamente se ve.</p>
       <details class="full"><summary>Ver el prompt completo</summary><pre data-pre="p4"></pre></details>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>04 · Interiores</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>04 · Interiores</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1619,7 +1620,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">05</div>
       <div>
-        <p class="eyebrow">Lámina 05 · Estudio fotográfico</p>
+        <p class="eyebrow">Plano 05 · Estudio fotográfico</p>
         <h2 id="t5">Tu imagen, cuidada como tu <img class="acc" src="img/acc-marca.png" alt="marca" width="367" height="68" style="height:1.02em;vertical-align:-0.34em"></h2>
         <p class="intro">Tu equipo creativo ahora tiene fotógrafo. Fotos profesionales de ti, de tu familia y de tus productos, sin sesión de fotos ni el celular más caro, respetando siempre tu identidad real.</p>
       </div>
@@ -1655,14 +1656,14 @@ body{overflow-x:hidden}
     <footer class="lfoot">
       <p class="quote">Tu mejor foto no depende de tu cámara: depende de tu dirección.</p>
       <details class="full"><summary>Ver el prompt completo</summary><pre data-pre="p5"></pre></details>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>05 · Estudio fotográfico</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>05 · Estudio fotográfico</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
-<section class="entrega" id="entrega">
+<section class="entrega" id="entrega" data-lamina="entrega">
   <svg class="sk px" style="left:-4%;bottom:-2%;width:108%" viewBox="0 -20 900 460" fill="none" stroke="#6B705C" stroke-opacity="0.14" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M0 380 H900" /><path pathLength="1" d="M60 380 V120 L450 20 L840 120 V380" /><path pathLength="1" d="M60 120 H840" /><path pathLength="1" d="M120 380 V160 M780 380 V160" /><path pathLength="1" d="M300 380 V220 A150 150 0 0 1 600 220 V380" /><path pathLength="1" d="M200 380 h40 v-30 h40 v-30 h40 v-30 h40 v-30" /><path pathLength="1" d="M660 380 V300 H760 V380" /><path pathLength="1" d="M20 420 H880 M20 410 V430 M450 410 V430 M880 410 V430" /><path pathLength="1" d="M450 -10 V60" stroke-dasharray=".02 .02"/></g></svg><svg class="wc " style="right:-140px;top:0;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#D9C7A6" fill-opacity="0.5" filter="url(#wc)"/></svg><svg class="wc " style="left:-160px;bottom:0;width:480px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.24" filter="url(#wc)"/></svg>
   <div class="wrap">
-    <div class="sec-head rv"><p class="eyebrow">Lámina final · Entrega del proyecto</p><h2>Tu estudio de marca está <img class="acc" src="img/acc-listo.png" alt="listo" width="270" height="161" style="height:1.69em;vertical-align:-0.38em"></h2><p>Cuatro chats configurados y tus planos guardados. Ahora tienes un equipo que trabaja contigo todos los días.</p></div>
+    <div class="sec-head rv"><p class="eyebrow">Plano final · Entrega del proyecto</p><h2>Tu estudio de marca está <img class="acc" src="img/acc-listo.png" alt="listo" width="270" height="161" style="height:1.69em;vertical-align:-0.38em"></h2><p>Cuatro chats configurados y tus planos guardados. Ahora tienes un equipo que trabaja contigo todos los días.</p></div>
     <div class="board rv">
       <div class="plano-row"><span class="im" style="background-image:url(img/mat-travertino.jpg)"></span><div><strong>Plano 1 · Cimientos</strong><small>Manifiesto de marca</small></div><span class="st" data-st="j1">pendiente</span></div>
       <div class="plano-row"><span class="im" style="background-image:url(img/mat-plano.jpg)"></span><div><strong>Plano 2 · Estructura</strong><small>Nicho y promesa</small></div><span class="st" data-st="j2">pendiente</span></div>
@@ -1671,7 +1672,7 @@ body{overflow-x:hidden}
     </div>
     <div class="notes rv">
       <div><p class="hw-title">tu rutina desde hoy</p><ul class="rutina">
-        <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Monta tu estudio con tus dos asistentes de trabajo (siguiente lámina).</span></li>
+        <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Monta tu estudio con tus dos asistentes de trabajo (siguiente plano).</span></li>
         <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Estrategia, calendarios y respuestas: <strong>ASISTENTE Y COMMUNITY MANAGER</strong>.</span></li>
         <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Guiones, carruseles, diseños, fotos de marca y tu feed: <strong>DIRECTOR CREATIVO</strong>.</span></li>
         <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Si cambias algo de tu marca, pide un JSON creativo nuevo en tu Asistente y actualiza tu archivo de planos.</span></li></ul></div>
@@ -1759,7 +1760,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">06</div>
       <div>
-        <p class="eyebrow">Lámina 06 · Vida diaria</p>
+        <p class="eyebrow">Plano 06 · Vida diaria</p>
         <h2 id="t6">Tu Bitácora de Obra</h2>
         <p class="intro">Tu marca ya tiene esencia, equipo y fotos. Ahora tiene que conectar todos los días. Aquí planificas tus historias, las creas con tu Asistente, las diseñas y las programas.</p>
       </div>
@@ -1786,7 +1787,7 @@ body{overflow-x:hidden}
     </div>
     <footer class="lfoot">
       <p class="quote">Una historia suelta entretiene. Un recorrido conecta.</p>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>06 · Vida diaria</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>06 · Vida diaria</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1798,7 +1799,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">07</div>
       <div>
-        <p class="eyebrow">Lámina 07 · Portafolio</p>
+        <p class="eyebrow">Plano 07 · Portafolio</p>
         <h2 id="t7">Fotografía y video con tu clon</h2>
         <p class="intro">Crea fotos y videos de 8 segundos de ti, hiperrealistas y con movimientos naturales, como si los hubieras grabado tú. Trabaja con tu Director Creativo y tu Estudio Fotográfico.</p>
       </div>
@@ -1824,7 +1825,7 @@ body{overflow-x:hidden}
     </div>
     <footer class="lfoot">
       <p class="quote">Tu mejor portafolio no depende de una sesión: depende de tu dirección.</p>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>07 · Portafolio</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>07 · Portafolio</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1835,7 +1836,7 @@ body{overflow-x:hidden}
     <header class="lh">
       <div class="num" aria-hidden="true">08</div>
       <div>
-        <p class="eyebrow">Lámina 08 · Taller de contenido</p>
+        <p class="eyebrow">Plano 08 · Taller de contenido</p>
         <h2 id="t8">Tu contenido, con tu voz</h2>
         <p class="intro">Reels, carruseles, posts, videos e hilos para todas tus redes, creados desde tu marca: tus pilares, tu audiencia y tu voz. Lo planificas en tu Bitácora de Obra y lo agendas en tu calendario.</p>
       </div>
@@ -1861,7 +1862,7 @@ body{overflow-x:hidden}
     </div>
     <footer class="lfoot">
       <p class="quote">Una idea suelta se olvida. Un contenido con estrategia construye tu marca.</p>
-      <table class="cajetin" aria-label="Cajetín de la lámina"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Lámina</th><td>08 · Taller de contenido</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+      <table class="cajetin" aria-label="Cajetín de la plano"><tr><th>Proyecto</th><td class="pname">Marca personal maestra</td></tr><tr><th>Plano</th><td>08 · Taller de contenido</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
     </footer>
   </div>
 </section>
@@ -1876,7 +1877,7 @@ body{overflow-x:hidden}
     <div class="demo-links">
       <a class="dl wa" href="https://chat.whatsapp.com/KE8e7nI6QUQJznRKqzhEsf?mode=gi_t" target="_blank" rel="noopener"><span class="eyebrow">Comunidad gratuita</span><strong>Únete a mi grupo de WhatsApp</strong><small>Tips, acompañamiento y novedades.</small></a>
       <a class="dl" href="https://shop.beacons.ai/lauratovar/be398b21-0912-4bc0-b6c2-39db142e34dc" target="_blank" rel="noopener"><span class="eyebrow">Acompañamiento 1:1</span><strong>Asesoría personalizada</strong><small>Construyamos tu marca paso a paso, en una sesión conmigo.</small></a>
-      <div class="nf-intro"><span class="line"></span><p class="eyebrow">Detrás de este proyecto</p><h3>Todo esto nació de lo que aprendí en la academia.</h3><p>Cada lámina, cada prompt y cada decisión de Proyecto Maestro es el resultado de las habilidades que he desarrollado en mi formación en NextFly Academy: estrategia, contenido, diseño y sistemas digitales. Si quieres aprender a construir así, este es tu siguiente paso.</p></div>
+      <div class="nf-intro"><span class="line"></span><p class="eyebrow">Detrás de este proyecto</p><h3>Todo esto nació de lo que aprendí en la academia.</h3><p>Cada plano, cada prompt y cada decisión de Proyecto Maestro es el resultado de las habilidades que he desarrollado en mi formación en NextFly Academy: estrategia, contenido, diseño y sistemas digitales. Si quieres aprender a construir así, este es tu siguiente paso.</p></div>
       <a class="dl nf" href="https://shop.beacons.ai/lauratovar/e91973ee-007b-42fe-85f9-7f92408b9886" target="_blank" rel="noopener"><span class="nf-thumb" style="background-image:url(img/mat-marmol.jpg)"></span><span class="eyebrow">La academia</span><strong>NextFly <img class="acc" src="img/acc-academy.png" alt="Academy" width="380" height="176" style="height:2.30em;vertical-align:-0.73em"></strong><small>Estrategia, contenido y sistemas digitales, paso a paso. Conoce la academia aquí.</small></a>
     </div>
   </div>
@@ -1896,7 +1897,7 @@ body{overflow-x:hidden}
       <div class="cta-grid">
         <a class="cta wa" href="https://chat.whatsapp.com/KE8e7nI6QUQJznRKqzhEsf?mode=gi_t" target="_blank" rel="noopener"><span class="eyebrow">Comunidad gratuita</span><h3>Únete a la comunidad en WhatsApp</h3><p>Aprende, practica y construye junto a otras personas. Sin fórmulas mágicas.</p><span class="btn sm">Unirme al grupo →</span></a>
         <a class="cta" href="https://shop.beacons.ai/lauratovar/be398b21-0912-4bc0-b6c2-39db142e34dc" target="_blank" rel="noopener"><span class="eyebrow">Asesorías 1:1</span><h3>Construyamos tu marca, paso a paso</h3><p>Una sesión conmigo para aterrizar tus planos en estrategia, contenido y próximos pasos.</p><span class="btn sm">Agendar asesoría →</span></a>
-        <div class="nf-intro"><span class="line"></span><p class="eyebrow">Detrás de este proyecto</p><h3>Todo esto nació de lo que aprendí en la academia.</h3><p>Cada lámina, cada prompt y cada decisión de esta plataforma es el resultado de las habilidades que he desarrollado en mi formación en NextFly Academy: estrategia, contenido, diseño y sistemas digitales. Si quieres aprender a construir así, este es tu siguiente paso.</p></div>
+        <div class="nf-intro"><span class="line"></span><p class="eyebrow">Detrás de este proyecto</p><h3>Todo esto nació de lo que aprendí en la academia.</h3><p>Cada plano, cada prompt y cada decisión de esta plataforma es el resultado de las habilidades que he desarrollado en mi formación en NextFly Academy: estrategia, contenido, diseño y sistemas digitales. Si quieres aprender a construir así, este es tu siguiente paso.</p></div>
         <a class="cta nf" href="https://shop.beacons.ai/lauratovar/e91973ee-007b-42fe-85f9-7f92408b9886" target="_blank" rel="noopener"><span class="nf-img" aria-hidden="true"></span><span class="nf-body"><span class="eyebrow" style="color:#5B343B">La obra completa</span><h3>NextFly <img class="acc" src="img/acc-academy.png" alt="Academy" width="380" height="176" style="height:2.10em;vertical-align:-0.67em"></h3><p>Cuando quieras convertir tu marca en ingresos: estrategia, contenido y sistemas digitales, paso a paso.</p><span class="btn sm vino">Conocer la academia →</span></span></a>
       </div>
       <div class="socials">
@@ -1929,7 +1930,7 @@ body{overflow-x:hidden}
   <nav class="p0-nav" id="p0Nav"><button type="button" class="btn ghost p0-back" id="p0BackBtn" aria-label="Atrás">←</button><button type="button" class="btn primary" id="p0NextBtn">Continuar →</button></nav>
   <div class="p0-modal" id="p0Modal" hidden role="dialog" aria-modal="true" aria-labelledby="p0MTitle">
     <div class="p0-mbox">
-      <div class="m-loading"><svg width="150" height="110" viewBox="0 0 220 160" fill="none" stroke="#6B705C" stroke-width="1.6"><path pathLength="1" d="M10 150 H210"/><path pathLength="1" d="M40 150 V70 A70 70 0 0 1 180 70 V150"/><path pathLength="1" d="M60 150 V76 A50 50 0 0 1 160 76 V150"/><path pathLength="1" d="M80 150 V82 A30 30 0 0 1 140 82 V150"/></svg><h3 id="p0MTitle">Dibujando tu Plano 00…</h3><p>Estamos preparando tu lámina. Tarda solo unos segundos.</p><div class="m-bar"><i></i></div></div>
+      <div class="m-loading"><svg width="150" height="110" viewBox="0 0 220 160" fill="none" stroke="#6B705C" stroke-width="1.6"><path pathLength="1" d="M10 150 H210"/><path pathLength="1" d="M40 150 V70 A70 70 0 0 1 180 70 V150"/><path pathLength="1" d="M60 150 V76 A50 50 0 0 1 160 76 V150"/><path pathLength="1" d="M80 150 V82 A30 30 0 0 1 140 82 V150"/></svg><h3 id="p0MTitle">Dibujando tu Plano 00…</h3><p>Estamos preparando tu plano. Tarda solo unos segundos.</p><div class="m-bar"><i></i></div></div>
       <div class="m-ready"><span class="m-stamp">Terreno identificado ✓</span><h3>¡Tu Plano 00 está listo!</h3><p>Ábrelo para verlo y luego guárdalo en tu celular o computadora. Lo necesitarás cuando inicies tu Proyecto Maestro.</p>
         <div class="m-btns"><button type="button" class="btn primary" id="p0Open">Abrir mi PDF</button><button type="button" class="btn ghost" id="p0Share" hidden>Guardar o compartir</button><button type="button" class="btn ghost" id="p0Save">Descargar</button></div>
         <p class="m-tip">En iPhone: al abrirlo, toca el ícono de compartir y elige <b>"Guardar en Archivos"</b>. En computadora: queda en tu carpeta de <b>Descargas</b>.</p></div>
@@ -2282,7 +2283,7 @@ Entrégame estas 3 cosas, en este orden:
    - La instrucción: "Guarda esta información como la estrategia vigente de mi marca y úsala desde ahora en todos mis diseños, portadas, carruseles, fotos y videos. Reemplaza lo que tengas anterior sobre mi nicho, mi audiencia y mi promesa. No cambies mi identidad visual. Confírmame con 'Estrategia actualizada ✅' y resúmeme en 3 líneas cómo cambia tu dirección creativa."
    - Mi nicho y su versión viral, mi promesa, mi avatar (quién es, su momento de vida, su dolor con sus palabras, lo que la frena y lo que desea), por qué yo, mis pilares de contenido y el tono emocional que deben transmitir mis imágenes para conectar con ese dolor y ese deseo.
 
-3. JSON DE ESTRATEGIA ACTUALIZADO: escribe "Toca el botón Copiar código y pégalo en tu plataforma Proyecto Maestro (Lámina 02) 🚨" y entrégalo dentro de un único bloque ```json, sin texto dentro, con esta estructura:
+3. JSON DE ESTRATEGIA ACTUALIZADO: escribe "Toca el botón Copiar código y pégalo en tu plataforma Proyecto Maestro (Plano 02) 🚨" y entrégalo dentro de un único bloque ```json, sin texto dentro, con esta estructura:
 {
   "proposito": {"que_quiere_lograr": "", "por_que": "", "para_quien_lo_hace": "", "vision_1_ano": "", "vision_3_anos": "", "resultado_en_1_ano": "", "costo_de_no_hacerlo": "", "vision_si_lo_hace": "", "meta_de_ingresos": "", "modelos_de_ingreso": []},
   "expertise": {"temas_de_pasion": [], "lo_que_le_preguntan": [], "habilidad_monetizable": "", "problema_que_resolvio": "", "por_que_yo": ""},
@@ -2332,7 +2333,7 @@ REGLAS DE LA CONVERSACIÓN
 SI TE COMPARTE MATERIAL PREVIO
 ━━━━━━━━━━━━━━━━━━━━━━━
 
-No preguntes si tiene material previo. Si en cualquier momento la persona adjunta o pega su PDF de Plano 00 (Lectura del terreno), el JSON de su Lámina 01 o cualquier otro documento suyo, analízalo y úsalo como contexto para profundizar y conectar sus respuestas. Aun así, haz todas las preguntas de los bloques: no importa si alguna información se repite.
+No preguntes si tiene material previo. Si en cualquier momento la persona adjunta o pega su PDF de Plano 00 (Lectura del terreno), el JSON de su Plano 01 o cualquier otro documento suyo, analízalo y úsalo como contexto para profundizar y conectar sus respuestas. Aun así, haz todas las preguntas de los bloques: no importa si alguna información se repite.
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 BLOQUE 1 — TU PROPÓSITO
@@ -3379,7 +3380,7 @@ function refresh(){
   var done={1:has("j1"),2:has("j2"),3:has("jc"),4:!!S.copied.p4};
   $$(".prog a").forEach(function(a){ a.classList.toggle("done",!!done[a.dataset.p]); });
   $$("[data-need]").forEach(function(e){ e.classList.toggle("ok",has(e.dataset.need)); });
-  var m=$("#need3msg"); if(m) m.textContent = (has("j1")&&has("j2")) ? "Tus dos planos ya van dentro del prompt 3. Solo copia y pega." : "Si te falta un plano, pégalo en su lámina. O copia igual y reemplaza a mano las líneas [PEGA AQUÍ…].";
+  var m=$("#need3msg"); if(m) m.textContent = (has("j1")&&has("j2")) ? "Tus dos planos ya van dentro del prompt 3. Solo copia y pega." : "Si te falta un plano, pégalo en su plano. O copia igual y reemplaza a mano las líneas [PEGA AQUÍ…].";
   $$("[data-st]").forEach(function(e){ var ok=has(e.dataset.st); e.textContent=ok?"✓ listo":"pendiente"; e.classList.toggle("ok",ok); });
   $$("[data-copy]").forEach(function(b){ var w=b.dataset.copy; if(S.copied[w]&&b.classList.contains("primary")){ b.classList.add("done"); b.querySelector("span").textContent="Copiado ✓ · copiar de nuevo"; } });
   $$("[data-pre]").forEach(function(p){ p.textContent=build(p.dataset.pre); });
@@ -3426,8 +3427,9 @@ if(!reduce){ window.addEventListener("scroll",function(){ if(!tick){ tick=true; 
 var io=("IntersectionObserver" in window)? new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); } }); },{threshold:.12}) : null;
 $$(".rv,.lamina,.intro-sec,.entrega,.estudio,.l5,.l6,.pf,.cierre").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
 if("IntersectionObserver" in window){
-  var cur=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ var n=en.target.dataset.lamina; $$(".prog a").forEach(function(a){ a.classList.toggle("cur",a.dataset.p===n); }); } }); },{rootMargin:"-45% 0px -50% 0px"});
-  $$(".lamina").forEach(function(l){ cur.observe(l); });
+  var cur=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ var n=en.target.dataset.lamina; $$(".prog a").forEach(function(a){ var on=a.dataset.p===n; a.classList.toggle("cur",on); if(on&&a.parentNode.scrollTo) a.parentNode.scrollTo({left:a.offsetLeft-18,behavior:"smooth"}); }); } }); },{rootMargin:"-45% 0px -50% 0px"});
+  $$("[data-lamina]").forEach(function(l){ cur.observe(l); });
+  var pg=document.querySelector(".prog"); if(pg) pg.addEventListener("wheel",function(e){ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ pg.scrollLeft+=e.deltaY; e.preventDefault(); } },{passive:false});
 }
 }
 
@@ -3810,7 +3812,7 @@ function sheet(A){
   var qs=[P.q1,P.q2,P.q3].filter(function(x){ return x&&x.trim(); }).map(function(x){ return '<p class="q">“'+esc(x.trim())+'”</p>'; }).join("");
   var blobs=function(k){ return ['<div class="blob" style="width:430px;height:330px;left:-140px;top:'+(140+k*60)+'px;background:radial-gradient(closest-side,rgba(107,112,92,.28),rgba(107,112,92,0))"></div>','<div class="blob" style="width:470px;height:360px;right:-150px;top:-90px;background:radial-gradient(closest-side,rgba(217,199,166,.65),rgba(217,199,166,0))"></div>','<div class="blob" style="width:390px;height:300px;right:-110px;bottom:-60px;background:radial-gradient(closest-side,rgba(91,52,59,.14),rgba(91,52,59,0))"></div>'].join(""); };
   var hd=function(n,label){ return '<div class="hd"><img src="img/logo.png" alt=""><span>Plano 00 · El Terreno<br><b>'+label+'</b></span></div>'; };
-  var ft=function(n){ return '<div class="ft"><div><b>Proyecto</b>Proyecto Maestro</div><div><b>Plano</b>00 · El Terreno</div><div><b>Estado</b>Terreno identificado</div><div><b>Lámina</b>'+n+' de 3</div></div>'; };
+  var ft=function(n){ return '<div class="ft"><div><b>Proyecto</b>Proyecto Maestro</div><div><b>Plano</b>00 · El Terreno</div><div><b>Estado</b>Terreno identificado</div><div><b>Plano</b>'+n+' de 3</div></div>'; };
   var who=esc(nm()||"Mi proyecto");
   var p1='<div class="pg">'+blobs(0)+hd(1,"Tus habilidades")+'<div class="inner">'+
     '<div class="ttl"><div class="eb">Lectura del terreno</div>'+who+'</div><span class="st">Terreno identificado ✓</span>'+
