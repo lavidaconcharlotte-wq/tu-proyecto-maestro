@@ -216,6 +216,7 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 @media (max-width:420px){ .top .ttl{display:none} .pill{padding:0 10px} }
 @media (display-mode: standalone){ .dlp{display:none} }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+.goal{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--vino,#5B343B);background:#FAF6F1;color:#2A2624;font-size:13px;line-height:1.5}.flow .fl-b p.goal{color:#2A2624}.goal b{color:var(--vino,#5B343B)}.goal a{color:var(--vino,#5B343B);text-decoration:underline}
 </style>
 </head>
 <body>
@@ -440,10 +441,30 @@ var TYPES=[
  ["comunidad","Comunidad","Abre conversación: preguntas, encuestas y opiniones.",["¿Tú qué harías si {tema}?","Necesito tu opinión sobre esto","Cuéntame en comentarios: ¿te pasa?"],["Pregunta abierta a tu comunidad","Este o este","Celebrar un logro de tu comunidad"]],
  ["venta","Venta","Problema, solución, prueba y un llamado claro.",["Si {dolor}, esto es para ti","Lo que cambia cuando por fin resuelves {tema}","Abrí cupos para {tema}: te cuento cómo funciona"],["Presenta tu oferta como solución","Responde una objeción común","Muestra qué incluye, paso a paso"]]
 ];
+var GOALS={
+ atraer:{t:"Atraer",v:"atraer",d:"Los reels son para llegar a personas que todavía no te conocen y convertirlas en seguidoras.",
+  rules:"- El formato es para ATRAER: háblale a alguien que NO me conoce.\n- El gancho atrapa en los primeros 1 a 3 segundos, con texto en pantalla y dicho en voz.\n- Una sola idea, ritmo ágil y cortes cada 2 o 3 segundos."},
+ educar:{t:"Educar y posicionarte",v:"posicionarte",d:"Los carruseles son para enseñar, que te guarden y que te vean como referente en tu tema.",
+  rules:"- El formato es para EDUCAR y POSICIONARME: contenido útil que la gente guarde y comparta.\n- La portada promete un beneficio claro; cada diapositiva entrega una sola idea."}
+};
+var INTENTS={
+ conectar:{t:"Conectar",d:"Que te conozcan, se identifiquen contigo y sientan cercanía.",types:["conexion","historia","diaadia","detras","comunidad","tendencia"],
+  rules:"- Intención CONECTAR: que se identifiquen conmigo; cercano, real y en primera persona.\n- CTA suave: comentar, compartir o seguirme."},
+ educar:{t:"Educar",d:"Enseña algo útil que la gente guarde, aplique y comparta.",types:["educativo","tutorial","mito","faq"],
+  rules:"- Intención EDUCAR: enseña algo concreto y aplicable, sin relleno.\n- CTA ideal: guardar o compartir."},
+ autoridad:{t:"Autoridad",d:"Muestra tu experiencia, tu método y resultados reales para que confíen en ti.",types:["autoridad","antesdespues","opinion","detras"],
+  rules:"- Intención AUTORIDAD: muestra mi experiencia, mi proceso o resultados reales (nunca inventados).\n- Que se note que sé de lo que hablo, sin sonar a gurú."},
+ venta:{t:"Venta",d:"Vender sin parecer anuncio: problema, solución, prueba y un llamado claro.",types:["venta","antesdespues","faq","historia"],
+  rules:"- Intención VENTA: vender sin que parezca un anuncio. Empieza por el problema o el deseo de mi audiencia, muestra la solución y una prueba real.\n- CTA claro: palabra clave por DM o link en bio."}
+};
+function goalOf(f){ return /Reel|Video corto|Short/.test(f)?"atraer":/Carrusel/.test(f)?"educar":""; }
+function intOf(p){ return INTENTS[p.intent]?p.intent:"conectar"; }
+function typesForIntent(i){ return INTENTS[i].types.map(TY); }
+function comboLabel(p){ var g=goalOf(p.fmt), i=intOf(p), V={conectar:"conectar",educar:"educar",autoridad:"generar autoridad",venta:"vender"}; if(g==="atraer") return "Atraer para "+V[i]; if(g==="educar") return i==="educar"?"Educar y posicionarte":"Educar y posicionarte para "+V[i]; return INTENTS[i].t; }
 function TY(id){ for(var i=0;i<TYPES.length;i++) if(TYPES[i][0]===id) return TYPES[i]; return TYPES[0]; }
 function br(){ if(!S.brand) S.brand={raw:"",nombre:"",nicho:"",promesa:"",mensaje:"",frase:"",aud:"",dolor:"",deseo:"",voz:"",pilares:"",cta:""}; return S.brand; }
 function posts(){ if(!S.posts) S.posts=[]; return S.posts; }
-function pblank(name,date){ return {name:name||"Nueva pieza",date:date||today(),time:"12:00",plat:"ig",fmt:"Reel",type:"conexion",pilar:"",topic:"",cta:"Guardar",st:"idea",script:""}; }
+function pblank(name,date){ return {name:name||"Nueva pieza",date:date||today(),time:"12:00",plat:"ig",fmt:"Reel",intent:"conectar",type:"conexion",pilar:"",topic:"",cta:"Guardar",st:"idea",script:""}; }
 function pcur(){ var P=posts(); if(!P.length){ P.push(pblank("Mi primera pieza")); S.pcur=0; } if(S.pcur==null||S.pcur>=P.length) S.pcur=P.length-1; return P[S.pcur]; }
 function parseBrand(raw){ var b=br(); b.raw=raw; var t=raw.replace(/```json|```/g,"").trim(), j=null, m=t.indexOf("{"), n=t.lastIndexOf("}");
   if(m>=0&&n>m){ try{ j=JSON.parse(t.slice(m,n+1)); }catch(e){ j=null; } }
@@ -465,14 +486,29 @@ function brandSum(){ var b=br(), L=[]; if(b.nombre) L.push("Marca: "+b.nombre); 
 function deliver(p){ var f=p.fmt;
   if(/Reel|Video corto|Short/.test(f)) return "- 3 opciones de gancho para los primeros 3 segundos.\n- Guion por tiempos (0–3 s, 3–20 s, cierre) con lo que digo, las tomas y el texto en pantalla.\n- Duración sugerida y tipo de audio.\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar.";
   if(/Carrusel/.test(f)) return "- 3 opciones de título para la portada (máximo 7 palabras).\n- Texto exacto de cada diapositiva (entre 7 y 10), con la última como CTA.\n- Qué imagen o elemento visual lleva cada diapositiva.\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar.";
+  if(/Historia/.test(f)) return "- Entre 1 y 3 historias, con el texto exacto de cada una (máximo 120 caracteres) y mi forma real de hablar.\n- Qué muestra cada historia: video a cámara, foto con texto o texto sobre fondo, y si la grabo yo o la diseña mi Director Creativo.\n- El sticker interactivo y su contenido exacto (pregunta y opciones).\n- Si quieres una serie más larga, recuérdame usar un Recorrido de obra en mi Bitácora.";
   if(/Hilo|texto/.test(f)) return "- 3 opciones de primera línea (el gancho).\n- El texto completo"+(/Hilo/.test(f)?" del hilo (entre 3 y 6 publicaciones)":"")+", en mi voz y sin hashtags de más.\n- Una pregunta final para generar conversación.";
   if(/Video largo/.test(f)) return "- 3 opciones de título y la idea de la miniatura.\n- Estructura del video con capítulos y lo que digo en cada uno.\n- Gancho de los primeros 30 segundos.\n- Descripción con CTA y palabras clave.";
   return "- 3 opciones de gancho.\n- Idea de la imagen y texto que va sobre ella (si aplica).\n- Caption completo con CTA.\n- Hashtags (máximo 5) y mejor día y hora para publicar."; }
 function pedido(p){ var t=TY(p.type), bs=brandSum();
   return "Créame este contenido para mi marca personal, con mi voz, mi esencia y mis pilares.\n\n"+(bs?"MI MARCA (por si necesitas recordarla):\n"+bs+"\n\n":"")+
-  "PIEZA: "+p.fmt+" para "+PLATS[p.plat]+"\nTIPO DE CONTENIDO: "+t[1]+" ("+t[2]+")\n"+(p.pilar?"PILAR: "+p.pilar+"\n":"")+"DE QUÉ QUIERO HABLAR: "+(p.topic||"propónme tú la mejor idea según mi estrategia")+"\nCTA: "+p.cta+(p.cta==="Palabra clave por DM"&&br().cta?" (usa una de mis palabras clave: "+br().cta+")":"")+"\nFECHA PREVISTA: "+p.date+" a las "+(p.time||"12:00")+"\n\n"+
-  "REGLAS:\n- Estructura GANCHO → HISTORIA → MORALEJA → CTA.\n- Mi voz real: mis expresiones, mi tono y nada de frases genéricas o de gurú.\n- Nunca inventes datos, testimonios ni resultados.\n- Adáptalo a la lógica de "+PLATS[p.plat]+".\n\nENTRÉGAME:\n"+deliver(p)+"\n\nEntrégame el guion final dentro de un único bloque de código, para pegarlo en mi Bitácora de Obra. Después pregúntame si quiero el BRIEF para mi Director Creativo."; }
-function briefReq(p){ return "Prepárame el BRIEF para mi DIRECTOR CREATIVO de esta pieza: "+p.fmt+" para "+PLATS[p.plat]+" ("+(/Reel|Video|Short|Historia/.test(p.fmt)?"portada 1080x1920, 9:16":/Carrusel|Post/.test(p.fmt)?"1080x1350, 4:5":"formato adecuado")+").\n\n"+(p.script?"GUION APROBADO:\n"+p.script:"Tema: "+(p.topic||p.name)); }
+  "PIEZA: "+p.fmt+" para "+PLATS[p.plat]+"\n"+(goalOf(p.fmt)?"OBJETIVO DEL FORMATO: "+GOALS[goalOf(p.fmt)].t+"\n":"")+"INTENCIÓN: "+INTENTS[intOf(p)].t+(goalOf(p.fmt)?" (es decir: "+comboLabel(p).toLowerCase()+")":"")+"\nTIPO DE CONTENIDO: "+t[1]+" ("+t[2]+")\n"+(p.pilar?"PILAR: "+p.pilar+"\n":"")+"DE QUÉ QUIERO HABLAR: "+(p.topic||"propónme tú la mejor idea según mi estrategia")+"\nCTA: "+p.cta+(p.cta==="Palabra clave por DM"&&br().cta?" (usa una de mis palabras clave: "+br().cta+")":"")+"\nFECHA PREVISTA: "+p.date+" a las "+(p.time||"12:00")+"\n\n"+
+  "REGLAS:\n"+(goalOf(p.fmt)?GOALS[goalOf(p.fmt)].rules+"\n":"")+INTENTS[intOf(p)].rules+"\n"+"- Estructura GANCHO → HISTORIA → MORALEJA → CTA.\n- Mi voz real: mis expresiones, mi tono y nada de frases genéricas o de gurú.\n- Nunca inventes datos, testimonios ni resultados.\n- Adáptalo a la lógica de "+PLATS[p.plat]+".\n\nENTRÉGAME:\n"+deliver(p)+"\n\nEntrégame el guion final dentro de un único bloque de código, para pegarlo en mi Bitácora de Obra. Después pregúntame si quiero el BRIEF para mi Director Creativo."; }
+function briefReq(p){ var f=p.fmt, g=goalOf(f), vid=/Reel|Video|Short/.test(f), his=/Historia/.test(f), car=/Carrusel/.test(f);
+  var size=vid||his?"1080x1920, vertical 9:16":car||/Post/.test(f)?"1080x1350, 4:5":"formato adecuado";
+  var safe=vid?"ZONAS SEGURAS (reel 1080x1920): ningún texto en los 250 px de arriba, en los 420 px de abajo (ahí van el caption y la música) ni en los 150 px del lado derecho (ahí van los botones). Todo lo importante, en el centro.":
+    his?"ZONAS SEGURAS (historia 1080x1920): ningún texto en los 250 px de arriba ni en los 300 px de abajo. Deja libre el espacio de los stickers.":
+    car?"MÁRGENES (carrusel 1080x1350): mínimo 80 px de margen en todos los lados. La portada también se ve recortada en cuadrado en mi perfil, así que el título va centrado.":"Respeta márgenes cómodos.";
+  var design="\n\nDISEÑO CON MI IDENTIDAD VISUAL (tómala de mi manual de marca):\n"+
+    "- Mi paleta con sus códigos HEX: cuál va en los títulos, cuál en el texto normal, cuál como fondo de las cajas de texto y cuál para resaltar palabras clave. Que siempre se lea bien (buen contraste).\n"+
+    "- Mis tipografías: la de títulos, la de textos y la de acentos (si tengo).\n"+
+    (vid||his?"- Como voy a editar en CapCut o en Edits de Instagram, dime para cada tipografía de mi marca cuál es la fuente más parecida que existe en CapCut y cuál en Edits. Si mi fuente exacta no está, la alternativa más cercana en estilo.\n":"")+
+    (car?"- Si lo voy a armar en Canva, dime también el nombre de la fuente en Canva.\n":"")+
+    "- "+safe+"\n";
+  var per=vid?"\nENTRÉGAME, PARA MI EDICIÓN:\n- Una tabla con cada texto en pantalla: segundo en que aparece, texto exacto, tipografía (CapCut / Edits), tamaño (grande, mediano, pequeño), color del texto, fondo o caja (si lleva), posición en pantalla y animación sugerida de entrada.\n- El estilo de los subtítulos automáticos: fuente, color, palabra resaltada y posición.\n- La portada del reel: título, tipografía, colores y qué imagen o fotograma usar.\n- Ritmo de cortes y tipo de música.\n":
+    his?"\nENTRÉGAME, POR CADA HISTORIA:\n- Texto exacto, tipografía (CapCut / Edits), color, fondo y posición, y dónde va el sticker.\n- Si la diseña mi Director Creativo, el prompt de diseño en 9:16.\n":
+    car?"\nENTRÉGAME:\n- Por cada diapositiva: texto exacto, jerarquía (título, texto, palabra destacada), colores y elemento visual.\n- El prompt de diseño de cada diapositiva en 4:5, todas con el mismo estilo para que se vean como una sola pieza.\n":"";
+  return "Prepárame el BRIEF para mi DIRECTOR CREATIVO de esta pieza: "+f+" para "+PLATS[p.plat]+" ("+size+")."+(g?"\nObjetivo del formato: "+GOALS[g].t+".":"")+"\nIntención: "+INTENTS[intOf(p)].t+"."+"\n\n"+(p.script?"GUION APROBADO:\n"+p.script:"Tema: "+(p.topic||p.name))+design+per; }
 function museOrder(p){ var vert=/Reel|Video|Short/.test(p.fmt);
   return "ORDEN DE PUBLICACIÓN\n\nPLATAFORMA: "+PLATS[p.plat]+"\nTIPO: "+p.fmt+"\nFECHA Y HORA: "+p.date+" a las "+(p.time||"12:00")+" (mi hora local)\nARCHIVOS: te adjunto los archivos en orden (1, 2, 3…).\nFORMATO: "+(vert?"vertical 9:16 a pantalla completa (1080x1920), sin bandas negras ni marcos.":"4:5 (1080x1350).")+"\nTEXTO EXACTO A PUBLICAR: usa exactamente el caption de este guion, con sus saltos de línea, emojis, CTA y hashtags:\n\n"+(p.script||"[pega aquí tu caption]")+"\n\nREGLAS: no cambies ningún texto. Antes de publicar o programar, muéstrame la vista previa y espera mi aprobación."; }
 function gcalURL(title,date,time,details){ var d=(date||today()).replace(/-/g,""), t=(time||"12:00").split(":"), h=+t[0], mi=+t[1], e=new Date(2000,0,1,h,mi+30);
@@ -502,8 +538,8 @@ function renderPosts(){ var P=posts(), p=pcur(), b=br(), t=TY(p.type), pl=pilLis
      '<textarea id="bRaw" class="code" placeholder="Pega aquí tu JSON creativo o tu archivo mis-planos.txt"></textarea><button type="button" class="btn primary" id="bGo">Conectar mi marca</button>'+
      '<div class="bf"><label>Nicho<input data-bk="nicho" value="'+esc(b.nicho)+'"></label><label>Audiencia<input data-bk="aud" value="'+esc(b.aud)+'"></label><label>Su dolor<input data-bk="dolor" value="'+esc(b.dolor)+'"></label><label>Mis pilares (separados por comas)<input data-bk="pilares" value="'+esc(b.pilares)+'"></label><label>Palabras clave de CTA<input data-bk="cta" value="'+esc(b.cta)+'"></label></div></details>'+
    '<section class="flow" aria-label="Crea tu contenido con tu Asistente"><p class="fl-ey">Empieza aquí</p><h2 class="fl-h">Crea tu contenido con tu Asistente</h2>'+
-     '<div class="fl-step"><span class="fl-n">1</span><div class="fl-b"><h3>¿Dónde y en qué formato?</h3>'+chipRow("plat",Object.keys(PLATS).map(function(k){ return [k,PLATS[k]]; }),p.plat)+'<p class="fl-lab">Formato</p>'+chipRow("fmt",FMTS[p.plat],p.fmt)+'</div></div>'+
-     '<div class="fl-step"><span class="fl-n">2</span><div class="fl-b"><h3>¿Qué tipo de contenido?</h3>'+chipRow("type",TYPES.map(function(x){ return [x[0],x[1]]; }),p.type)+'<p class="objhint">'+esc(t[2])+'</p></div></div>'+
+     '<div class="fl-step"><span class="fl-n">1</span><div class="fl-b"><h3>¿Dónde y en qué formato?</h3>'+chipRow("plat",Object.keys(PLATS).map(function(k){ return [k,PLATS[k]]; }),p.plat)+'<p class="fl-lab">Formato</p>'+chipRow("fmt",FMTS[p.plat],p.fmt)+(goalOf(p.fmt)?'<p class="goal"><b>Objetivo: '+esc(GOALS[goalOf(p.fmt)].t)+'</b> · '+esc(GOALS[goalOf(p.fmt)].d)+'</p>':'')+'</div></div>'+
+     '<div class="fl-step"><span class="fl-n">2</span><div class="fl-b"><h3>¿Cuál es la intención?</h3>'+chipRow("intent",Object.keys(INTENTS).map(function(k){ return [k,INTENTS[k].t]; }),intOf(p))+'<p class="objhint">'+esc(INTENTS[intOf(p)].d)+'</p>'+(goalOf(p.fmt)?'<p class="goal"><b>Tu pieza: '+esc(comboLabel(p))+'</b></p>':'')+'<p class="fl-lab">Tipo de contenido</p>'+chipRow("type",typesForIntent(intOf(p)).map(function(x){ return [x[0],x[1]]; }),p.type)+'<p class="objhint">'+esc(t[2])+'</p></div></div>'+
      '<div class="fl-step"><span class="fl-n">3</span><div class="fl-b"><h3>¿De qué quieres hablar?</h3>'+(pl.length?'<p class="fl-lab">Tu pilar</p>'+chipRow("pilar",pl,p.pilar):'<p>Conecta tu marca para elegir entre tus pilares.</p>')+
        '<textarea class="fl-ta" data-pk="topic" placeholder="Cuéntalo como a alguien de confianza: qué pasó, qué quieres enseñar o qué quieres vender…">'+esc(p.topic)+'</textarea>'+
        '<p class="fl-lab">Llamado a la acción</p>'+chipRow("cta",CTAS,p.cta)+
@@ -516,14 +552,14 @@ function renderPosts(){ var P=posts(), p=pcur(), b=br(), t=TY(p.type), pl=pilLis
 }
 function setMode(m){ MODE=m; try{ history.replaceState(null,"",m==="cont"?"#contenido":location.pathname); }catch(e){}
   Array.prototype.forEach.call(document.querySelectorAll("[data-mode]"),function(b){ b.setAttribute("aria-pressed",b.dataset.mode===m); });
-  $("#modeLead").innerHTML=m==="cont"?"Una idea suelta se olvida. <strong>Un contenido con estrategia construye tu marca.</strong> Crea guiones para todas tus redes, con tu voz y tus pilares.":"Una historia suelta entretiene. <strong>Un recorrido conecta.</strong> Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.";
+  $("#modeLead").innerHTML=m==="cont"?"Cada formato tiene su objetivo: <strong>los reels atraen y los carruseles educan y posicionan</strong>, y cada pieza tiene una intención: conectar, educar, autoridad o venta. Crea guiones para todas tus redes, con tu voz, tus colores y tus tipografías.":"Las historias no son para atraer gente nueva: <strong>son para conectar con quienes ya te siguen.</strong> Una historia suelta entretiene; un recorrido conecta. Planifica cada recorrido antes de grabar: gancho, contexto, valor, prueba y cierre.";
   setView(VIEW==="cal"?"cal":"seq"); }
 document.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b) return;
   if(b.dataset.mode){ setMode(b.dataset.mode); return; }
   if(b.dataset.ptab!==undefined){ S.pcur=+b.dataset.ptab; save(); renderPosts(); return; }
   if(b.hasAttribute("data-pnew")){ posts().push(pblank()); S.pcur=posts().length-1; save(); renderPosts(); return; }
   if(b.dataset.popen!==undefined){ S.pcur=+b.dataset.popen; save(); MODE="cont"; setMode("cont"); setView("seq"); return; }
-  if(b.dataset.pc){ var p=pcur(), k=b.dataset.pc, v=b.dataset.pv; p[k]=(k==="pilar"&&p[k]===v)?"":v; if(k==="plat") p.fmt=FMTS[v][0]; save(); renderPosts(); return; }
+  if(b.dataset.pc){ var p=pcur(), k=b.dataset.pc, v=b.dataset.pv; p[k]=(k==="pilar"&&p[k]===v)?"":v; if(k==="plat") p.fmt=FMTS[v][0]; if(k==="intent"&&INTENTS[v].types.indexOf(p.type)<0) p.type=INTENTS[v].types[0]; save(); renderPosts(); return; }
   if(b.dataset.copyh){ copy(b.dataset.copyh,function(){ toast("Gancho copiado ♡"); }); return; }
   if(b.id==="bGo"){ var r=$("#bRaw").value; if(!r.trim()){ toast("Pega primero tu JSON o tu archivo"); return; } var ok=parseBrand(r); save(); renderPosts(); toast(ok?"¡Tu marca quedó conectada! ✦":"Lo guardé. Revisa y completa los campos"); return; }
   if(b.id==="pAsk"){ copy(pedido(pcur()),function(){ toast("Pedido copiado ♡ Pégalo en tu ASISTENTE"); }); return; }
