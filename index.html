@@ -999,9 +999,7 @@ body{overflow-x:hidden}
 @media (prefers-reduced-motion:reduce){.sk path,.sk circle{stroke-dashoffset:0!important}.wc{animation:none}}
 
 /* ===== PRELANZAMIENTO (cronómetro + cinta) ===== */
-.pl-launch{position:relative;z-index:4;max-width:1080px;width:calc(100% - 44px);margin:6px auto 18px;
-/* la tarjeta de prelanzamiento va debajo de la foto, no sobre ella (móvil/tablet) */
-@media (max-width:1023.98px){.gate>section.pl-launch:first-of-type{margin-top:52vh}}background:var(--paper);border:1px solid var(--champ);box-shadow:0 22px 50px rgba(42,38,36,.14);padding:22px 18px 24px;text-align:center}
+.pl-launch{position:relative;z-index:4;max-width:1080px;width:calc(100% - 44px);margin:6px auto 18px;background:var(--paper);border:1px solid var(--champ);box-shadow:0 22px 50px rgba(42,38,36,.14);padding:22px 18px 24px;text-align:center}
 .pl-launch::before{content:"";position:absolute;left:50%;top:-11px;width:110px;height:22px;margin-left:-55px;background:rgba(217,199,166,.85);transform:rotate(-2deg)}
 .pl-ey{font-size:10.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--olive);margin:0 0 6px}
 .pl-title{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(19px,3.6vw,28px);line-height:1.2;margin:0 0 14px}
@@ -1052,6 +1050,32 @@ body{overflow-x:hidden}
 .hero .hero-head .tag{position:static;left:auto;bottom:auto;transform:none;max-width:30em;background:none;box-shadow:none;clip-path:none;padding:0;font-family:inherit;font-size:12px;letter-spacing:.2em;line-height:1.9;font-weight:500;text-transform:uppercase;color:var(--ink);text-align:inherit;margin:22px 0 0}
 @media (min-width:720px) and (max-width:1023px){ .hero .hero-head .tag{margin:18px auto 0} }
 .hero .hero-grid>div{min-width:0}
+
+/* Cronómetro del inicio: debajo de la foto de portada, siempre centrado */
+.g-body>.pl-hero{grid-column:1/-1;justify-self:center;width:100%;max-width:760px;margin:0 auto}
+@media (min-width:1024px){
+  /* fila 1: texto sobre la portada · fila 2: barra del cronómetro · fila 3: video centrado */
+  .gate .g-body.lp-hero{grid-template-rows:minmax(calc(100vh - 150px),auto) auto auto;align-content:start;row-gap:0}
+  .lp-hero>.g-copy{grid-column:1;grid-row:1;align-self:center}
+  .lp-hero>.pl-hero{grid-column:1/-1;grid-row:2;width:100%;max-width:1180px;margin:10px auto 0;padding:24px 36px;text-align:left;
+    display:grid;grid-template-columns:minmax(220px,1.2fr) auto auto auto;grid-template-areas:"ey cd price btn" "title cd price btn" "note cd price btn";align-items:center;column-gap:34px;row-gap:4px}
+  .lp-hero>.pl-hero .pl-ey{grid-area:ey;margin:0}
+  .lp-hero>.pl-hero .pl-title{grid-area:title;margin:0;font-size:24px}
+  .lp-hero>.pl-hero .pl-note{grid-area:note;margin:6px 0 0;font-size:12.5px}
+  .lp-hero>.pl-hero .pl-cd{grid-area:cd;margin:0}
+  .lp-hero>.pl-hero .pl-cd>div{min-width:78px}
+  .lp-hero>.pl-hero .pl-cd b{font-size:42px}
+  .lp-hero>.pl-hero .pl-price{grid-area:price;margin:0}
+  .lp-hero>.pl-hero .pl-price .amt{font-size:72px}
+  .lp-hero>.pl-hero .pl-btn{grid-area:btn;max-width:230px;text-align:center;line-height:1.5;padding:12px 22px}
+  .lp-hero>.g-side{grid-column:1/-1;grid-row:3;justify-items:center;width:100%;max-width:900px;margin:44px auto 64px;gap:28px}
+  .lp-hero>.g-side .lp-video{max-width:900px}
+  .lp-hero>.g-side .lp-bio{max-width:680px;text-align:center;justify-self:center}
+}
+@media (min-width:1024px) and (max-width:1279px){
+  .lp-hero>.pl-hero{grid-template-columns:minmax(200px,1fr) auto auto;grid-template-areas:"ey cd price" "title cd price" "note btn btn";column-gap:26px}
+  .lp-hero>.pl-hero .pl-btn{max-width:none;justify-self:end;margin-top:10px}
+}
 </style>
 </head>
 <body>
@@ -1076,8 +1100,8 @@ body{overflow-x:hidden}
     <img src="img/logo.png" alt="Laura Tovar Studio">
     <span class="meta">Arquitectura Digital <i></i> MMXXVI</span><nav class="lp-topnav"><button type="button" data-install="auto">Descargar app</button><button type="button" data-historia>Mi historia</button><a href="#gLoginT" data-tologin class="lp-in">Ya tengo cuenta</a></nav>
   </header>
-  <section class="pl-launch " data-launch aria-label="Precio de prelanzamiento"><p class="pl-ey" data-pl-ey>Prelanzamiento · 24 de octubre</p><h2 class="pl-title" data-pl-title>Tu Proyecto Maestro abre sus puertas en</h2><div class="pl-cd" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>días</span></div><div><b data-cd="h">00</b><span>horas</span></div><div><b data-cd="m">00</b><span>min</span></div><div><b data-cd="s">00</b><span>seg</span></div></div><div class="pl-price"><span class="lbl" data-pl-lbl>Precio de prelanzamiento</span><span class="amt"><sup>$</sup><span data-pl-amt>47</span></span><span class="old">Precio regular <s>$97</s></span></div><p class="pl-note" data-pl-note>El <b>24 de octubre</b> el precio sube a <b>$67</b>. Asegura hoy tu Proyecto Maestro por <b>$47</b>.</p><a class="pl-btn" data-pl-buy href="#" target="_blank" rel="noopener"><span data-pl-cta>Quiero mi Proyecto Maestro a $47</span> <span aria-hidden="true">→</span></a></section>
   <div class="g-body lp-hero">
+  <section class="pl-launch pl-hero" data-launch aria-label="Precio de prelanzamiento"><p class="pl-ey" data-pl-ey>Prelanzamiento · 24 de octubre</p><h2 class="pl-title" data-pl-title>Tu Proyecto Maestro abre sus puertas en</h2><div class="pl-cd" role="timer" aria-live="off"><div><b data-cd="d">00</b><span>días</span></div><div><b data-cd="h">00</b><span>horas</span></div><div><b data-cd="m">00</b><span>min</span></div><div><b data-cd="s">00</b><span>seg</span></div></div><div class="pl-price"><span class="lbl" data-pl-lbl>Precio de prelanzamiento</span><span class="amt"><sup>$</sup><span data-pl-amt>47</span></span><span class="old">Precio regular <s>$97</s></span></div><p class="pl-note" data-pl-note>El <b>24 de octubre</b> el precio sube a <b>$67</b>. Asegura hoy tu Proyecto Maestro por <b>$47</b>.</p><a class="pl-btn" data-pl-buy href="#" target="_blank" rel="noopener"><span data-pl-cta>Quiero mi Proyecto Maestro a $47</span> <span aria-hidden="true">→</span></a></section>
     <div class="g-copy">
       <p class="eyebrow">Tu Proyecto Maestro · Laura Tovar Studio</p>
       <h1 class="lp-h1">Construye tu marca personal paso a paso<span>aunque nunca lo hayas hecho.</span></h1>
