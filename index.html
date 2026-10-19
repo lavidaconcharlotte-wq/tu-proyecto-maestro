@@ -21,7 +21,7 @@
 <link rel="icon" type="image/png" href="img/sublogo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Caveat:wght@400;500&family=Architects+Daughter&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Caveat:wght@400;500&family=Architects+Daughter&family=Ephesis&display=swap" rel="stylesheet">
 <style>
 :root{
   --ivory:#FAF6F1; --sand:#E9DFC9; --olive:#6B705C; --olive-d:#5A5F4D; --champ:#D9C7A6; --vino:#5B343B; --ink:#2A2624; --paper:#FFFDF9; --brass:#B8925A;
@@ -1076,6 +1076,105 @@ body{overflow-x:hidden}
   .lp-hero>.pl-hero{grid-template-columns:minmax(200px,1fr) auto auto;grid-template-areas:"ey cd price" "title cd price" "note btn btn";column-gap:26px}
   .lp-hero>.pl-hero .pl-btn{max-width:none;justify-self:end;margin-top:10px}
 }
+
+
+#p0pdf .mem .mr{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:calc(7px*var(--k)) 0;border-bottom:1px solid #E9DFC9}
+#p0pdf .mem .mr b{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B705C;font-weight:800;padding-top:2px}
+#p0pdf .mem .ttl .nmA{display:block;font-family:'Aurantiaca','Ephesis',cursive;font-size:64px;line-height:1.1;color:#5B343B;text-transform:none;letter-spacing:0}
+#p0pdf .mem .mr p{margin:0;font-size:calc(11.5px*var(--k));line-height:1.5;color:#2A2624}
+#p0pdf .mem .mhow{margin:14px 0 10px;background:#6B705C;color:#FAF6F1;padding:12px 16px;font-size:calc(11px*var(--k));line-height:1.5}
+#p0pdf .mem .mhow b{display:block;font-family:'Cinzel',serif;font-size:13px;font-weight:500;margin-bottom:3px}
+
+
+.p0-loc{margin-top:18px}
+.p0-locrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.p0-locrow label{display:flex;flex-direction:column;gap:6px}
+.p0-locrow span{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+.p0-locrow input{min-height:50px;padding:0 14px;border:1px solid var(--champ);background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+/* emplazamiento */
+/* usos de suelo */
+/* estudio de suelo */
+/* curvas de nivel */
+/* sector */
+/* zonas */
+/* programa + condicionantes */
+/* cajetín */
+
+#p0 .p0-locrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}#p0 .p0-locrow input{width:100%;min-width:0;box-sizing:border-box}
+
+@font-face{font-family:'Aurantiaca';src:url('fonts/Aurantiaca.woff2') format('woff2'),url('fonts/Aurantiaca.woff') format('woff'),url('fonts/Aurantiaca.otf') format('opentype'),url('fonts/Aurantiaca.ttf') format('truetype');font-display:swap}
+/* ===== Plano 00 · lámina Estudio del Terreno (ilustraciones en acuarela + datos de cada persona) ===== */
+#p0pdf .lam{position:relative;width:1632px;height:1056px;overflow:hidden;background:#FBF6EF;font-family:'Montserrat',sans-serif;color:#2A2624;box-sizing:border-box}
+#p0pdf .lam *{box-sizing:border-box}
+#p0pdf .lam .ab{position:absolute}
+#p0pdf .lam .frame{left:18px;top:18px;right:18px;bottom:18px;border:1.4px solid #2A2624}
+#p0pdf .lam .frame::after{content:"";position:absolute;inset:5px;border:.6px solid rgba(42,38,36,.5)}
+#p0pdf .lam img{display:block}
+#p0pdf .lam .ttl{left:0;right:0;top:34px;text-align:center}
+#p0pdf .lam .ttl h1{margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:50px;line-height:1;letter-spacing:.02em;color:#2A2624}
+#p0pdf .lam .ttl p{margin:10px 0 0;font-family:'Montserrat',sans-serif;font-weight:400;font-size:17px;letter-spacing:.04em;color:#2A2624}
+#p0pdf .lam .stamp{right:46px;top:44px;border:1.6px solid #8A4B55;color:#8A4B55;padding:7px 14px;text-align:center;font-family:'Cinzel',serif;font-size:13px;line-height:1.25;letter-spacing:.06em}
+#p0pdf .lam .stamp::after{content:"";position:absolute;inset:3px;border:.7px solid #8A4B55}
+#p0pdf .lam .hrule{left:36px;right:36px;top:124px;border-top:1.2px solid #2A2624}
+#p0pdf .lam .sh{z-index:3;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.16em;color:#2A2624;padding-bottom:6px;border-bottom:1px solid #2A2624;white-space:nowrap}
+#p0pdf .lam .cap{font-family:'Montserrat',sans-serif;font-style:italic;font-weight:300;font-size:13.5px;color:#2A2624;text-align:center}
+#p0pdf .lam .hand{font-family:'Architects Daughter',cursive}
+/* localización */
+#p0pdf .lam .locroute{font-size:14px;font-weight:500;letter-spacing:.04em;color:#2A2624}
+#p0pdf .lam .locbig b{display:block;font-family:'Cinzel',serif;font-weight:500;font-size:34px;line-height:1.05;color:#5B343B}
+#p0pdf .lam .locbig span{display:block;margin-top:6px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#6B705C;font-weight:800}
+#p0pdf .lam .locbig p{margin:14px 0 0;font-size:13px;line-height:1.5;color:#2A2624}
+#p0pdf .lam .pinlbl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:#2A2624;background:rgba(251,246,239,.85);padding:1px 6px;white-space:nowrap}
+/* suelo */
+#p0pdf .lam .band{transform:translate(-50%,-50%);text-align:center;background:rgba(251,246,239,.5);padding:3px 12px;border-radius:30px;white-space:nowrap}
+#p0pdf .lam .band b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;color:#2A2624}
+#p0pdf .lam .band span{display:block;font-size:var(--fs,12px);line-height:1.3;color:#2A2624;margin-top:2px}
+#p0pdf .lam .band.rock{background:rgba(251,246,239,.85)}
+/* lote */
+#p0pdf .lam .nm{transform:translate(-50%,-50%);text-shadow:-1px -1px 0 rgba(255,255,255,.75),1px 1px 0 #3E2229,2px 2px 0 #3E2229,3px 3px 0 rgba(62,34,41,.55),5px 6px 8px rgba(42,38,36,.28);font-family:'Aurantiaca','Ephesis','Allura',cursive;font-size:var(--nf,118px);line-height:1;color:#5B343B;white-space:nowrap}
+#p0pdf .lam .zl{transform:translate(-50%,-50%);font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.06em;color:#2A2624;background:rgba(251,246,239,.6);padding:1px 7px;white-space:nowrap}
+/* curvas */
+#p0pdf .lam .cl{font-family:'Montserrat',sans-serif;font-weight:500;font-size:var(--fs,14px);line-height:1.15;color:#2A2624;transform:translateY(-50%);max-width:230px}
+/* público */
+#p0pdf .lam .pub p{margin:0 0 14px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.04em;color:#2A2624;border-bottom:1px solid rgba(42,38,36,.35);padding-bottom:12px}
+#p0pdf .lam .pub p span{font-family:'Montserrat',sans-serif;font-weight:400;font-size:12px;color:#6B705C}
+#p0pdf .lam .pub small{display:block;font-family:'Montserrat',sans-serif;font-style:italic;font-weight:400;font-size:12.5px;color:#5B343B;line-height:1.35}
+/* por qué te buscan */
+#p0pdf .lam .tu{transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:radial-gradient(circle,#F1D9DB 0%,#E7C3C7 70%,#DDB3B8 100%);border:1.4px solid #8A4B55;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:22px;color:#5B343B}
+#p0pdf .lam .bi{transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;width:140px;text-align:center}
+#p0pdf .lam .bi i{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,#F6E7D6 0%,#EED7BE 60%,rgba(232,206,178,.65) 100%);display:flex;align-items:center;justify-content:center}
+#p0pdf .lam .bi span{font-family:'Montserrat',sans-serif;font-weight:500;font-size:var(--fs,12.5px);line-height:1.2;color:#2A2624}
+/* zonas */
+#p0pdf .lam .zn{transform:translate(-50%,-50%);width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:1.2px solid #2A2624;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:18px;font-weight:600;color:#2A2624}
+#p0pdf .lam .leg{display:flex;flex-direction:column;gap:10px}
+#p0pdf .lam .leg div{display:flex;align-items:center;gap:10px;font-weight:500;font-size:var(--fs,14px);line-height:1.25;color:#2A2624}
+#p0pdf .lam .leg i{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-family:'Cinzel',serif;font-weight:600;font-size:15px;color:#2A2624;border:1px solid rgba(42,38,36,.5)}
+/* firma */
+#p0pdf .lam .firma small{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6B705C;font-weight:800;margin-bottom:2px}
+/* barras inferiores */
+#p0pdf .lam .bar{left:36px;right:36px;display:flex;align-items:stretch;border:1.2px solid #2A2624;background:rgba(255,255,255,.35)}
+#p0pdf .lam .bar>div{display:flex;align-items:center;gap:16px;padding:0 18px;min-width:0}
+#p0pdf .lam .bar b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;padding-right:16px;border-right:1.2px solid #2A2624}
+#p0pdf .lam .bar span{font-size:var(--fs,13px);color:#2A2624;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#p0pdf .lam .caj>div{justify-content:center;font-family:'Montserrat',sans-serif;font-size:13px;border-left:1.2px solid #2A2624;padding:0 14px;white-space:nowrap;overflow:hidden}
+#p0pdf .lam .caj>div:first-child{border-left:0;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+#p0pdf .lam .caj .n0{font-family:'Cinzel',serif;font-size:42px;font-weight:600;flex:0 0 110px}
+#p0pdf .lam .foot{left:0;right:0;bottom:25px;text-align:center;font-size:10.5px;letter-spacing:.06em;color:#6B705C}
+
+#p0pdf .lam .zlist b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:.14em;color:#5B343B;margin-bottom:4px}
+#p0pdf .lam .zlist ul{list-style:none;margin:0;padding:0}
+#p0pdf .lam .zlist li{font-size:12.5px;line-height:1.38;color:#2A2624;padding-left:10px;position:relative}
+#p0pdf .lam .zlist li::before{content:"-";position:absolute;left:0}
+#p0pdf .lam .zlist li.mas{color:#6B705C;font-style:italic}
+#p0pdf .lam .zlist li.mas::before{content:""}
+
+#p0pdf .lam .plab{z-index:2}
+#p0pdf .lam .plab b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#2A2624;line-height:1.2}
+#p0pdf .lam .plab b em{font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:#6B705C}
+#p0pdf .lam .plab span{display:block;font-size:var(--fs,11.5px);line-height:1.3;color:#5B343B;font-style:italic;margin-top:1px}
+#p0pdf .lam .pub.sm p{margin:0 0 9px;padding-bottom:8px}
+#p0pdf .lam .zn.sm{width:28px;height:28px;font-size:15px}
+#p0pdf .lam .locbig b{font-size:30px}
 </style>
 </head>
 <body>
@@ -3649,7 +3748,7 @@ var CLS_EMO={love:"❤️",meh:"🙂",money:"💰",no:"🚫"};
 var SHORT={love:"Pasión",money:"Ingresos",meh:"Me da igual",no:"No"};
 var CLS_TXT={love:"La disfrutas tanto que te encantaría convertirla en tu trabajo o en tu negocio.",money:"Sabes hacerla y podría darte dinero, pero la verías solo como un trabajo.",meh:"Te sale bien, pero no te interesa crecer ni construir nada alrededor de ella.",no:"Sabes hacerla, pero no quieres que forme parte de tu marca ni de tu trabajo."};
 
-function fresh(){ return {name:"",step:0,momento:[],quiere:[],skills:[],custom:[],customInts:[],cls:{},buscan:[],q1:"",q2:"",q3:"",exp:[],prof:"",ints:[],bloq:[],noq:"",done:false}; }
+function fresh(){ return {name:"",pais:"",ciudad:"",step:0,momento:[],quiere:[],skills:[],custom:[],customInts:[],cls:{},buscan:[],q1:"",q2:"",q3:"",exp:[],prof:"",ints:[],bloq:[],noq:"",done:false}; }
 var P=(function(){ try{ var s=JSON.parse(localStorage.getItem(KEY)); if(s&&typeof s==="object"){ var f=fresh(); for(var k in f) if(s[k]===undefined) s[k]=f[k]; return s; } }catch(e){} return fresh(); })();
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(P)); }catch(e){} }
 function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
@@ -3670,7 +3769,10 @@ function V_welcome(){
     '<div class="p0-lesson"><div><span class="n">01</span><b>Responde con calma</b><span>Toca las opciones que te representen. No hay respuestas correctas.</span></div><div><span class="n">02</span><b>Hazlo de una vez</b><span>Se guarda solo en este dispositivo: termínalo aquí mismo.</span></div><div><span class="n">03</span><b>Recibe tu lectura</b><span>Patrones, territorios y tu PDF para guardar.</span></div></div>'+
     '<p class="p0-quote">Lo que para ti es normal, para alguien más puede ser una habilidad.</p>'+(document.querySelector('.appcard')?document.querySelector('.appcard').outerHTML:'');
 }
-function V_name(){ return '<p class="p0-eyebrow">Paso 1 · El proyecto</p><h2 class="p0-h">Todo proyecto empieza con un nombre.</h2><p class="p0-lead">¿Cómo te llamas? Así sabremos para quién estamos levantando este terreno.</p><label class="p0-name"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B705C" stroke-width="1.5" stroke-linecap="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg><span class="sr">Tu nombre</span><input id="p0Name" autocomplete="given-name" maxlength="40" placeholder="Tu nombre" value="'+esc(P.name)+'"></label>'; }
+function V_name(){ return '<p class="p0-eyebrow">Paso 1 · El proyecto</p><h2 class="p0-h">Todo proyecto empieza con un nombre.</h2><p class="p0-lead">¿Cómo te llamas? Así sabremos para quién estamos levantando este terreno.</p><label class="p0-name"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B705C" stroke-width="1.5" stroke-linecap="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg><span class="sr">Tu nombre</span><input id="p0Name" autocomplete="given-name" maxlength="40" placeholder="Tu nombre" value="'+esc(P.name)+'"></label>'+
+ '<div class="p0-card p0-loc"><h3>¿Desde dónde construyes tu marca?</h3><p class="hint">Tu contenido le hablará primero a las personas de tu ciudad y sus alrededores.</p>'+
+ '<div class="p0-locrow"><label><span>País</span><input data-t="pais" autocomplete="country-name" maxlength="40" placeholder="Ej: Colombia" value="'+esc(P.pais)+'"></label>'+
+ '<label><span>Ciudad</span><input data-t="ciudad" autocomplete="address-level2" maxlength="50" placeholder="Ej: Cali" value="'+esc(P.ciudad)+'"></label></div></div>'; }
 function V_lesson(){ var n=nm()||"";
   return '<p class="p0-eyebrow">Paso 2 · Memoria descriptiva</p><h2 class="p0-h">'+(n?esc(n)+', ¿qué':'¿Qué')+' es una marca personal?</h2><p class="p0-lead">Es lo que las personas piensan, sienten y recuerdan de ti cuando escuchan tu nombre. Y la buena noticia: ya existe. Solo falta diseñarla con intención.</p>'+
   '<div class="p0-lesson"><div><span class="n">01</span><b>No es un logo</b><span>Ni colores bonitos. Eso es la fachada, y llega al final.</span></div><div><span class="n">02</span><b>Es tu esencia en acción</b><span>Lo que sabes, lo que has vivido y cómo ayudas a otras personas.</span></div><div><span class="n">03</span><b>Se construye como una obra</b><span>Primero el terreno, luego los cimientos, la estructura y, al final, la fachada.</span></div></div>'+
@@ -3778,6 +3880,7 @@ function go(n){ P.step=Math.max(0,Math.min(STEPS.length-1,n)); render(); }
 function next(){
   var st=STEPS[P.step];
   if(st==="name"&&!nm()){ toast("Escribe tu nombre para continuar"); var i=$("#p0Name"); if(i) i.focus(); return; }
+  if(st==="name"&&(!(P.pais||"").trim()||!(P.ciudad||"").trim())){ toast("Escribe tu país y tu ciudad para continuar"); var j=document.querySelector((P.pais||"").trim()?'[data-t="ciudad"]':'[data-t="pais"]'); if(j) j.focus(); return; }
   if(st==="skills"&&!P.skills.length){ toast("Toca al menos una habilidad"); return; }
   if(st==="classify"){ var miss=P.skills.filter(function(s){ return !P.cls[s]; }); if(miss.length){ toast("Te falta clasificar: "+miss[0]); return; } }
   if(st==="bloq"){ go(STEPS.indexOf("gen")); setTimeout(function(){ P.done=true; go(STEPS.indexOf("result")); },2300); return; }
@@ -3813,7 +3916,7 @@ function next(){
 (function(){ var v=document.getElementById("lpVideo"); if(v&&CFG.videoId){ v.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+esc(CFG.videoId)+'?rel=0&modestbranding=1&playsinline=1" title="Bienvenida de Laura Tovar" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>'; } })();
 function open(){ document.getElementById("gate").hidden=true; document.getElementById("app").hidden=true; var s=$("#p0"); s.hidden=false; if(P.done&&P.step<STEPS.indexOf("result")) {} render(); }
 function close(){ $("#p0").hidden=true; location.hash=""; if(window.__PM_USER){ document.getElementById("app").hidden=false; } else { document.getElementById("gate").hidden=false; } }
-window.P0={open:open,pdf:function(){ makePdf(); },has:function(){ return !!P.done; },name:nm,sheetHTML:function(){ return sheet(analyze()).join(""); },fit:function(){ Array.prototype.forEach.call(document.querySelectorAll("#p0pdf .pg"),fitPage); }};
+window.P0={lamHTML:function(){ return lamina(analyze()); },memHTML:function(){ return memoria(analyze()); },fitPage:fitPage,fitLam:fitLam,open:open,pdf:function(){ makePdf(); },has:function(){ return !!P.done; },name:nm,sheetHTML:function(){ return sheet(analyze()).join(""); },fit:function(){ Array.prototype.forEach.call(document.querySelectorAll("#p0pdf .pg"),fitPage); }};
 
 document.addEventListener("click",function(e){
   var b=e.target.closest("button"); if(!b||!b.closest("#p0,#app,#gate")) return;
@@ -3840,7 +3943,7 @@ function loadScript(src){ return new Promise(function(res,rej){ var s=document.c
 function libs(){ var p=[]; if(!window.html2canvas) p.push(loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js")); if(!(window.jspdf&&window.jspdf.jsPDF)) p.push(loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js")); return Promise.all(p); }
 function pdfText(A){
   var L=[]; function s(t,v){ L.push(t.toUpperCase()+": "+(v&&String(v).trim()?v:"—")); }
-  L.push("PLANO 00 · LECTURA DEL TERRENO"); L.push("Proyecto Maestro · Laura Tovar Studio"); s("Nombre",nm());
+  L.push("PLANO 00 · LECTURA DEL TERRENO"); L.push("Proyecto Maestro · Laura Tovar Studio"); s("Nombre",nm()); s("Ciudad y país",[P.ciudad,P.pais].filter(function(x){ return x&&x.trim(); }).join(", "));
   s("Lo que ya existe en mí",list(A.exists)); s("Momento actual",P.momento.join(", ")); s("Qué quiero construir",P.quiere.join(", "));
   s("Habilidades identificadas",P.skills.join(", ")); s("Habilidades que me apasionan y de las que me gustaría vivir",A.by.love.join(", ")); s("Habilidades que podrían generarme ingresos aunque no me apasionan",A.by.money.join(", ")); s("Habilidades que hago bien pero no me interesa desarrollar",A.by.meh.join(", ")); s("Habilidades con las que NO quiero construir",A.by.no.join(", "));
   s("Me buscan por",P.buscan.join(", ")); s("Lo que hago con facilidad y a otros les cuesta",P.q1); s("Lo que podría enseñar sin estudiar",P.q2); s("Lo que me dicen que hago bien",P.q3);
@@ -3848,6 +3951,147 @@ function pdfText(A){
   s("Patrones detectados",A.pats.join(" | ")); s("Posibles territorios a explorar",A.terr.map(function(t){ return t.t+" ("+t.d+")"; }).join(" | "));
   s("Lo que no quiero construir",P.noq); s("Bloqueos actuales",P.bloq.join(", ")); L.push("ESTADO DEL PROYECTO: TERRENO IDENTIFICADO"); return L.join("\n");
 }
+
+
+/* ===== Plano 00 · lámina "Estudio del terreno" (1632x1056, tabloide horizontal) ===== */
+var P00IMG="img/p00/";
+var P00ICO={bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',chat:'<path d="M4 5h16v11H9l-5 4z"/>',pot:'<path d="M4 10h16v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6zM8 6c0-1 1-1 1-2M12 6c0-1 1-1 1-2M16 6c0-1 1-1 1-2"/>',list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/>',wrench:'<path d="M14.5 5.5a4 4 0 0 0 4.9 4.9L11 18.8a2 2 0 0 1-2.8-2.8l8.4-8.4"/>',crane:'<path d="M6 21V4l12 3M6 7h12M18 7v6M16 13h4M4 21h6M6 10l4-3M6 14l4-3"/>',laptop:'<path d="M5 6h14v9H5zM3 18h18"/>',coin:'<circle cx="12" cy="12" r="8"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6v2M12 16v2"/>',tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/>',dumb:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>',palette:'<path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.6 0-.9-.7-1.4-.7-2.3 0-1 .8-1.6 1.8-1.6H17a4 4 0 0 0 4-4c0-4.6-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',house:'<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/>',book:'<path d="M4 5c3-1 5-1 8 1 3-2 5-2 8-1v14c-3-1-5-1-8 1-3-2-5-2-8-1zM12 6v14"/>'};
+function p00Icon(t){ var k=/Consejo/.test(t)?"bulb":/Escuch/.test(t)?"chat":/Receta|comida/.test(t)?"pot":/Organizar/.test(t)?"list":/Arreglar|reparar/.test(t)?"wrench":/construcci|remodel/.test(t)?"crane":/tecnolog/.test(t)?"laptop":/dinero|negocio/.test(t)?"coin":/Vender/.test(t)?"tag":/Deporte|entren/.test(t)?"dumb":/Estilo|belleza|imagen/.test(t)?"spark":/Decoraci|diseño/.test(t)?"palette":/Foto|video/.test(t)?"camera":/Motiv/.test(t)?"star":/Fe |espiritual/.test(t)?"heart":/familia|crianza/.test(t)?"house":"book";
+  return '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5B343B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'+P00ICO[k]+'</svg>'; }
+function lamina(A){
+  var e=esc, nmx=nm()||"Mi proyecto", first=nmx.split(" ")[0], ciu=(P.ciudad||"").trim(), pai=(P.pais||"").trim();
+  var d=new Date(), fecha=("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+d.getFullYear();
+  var dot=function(a,max){ var n=a.length, b=a.slice(0,max||99); return n?b.map(e).join(" · ")+(n>b.length?" · +"+(n-b.length):""):"—"; };
+  var ab=function(st,inner,cls){ return '<div class="ab '+(cls||"")+'" style="'+st+'">'+inner+'</div>'; };
+  var h=[], arrows='';
+  function hArrow(sx,sy,tx,ty,bend){ var cx=(sx+tx)/2+(bend||0), cy=Math.min(sy,ty)-Math.abs(bend||0)*.35;
+    arrows+='<path d="M'+sx.toFixed(1)+' '+sy.toFixed(1)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+tx.toFixed(1)+' '+ty.toFixed(1)+'" stroke="#5B343B" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
+    var ang=Math.atan2(ty-cy,tx-cx), a1=ang+Math.PI*.82, a2=ang-Math.PI*.82;
+    arrows+='<path d="M'+(tx+Math.cos(a1)*10).toFixed(1)+' '+(ty+Math.sin(a1)*10).toFixed(1)+' L'+tx.toFixed(1)+' '+ty.toFixed(1)+' L'+(tx+Math.cos(a2)*10).toFixed(1)+' '+(ty+Math.sin(a2)*10).toFixed(1)+'" stroke="#5B343B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'; }
+  h.push(ab("",'',"frame"));
+  /* encabezado */
+  h.push(ab("left:44px;top:30px;width:72px",'<img src="'+P00IMG+'norte.jpg" alt="" style="width:72px">'));
+  h.push(ab("",'<h1>Plano 00 · Estudio del terreno</h1><p>Lo que ya existe en ti, antes de construir tu marca.</p>',"ttl"));
+  h.push(ab("",'Terreno<br>identificado',"stamp"));
+  h.push(ab("",'',"hrule"));
+
+  /* 01 localización */
+  h.push(ab("left:40px;top:138px;width:520px",'01 · Localización',"sh"));
+  h.push(ab("left:40px;top:174px;width:520px",e(pai||"Tu país")+' → '+e(ciu||"tu ciudad"),"locroute"));
+  h.push(ab("left:44px;top:196px;width:168px;height:168px",'<img src="'+P00IMG+'mapa.jpg" alt="" style="width:168px;height:168px">'));
+  h.push(ab("left:240px;top:214px;width:320px",'<b>'+e(ciu||"Tu ciudad")+'</b><span>'+e(pai||"Tu país")+'</span><p>Tu contenido le habla primero a las personas de '+e(ciu||"tu ciudad")+' y sus alrededores.</p>',"locbig"));
+
+  /* 03 estudio de suelo */
+  h.push(ab("left:40px;top:382px;width:520px",'03 · Estudio de suelo',"sh"));
+  var SW=465, SH=310, SX=58, SY=416;
+  h.push(ab("left:"+SX+"px;top:"+SY+"px;width:"+SW+"px;height:"+SH+"px",'<img src="'+P00IMG+'suelo.jpg" alt="" style="width:'+SW+'px;height:'+SH+'px">'));
+  var bands=[["Capa fértil",A.by.love,.585,.315,.6],["Capa productiva",A.by.money,.60,.475,.62],["Capa estable",A.by.meh,.57,.618,.6],["Zona de reserva",A.by.no,.55,.80,.64,"rock"]];
+  bands.forEach(function(b){ h.push(ab("left:"+(SX+SW*b[2])+"px;top:"+(SY+SH*b[3])+"px;max-width:"+(SW*b[4])+"px",'<b>'+b[0]+'</b><span>'+dot(b[1],3)+'</span>',"band fit "+(b[5]||""))); });
+
+  /* lote central */
+  var LW=360, LH=240, LX=652, LY=136;
+  h.push(ab("left:"+LX+"px;top:"+LY+"px;width:"+LW+"px;height:"+LH+"px",'<img src="'+P00IMG+'lote.jpg" alt="" style="width:'+LW+'px;height:'+LH+'px">'));
+  var nf=first.length>8?Math.max(50,84-(first.length-8)*5):84;
+  h.push(ab("left:"+(LX+LW*.5)+"px;top:"+(LY+LH*.47)+"px;--nf:"+nf+"px",e(first),"nm"));
+  var skl=A.by.love.concat(A.by.money,A.by.meh); if(!skl.length) skl=P.skills.slice();
+  [["Habilidades",skl,P.skills.length,580,[.36,.64],-1],["Historia",P.exp,P.exp.length,762,[.52,.76],0],["Intereses",P.ints,P.ints.length,935,[.76,.30],1]].forEach(function(L){
+    var it=L[1].slice(0,4), more=L[1].length-it.length, lx=L[3], ly=392;
+    h.push(ab("left:"+lx+"px;top:"+ly+"px;width:162px",'<b>'+L[0]+' · '+("0"+L[2]).slice(-2)+'</b><ul>'+(it.length?it.map(function(x){ return '<li>'+e(x)+'</li>'; }).join(""):'<li>—</li>')+(more>0?'<li class="mas">+ '+more+' más</li>':'')+'</ul>',"zlist"));
+    var sx=lx+40, sy=ly-5, tx=LX+LW*L[4][0], ty=LY+LH*L[4][1], cx, cy;
+    if(L[5]===1){ cx=tx+100; cy=sy-18; } else if(L[5]===-1){ cx=sx-18; cy=ty+8; } else { cx=sx+26; cy=(sy+ty)/2+4; }
+    arrows+='<path d="M'+sx+' '+sy+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+tx.toFixed(1)+' '+ty.toFixed(1)+'" stroke="#5B343B" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
+    var ang=Math.atan2(ty-cy,tx-cx), a1=ang+Math.PI*.82, a2=ang-Math.PI*.82;
+    arrows+='<path d="M'+(tx+Math.cos(a1)*10).toFixed(1)+' '+(ty+Math.sin(a1)*10).toFixed(1)+' L'+tx.toFixed(1)+' '+ty.toFixed(1)+' L'+(tx+Math.cos(a2)*10).toFixed(1)+' '+(ty+Math.sin(a2)*10).toFixed(1)+'" stroke="#5B343B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'; });
+
+  /* 04 curvas de vida */
+  h.push(ab("left:580px;top:528px;width:500px",'04 · Curvas de vida',"sh"));
+  var CW=124, CH=186, CX=612, CY=562;
+  h.push(ab("left:"+CX+"px;top:"+CY+"px;width:"+CW+"px;height:"+CH+"px",'<img src="'+P00IMG+'curvas.jpg" alt="" style="width:'+CW+'px;height:'+CH+'px">'));
+  var ex=P.exp.slice(0,P.prof.trim()?3:4); if(P.prof.trim()) ex.push(P.prof.trim().slice(0,40));
+  var ys=[.19,.43,.62,.82];
+  ex.forEach(function(x,i){ var y=CY+CH*ys[i], x0=CX+CW*.93, x1=CX+CW+34;
+    arrows+='<path d="M'+x0+' '+y+' L'+x1+' '+y+'" stroke="#2A2624" stroke-width=".9"/><circle cx="'+x0+'" cy="'+y+'" r="2" fill="#2A2624"/>';
+    h.push(ab("left:"+(x1+8)+"px;top:"+y+"px",e(x),"cl fit")); });
+
+  /* 02 público por explorar */
+  h.push(ab("left:1104px;top:138px;width:488px",'02 · Público por explorar',"sh"));
+  h.push(ab("left:1104px;top:174px;width:255px;height:170px",'<img src="'+P00IMG+'publico.jpg" alt="" style="width:255px;height:170px">'));
+  h.push(ab("left:1372px;top:176px;width:220px",'<p>¿A quién ayudas?</p><p>Edades: <span>por definir</span></p><p>Necesidad: <span>por definir</span></p><small>Lo descubres en tu Proyecto Maestro.</small>',"pub sm"));
+
+  /* 05 por qué te buscan */
+  h.push(ab("left:1104px;top:358px;width:488px",'05 · Por qué te buscan',"sh"));
+  var bus=P.buscan.slice(0,6), cx=1348, cy=480, arr='';
+  bus.forEach(function(b,i){ var a2=-Math.PI/2+(i+.5)*(Math.PI*2/Math.max(bus.length,1)), px=cx+Math.cos(a2)*182, py=cy+Math.sin(a2)*68, qx=cx+Math.cos(a2)*46, qy=cy+Math.sin(a2)*38, sx=px+(qx-px)*.42, sy=py+(qy-py)*.42;
+    arr+='<path d="M'+sx.toFixed(1)+' '+sy.toFixed(1)+' L'+qx.toFixed(1)+' '+qy.toFixed(1)+'" stroke="#2A2624" stroke-width="1.2" marker-end="url(#p00a)"/>';
+    h.push(ab("left:"+px.toFixed(1)+"px;top:"+py.toFixed(1)+"px",'<i>'+p00Icon(b)+'</i><span>'+e(b)+'</span>',"bi fit")); });
+  h.push(ab("left:0;top:0;width:1632px;height:1056px",'<svg width="1632" height="1056" style="position:absolute;left:0;top:0"><defs><marker id="p00a" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#2A2624"/></marker></defs>'+arr+'</svg>'));
+  h.push(ab("left:"+cx+"px;top:"+cy+"px",'Tú',"tu"));
+
+  /* 06 zonas de potencial */
+  h.push(ab("left:1104px;top:594px;width:488px",'06 · Zonas de potencial',"sh"));
+  var ZS=140, ZX=1104, ZY=628;
+  h.push(ab("left:"+ZX+"px;top:"+ZY+"px;width:"+ZS+"px;height:"+ZS+"px",'<img src="'+P00IMG+'zonas.jpg" alt="" style="width:'+ZS+'px;height:'+ZS+'px">'));
+  [[.36,.28],[.49,.51],[.76,.55]].forEach(function(z,i){ h.push(ab("left:"+(ZX+ZS*z[0])+"px;top:"+(ZY+ZS*z[1])+"px",String(i+1),"zn sm")); });
+  var zc=["#B9C2A6","#E6CFA8","#DDB0B4"];
+  h.push(ab("left:1262px;top:640px;width:330px",'<div class="leg fit">'+[0,1,2].map(function(i){ var t=A.terr[i]; return '<div><i style="background:'+zc[i]+'">'+(i+1)+'</i>'+(t?e(t.t):'Por descubrir')+'</div>'; }).join("")+'</div>'));
+
+  /* 07 programa · qué quiero construir (casa en obra) */
+  var BY=760;
+  h.push(ab("left:40px;top:"+BY+"px;width:600px",'07 · Qué quiero construir',"sh"));
+  var HW=255, HH=170, HX=40, HY=BY+34;
+  h.push(ab("left:"+HX+"px;top:"+HY+"px;width:"+HW+"px;height:"+HH+"px",'<img src="'+P00IMG+'casa.jpg" alt="" style="width:'+HW+'px;height:'+HH+'px">'));
+  var HP={"Un negocio propio":[.34,.36,"la fachada"],"Ayudar a otras personas":[.46,.60,"la puerta abierta"],"Que me reconozcan por lo que sé":[.49,.46,"el ventanal"],"Ingresos extra":[.74,.34,"la nueva estructura"],"Libertad de tiempo":[.17,.57,"el jardín"],"Trabajar desde casa":[.36,.48,"la sala"],"Aún no lo sé":[.80,.58,"el espacio por construir"]};
+  var qq=P.quiere.slice(0,5), qy0=HY+8, qstep=Math.min(34,(HH-10)/Math.max(qq.length,1));
+  qq.forEach(function(q,i){ var pt=HP[q]||[.55,.5,""], ly=qy0+i*qstep, lx=HX+HW+44;
+    h.push(ab("left:"+lx+"px;top:"+ly+"px;width:"+(640-lx)+"px",'<b>'+e(q)+'</b>'+(pt[2]?'<span>'+pt[2]+'</span>':''),"plab"));
+    hArrow(lx-6,ly+9,HX+HW*pt[0],HY+HH*pt[1],-30); });
+  if(!qq.length) h.push(ab("left:"+(HX+HW+44)+"px;top:"+(HY+20)+"px;width:300px",'<b>Por definir</b><span>Lo diseñas en tu Proyecto Maestro.</span>',"plab"));
+
+  /* 08 condicionantes (terreno con obstáculos) */
+  h.push(ab("left:660px;top:"+BY+"px;width:620px",'08 · Condicionantes',"sh"));
+  var OW=255, OH=170, OX=660, OY=BY+34;
+  h.push(ab("left:"+OX+"px;top:"+OY+"px;width:"+OW+"px;height:"+OH+"px",'<img src="'+P00IMG+'obra.jpg" alt="" style="width:'+OW+'px;height:'+OH+'px">'));
+  var OP={"Miedo a lo que digan":[.19,.20,"clima fuerte"],"Hay demasiada competencia":[.24,.27,"clima fuerte"],"Me da pena mostrarme":[.30,.39,"cono"],"La tecnología no es lo mío":[.41,.42,"valla"],"Siento que no sé nada especial":[.51,.38,"piedra"],"No sé por dónde empezar":[.62,.44,"árbol caído"],"No tengo tiempo":[.66,.57,"cinta métrica"],"No sé qué vender":[.82,.72,"grieta"]};
+  var bl=P.bloq.slice(0,4), by0=OY+4, bstep=Math.min(42,(OH-6)/Math.max(bl.length,1));
+  bl.forEach(function(b,i){ var pt=OP[b]||[.5,.5,""], ly=by0+i*bstep, lx=OX+OW+44;
+    h.push(ab("left:"+lx+"px;top:"+ly+"px;width:"+(1290-lx)+"px",'<b>'+e(b)+'<em>'+(pt[2]?' · '+pt[2]:'')+'</em></b><span>'+e(BLOQ[b]||"")+'</span>',"plab fit"));
+    hArrow(lx-6,ly+9,OX+OW*pt[0],OY+OH*pt[1],-30); });
+  if(!bl.length) h.push(ab("left:"+(OX+OW+44)+"px;top:"+(OY+20)+"px;width:300px",'<b>Sin condicionantes marcadas</b><span>Terreno despejado para construir.</span>',"plab"));
+
+  /* firma */
+  h.push(ab("left:1316px;top:820px;width:276px",'<small>Aprobado por:</small><img src="'+P00IMG+'firma.png" alt="Arq. Laura Tovar" style="width:276px">',"firma"));
+
+  h.push(ab("left:0;top:0;width:1632px;height:1056px",'<svg width="1632" height="1056" style="position:absolute;left:0;top:0">'+arrows+'</svg>'));
+  /* cajetín */
+  h.push(ab("top:962px;height:46px",'<div>Proyecto Maestro</div><div style="flex:1">Marca personal de '+e(nmx)+'</div><div>00 · Lectura del terreno</div><div style="flex:.9">'+e([ciu,pai].filter(Boolean).join(", ")||"—")+'</div><div>'+fecha+'</div><div>Laura Tovar Studio</div><div class="n0">00</div>',"bar caj"));
+  h.push(ab("",'Representación simbólica · Elaborada con tus respuestas del Plano 00 · @by.lauratovar',"foot"));
+  return '<div class="lam">'+h.join("")+'</div>';
+}
+function memoria(A){
+  var e=esc, nmx=nm()||"Mi proyecto", L=function(t,v){ return '<div class="mr"><b>'+t+'</b><p>'+(v&&String(v).trim()?e(v):'—')+'</p></div>'; };
+  var terr=A.terr.map(function(x,i){ return (i+1)+". "+x.t+" ("+x.d+")"+(x.w&&x.w.length?": porque "+list(x.w.slice(0,3)):""); }).join("  ·  ");
+  var bl=P.bloq.map(function(b){ return b+": "+BLOQ[b]; }).join("  ·  ");
+  var qs=[P.q1,P.q2,P.q3].filter(function(x){ return x&&x.trim(); }).map(function(x){ return "“"+x.trim()+"”"; }).join(" ");
+  return '<div class="pg mem"><div class="hd"><img src="img/logo.png" alt=""><span>Plano 00 · Memoria del terreno<br><b>Para tu Asistente</b></span></div><div class="inner">'+
+    '<div class="ttl sm"><div class="eb">Memoria descriptiva · informe para tu Asistente</div><span class="nmA">'+e(nmx)+'</span></div>'+
+    '<p class="intro">Esta página resume tu Plano 00 en texto para que tu Asistente lo lea sin errores. Adjunta este PDF con el prompt 1.</p>'+
+    L("Ciudad y país",[P.ciudad,P.pais].filter(function(x){ return x&&x.trim(); }).join(", "))+
+    L("Momento actual",P.momento.join(", "))+L("Qué quiero construir",P.quiere.join(", "))+
+    L("Habilidades que me apasionan",A.by.love.join(", "))+L("Podrían generarme ingresos",A.by.money.join(", "))+L("Las hago bien, sin desarrollarlas",A.by.meh.join(", "))+L("No quiero construir con estas",A.by.no.join(", "))+
+    L("Me buscan por",P.buscan.join(", ")+(qs?". "+qs:""))+L("Estudios o profesión",P.prof)+L("Experiencias de vida",P.exp.join(", "))+L("Intereses",P.ints.join(", "))+
+    L("Territorios a explorar",terr)+L("Patrones detectados",A.pats.join("  ·  "))+L("Bloqueos y otra forma de verlos",bl)+L("Lo que no quiero construir",P.noq)+
+    '<div class="mhow"><b>Cómo usar tu Plano 00</b> Cuando inicies tu Proyecto Maestro, adjunta este PDF en tu Chat 1. Tu marca empezará desde tu terreno, sin repetir lo que ya descubriste.</div>'+
+    '<div class="follow"><p class="eb">Sigamos conectados</p><div class="psoc"><div class="sl" data-href="'+e(CFG.ig)+'"><b>Instagram</b>@by.lauratovar</div><div class="sl" data-href="'+e(CFG.tt)+'"><b>TikTok</b>@by.lauratovar</div><div class="sl" data-href="'+e(CFG.wa)+'"><b>Comunidad gratuita</b>Grupo de WhatsApp</div><div class="sl" data-href="'+e(CFG.beacons)+'"><b>Todos mis links</b>beacons.ai/lauratovar</div></div></div>'+
+    '</div><div class="ft"><div><b>Proyecto</b>Marca personal de '+e(nmx)+'</div><div><b>Plano</b>00 · Memoria del terreno</div><div><b>Estado</b>Terreno identificado</div><div><b>Hoja</b>2 de 2</div></div></div>';
+}
+function fitLam(root){
+  Array.prototype.forEach.call(root.querySelectorAll(".fit"),function(el){
+    var cs=getComputedStyle(el), base=parseFloat(cs.fontSize)||13, f=1, maxH=el.classList.contains("plab")?44:el.classList.contains("zlist")?112:el.classList.contains("band")?52:el.classList.contains("cl")?58:el.classList.contains("bi")?96:el.classList.contains("leg")?122:40;
+    var over=function(){ return el.scrollWidth>el.clientWidth+1||el.offsetHeight>maxH; };
+    while(over()&&f>.6){ f-=.06; el.style.setProperty("--fs",(base*f).toFixed(1)+"px"); }
+  });
+}
+
 function sheet(A){
   var t=function(a,c){ return a.length?'<div class="tg '+(c||"")+'">'+a.map(function(x){ return '<span>'+esc(x)+'</span>'; }).join("")+'</div>':'<p class="dash">—</p>'; };
   var bx=function(h,inner,cls){ return '<div class="bx '+(cls||"")+'"><h4>'+h+'</h4>'+inner+'</div>'; };
@@ -3857,7 +4101,7 @@ function sheet(A){
   var ft=function(n){ return '<div class="ft"><div><b>Proyecto</b>Proyecto Maestro</div><div><b>Plano</b>00 · El Terreno</div><div><b>Estado</b>Terreno identificado</div><div><b>Plano</b>'+n+' de 3</div></div>'; };
   var who=esc(nm()||"Mi proyecto");
   var p1='<div class="pg">'+blobs(0)+hd(1,"Tus habilidades")+'<div class="inner">'+
-    '<div class="ttl"><div class="eb">Lectura del terreno</div>'+who+'</div><span class="st">Terreno identificado ✓</span>'+
+    '<div class="ttl"><div class="eb">Lectura del terreno'+(((P.ciudad||"")+(P.pais||"")).trim()?' · '+esc([P.ciudad,P.pais].filter(function(x){ return x&&x.trim(); }).join(", ")):'')+'</div>'+who+'</div><span class="st">Terreno identificado ✓</span>'+
     '<div class="ex">'+(A.exists.length?'En tu terreno ya existen '+esc(list(A.exists))+'. No estás empezando de cero.':'Tu terreno está listo para ser explorado.')+'</div>'+
     bx("Habilidades identificadas",t(P.skills))+
     '<div class="row"><div class="col">'+bx("❤ Te apasionan y te gustaría vivir de ellas",t(A.by.love,"love"))+bx("Por qué te buscan",t(P.buscan)+qs)+bx("Intereses",t(P.ints))+'</div>'+
@@ -3896,18 +4140,19 @@ function fitPage(pg){
 function makePdf(){
   if(busy) return; busy=true; modal("loading");
   var A=analyze(), host=document.getElementById("p0pdf"), pages=sheet(A);
-  host.innerHTML=pages.join(""); host.classList.add("on");
-  var pgs=Array.prototype.slice.call(host.querySelectorAll(".pg"));
+  host.innerHTML=lamina(A)+memoria(A); host.classList.add("on");
+  var pgs=Array.prototype.slice.call(host.querySelectorAll(".lam,.pg"));
   var imgs=Array.prototype.slice.call(host.querySelectorAll("img")).map(function(im){ return im.complete?Promise.resolve():new Promise(function(r){ im.onload=im.onerror=r; }); });
   var SC=(window.innerWidth<700?1.5:2), timer=new Promise(function(_,rej){ setTimeout(function(){ rej(new Error("timeout")); },45000); });
   Promise.race([timer,libs().then(function(){ return Promise.all(imgs); }).then(function(){ return (document.fonts&&document.fonts.ready)||null; }).then(function(){
-    pgs.forEach(fitPage);
-    var jsPDF=window.jspdf.jsPDF, pdf=new jsPDF({unit:"pt",format:"a4",compress:true});
-    var pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight(), k=pw/794;
+    pgs.forEach(function(pg){ if(pg.classList.contains("lam")){ pg.style.display="block"; fitLam(pg); } else fitPage(pg); });
+    var jsPDF=window.jspdf.jsPDF, pdf=new jsPDF({unit:"pt",format:[792,1224],orientation:"landscape",compress:true});
     var chain=Promise.resolve();
     pgs.forEach(function(pg,i){
-      chain=chain.then(function(){ pgs.forEach(function(x){ x.style.display=(x===pg)?"flex":"none"; }); return window.html2canvas(pg,{scale:SC,backgroundColor:"#FAF6F1",useCORS:true,logging:false,scrollX:0,scrollY:0,windowWidth:794,width:794,height:1123}); }).then(function(cv){
-        if(i>0) pdf.addPage();
+      var isL=pg.classList.contains("lam"), PW=isL?1632:794, PH=isL?1056:1123;
+      chain=chain.then(function(){ pgs.forEach(function(x){ x.style.display=(x===pg)?(x.classList.contains("lam")?"block":"flex"):"none"; }); host.style.width=PW+"px"; return window.html2canvas(pg,{scale:isL?Math.min(SC,1.6):SC,backgroundColor:"#FAF6F1",useCORS:true,logging:false,scrollX:0,scrollY:0,windowWidth:PW,width:PW,height:PH}); }).then(function(cv){
+        if(i>0) pdf.addPage("a4","portrait");
+        var pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight(), k=pw/PW;
         pdf.addImage(cv.toDataURL("image/jpeg",.9),"JPEG",0,0,pw,ph);
         if(i===0){ pdf.setFontSize(6); pdf.setTextColor(250,246,241); pdf.text(pdf.splitTextToSize(pdfText(A),pw-40),20,20,{renderingMode:"invisible"}); }
         var pr=pg.getBoundingClientRect();
@@ -3923,7 +4168,7 @@ function makePdf(){
     lastPdf={blob:blob,url:URL.createObjectURL(blob),name:fname};
     var sh=$("#p0Share"); if(sh){ var f=null; try{ f=new File([blob],fname,{type:"application/pdf"}); }catch(err){} sh.hidden=!(f&&navigator.canShare&&navigator.canShare({files:[f]})); }
     modal("ready");
-  })]).catch(function(err){ console.error(err); modal("error"); }).then(function(){ busy=false; host.innerHTML=""; host.classList.remove("on"); });
+  })]).catch(function(err){ console.error(err); modal("error"); }).then(function(){ busy=false; host.innerHTML=""; host.style.width=""; host.classList.remove("on"); });
 }
 document.addEventListener("click",function(e){
   var b=e.target.closest("#p0Open,#p0Save,#p0Share,#p0ModalClose,#p0Retry"); if(!b) return;
