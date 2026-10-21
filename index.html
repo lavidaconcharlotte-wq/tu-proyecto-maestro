@@ -226,6 +226,46 @@ details.full pre{margin:6px 0 0;max-height:320px;overflow:auto;background:var(--
 .rutina li{display:flex;gap:12px;font-size:15px}
 .rutina li svg{color:var(--vino);margin-top:6px;flex-shrink:0}
 
+#p0pdf .lam.pg-lam .plab{background:rgba(251,246,239,.0)}
+#p0pdf .lam.pg-lam .plab.on{background:rgba(251,246,239,.86);padding:4px 7px;border-left:2px solid #5B343B}
+#p0pdf .lam.pg-lam .plab span{font-style:normal;color:#2A2624;font-size:var(--fs,11.5px)}
+#p0pdf .lam.pg-lam .prom{text-align:center}
+#p0pdf .lam.pg-lam .prom b{display:block;font-family:'Cinzel',serif;font-weight:600;font-size:20px;color:#5B343B;letter-spacing:.03em}
+#p0pdf .lam.pg-lam .prom span{display:block;margin-top:4px;font-family:'Montserrat',sans-serif;font-style:italic;font-weight:300;font-size:var(--fs,14px);line-height:1.35;color:#2A2624}
+#p0pdf .lam.pg-lam .pn{transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:#5B343B;color:#FBF6EF;font-family:'Cinzel',serif;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;border:1.2px solid #FBF6EF;z-index:2}
+#p0pdf .lam.pg-lam .leg2 h4{margin:0;font-family:'Cinzel',serif;font-weight:600;font-size:16px;color:#2A2624}
+#p0pdf .lam.pg-lam .leg2 small{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B705C;margin:1px 0 6px}
+#p0pdf .lam.pg-lam .leg2 div{display:flex;gap:7px;align-items:flex-start;margin-bottom:6px}
+#p0pdf .lam.pg-lam .leg2 i{flex:0 0 18px;height:18px;border-radius:50%;background:#5B343B;color:#FBF6EF;font-style:normal;font-family:'Cinzel',serif;font-size:10px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+#p0pdf .lam.pg-lam .leg2 p{margin:0;min-width:0}
+#p0pdf .lam.pg-lam .leg2 p b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#2A2624;line-height:1.25;white-space:nowrap}#p0pdf .lam.pg-lam .leg2 p b em{font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:#6B705C;font-size:11px}
+#p0pdf .lam.pg-lam .leg2 p span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:10.5px;line-height:1.28;color:#5B343B;font-style:italic}
+#p0pdf .lam.pg-lam .sws{display:flex;gap:6px}
+#p0pdf .lam.pg-lam .sw{flex:1;min-width:0;text-align:center}
+#p0pdf .lam.pg-lam .sw i{display:block;width:40px;height:40px;border-radius:50%;margin:0 auto 4px;border:1px solid rgba(42,38,36,.35);box-shadow:inset 0 0 0 3px rgba(255,255,255,.18)}
+#p0pdf .lam.pg-lam .sw b{display:block;white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#2A2624}
+#p0pdf .lam.pg-lam .sw span{display:block;font-size:10px;color:#6B705C;letter-spacing:.04em}
+#p0pdf .lam.pg-lam .fonts{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(42,38,36,.35);padding-top:8px;color:#2A2624}
+#p0pdf .lam.pg-lam .bar span.nmc{font-family:'Aurantiaca','Ephesis',cursive;font-size:34px;overflow:visible;color:#5B343B;line-height:1}
+#p0pdf .lam.pg-lam .stk div{margin-bottom:9px}
+#p0pdf .lam.pg-lam .stk b{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#2A2624;line-height:1.2}
+#p0pdf .lam.pg-lam .stk b em{font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:#6B705C}
+#p0pdf .lam.pg-lam .stk span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:11px;line-height:1.3;color:#2A2624;margin-top:1px}
+
+/* tarjeta Plano General en la entrega */
+.pg-card{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--paper);border:1px solid var(--champ);overflow:hidden}
+.pg-card .pg-th{position:relative;min-height:220px;background:url(img/pm/perspectiva.jpg) center/cover}
+.pg-card .pg-th::after{content:"";position:absolute;inset:0;background:rgba(250,246,241,.35);transition:opacity .4s}
+.pg-card.ready .pg-th::after{opacity:0}
+.pg-card .pg-bd{padding:26px 26px 24px;display:flex;flex-direction:column;gap:10px}
+.pg-card h3{margin:0;font-family:var(--disp);font-weight:500;font-size:24px;color:var(--vino)}
+.pg-card p{margin:0;font-size:14px;line-height:1.55}
+.pg-card .pg-st{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--vino)}
+.pg-card.ready .pg-st{color:var(--olive)}
+.pg-card .btn[disabled]{opacity:.45;cursor:not-allowed}
+.pg-card .pg-out{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:720px){ .pg-card{grid-template-columns:1fr} .pg-card .pg-th{min-height:180px} }
+
 /* ---------- CIERRE ---------- */
 .cierre{position:relative;z-index:1;padding:60px 0 90px;overflow:hidden}
 .cierre-grid{display:grid;gap:40px;align-items:center}
@@ -1080,7 +1120,7 @@ body{overflow-x:hidden}
 
 #p0pdf .mem .mr{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:calc(7px*var(--k)) 0;border-bottom:1px solid #E9DFC9}
 #p0pdf .mem .mr b{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B705C;font-weight:800;padding-top:2px}
-#p0pdf .mem .ttl .nmA{display:block;font-family:'Aurantiaca','Ephesis',cursive;font-size:64px;line-height:1.1;color:#5B343B;text-transform:none;letter-spacing:0}
+#p0pdf .mem .ttl .nmA{display:block;font-family:'Aurantiaca','Ephesis',cursive;font-size:64px;line-height:1.1;margin-top:26px;color:#5B343B;text-transform:none;letter-spacing:0}
 #p0pdf .mem .mr p{margin:0;font-size:calc(11.5px*var(--k));line-height:1.5;color:#2A2624}
 #p0pdf .mem .mhow{margin:14px 0 10px;background:#6B705C;color:#FAF6F1;padding:12px 16px;font-size:calc(11px*var(--k));line-height:1.5}
 #p0pdf .mem .mhow b{display:block;font-family:'Cinzel',serif;font-size:13px;font-weight:500;margin-bottom:3px}
@@ -1102,6 +1142,7 @@ body{overflow-x:hidden}
 
 #p0 .p0-locrow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}#p0 .p0-locrow input{width:100%;min-width:0;box-sizing:border-box}
 
+@font-face{font-family:'Aurantiaca';src:url('fonts/Aurantiaca.woff') format('woff'),url('fonts/Aurantiaca.ttf') format('truetype');font-display:swap}
 /* ===== Plano 00 · lámina Estudio del Terreno (ilustraciones en acuarela + datos de cada persona) ===== */
 #p0pdf .lam{position:relative;width:1632px;height:1056px;overflow:hidden;background:#FBF6EF;font-family:'Montserrat',sans-serif;color:#2A2624;box-sizing:border-box}
 #p0pdf .lam *{box-sizing:border-box}
@@ -1809,6 +1850,17 @@ body{overflow-x:hidden}
       <div class="plano-row"><span class="im" style="background-image:url(img/mat-plano.jpg)"></span><div><strong>Plano 2 · Estructura</strong><small>Nicho y promesa</small></div><span class="st" data-st="j2">pendiente</span></div>
       <div class="plano-row"><span class="im" style="background-image:url(img/mat-marmol.jpg)"></span><div><strong>Plano 3 · Fachada</strong><small>Cerebro de marca</small></div><span class="st" data-st="jc">pendiente</span></div>
       <div class="plano-row"><span class="im" style="background-image:url(img/mat-vino.jpg)"></span><div><strong>Chat 4 · Interiores</strong><small>Director creativo</small></div><span class="st" data-st="p4">pendiente</span></div>
+    </div>
+    <div class="pg-card rv" id="pgCard">
+      <div class="pg-th" role="img" aria-label="Perspectiva de la casa del Proyecto Maestro"></div>
+      <div class="pg-bd">
+        <p class="eyebrow">Plano General · Tu casa completa</p>
+        <h3>Tu marca, presentada como un proyecto de arquitectura</h3>
+        <p>Cuando completes tus tres planos, recibe tu lámina en tabloide 11×17: axonometría, perspectiva, corte, plantas, estructura y tu paleta. La casa se pinta con los colores de tu marca.</p>
+        <span class="pg-st" id="pgSt">En obra</span>
+        <button type="button" class="btn vino" id="pgBtn" disabled><span>Descargar mi Plano General</span></button>
+        <div class="pg-out" id="pgOut" hidden><button type="button" class="btn ghost sm" id="pgOpen"><span>Abrir PDF</span></button><button type="button" class="btn ghost sm" id="pgSave"><span>Guardar PDF</span></button><button type="button" class="btn ghost sm" id="pgShare" hidden><span>Compartir</span></button></div>
+      </div>
     </div>
     <div class="notes rv">
       <div><p class="hw-title">tu rutina desde hoy</p><ul class="rutina">
@@ -3510,7 +3562,9 @@ function jst(k){ var el=$("#st-"+k); if(!el) return; var r=looks(S[k]); el.class
   el.textContent = r===1 ? "✓ Plano guardado. Se incluirá solito en el siguiente prompt." : r===0 ? "" : r===-1 ? "Esto no parece un plano: debe empezar con { y terminar con }." : "Parece incompleto: copia desde la primera { hasta la última }. Igual lo guardé."; }
 function inst(){ var nm=(S.name||"").trim();
   return "Este proyecto es mi marca personal"+(nm?" ("+nm+")":"")+".\nResponde siempre en español y con mi voz, tal como está descrita en mis planos.\n\nAntes de responder, consulta mis planos en Fuentes (mis-planos.txt): ahí están mi esencia, mi historia, mi audiencia, mi nicho, mi promesa, mis pilares, mi paleta y mis tipografías. Respétalos siempre.\n\nTodo contenido sigue la estructura GANCHO → HISTORIA → MORALEJA → CTA. Antes del CTA, pregúntame si quiero palabra clave por DM o un CTA para seguir, guardar o compartir.\n\nCada chat de este proyecto tiene un rol:\nASISTENTE Y COMMUNITY MANAGER → estrategia, calendarios, copies, historias, respuestas y métricas.\nDIRECTOR CREATIVO → guiones, carruseles, diseños y render de feed.\nESTUDIO FOTOGRÁFICO → fotografías profesionales hiperrealistas de mí, de mi familia y de mis productos, respetando mi identidad.\n\nNo mezcles roles: si pido algo de otro rol, recuérdame en qué chat hacerlo. Trabajamos en equipo:\n- Cuando un contenido esté listo en el ASISTENTE, entrégame el BRIEF para mi DIRECTOR CREATIVO.\n- Si un contenido o un diseño necesita una foto mía, prepárame el PEDIDO PARA ESTUDIO FOTOGRÁFICO.\n- Cuando esté diseñado, prepárame la ORDEN DE PUBLICACIÓN para Muse.\n\nEn Fuentes también están mis fotos de identidad: el ESTUDIO FOTOGRÁFICO debe usarlas siempre como referencia, sin cambiar mis rasgos.\n\nRespeta siempre mi identidad visual: mis colores, mis tipografías y mi estilo.\n\nNunca inventes datos ni estadísticas."; }
+window.PMS=function(){ return {S:S,looks:looks}; };
 function refresh(){
+  if(window.PG) window.PG.refresh(S);
   var nm=(S.name||"").trim();
   $$(".pname").forEach(function(e){ e.textContent = "Marca personal maestra" + (nm ? " de " + nm : ""); });
   $("#who").textContent = nm ? "Proyecto de " + nm : "";
@@ -4181,6 +4235,221 @@ document.addEventListener("click",function(e){
 /* abrir directo con #plano00 */
 function checkHash(){ if(/plano00/i.test(location.hash)) setTimeout(open,50); }
 window.addEventListener("hashchange",checkHash); checkHash();
+})();
+
+</script>
+<script>
+/* ===== PLANO GENERAL · se entrega cuando los tres planos están completos ===== */
+(function(){
+"use strict";
+function $(s,r){ return (r||document).querySelector(s); }
+function parse(t){ t=(t||"").trim(); var a=t.indexOf("{"), b=t.lastIndexOf("}"); if(a<0||b<a) return null; try{ return JSON.parse(t.slice(a,b+1)); }catch(e){ return null; } }
+function g(o,p){ return p.split(".").reduce(function(x,k){ return x&&x[k]!=null?x[k]:undefined; },o); }
+function str(v){ if(v==null) return ""; if(Array.isArray(v)) return v.map(str).filter(Boolean).join(" · "); if(typeof v==="object") return str(v.nombre||v.name||v.titulo||""); return String(v).trim(); }
+function arr(v){ if(!v) return []; if(!Array.isArray(v)) v=String(v).split(/[,;·]/); return v.map(str).map(function(x){ return x.trim(); }).filter(Boolean); }
+function first(){ for(var i=0;i<arguments.length;i++){ var v=arguments[i]; if(Array.isArray(v)?v.length:str(v)) return v; } return ""; }
+function cut(s,n){ s=str(s); return s.length>n?s.slice(0,n-1).replace(/\s+\S*$/,"")+"…":s; }
+function cuts(a,n){ return arr(a).map(function(x){ return cut(x,n||42); }); }
+function p00(){ try{ return JSON.parse(localStorage.getItem("pm-plano00")||"null")||{}; }catch(e){ return {}; } }
+
+function pgData(S){
+  var j1=parse(S.j1)||{}, j2=parse(S.j2)||{}, jc=parse(S.jc)||{}, P=p00();
+  var love=Object.keys(P.cls||{}).filter(function(k){ return P.cls[k]==="love"; });
+  var pal=(g(jc,"identidad_visual.paleta")||[]).map(function(c){ return {n:cut(c.nombre||"",14),h:String(c.hex||"").trim()}; }).filter(function(c){ return /^#?[0-9a-f]{6}$/i.test(c.h); }).map(function(c){ if(c.h[0]!=="#") c.h="#"+c.h; return c; });
+  var tp=g(jc,"identidad_visual.tipografias")||{};
+  return {
+    nombre:cut(first(S.name,g(jc,"marca.nombre"),g(j1,"perfil.nombre")),34),
+    ciudad:cut(first(P.ciudad,g(j1,"perfil.ubicacion")),40), pais:P.ciudad?cut(P.pais,30):"",
+    marca:cut(first(g(jc,"marca.nombre"),S.name),40),
+    promesa:cut(first(g(jc,"marca.promesa"),g(j2,"posicionamiento.promesa"),g(jc,"marca.slogan")),150),
+    nicho:cut(first(g(j2,"posicionamiento.nicho"),g(jc,"marca.nicho")),95),
+    voz:cuts(first(g(jc,"personalidad.adjetivos"),g(j1,"personalidad.tres_palabras"),g(jc,"voz.tono_general")),22),
+    valores:cuts(first(g(jc,"marca.valores"),g(j1,"valores_y_vision.valores")),26),
+    habilidades:cuts(first(love,g(j2,"expertise.temas_de_pasion"),g(j1,"nino_interior.talentos_naturales")),26),
+    pilares:cuts(first(g(jc,"estrategia.pilares"),g(j2,"contenido.pilares")),34),
+    formatos:["Reels que atraen","Carruseles que educan","Historias que conectan"],
+    paleta:pal,
+    fuentes:{titulo:cut(tp.titulos||"",26),acento:cut(tp.acento||"",22),texto:cut(tp.cuerpo||"",22)},
+    bio:cut(first((g(j2,"contenido.bios")||[])[0],g(jc,"narrativa.presentacion_en_una_frase"),g(jc,"marca.tagline")),70),
+    comunidad:cut(first(g(jc,"audiencia.descripcion"),g(j2,"audiencia.descripcion")),70),
+    educa:cuts(first(g(j2,"expertise.lo_que_le_preguntan"),g(j2,"contenido.ideas_iniciales")),34),
+    taller:cut(first((g(j2,"plan_90_dias.acciones_por_semana")||[])[0],g(j2,"contenido.tiempo_semanal")),70),
+    historia:cut(first(g(jc,"esencia.historia_nueva"),g(j1,"creencias.historia_nueva"),g(j1,"historia.obstaculo_superado")),70),
+    oferta:cuts(first([g(j2,"monetizacion.oferta_inicial"),g(j2,"monetizacion.oferta_media")].filter(Boolean),g(jc,"estrategia.ofertas")),34),
+    autoridad:cut(first(g(j2,"expertise.por_que_yo"),g(j2,"posicionamiento.diferenciador")),70),
+    proposito:cut(first(g(jc,"esencia.proposito_personal"),g(j1,"proposito_personal")),70),
+    imagen:cut(first(g(jc,"identidad_visual.estilo_fotografico"),g(jc,"identidad_visual.estilo_visual")),60),
+    vida:cut(first(g(j1,"perfil.roles_de_vida")),60)
+  };
+}
+
+/* ===== Plano General · presentación de la casa completa (tabloide horizontal) ===== */
+var PMIMG="img/pm/";
+/* celosías que toman el color principal de cada marca */
+var PGMASK={"perspectiva.jpg":"perspectiva-m.png","corte.jpg":"corte-m.png","axo.jpg":"axo-m.png","planta1.jpg":"planta1-m.png","planta2.jpg":"planta2-m.png","estructura.jpg":"estructura-m.png","aerea.jpg":"aerea-m.png"};
+function pgLoad(src){ return new Promise(function(ok,ko){ var i=new Image(); i.onload=function(){ ok(i); }; i.onerror=ko; i.src=src; }); }
+var PGMASK2={"axo.jpg":"axo-m2.png","perspectiva.jpg":"perspectiva-m2.png","corte.jpg":"corte-m2.png","planta1.jpg":"planta1-m2.png","planta2.jpg":"planta2-m2.png"};
+function pgRGB(hex){ var m=/^#?([0-9a-f]{6})$/i.exec(String(hex||"").trim()); return m?[parseInt(m[1].slice(0,2),16)/255,parseInt(m[1].slice(2,4),16)/255,parseInt(m[1].slice(4,6),16)/255]:null; }
+function pgPaint(d,w,h,maskImg,c){
+  var cm=document.createElement("canvas"); cm.width=w; cm.height=h; var gm=cm.getContext("2d"); gm.drawImage(maskImg,0,0,w,h); var mk=gm.getImageData(0,0,w,h).data;
+  var sum=0,n=0,i,L,k; for(i=0;i<d.length;i+=4){ if(mk[i]>128){ sum+=(d[i]*.3+d[i+1]*.59+d[i+2]*.11)/255; n++; } } if(!n) return; var ref=sum/n;
+  for(i=0;i<d.length;i+=4){ var t=mk[i]/255; if(!t) continue; L=(d[i]*.3+d[i+1]*.59+d[i+2]*.11)/255/ref;
+    for(k=0;k<3;k++){ var o=d[i+k]/255, v=Math.min(1,c[k]*L*.82+o*.18); d[i+k]=Math.round((o*(1-t)+v*t)*255); } } }
+/* celosías = color principal · cojines y sofás = color secundario */
+function pgTint(root,hex1,hex2){
+  var c1=pgRGB(hex1), c2=pgRGB(hex2); if(!c1&&!c2) return Promise.resolve();
+  var list=[].slice.call(root.querySelectorAll("img[data-mask]"));
+  return Promise.all(list.map(function(el){
+    var m2=el.getAttribute("data-mask2");
+    return Promise.all([pgLoad(el.getAttribute("src")),pgLoad(el.getAttribute("data-mask")),m2&&c2?pgLoad(m2):null]).then(function(r){
+      var a=r[0], w=a.naturalWidth, h=a.naturalHeight, cv=document.createElement("canvas"); cv.width=w; cv.height=h; var g=cv.getContext("2d"); g.drawImage(a,0,0); var px=g.getImageData(0,0,w,h);
+      if(c1) pgPaint(px.data,w,h,r[1],c1); if(r[2]) pgPaint(px.data,w,h,r[2],c2);
+      g.putImageData(px,0,0); el.src=cv.toDataURL("image/jpeg",.9);
+    }).catch(function(){});
+  }));
+}
+function planoGeneral(D){
+  var e=function(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+  var nmx=D.nombre||"Mi proyecto", ciu=D.ciudad||"", pai=D.pais||"";
+  var d=new Date(), fecha=("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+d.getFullYear();
+  var ab=function(st,inner,cls){ return '<div class="ab '+(cls||"")+'" style="'+st+'">'+inner+'</div>'; };
+  var li=function(a,n){ a=(a||[]).filter(Boolean); var b=a.slice(0,n||3); return b.length?b.map(e).join(" · "):"en obra"; };
+  var h=[], arrows='';
+  function arw(sx,sy,tx,ty,bx,by){ var cx=(sx+tx)/2+(bx||0), cy=(sy+ty)/2+(by||0);
+    arrows+='<path d="M'+sx+' '+sy+' Q'+cx+' '+cy+' '+tx+' '+ty+'" stroke="#5B343B" stroke-width="1.5" fill="none" stroke-linecap="round"/>';
+    var ang=Math.atan2(ty-cy,tx-cx), a1=ang+Math.PI*.82, a2=ang-Math.PI*.82;
+    arrows+='<path d="M'+(tx+Math.cos(a1)*9).toFixed(1)+' '+(ty+Math.sin(a1)*9).toFixed(1)+' L'+tx+' '+ty+' L'+(tx+Math.cos(a2)*9).toFixed(1)+' '+(ty+Math.sin(a2)*9).toFixed(1)+'" stroke="#5B343B" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'; }
+  var img=function(x,y,w,hh,f){ var mk=(PGMASK[f]?' data-mask="'+PMIMG+PGMASK[f]+'"':'')+(PGMASK2[f]?' data-mask2="'+PMIMG+PGMASK2[f]+'"':''); return ab("left:"+x+"px;top:"+y+"px;width:"+w+"px;height:"+hh+"px",'<img src="'+PMIMG+f+'"'+mk+' alt="" style="width:'+w+'px;height:'+hh+'px">'); };
+  var lab=function(x,y,w,t,v,cls){ return ab("left:"+x+"px;top:"+y+"px;width:"+w+"px",'<b>'+t+'</b><span>'+v+'</span>',"plab fit "+(cls||"")); };
+
+  h.push(ab("",'',"frame"));
+  h.push(ab("left:44px;top:30px;width:72px",'<img src="img/p00/norte.jpg" alt="" style="width:72px">'));
+  h.push(ab("",'<h1>Plano General · Proyecto Maestro</h1><p>La casa completa de tu marca personal, construida desde los cimientos.</p>',"ttl"));
+  h.push(ab("",'Proyecto<br>aprobado',"stamp"));
+  h.push(ab("",'',"hrule"));
+
+  /* 01 axonometría explotada */
+  h.push(ab("left:40px;top:138px;width:562px",'01 · Axonometría explotada',"sh"));
+  var AX=40, AY=172, AW=400, AH=600;
+  h.push(img(AX,AY,AW,AH,"axo.jpg"));
+  var L=[
+    [.10,.80,.11,"Cubierta","Plano 03 · Fachada",D.voz?("Tu voz: "+li(D.voz,3)):"en obra"],
+    [.25,.90,.27,"Piso 2","Plano 04 · Interiores",D.marca?("Identidad de "+e(D.marca)):"en obra"],
+    [.43,.91,.44,"Piso 1","Planos 06 · 07 · 08",li(D.formatos,3)],
+    [.58,.90,.60,"Estructura","Plano 02 · Nicho y promesa",D.nicho?e(D.nicho):"en obra"],
+    [.74,.82,.74,"Cimientos","Plano 01 · Manifiesto",li(D.valores,3)],
+    [.89,.93,.88,"Terreno","Plano 00 · Estudio del terreno",li(D.habilidades,3)]];
+  L.forEach(function(r){ var ly=AY+AH*r[0]-14; h.push(lab(452,ly,150,r[3]+' <em>'+r[4]+'</em>',r[5]));
+    arw(450,Math.round(ly+8),Math.round(AX+AW*r[1]),Math.round(AY+AH*r[2]),-14,-8); });
+  h.push(ab("left:40px;top:784px;width:562px",'Así se construye tu marca: de abajo hacia arriba, una capa a la vez.',"cap"));
+
+  /* 06 emplazamiento + 07 paleta y materiales */
+  h.push(ab("left:40px;top:814px;width:562px",'06 · Emplazamiento &nbsp;·&nbsp; 07 · Paleta y materiales',"sh"));
+  h.push(img(40,848,150,100,"aerea.jpg"));
+  h.push(ab("left:40px;top:950px;width:150px",'',"")); 
+  var pal=(D.paleta||[]).slice(0,7), sw='';
+  pal.forEach(function(p){ sw+='<div class="sw"><i style="background:'+e(p.h)+'"></i><b>'+e(p.n)+'</b><span>'+e(p.h)+'</span></div>'; });
+  h.push(ab("left:206px;top:846px;width:396px",'<div class="sws">'+(sw||'<div class="sw"><span>en obra</span></div>')+'</div>',"pal"));
+  var F=D.fuentes||{};
+  var ff=function(n,fb){ return "'"+String(n||"").replace(/ (ExtraBold|Bold|Light|Regular)$/i,"").replace(/'/g,"")+"',"+fb; };
+  h.push(ab("left:206px;top:914px;width:396px",'<span style="font-family:'+ff(F.titulo,"serif")+';font-size:16px">'+e(F.titulo||"Títulos")+'</span><span style="font-family:'+ff(F.acento||F.sub,"cursive")+';font-size:'+(F.acento?'20':'12')+'px">'+e(F.acento||F.sub||"Subtítulos")+'</span><span style="font-family:'+ff(F.texto,"sans-serif")+';font-size:12px">'+e(F.texto||"Texto")+'</span>',"fonts"));
+
+  /* 02 perspectiva */
+  h.push(ab("left:630px;top:138px;width:560px",'02 · Perspectiva',"sh"));
+  h.push(img(630,172,560,315,"perspectiva.jpg"));
+  h.push(ab("left:630px;top:496px;width:560px",'<b>'+e(D.marca||nmx)+'</b><span>'+e(D.promesa||"Tu promesa de marca está en obra.")+'</span>',"prom fit"));
+
+  /* 03 corte */
+  h.push(ab("left:630px;top:566px;width:560px",'03 · Corte · lo que se ve y lo que sostiene',"sh"));
+  var CX=630, CY=600, CW=560, CH=315;
+  h.push(img(CX,CY,CW,CH,"corte.jpg"));
+  h.push(lab(CX+14,CY+10,150,'Lo que se ve',li(D.formatos,3),"on"));
+  arw(CX+90,CY+60,CX+CW*.25,CY+CH*.38,-20,0);
+  h.push(lab(CX+CW-176,CY+10,162,'Tu historia',D.historia?e(D.historia):"en obra","on"));
+  arw(CX+CW-176,CY+34,CX+CW*.53,CY+CH*.42,10,-30);
+  h.push(lab(CX+12,CY+CH-64,190,'Lo que sostiene',li(D.valores,3),"on"));
+  arw(CX+150,CY+CH-66,CX+CW*.31,CY+CH*.72,10,-14);
+  h.push(lab(CX+CW-212,CY+CH-64,200,'Pilares de contenido',li(D.pilares,3),"on"));
+  arw(CX+CW-150,CY+CH-66,CX+CW*.65,CY+CH*.74,-10,-14);
+  h.push(ab("left:630px;top:922px;width:560px",'El nivel del terreno es tu Plano 00: todo lo de abajo sostiene lo que la gente ve.',"cap"));
+
+  /* 04 plantas */
+  h.push(ab("left:1218px;top:138px;width:374px",'04 · Plantas',"sh"));
+  var P1=[[.50,.80,"Entrada","bio",D.bio],[.27,.62,"Sala","comunidad",D.comunidad],[.30,.39,"Comedor","lo que enseñas",li(D.educa,2)],[.25,.22,"Cocina","taller",D.taller],[.52,.30,"Árbol","historia",D.historia]];
+  var P2=[[.75,.27,"Estudio","oferta",li(D.oferta,2)],[.75,.48,"Sala de estar","autoridad",D.autoridad],[.22,.345,"Habitación","propósito",D.proposito],[.22,.47,"Vestidor","imagen",D.imagen],[.75,.70,"Terraza","vida diaria",D.vida]];
+  function planta(x,f,t,sub,arr){ h.push(img(x,172,180,180,f)); var leg='';
+    arr.forEach(function(r,i){ h.push(ab("left:"+(x+180*r[0])+"px;top:"+(172+180*r[1])+"px",String(i+1),"pn"));
+      leg+='<div><i>'+(i+1)+'</i><p><b>'+r[2]+' <em>'+r[3]+'</em></b><span>'+(r[4]?e(r[4]):"en obra")+'</span></p></div>'; });
+    h.push(ab("left:"+x+"px;top:358px;width:180px",'<h4>'+t+'</h4><small>'+sub+'</small>'+leg,"leg2 fit")); }
+  planta(1218,"planta1.jpg","Piso 1","Lo que la gente ve",P1);
+  planta(1412,"planta2.jpg","Piso 2","Lo que te sostiene",P2);
+
+  /* 05 estructura */
+  h.push(ab("left:1218px;top:636px;width:374px",'05 · Estructura y cimientos',"sh"));
+  h.push(img(1218,670,170,170,"estructura.jpg"));
+  h.push(ab("left:1402px;top:668px;width:190px",'<div><b>Columnas <em>pilares</em></b><span>'+li(D.pilares,4)+'</span></div><div><b>Zapatas <em>valores</em></b><span>'+li(D.valores,3)+'</span></div><div><b>Suelo <em>Plano 00</em></b><span>'+li(D.habilidades,3)+'</span></div>',"stk"));
+
+  /* firma y cajetín */
+  h.push(ab("left:1316px;top:864px;width:276px",'<small>Aprobado por:</small><img src="img/p00/firma.png" alt="Arq. Laura Tovar" style="width:276px">',"firma"));
+  h.push(ab("left:0;top:0;width:1632px;height:1056px",'<svg width="1632" height="1056" style="position:absolute;left:0;top:0">'+arrows+'</svg>'));
+  h.push(ab("top:962px;height:46px",'<div>Proyecto Maestro</div><div style="flex:1">Marca personal de <span class="nmc">'+e(nmx)+'</span></div><div>PG · Plano General</div><div style="flex:.9">'+e([ciu,pai].filter(Boolean).join(", ")||"—")+'</div><div>'+fecha+'</div><div>Laura Tovar Studio</div><div class="n0">PG</div>',"bar caj"));
+  h.push(ab("",'Representación simbólica · Elaborada con tus planos del Proyecto Maestro · @by.lauratovar',"foot"));
+  return '<div class="lam pg-lam">'+h.join("")+'</div>';
+}
+
+
+/* tipografías de la persona para su moodboard */
+function pgFonts(F){
+  var fams=[F.titulo,F.acento,F.texto].map(function(n){ return String(n||"").replace(/ (ExtraBold|Bold|Light|Regular|Medium|SemiBold)$/i,"").trim(); }).filter(function(n){ return n&&!/^(Cinzel|Montserrat|Aurantiaca)$/i.test(n)&&/^[\w\s]+$/.test(n); });
+  if(!fams.length) return Promise.resolve();
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="https://fonts.googleapis.com/css2?"+fams.map(function(f){ return "family="+encodeURIComponent(f); }).join("&")+"&display=swap"; document.head.appendChild(l);
+  return new Promise(function(ok){ var t=setTimeout(ok,2500); l.onload=function(){ Promise.all(fams.map(function(f){ return document.fonts?document.fonts.load("20px '"+f+"'").catch(function(){}):null; })).then(function(){ clearTimeout(t); ok(); }); }; l.onerror=function(){ clearTimeout(t); ok(); }; });
+}
+function loadScript(src){ return new Promise(function(res,rej){ var s=document.createElement("script"); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+function libs(){ var p=[]; if(!window.html2canvas) p.push(loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js")); if(!(window.jspdf&&window.jspdf.jsPDF)) p.push(loadScript("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js")); return Promise.all(p); }
+function pgText(D){ var L=["PLANO GENERAL · PROYECTO MAESTRO","Marca personal de "+D.nombre]; function s(t,v){ L.push(t.toUpperCase()+": "+(str(v)||"—")); }
+  s("Marca",D.marca); s("Promesa",D.promesa); s("Nicho",D.nicho); s("Voz",D.voz); s("Valores",D.valores); s("Pilares",D.pilares); s("Habilidades",D.habilidades);
+  s("Paleta",D.paleta.map(function(c){ return c.n+" "+c.h; })); s("Tipografías",[D.fuentes.titulo,D.fuentes.acento,D.fuentes.texto]); s("Oferta",D.oferta); s("Historia",D.historia); s("Propósito",D.proposito); return L.join("\n"); }
+
+var busy=false, last=null;
+function need(S){ var L=window.PMS?window.PMS():null, f=L?L.looks:function(){ return 0; }; return [["j1","Plano 1"],["j2","Plano 2"],["jc","Plano 3"]].filter(function(x){ return f(S[x[0]])!==1; }).map(function(x){ return x[1]; }); }
+function refresh(S){
+  var card=$("#pgCard"); if(!card||!S) return; var miss=need(S), btn=$("#pgBtn"), st=$("#pgSt");
+  btn.disabled=!!miss.length; card.classList.toggle("ready",!miss.length);
+  st.textContent = miss.length ? "En obra · te falta "+miss.join(", ").replace(/, ([^,]*)$/," y $1") : "✓ Listo para entregar";
+  if(miss.length){ $("#pgOut").hidden=true; last=null; }
+}
+function make(){
+  var L=window.PMS&&window.PMS(); if(busy||!L) return; var S=L.S; if(need(S).length) return;
+  busy=true; var btn=$("#pgBtn"), lab=btn.querySelector("span"), old=lab.textContent; lab.textContent="Construyendo tu plano…"; btn.disabled=true; $("#pgOut").hidden=true;
+  var D=pgData(S), host=document.getElementById("p0pdf");
+  host.innerHTML=planoGeneral(D); host.classList.add("on"); host.style.width="1632px";
+  var lam=host.querySelector(".lam");
+  var imgs=Array.prototype.slice.call(host.querySelectorAll("img")).map(function(im){ return im.complete?Promise.resolve():new Promise(function(r){ im.onload=im.onerror=r; }); });
+  var timer=new Promise(function(_,rej){ setTimeout(function(){ rej(new Error("timeout")); },60000); });
+  Promise.race([timer,Promise.all(imgs).then(function(){ return Promise.all([libs(),pgFonts(D.fuentes),pgTint(lam,(D.paleta[0]||{}).h,(D.paleta[1]||{}).h)]); }).then(function(){ return (document.fonts&&document.fonts.ready)||null; }).then(function(){
+    return window.html2canvas(lam,{scale:window.innerWidth<700?1.3:1.7,backgroundColor:"#FBF6EF",useCORS:true,logging:false,scrollX:0,scrollY:0,windowWidth:1632,width:1632,height:1056});
+  }).then(function(cv){
+    var pdf=new window.jspdf.jsPDF({unit:"pt",format:[792,1224],orientation:"landscape",compress:true}), pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight();
+    pdf.addImage(cv.toDataURL("image/jpeg",.9),"JPEG",0,0,pw,ph);
+    pdf.setFontSize(6); pdf.setTextColor(251,246,239); pdf.text(pdf.splitTextToSize(pgText(D),pw-40),20,20,{renderingMode:"invisible"});
+    pdf.setProperties({title:"Plano General · "+D.nombre,author:"Laura Tovar Studio",subject:"Proyecto Maestro"});
+    var name="Plano-General-"+(D.nombre||"mi-marca").replace(/[^\wÁÉÍÓÚáéíóúÑñ-]+/g,"-")+".pdf", blob=pdf.output("blob");
+    if(last&&last.url) URL.revokeObjectURL(last.url); last={blob:blob,url:URL.createObjectURL(blob),name:name};
+    var sh=$("#pgShare"), f=null; try{ f=new File([blob],name,{type:"application/pdf"}); }catch(e){} sh.hidden=!(f&&navigator.canShare&&navigator.canShare({files:[f]}));
+    $("#pgOut").hidden=false;
+  })]).catch(function(err){ console.error(err); alert("No pudimos construir tu plano. Revisa tu conexión e inténtalo de nuevo."); }).then(function(){
+    busy=false; lab.textContent=old; btn.disabled=false; host.innerHTML=""; host.style.width=""; host.classList.remove("on"); });
+}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("#pgBtn,#pgOpen,#pgSave,#pgShare"); if(!b) return;
+  if(b.id==="pgBtn") return make(); if(!last) return;
+  if(b.id==="pgOpen"){ var w=window.open(last.url,"_blank"); if(!w) location.href=last.url; return; }
+  if(b.id==="pgSave"){ var a=document.createElement("a"); a.href=last.url; a.download=last.name; document.body.appendChild(a); a.click(); a.remove(); return; }
+  if(b.id==="pgShare"){ navigator.share({files:[new File([last.blob],last.name,{type:"application/pdf"})],title:"Mi Plano General"}).catch(function(){}); }
+});
+window.PG={refresh:refresh,data:pgData,html:function(D){ return planoGeneral(D); },tint:function(r,a,b){ return pgTint(r,a,b); }};
+if(window.PMS) refresh(window.PMS().S);
 })();
 
 </script>
