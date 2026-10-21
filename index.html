@@ -35,6 +35,7 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(124px + env(safe-area-inset-
 body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
+body>div[style*="visibility: hidden"]>img{display:inline!important;max-width:none!important}
 a{color:inherit}
 button,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--olive);outline-offset:3px}
@@ -1120,7 +1121,7 @@ body{overflow-x:hidden}
 
 #p0pdf .mem .mr{display:grid;grid-template-columns:190px 1fr;gap:14px;padding:calc(7px*var(--k)) 0;border-bottom:1px solid #E9DFC9}
 #p0pdf .mem .mr b{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B705C;font-weight:800;padding-top:2px}
-#p0pdf .mem .ttl .nmA{display:block;font-family:'Aurantiaca','Ephesis',cursive;font-size:64px;line-height:1.1;margin-top:26px;color:#5B343B;text-transform:none;letter-spacing:0}
+#p0pdf .mem .ttl .nmA{display:block;font-family:'Aurantiaca','Ephesis',cursive;font-size:64px;line-height:1.1;margin-top:8px;color:#5B343B;text-transform:none;letter-spacing:0}
 #p0pdf .mem .mr p{margin:0;font-size:calc(11.5px*var(--k));line-height:1.5;color:#2A2624}
 #p0pdf .mem .mhow{margin:14px 0 10px;background:#6B705C;color:#FAF6F1;padding:12px 16px;font-size:calc(11px*var(--k));line-height:1.5}
 #p0pdf .mem .mhow b{display:block;font-family:'Cinzel',serif;font-size:13px;font-weight:500;margin-bottom:3px}
@@ -1160,7 +1161,7 @@ body{overflow-x:hidden}
 #p0pdf .lam .cap{font-family:'Montserrat',sans-serif;font-style:italic;font-weight:300;font-size:13.5px;color:#2A2624;text-align:center}
 #p0pdf .lam .hand{font-family:'Architects Daughter',cursive}
 /* localización */
-#p0pdf .lam .locroute{font-size:14px;font-weight:500;letter-spacing:.04em;color:#2A2624}
+#p0pdf .lam .locroute{font-size:14px;font-weight:500;letter-spacing:.04em;color:#2A2624;line-height:1.35}
 #p0pdf .lam .locbig b{display:block;font-family:'Cinzel',serif;font-weight:500;font-size:34px;line-height:1.05;color:#5B343B}
 #p0pdf .lam .locbig span{display:block;margin-top:6px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#6B705C;font-weight:800}
 #p0pdf .lam .locbig p{margin:14px 0 0;font-size:13px;line-height:1.5;color:#2A2624}
@@ -2172,7 +2173,7 @@ INICIO
 Preséntate en 3 o 4 líneas, cálidas y humanas. Explica que este es el primer paso para construir su marca: antes de diseñar, vamos a estudiar el terreno, y el terreno es su historia. Recomiéndale buscar un momento tranquilo, de 40 a 60 minutos (puede hacerlo en varias sesiones), y responder por voz.
 
 Luego pregunta primero:
-"¿Ya tienes una marca personal en redes o estás empezando desde cero?"
+"¿Ya tienes una marca personal en redes o es la primera vez que la vas a construir?"
 
 - Si YA TIENE MARCA: pide su usuario, qué le ha funcionado, qué no le gusta de su marca actual y qué quiere conservar. Luego continúa con los bloques.
 - Si EMPIEZA DE CERO: continúa directo con los bloques.
@@ -3891,7 +3892,7 @@ function V_result(){
   var bloq=P.bloq.length?'<ul class="p0-pat">'+P.bloq.map(function(b){ return '<li><span><b>'+esc(b)+'.</b> '+esc(BLOQ[b])+'</span></li>'; }).join("")+'</ul>':'<p>—</p>';
   var noq=(A.by.no.length?tags(A.by.no):"")+(P.noq.trim()?'<p>“'+esc(P.noq.trim())+'”</p>':"");
   return '<div class="p0-res-head"><p class="p0-eyebrow">Plano 00 · Lectura del terreno</p><h1 class="p0-h" style="margin:0">'+esc(n)+'</h1>'+
-    '<p class="p0-exists">'+(A.exists.length?'En tu terreno ya existen <b>'+esc(list(A.exists))+'</b>. No estás empezando de cero.':'Tu terreno está listo para ser explorado.')+'</p><span class="stamp2">Terreno identificado ✓</span></div>'+
+    '<p class="p0-exists">'+(A.exists.length?'En tu terreno ya existen <b>'+esc(list(A.exists))+'</b>. No empiezas en un terreno vacío.':'Tu terreno está listo para ser explorado.')+'</p><span class="stamp2">Terreno identificado ✓</span></div>'+
     '<div class="p0-grid">'+
       sec("Habilidades identificadas",tags(P.skills),true)+
       sec("❤️ Habilidades que te apasionan",tags(A.by.love,"love"))+
@@ -4011,6 +4012,32 @@ var P00IMG="img/p00/";
 var P00ICO={bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',chat:'<path d="M4 5h16v11H9l-5 4z"/>',pot:'<path d="M4 10h16v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6zM8 6c0-1 1-1 1-2M12 6c0-1 1-1 1-2M16 6c0-1 1-1 1-2"/>',list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/>',wrench:'<path d="M14.5 5.5a4 4 0 0 0 4.9 4.9L11 18.8a2 2 0 0 1-2.8-2.8l8.4-8.4"/>',crane:'<path d="M6 21V4l12 3M6 7h12M18 7v6M16 13h4M4 21h6M6 10l4-3M6 14l4-3"/>',laptop:'<path d="M5 6h14v9H5zM3 18h18"/>',coin:'<circle cx="12" cy="12" r="8"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.5 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1 2-2.5 2c-1 0-2-.5-2.5-1.5M12 6v2M12 16v2"/>',tag:'<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/>',dumb:'<path d="M6 8v8M3 10v4M18 8v8M21 10v4M6 12h12"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>',palette:'<path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.6 0-.9-.7-1.4-.7-2.3 0-1 .8-1.6 1.8-1.6H17a4 4 0 0 0 4-4c0-4.6-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/>',camera:'<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',heart:'<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',house:'<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/>',book:'<path d="M4 5c3-1 5-1 8 1 3-2 5-2 8-1v14c-3-1-5-1-8 1-3-2-5-2-8-1zM12 6v14"/>'};
 function p00Icon(t){ var k=/Consejo/.test(t)?"bulb":/Escuch/.test(t)?"chat":/Receta|comida/.test(t)?"pot":/Organizar/.test(t)?"list":/Arreglar|reparar/.test(t)?"wrench":/construcci|remodel/.test(t)?"crane":/tecnolog/.test(t)?"laptop":/dinero|negocio/.test(t)?"coin":/Vender/.test(t)?"tag":/Deporte|entren/.test(t)?"dumb":/Estilo|belleza|imagen/.test(t)?"spark":/Decoraci|diseño/.test(t)?"palette":/Foto|video/.test(t)?"camera":/Motiv/.test(t)?"star":/Fe |espiritual/.test(t)?"heart":/familia|crianza/.test(t)?"house":"book";
   return '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5B343B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">'+P00ICO[k]+'</svg>'; }
+/* sello circular de aprobación (se dibuja en canvas para que salga igual en el PDF) */
+window.pmSeal=function(l1,l2,num){
+  try{
+  var W=300, c=document.createElement("canvas"); c.width=W; c.height=W; var g=c.getContext("2d"); if(!g) return "";
+  var ink="#8A4B55", cx=W/2, cy=W/2;
+  g.translate(cx,cy); g.rotate(-0.16); g.translate(-cx,-cy);
+  g.strokeStyle=ink; g.fillStyle=ink;
+  g.lineWidth=5; g.beginPath(); g.arc(cx,cy,140,0,Math.PI*2); g.stroke();
+  g.lineWidth=1.6; g.beginPath(); g.arc(cx,cy,131,0,Math.PI*2); g.stroke();
+  g.lineWidth=1.6; g.beginPath(); g.arc(cx,cy,92,0,Math.PI*2); g.stroke();
+  g.lineWidth=4; g.beginPath(); g.arc(cx,cy,86,0,Math.PI*2); g.stroke();
+  var ring="PROYECTO MAESTRO  ✦  LAURA TOVAR STUDIO  ✦  ";
+  g.font="600 19px 'Cinzel',serif"; g.textAlign="center"; g.textBaseline="middle";
+  var R=111, tot=0, ws=[]; for(var i=0;i<ring.length;i++){ var w=g.measureText(ring[i]).width+2.2; ws.push(w); tot+=w; }
+  var k=(Math.PI*2*R)/tot, a=-Math.PI/2;
+  for(i=0;i<ring.length;i++){ var ang=a+(ws[i]*k/2)/R; g.save(); g.translate(cx+Math.cos(ang)*R,cy+Math.sin(ang)*R); g.rotate(ang+Math.PI/2); g.scale(k,1); g.fillText(ring[i],0,0); g.restore(); a+=ws[i]*k/R; }
+  var f1=29; g.font="600 "+f1+"px 'Cinzel',serif"; while(g.measureText(l1).width>150&&f1>14){ f1--; g.font="600 "+f1+"px 'Cinzel',serif"; } g.fillText(l1,cx,cy-22);
+  var f2=26; g.font="600 "+f2+"px 'Cinzel',serif"; while(g.measureText(l2).width>150&&f2>14){ f2--; g.font="600 "+f2+"px 'Cinzel',serif"; } g.fillText(l2,cx,cy+12);
+  g.lineWidth=1.4; g.beginPath(); g.moveTo(cx-46,cy+38); g.lineTo(cx-16,cy+38); g.moveTo(cx+16,cy+38); g.lineTo(cx+46,cy+38); g.stroke();
+  g.font="600 17px 'Cinzel',serif"; g.fillText(num||"✦",cx,cy+39);
+  var d=g.getImageData(0,0,W,W), px=d.data, x=7; function rnd(){ x=(x*9301+49297)%233280; return x/233280; }
+  for(i=0;i<px.length;i+=4){ if(px[i+3]){ var r=rnd(); if(r<.13) px[i+3]=0; else px[i+3]=Math.round(px[i+3]*(.72+r*.28)); } }
+  g.putImageData(d,0,0);
+  return c.toDataURL("image/png");
+  }catch(e){ return ""; }
+};
 function lamina(A){
   var e=esc, nmx=nm()||"Mi proyecto", first=nmx.split(" ")[0], ciu=(P.ciudad||"").trim(), pai=(P.pais||"").trim();
   var d=new Date(), fecha=("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+"/"+d.getFullYear();
@@ -4025,13 +4052,14 @@ function lamina(A){
   /* encabezado */
   h.push(ab("left:44px;top:30px;width:72px",'<img src="'+P00IMG+'norte.jpg" alt="" style="width:72px">'));
   h.push(ab("",'<h1>Plano 00 · Estudio del terreno</h1><p>Lo que ya existe en ti, antes de construir tu marca.</p>',"ttl"));
-  h.push(ab("",'Terreno<br>identificado',"stamp"));
+  var sl=window.pmSeal("TERRENO","IDENTIFICADO","00");
+  h.push(sl?ab("right:48px;top:27px;width:94px;height:94px",'<img src="'+sl+'" alt="Terreno identificado" style="width:94px;height:94px">',"seal"):ab("",'Terreno<br>identificado',"stamp"));
   h.push(ab("",'',"hrule"));
 
   /* 01 localización */
   h.push(ab("left:40px;top:138px;width:520px",'01 · Localización',"sh"));
   h.push(ab("left:40px;top:174px;width:520px",e(pai||"Tu país")+' → '+e(ciu||"tu ciudad"),"locroute"));
-  h.push(ab("left:44px;top:196px;width:168px;height:168px",'<img src="'+P00IMG+'mapa.jpg" alt="" style="width:168px;height:168px">'));
+  h.push(ab("left:44px;top:204px;width:168px;height:168px",'<img src="'+P00IMG+'mapa.jpg" alt="" style="width:168px;height:168px">'));
   h.push(ab("left:240px;top:214px;width:320px",'<b>'+e(ciu||"Tu ciudad")+'</b><span>'+e(pai||"Tu país")+'</span><p>Tu contenido le habla primero a las personas de '+e(ciu||"tu ciudad")+' y sus alrededores.</p>',"locbig"));
 
   /* 03 estudio de suelo */
@@ -4143,6 +4171,28 @@ function fitLam(root){
     var over=function(){ return el.scrollWidth>el.clientWidth+1||el.offsetHeight>maxH; };
     while(over()&&f>.6){ f-=.06; el.style.setProperty("--fs",(base*f).toFixed(1)+"px"); }
   });
+  /* centra la tinta del nombre sobre el terreno según su render real (robusto a las métricas de cada fuente/navegador) */
+  try{
+    var nmEl=root.querySelector('.nm:not([data-inkfix])');
+    if(nmEl && nmEl.textContent.trim()){
+      var lr=root.getBoundingClientRect(), er=nmEl.getBoundingClientRect(), cs=getComputedStyle(nmEl);
+      var ctx=document.createElement('canvas').getContext('2d');
+      ctx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+      var m=ctx.measureText(nmEl.textContent);
+      if(m.actualBoundingBoxAscent && m.fontBoundingBoxAscent){
+        var fs=parseFloat(cs.fontSize)||16, L=parseFloat(cs.lineHeight)||fs;
+        var elTop=er.top-lr.top;
+        var baseline=elTop+L/2+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;
+        var inkC=baseline+(m.actualBoundingBoxDescent-m.actualBoundingBoxAscent)/2;
+        var anchor=parseFloat(nmEl.style.top)||0;
+        var dy=anchor-inkC;
+        if(isFinite(dy) && Math.abs(dy)>0.5 && Math.abs(dy)<140){
+          nmEl.style.marginTop=((parseFloat(nmEl.style.marginTop)||0)+dy)+'px';
+        }
+      }
+      nmEl.setAttribute('data-inkfix','1');
+    }
+  }catch(e){}
 }
 
 function sheet(A){
@@ -4155,7 +4205,7 @@ function sheet(A){
   var who=esc(nm()||"Mi proyecto");
   var p1='<div class="pg">'+blobs(0)+hd(1,"Tus habilidades")+'<div class="inner">'+
     '<div class="ttl"><div class="eb">Lectura del terreno'+(((P.ciudad||"")+(P.pais||"")).trim()?' · '+esc([P.ciudad,P.pais].filter(function(x){ return x&&x.trim(); }).join(", ")):'')+'</div>'+who+'</div><span class="st">Terreno identificado ✓</span>'+
-    '<div class="ex">'+(A.exists.length?'En tu terreno ya existen '+esc(list(A.exists))+'. No estás empezando de cero.':'Tu terreno está listo para ser explorado.')+'</div>'+
+    '<div class="ex">'+(A.exists.length?'En tu terreno ya existen '+esc(list(A.exists))+'. No empiezas en un terreno vacío.':'Tu terreno está listo para ser explorado.')+'</div>'+
     bx("Habilidades identificadas",t(P.skills))+
     '<div class="row"><div class="col">'+bx("❤ Te apasionan y te gustaría vivir de ellas",t(A.by.love,"love"))+bx("Por qué te buscan",t(P.buscan)+qs)+bx("Intereses",t(P.ints))+'</div>'+
     '<div class="col">'+bx("Podrían generar ingresos, aunque no te apasionen",t(A.by.money,"money"))+bx("Conocimientos y experiencias",(P.prof.trim()?'<p>'+esc(P.prof.trim())+'</p>':"")+t(P.exp))+bx("Qué quieres construir",t(P.quiere))+bx("Lo que no quieres construir",(A.by.no.length?t(A.by.no):"")+(P.noq.trim()?'<p class="q">“'+esc(P.noq.trim())+'”</p>':"")||'<p class="dash">—</p>')+'</div></div>'+
@@ -4189,6 +4239,31 @@ function fitPage(pg){
   var inner=pg.querySelector(".inner"), fs=1;
   pg.style.setProperty("--k","1");
   while(inner.scrollHeight>inner.clientHeight+1&&fs>.62){ fs-=.03; pg.style.setProperty("--k",fs.toFixed(2)); }
+  /* el nombre en script no debe montarse sobre el texto: se sube lo necesario según su tinta real */
+  try{
+    var nmA=pg.querySelector('.nmA:not([data-inkfix])'), intro=pg.querySelector('.intro');
+    if(nmA&&intro&&nmA.textContent.trim()){
+      var cs=getComputedStyle(nmA), er=nmA.getBoundingClientRect(), ir=intro.getBoundingClientRect();
+      var inkBot=null;
+      try{
+        var ctx=document.createElement('canvas').getContext('2d');
+        ctx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+        var m=ctx.measureText(nmA.textContent);
+        if(m.actualBoundingBoxDescent&&m.fontBoundingBoxAscent){
+          var fs2=parseFloat(cs.fontSize)||16, L=parseFloat(cs.lineHeight)||fs2;
+          var baseline=er.top+L/2+(m.fontBoundingBoxAscent-m.fontBoundingBoxDescent)/2;
+          inkBot=baseline+m.actualBoundingBoxDescent;
+        }
+      }catch(e2){}
+      if(inkBot===null||!isFinite(inkBot)) inkBot=er.bottom;
+      var need=14, gap=ir.top-inkBot;
+      if(gap<need){
+        var mt=parseFloat(cs.marginTop)||0, pull=Math.min(mt,need-gap);
+        if(pull>0.5) nmA.style.marginTop=(mt-pull)+'px';
+      }
+      nmA.setAttribute('data-inkfix','1');
+    }
+  }catch(e){}
 }
 function makePdf(){
   if(busy) return; busy=true; modal("loading");
@@ -4325,7 +4400,8 @@ function planoGeneral(D){
   h.push(ab("",'',"frame"));
   h.push(ab("left:44px;top:30px;width:72px",'<img src="img/p00/norte.jpg" alt="" style="width:72px">'));
   h.push(ab("",'<h1>Plano General · Proyecto Maestro</h1><p>La casa completa de tu marca personal, construida desde los cimientos.</p>',"ttl"));
-  h.push(ab("",'Proyecto<br>aprobado',"stamp"));
+  var sl=window.pmSeal?window.pmSeal("PROYECTO","APROBADO","PG"):"";
+  h.push(sl?ab("right:48px;top:27px;width:94px;height:94px",'<img src="'+sl+'" alt="Proyecto aprobado" style="width:94px;height:94px">',"seal"):ab("",'Proyecto<br>aprobado',"stamp"));
   h.push(ab("",'',"hrule"));
 
   /* 01 axonometría explotada */
