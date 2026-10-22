@@ -4345,7 +4345,7 @@ function p00(){ try{ return JSON.parse(localStorage.getItem("pm-plano00")||"null
 function pgData(S){
   var j1=parse(S.j1)||{}, j2=parse(S.j2)||{}, jc=parse(S.jc)||{}, P=p00();
   var love=Object.keys(P.cls||{}).filter(function(k){ return P.cls[k]==="love"; });
-  var pal=(g(jc,"identidad_visual.paleta")||[]).map(function(c){ return {n:cut(c.nombre||"",14),h:String(c.hex||"").trim()}; }).filter(function(c){ return /^#?[0-9a-f]{6}$/i.test(c.h); }).map(function(c){ if(c.h[0]!=="#") c.h="#"+c.h; return c; });
+  var palRaw=g(jc,"identidad_visual.paleta"), pal=(Array.isArray(palRaw)?palRaw:[]).map(function(c){ return {n:cut(c.nombre||"",14),h:String(c.hex||"").trim()}; }).filter(function(c){ return /^#?[0-9a-f]{6}$/i.test(c.h); }).map(function(c){ if(c.h[0]!=="#") c.h="#"+c.h; return c; });
   var tp=g(jc,"identidad_visual.tipografias")||{};
   return {
     nombre:cut(first(S.name,g(jc,"marca.nombre"),g(j1,"perfil.nombre")),34),
@@ -4513,8 +4513,10 @@ function refresh(S){
 function make(){
   var L=window.PMS&&window.PMS(); if(busy||!L) return; var S=L.S; if(need(S).length) return;
   busy=true; var btn=$("#pgBtn"), lab=btn.querySelector("span"), old=lab.textContent; lab.textContent="Construyendo tu plano…"; btn.disabled=true; $("#pgOut").hidden=true;
-  var D=pgData(S), host=document.getElementById("p0pdf");
-  host.innerHTML=planoGeneral(D); host.classList.add("on"); host.style.width="1632px";
+  var D, host=document.getElementById("p0pdf");
+  try{ D=pgData(S); host.innerHTML=planoGeneral(D); }
+  catch(err){ console.error(err); busy=false; lab.textContent=old; btn.disabled=false; alert("No pudimos construir tu plano. Revisa tu conexión e inténtalo de nuevo."); return; }
+  host.classList.add("on"); host.style.width="1632px";
   var lam=host.querySelector(".lam");
   var imgs=Array.prototype.slice.call(host.querySelectorAll("img")).map(function(im){ return im.complete?Promise.resolve():new Promise(function(r){ im.onload=im.onerror=r; }); });
   var timer=new Promise(function(_,rej){ setTimeout(function(){ rej(new Error("timeout")); },60000); });
