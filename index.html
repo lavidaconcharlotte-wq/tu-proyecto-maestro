@@ -4508,6 +4508,7 @@ function refresh(S){
   var card=$("#pgCard"); if(!card||!S) return; var miss=need(S), btn=$("#pgBtn"), st=$("#pgSt");
   btn.disabled=!!miss.length; card.classList.toggle("ready",!miss.length);
   st.textContent = miss.length ? "En obra · te falta "+miss.join(", ").replace(/, ([^,]*)$/," y $1") : "✓ Listo para entregar";
+  if(!miss.length){ try{ libs().catch(function(){}); }catch(e){} }
   if(miss.length){ $("#pgOut").hidden=true; last=null; }
 }
 function make(){
@@ -4518,11 +4519,14 @@ function make(){
   catch(err){ console.error(err); busy=false; lab.textContent=old; btn.disabled=false; alert("No pudimos construir tu plano. Revisa tu conexión e inténtalo de nuevo."); return; }
   host.classList.add("on"); host.style.width="1632px";
   var lam=host.querySelector(".lam");
+  lab.textContent="Cargando imágenes…";
   var imgs=Array.prototype.slice.call(host.querySelectorAll("img")).map(function(im){ return im.complete?Promise.resolve():new Promise(function(r){ im.onload=im.onerror=r; }); });
   var timer=new Promise(function(_,rej){ setTimeout(function(){ rej(new Error("timeout")); },60000); });
-  Promise.race([timer,Promise.all(imgs).then(function(){ return Promise.all([libs(),pgFonts(D.fuentes),pgTint(lam,(D.paleta[0]||{}).h,(D.paleta[1]||{}).h)]); }).then(function(){ return (document.fonts&&document.fonts.ready)||null; }).then(function(){
+  Promise.race([timer,Promise.all(imgs).then(function(){ lab.textContent="Preparando tu lámina…"; return Promise.all([libs(),pgFonts(D.fuentes),pgTint(lam,(D.paleta[0]||{}).h,(D.paleta[1]||{}).h)]); }).then(function(){ return (document.fonts&&document.fonts.ready)||null; }).then(function(){
+    lab.textContent="Dibujando tu plano…";
     return window.html2canvas(lam,{scale:window.innerWidth<700?1.3:1.7,backgroundColor:"#FBF6EF",useCORS:true,logging:false,scrollX:0,scrollY:0,windowWidth:1632,width:1632,height:1056});
   }).then(function(cv){
+    lab.textContent="Creando el PDF…";
     var pdf=new window.jspdf.jsPDF({unit:"pt",format:[792,1224],orientation:"landscape",compress:true}), pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight();
     pdf.addImage(cv.toDataURL("image/jpeg",.9),"JPEG",0,0,pw,ph);
     pdf.setFontSize(6); pdf.setTextColor(251,246,239); pdf.text(pdf.splitTextToSize(pgText(D),pw-40),20,20,{renderingMode:"invisible"});
@@ -4531,7 +4535,7 @@ function make(){
     if(last&&last.url) URL.revokeObjectURL(last.url); last={blob:blob,url:URL.createObjectURL(blob),name:name};
     var sh=$("#pgShare"), f=null; try{ f=new File([blob],name,{type:"application/pdf"}); }catch(e){} sh.hidden=!(f&&navigator.canShare&&navigator.canShare({files:[f]}));
     $("#pgOut").hidden=false;
-  })]).catch(function(err){ console.error(err); alert("No pudimos construir tu plano. Revisa tu conexión e inténtalo de nuevo."); }).then(function(){
+  })]).catch(function(err){ console.error(err); alert(err&&err.message==="timeout"?"Tardó demasiado en construirse. Revisa tu conexión e inténtalo de nuevo.":"No pudimos construir tu plano. Revisa tu conexión e inténtalo de nuevo."); }).then(function(){
     busy=false; lab.textContent=old; btn.disabled=false; host.innerHTML=""; host.style.width=""; host.classList.remove("on"); });
 }
 document.addEventListener("click",function(e){
