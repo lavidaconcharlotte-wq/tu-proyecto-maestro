@@ -990,6 +990,23 @@ body.demo .cierre{display:none}
 @media (min-width:1024px){ .lp-hero .g-side{gap:0} }
 
 /* ===== MI HISTORIA ===== */
+.mh-shop .mh-cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+@media (min-width:760px){.mh-shop .mh-cards{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.mh-shop .mh-cards{grid-template-columns:repeat(3,1fr)}}
+.mh-card{background:rgba(255,253,249,.92);border:1px solid var(--champ);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.mh-card b{font-family:Cinzel,serif;font-size:17px;color:var(--vino)}
+.mh-card p{font-size:14px;line-height:1.5;color:#3a332e}
+.mh-card a{margin-top:auto;font-weight:700;color:var(--olive);text-decoration:none}
+.mh-card img{width:100%;height:auto;border-radius:12px;display:block}
+#mh .mh-form{background:var(--vino);color:var(--sand);border-radius:16px;padding:22px}
+#mh .mh-form .eyebrow{color:var(--sand)}
+#mh .mh-form h2{color:var(--sand)}
+#mh .mh-form p{color:var(--sand)}
+#mh .mh-form .mh-hl{color:var(--sand);border-left-color:var(--sand)}
+#mh .mh-form .mh-n{-webkit-text-stroke:1px rgba(233,223,201,.55)}
+#mh .mh-form img{width:100%;height:auto;border-radius:12px;display:block}
+#mh .mh-form a.btn{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
+
 .mh{position:fixed;inset:0;z-index:70;overflow-y:auto;background:var(--ivory);background-image:linear-gradient(rgba(107,112,92,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(107,112,92,.06) 1px,transparent 1px);background-size:24px 24px;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
 .mh-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;background:rgba(250,246,241,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--champ)}
 .mh-top span{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--vino);flex:1;text-align:center}
@@ -1648,6 +1665,24 @@ body{overflow-x:hidden}
     <p>Lo hago porque conozco esa sensación de tener que reinventarse y preguntarse: “¿Y ahora qué construyo?”</p>
     <p>Mi propia historia me enseñó que incluso cuando la vida parece obligarnos a empezar de cero, no llegamos con las manos vacías.</p>
     <p class="mh-hl">Todo lo vivido también se convierte en material para construir lo que sigue.</p>
+  </article>
+  <article class="mh-ch mh-form" aria-label="Mi formación digital">
+    <span class="mh-n">05</span><p class="eyebrow">Mi formación</p><h2>Mi formación digital</h2><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/generated-images__store__product-image__e91973ee-007b-42fe-85f9-7f92408b9886__1e406833-08e5-4cf4-9852-d36ce87e7f8a.webp?t=1784705266619" alt="Portada de Next Flight Academy" loading="lazy">
+    <p>Antes de crear todo esto, yo también tuve que formarme. Next Flight Academy es la academia donde aprendí este mundo digital, y hoy también soy mentora ahí.</p>
+    <p class="mh-hl">Si tú también quieres emprender y aprender esta y muchas otras habilidades, acá te la comparto para que te unas. ¡Nos vemos allá, colega!</p>
+    <p><a class="btn" href="https://shop.beacons.ai/lauratovar/e91973ee-007b-42fe-85f9-7f92408b9886" target="_blank" rel="noopener">Quiero ingresar a la academia →</a></p>
+  </article>
+  <article class="mh-ch mh-shop" aria-label="Mis productos">
+    <span class="mh-n">06</span><p class="eyebrow">Mi tienda</p><h2>Mis productos</h2>
+    <p>Todo lo que he creado para acompañarte a construir tu marca, en un solo lugar. Elige por dónde quieres empezar.</p>
+    <div class="mh-cards">
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/b8a017ff-f15e-4692-9a20-9252fd5aecef__store__product-image__8821a8e8-a363-4f0f-839e-547d3d519b72__9f86b678-770d-4ae1-bbe7-5e670db5361f.webp?t=1791483407742" alt="Portada de Proyecto Maestro" loading="lazy"><b>Proyecto Maestro</b><p>Mi plataforma guiada para diseñar tu marca personal paso a paso: tu esencia, tu mensaje, tu imagen y tu contenido, a tu ritmo, desde tu celular.</p><a href="https://shop.beacons.ai/lauratovar/8821a8e8-a363-4f0f-839e-547d3d519b72" target="_blank" rel="noopener">Quiero mi Proyecto Maestro →</a></div>
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/xXAaA2gkQxcDK8KP5GoZTBVQnhD2/referenced_images/d14150fe-58e1-4e4e-8706-967311b73369__store__product-image__f74b047d-9350-4e0d-8d07-1e6d40612c85__156c658b-6d2b-4044-9383-fe5f07971ead.webp?t=1790029229328" alt="Portada del Taller de Canva + Claude" loading="lazy"><b>Taller: Aprende y monetiza con Canva + Claude</b><p>4 clases grabadas, plantillas personalizables, e-book y comunidad para aprender Canva y monetizar lo que ya sabes.</p><a href="https://shop.beacons.ai/lauratovar/7cbdb05f-235a-4cf8-9deb-81c53766210d" target="_blank" rel="noopener">Quiero el taller →</a></div>
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/generated-images__store__product-image__8b85ada0-76e0-46ee-be3e-48620eaa5c68__e0254af4-cb57-4477-a6bf-55f81993fe0c.webp?t=1774648460925" alt="Portada de la Guía para dominar Canva" loading="lazy"><b>Guía para dominar Canva</b><p>La guía desde cero para emprendedoras y creadoras que quieren dominar Canva y crear contenido con intención.</p><a href="https://shop.beacons.ai/lauratovar/8b85ada0-76e0-46ee-be3e-48620eaa5c68" target="_blank" rel="noopener">Quiero la guía →</a></div>
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/709b44c9-f4ac-4444-a025-eaac8c6db41f__store__product-image__789cad53-fa73-4081-8c85-b37d5594b22a__a124e89c-3017-4597-9dfa-912ada265231.webp?t=1787090882587" alt="Portada de Cómo empezar en UGC" loading="lazy"><b>Cómo empezar en UGC</b><p>La guía para empezar en contenido UGC aunque no seas influencer y no tengas miles de seguidores.</p><a href="https://shop.beacons.ai/lauratovar/789cad53-fa73-4081-8c85-b37d5594b22a" target="_blank" rel="noopener">Quiero la guía →</a></div>
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/generated-images__store__product-image__be398b21-0912-4bc0-b6c2-39db142e34dc__bcb83904-c560-4bea-bcd7-57ef2c31b556.webp?t=1769104767809" alt="Portada de la Asesoría 1:1" loading="lazy"><b>Asesoría 1:1</b><p>Una sesión privada conmigo para destrabar tu marca, tu contenido o tu próximo paso, con un plan claro al salir.</p><a href="https://shop.beacons.ai/lauratovar/be398b21-0912-4bc0-b6c2-39db142e34dc" target="_blank" rel="noopener">Agendar mi sesión →</a></div>
+      <div class="mh-card"><img src="https://cdn.beacons.ai/user_content/Y60oWgDW63hoi393Tl9shLoeaOn1/referenced_images/generated-images__store__product-image__59cd7b97-3dff-4e61-91ce-13638f55885e__6ccd3035-5757-4da1-a3f5-b9d242e5f49a.webp?t=1771587620670" alt="Portada de 5 formas de generar ingresos online" loading="lazy"><b>5 formas de generar ingresos online</b><p>Mi guía gratuita con 5 caminos para generar ingresos con lo que ya sabes.</p><a href="https://shop.beacons.ai/lauratovar/59cd7b97-3dff-4e61-91ce-13638f55885e" target="_blank" rel="noopener">Descargarla gratis →</a></div>
+    </div>
   </article>
   <div class="mh-end"><img src="img/nota-laura.png" alt="Tu esencia ya existe. Ahora vamos a construir desde ella. Arq. Laura Tovar"><div class="mh-ctas"><button type="button" class="fc-btn" data-gop0>Empieza gratis tu Plano 00 →</button><a class="lp-ghost" href="https://chat.whatsapp.com/KE8e7nI6QUQJznRKqzhEsf?mode=gi_t" target="_blank" rel="noopener">Únete a mi comunidad</a></div></div>
 </section>
