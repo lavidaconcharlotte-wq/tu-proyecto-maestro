@@ -1,8 +1,9 @@
 // Guardado en la nube de Tu Proyecto Maestro.
 // Cada alumna (usuario de Netlify Identity) tiene su propio espacio.
+// pm = planos 1, 2 y 3 · hist = bitácora · p00 = Plano 00 · express = Esencia Express (membresía)
 import { getStore, connectLambda } from "@netlify/blobs";
 
-const KEYS = new Set(["pm", "hist"]);
+const KEYS = new Set(["pm", "hist", "p00", "express"]);
 const MAX = 400 * 1024; // 400 KB por documento
 
 export const handler = async (event, context) => {

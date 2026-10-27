@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Auditoría · Tu Proyecto Maestro</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/img/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FAF6F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Aurantiaca';src:url('fonts/Aurantiaca.woff') format('woff'),url('fonts/Aurantiaca.ttf') format('truetype');font-display:swap}
+:root{--ivory:#FAF6F1;--sand:#E9DFC9;--olive:#6B705C;--champ:#D9C7A6;--vino:#5B343B;--ink:#2A2624;--paper:#FFFDF9;--disp:'Cinzel',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif;--hand:'Caveat','Segoe Print',cursive}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background-image:linear-gradient(rgba(217,199,166,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(217,199,166,.22) 1px,transparent 1px);background-size:24px 24px;min-height:100vh}
+button,input,textarea{font:inherit;color:inherit}button{cursor:pointer}
+a{color:var(--vino)}
+/* encabezado */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:10px 18px;background:rgba(250,246,241,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--champ)}
+.top>a img{height:38px;width:auto;display:block}
+.top .ttl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vino);white-space:nowrap}
+.tabs{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-decoration:none;padding:9px 13px;border:1px solid var(--champ);border-radius:16px 16px 4px 4px;background:var(--paper)}
+.tabs a.on{background:var(--vino);border-color:var(--vino);color:var(--ivory)}
+.tabs a[data-lock]{opacity:.55}
+.cred{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--olive);border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--olive);background:var(--paper);white-space:nowrap}
+.cred b{font-family:var(--disp);font-size:16px;color:var(--vino);letter-spacing:0}
+main{max-width:1180px;margin:0 auto;padding:30px 18px 90px}
+.hd{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:end;margin-bottom:22px}
+.num{font-family:var(--disp);font-size:84px;line-height:.85;color:transparent;-webkit-text-stroke:1px var(--champ)}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);margin:0}
+h1{font-family:var(--disp);font-weight:500;font-size:clamp(28px,4.6vw,42px);line-height:1.06;margin:6px 0 8px;color:var(--ink)}
+h1 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-size:1.25em;font-weight:400;margin-left:6px}
+.lead{margin:0;font-size:14.5px;line-height:1.6;max-width:680px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+@media (min-width:920px){ .grid{grid-template-columns:340px minmax(0,1fr)} .side{position:sticky;top:84px} }
+.card{background:var(--paper);border:1px solid var(--champ);padding:20px}
+.card h3{margin:0 0 4px;font-family:var(--disp);font-weight:500;font-size:19px;color:var(--vino)}
+.card .sub{margin:0 0 14px;font-size:12.5px;color:var(--olive);line-height:1.45}
+.up{display:grid;gap:10px}
+.slot{display:grid;grid-template-columns:70px 1fr;gap:12px;align-items:center;border:1px dashed var(--champ);padding:8px;background:var(--ivory);cursor:pointer;position:relative}
+.slot input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.slot .ph{width:70px;height:90px;border-radius:8px;overflow:hidden;background:#EFE8DC;display:flex;align-items:center;justify-content:center;color:var(--champ);font-size:26px;position:relative}
+.slot .ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.slot b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.slot span{font-size:12px;color:var(--olive);line-height:1.4}
+.slot.ok{border-style:solid;border-color:var(--olive)}
+.slot.ok .ph::after{content:"✓";position:absolute;right:4px;bottom:4px;width:18px;height:18px;border-radius:50%;background:var(--olive);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.src{margin:14px 0 0;padding:12px;border:1px solid var(--sand);background:var(--ivory);font-size:12.5px;line-height:1.5}
+.src b{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);margin-bottom:4px}
+.src ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:2px}
+.src li.ok::before{content:"✓ ";color:var(--olive);font-weight:700}.src li.no::before{content:"○ ";color:#B8606A}
+.json{width:100%;border:1px dashed var(--olive);background:#fff;border-radius:10px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.45;min-height:84px;resize:vertical;margin-top:6px}
+.jst{font-size:12px;margin:6px 0 0;min-height:1em}.jst.ok{color:var(--olive);font-weight:600}.jst.warn{color:#9a5a2a}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border:1px solid var(--olive);border-radius:999px;background:transparent;color:var(--olive);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;text-align:center}
+.btn.vino{background:var(--vino);border-color:var(--vino);color:var(--ivory)}.btn.full{width:100%;margin-top:14px}.btn.sm{min-height:36px;padding:0 14px;font-size:10px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn:active{transform:scale(.98)}
+.mini{font-size:11.5px;color:var(--olive);margin:8px 0 0;line-height:1.45}
+.uses{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--olive);margin-top:12px;padding-top:10px;border-top:1px solid var(--sand)}
+.hist{margin-top:14px}.hist .hw{font-family:var(--hand);font-size:24px;color:var(--vino)}
+.hist ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px}
+.hist button{width:100%;text-align:left;background:none;border:1px solid var(--sand);padding:8px 10px;font-size:12px;line-height:1.35;display:grid;gap:2px}
+.hist button.on{border-color:var(--vino);background:#F6EEEF}
+.hist small{color:var(--olive)}
+.fallback{margin-top:14px;padding-top:12px;border-top:1px solid var(--sand)}
+/* informe */
+.rep{display:grid;gap:18px}
+.empty{text-align:center;padding:40px 24px}
+.empty .ic{font-family:var(--disp);font-size:60px;color:transparent;-webkit-text-stroke:1px var(--champ);line-height:1}
+.empty h3{font-size:22px}
+.empty p{max-width:30em;margin:8px auto 0;font-size:14px;line-height:1.6}
+.work{text-align:center;padding:44px 24px}
+.work .ring{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;border:2px solid var(--sand);border-top-color:var(--vino);animation:sp 1.1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.work p{font-size:14px;line-height:1.6;margin:6px auto 0;max-width:30em}
+.work .ph2{font-family:var(--hand);font-size:24px;color:var(--vino);min-height:1.3em}
+.note-sc{border-left:3px solid var(--vino);background:#F6EEEF;padding:12px 14px;font-size:13px;line-height:1.55}
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-top:6px}
+@media (min-width:1100px){ .score{grid-template-columns:repeat(7,1fr)} }
+.score div{border:1px solid var(--sand);padding:10px 8px;text-align:center;background:var(--ivory)}
+.score b{display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin-bottom:8px}
+.score i{display:block;width:16px;height:16px;border-radius:50%;margin:0 auto;background:#ccc}
+.score i.verde{background:#8FA27E}.score i.amarillo{background:#D8B25A}.score i.rojo{background:#B8606A}
+.dist{font-size:13.5px;line-height:1.55;margin:12px 0 0;padding-left:12px;border-left:2px solid var(--vino)}
+.sec h3{display:flex;gap:10px;align-items:baseline}
+.sec h3 small{font-family:var(--disp);font-size:13px;color:var(--champ);-webkit-text-stroke:0}
+.md{font-size:14px;line-height:1.65}
+.md p{margin:0 0 10px}.md ul,.md ol{margin:0 0 10px;padding-left:20px}.md li{margin:3px 0}
+.md h4{font-family:var(--disp);font-weight:500;font-size:15px;color:var(--vino);margin:14px 0 6px}
+.md code{background:var(--ivory);padding:1px 4px;border-radius:3px;font-size:12.5px}
+.md pre{white-space:pre-wrap;background:var(--ivory);border:1px solid var(--sand);padding:12px;font-size:12.5px;line-height:1.5;margin:0 0 10px}
+.dir{background:var(--olive);color:var(--ivory);border-color:var(--olive)}
+.dir h3{color:var(--ivory)}.dir .sub{color:var(--sand)}
+.dir pre{white-space:pre-wrap;background:rgba(0,0,0,.12);border:1px solid rgba(250,246,241,.25);padding:12px;font-size:12px;line-height:1.5;max-height:260px;overflow:auto;color:var(--ivory);margin:0 0 12px}
+.dir .btn{border-color:var(--ivory);color:var(--olive);background:var(--ivory)}
+.next{display:grid;grid-template-columns:1fr;gap:12px;align-items:center;background:var(--vino);color:var(--ivory);padding:18px 20px}
+@media (min-width:640px){ .next{grid-template-columns:1fr auto} }
+.next h4{margin:0 0 4px;font-family:var(--disp);font-weight:500;font-size:18px}.next p{margin:0;font-size:13px;line-height:1.5}
+.next .btn{border-color:var(--ivory);color:var(--ivory)}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.lock-card{max-width:520px;margin:6vh auto;text-align:center;background:var(--paper);border:1px solid var(--champ);padding:32px 24px}
+.lock-card h2{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:28px;margin:8px 0 10px}
+.lock-card p{font-size:14.5px;line-height:1.6;margin:0 0 16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--ivory);padding:12px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:760px){ .top{flex-wrap:wrap;padding:10px 14px} .top .ttl{display:none} .tabs{order:3;width:100%;margin-left:0} .cred{margin-left:auto} .num{font-size:60px} .hd{gap:14px} }
+@media print{ .top,.side,.acts,.dir .btn,.next .btn,.toast{display:none!important} body{background:#fff} .grid{display:block} .card{break-inside:avoid;border-color:#ddd} }
+</style>
+</head>
+<body>
+<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" aria-label="Secciones"></nav><span class="cred" id="cred" hidden>Auditorías <b id="credN">0</b><span id="credL">/0</span></span></header>
+<main>
+  <div class="hd"><div class="num" aria-hidden="true">09</div><div><p class="eyebrow">Plano 09 · Auditoría</p><h1>El levantamiento de <em>tu marca</em></h1><p class="lead">Antes de remodelar, se mide lo que ya está construido. Sube tu Instagram de hoy y lo comparamos con la marca que diseñaste.</p></div></div>
+  <div id="lock" hidden></div>
+  <div class="grid" id="app" hidden>
+    <aside class="side">
+      <div class="card">
+        <h3>Tu Instagram de hoy</h3>
+        <p class="sub">3 capturas desde tu celular</p>
+        <div class="up">
+          <label class="slot" data-slot="0"><span class="ph">◫</span><span><b>Perfil</b><span>Foto, nombre, bio, enlace y números</span></span><input type="file" accept="image/*" aria-label="Captura de tu perfil"></label>
+          <label class="slot" data-slot="1"><span class="ph">▦</span><span><b>Feed</b><span>Tus últimas publicaciones</span></span><input type="file" accept="image/*" aria-label="Captura de tu feed"></label>
+          <label class="slot" data-slot="2"><span class="ph">◌</span><span><b>Destacados</b><span>Las burbujas bajo tu bio</span></span><input type="file" accept="image/*" aria-label="Captura de tus destacados"></label>
+        </div>
+        <div class="src" id="src"></div>
+        <button type="button" class="btn vino full" id="go" disabled>Hacer mi auditoría</button>
+        <p class="mini">Claude lee tus capturas junto con tu marca. No publica ni cambia nada en tu cuenta. Tarda entre 1 y 3 minutos.</p>
+        <div class="uses"><span id="usesA"></span><span id="usesB"></span></div>
+        <div class="hist" id="hist" hidden><span class="hw">historial</span><ul id="histL"></ul></div>
+        <div class="fallback" id="fb" hidden><p class="mini" style="margin-top:0">¿Sin auditorías este mes? Copia el prompt con tus planos adentro y úsalo en tu <b>ChatGPT o Gemini</b> junto con tus 3 capturas.</p><button type="button" class="btn sm" id="fbBtn">Copiar prompt de auditoría</button></div>
+      </div>
+    </aside>
+    <section class="rep" id="rep" aria-live="polite"></section>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="pm-lib.js"></script>
+<script>
+(function(){
+"use strict";
+var L=window.PMLib, esc=L.esc, D=null, IMGS=[null,null,null], CUR=null, POLL=null;
+function $(s){ return document.querySelector(s); }
+var SEM=[["numeros","Números"],["nombre","Nombre"],["bio","Bio"],["destacados","Destacados"],["feed","Feed"],["fachada","Fachada"],["promesa","Promesa"]];
+var NOTA="Nota: esta auditoría se hizo con tu base inicial Esencia Express. Con el acceso completo a Proyecto Maestro, la información sería más acertada, porque trabajaría con tus planos completos.";
+
+function exOk(t){ var j=L.parse(t); return !!(j&&(j.tipo==="esencia_express"||j.perfil||j.identidad_visual)); }
+function plOk(){ return !!(D&&D.S&&(D.S.j1||D.S.j2||D.S.jc)); }
+function ready(){ var imgs=IMGS.every(Boolean); var src=D.tier==="pm"?(plOk()||exOk(D.express)):exOk(D.express); var a=D.acc.audits||{used:0,limit:0}; return imgs&&src&&a.used<a.limit; }
+function upd(){ $("#go").disabled=!ready()||!!POLL; var a=D.acc.audits||{used:0,limit:0};
+  $("#cred").hidden=false; $("#credN").textContent=Math.max(0,a.limit-a.used); $("#credL").textContent=" de "+a.limit;
+  $("#usesA").textContent="Auditorías"+(a.monthly?" este mes":"")+": "+a.used+" de "+a.limit;
+  $("#usesB").textContent=a.monthly?("Se renuevan el "+fmtD(a.renews)):(D.acc.daysLeft!=null?("Membresía: "+D.acc.daysLeft+" días"):"");
+  $("#fb").hidden=D.tier!=="pm"||!D.prompts.audit; }
+function fmtD(s){ try{ var d=new Date(s+(String(s).length<=10?"T12:00:00":"")); return d.toLocaleDateString("es",{day:"numeric",month:"short"}); }catch(e){ return s; } }
+function srcHTML(){
+  if(D.tier==="pm"&&plOk()){ var S=D.S; return '<b>Tu marca adentro</b>Se usan tus planos guardados:<ul>'+[["p00","Plano 00 · Terreno"],["j1","Plano 1 · Cimientos"],["j2","Plano 2 · Estructura"],["jc","Plano 3 · Fachada"]].map(function(k){ var ok=k[0]==="p00"?!!(D.p00&&(D.p00.name||(D.p00.skills||[]).length)):!!S[k[0]]; return '<li class="'+(ok?"ok":"no")+'">'+k[1]+(ok?"":" (pendiente)")+'</li>'; }).join("")+'</ul>'; }
+  var ok=exOk(D.express);
+  return '<b>Tu base · Esencia Express</b>'+(ok?'<span class="jst ok">✓ Tu base está guardada.</span> <button type="button" class="btn sm" id="exEdit" style="margin-top:6px">Cambiarla</button>':'Pega aquí el código de tu Esencia Express (o hazlo en <a href="/#express">Mis planos</a>).')+
+    '<textarea class="json" id="exIn" spellcheck="false" placeholder=\'{ "tipo": "esencia_express", … }\''+(ok?' hidden':'')+'>'+esc(D.express||"")+'</textarea><p class="jst" id="exSt"></p>'; }
+
+/* ---- capturas: se reducen en el celular antes de enviarlas ---- */
+function shrink(file){ return new Promise(function(ok,ko){ var fr=new FileReader(); fr.onload=function(){ var im=new Image(); im.onload=function(){ var M=1600, w=im.naturalWidth, h=im.naturalHeight, k=Math.min(1,M/Math.max(w,h)); var c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); var x=c.getContext("2d"); x.fillStyle="#fff"; x.fillRect(0,0,c.width,c.height); x.drawImage(im,0,0,c.width,c.height); ok(c.toDataURL("image/jpeg",.82)); }; im.onerror=ko; im.src=fr.result; }; fr.onerror=ko; fr.readAsDataURL(file); }); }
+document.addEventListener("change",function(e){ var sl=e.target.closest(".slot"); if(!sl||!e.target.files||!e.target.files[0]) return; var i=+sl.dataset.slot;
+  shrink(e.target.files[0]).then(function(u){ IMGS[i]=u; sl.classList.add("ok"); sl.querySelector(".ph").innerHTML='<img alt="" src="'+u+'">'; upd(); }).catch(function(){ L.toast("No pude leer esa imagen. Prueba con otra captura."); }); });
+document.addEventListener("input",function(e){ if(e.target.id!=="exIn") return; D.express=e.target.value; var ok=exOk(D.express), st=$("#exSt"); st.className="jst"+(ok?" ok":D.express.trim()?" warn":""); st.textContent=ok?"✓ Guardado.":D.express.trim()?"No parece un código de Esencia Express: copia desde la primera { hasta la última }.":"";
+  var d={text:D.express,ts:Date.now()}; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email+":express",JSON.stringify(d)); }catch(err){} clearTimeout(window.__ex); window.__ex=setTimeout(function(){ L.cloudPut("express",d); },900); upd(); });
+
+/* ---- texto de los planos para Claude ---- */
+function p00txt(){ var P=Object.assign({},D.p00||{}); delete P.step; delete P.done; return JSON.stringify(P); }
+function planosTxt(){ var S=D.S||{};
+  return "Plano 00 · Estudio del terreno:\n"+(p00txt()||"(pendiente)")+"\n\nPlano 1 · Cimientos:\n"+(S.j1||"(pendiente)")+"\n\nPlano 2 · Estructura:\n"+(S.j2||"(pendiente)")+"\n\nPlano 3 · Fachada:\n"+(S.jc||"(pendiente)"); }
+
+/* ---- hacer la auditoría ---- */
+$("#go").addEventListener("click",function(){ if(!ready()) return; var b=this; b.disabled=true;
+  var body={images:IMGS.map(function(u){ return {type:"image/jpeg",data:u.split(",")[1]}; }),express:D.express||""};
+  if(D.tier==="pm") body.planos={p00:p00txt(),j1:D.S.j1||"",j2:D.S.j2||"",jc:D.S.jc||""};
+  working("Enviando tus capturas…");
+  L.api("/.netlify/functions/audit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(j){
+    if(!j||!j.ok){ L.toast((j&&j.msg)||"No se pudo iniciar."); show(CUR); upd(); return; }
+    if(j.account) D.acc=j.account; upd(); poll(j.id);
+  }).catch(function(){ L.toast("Sin conexión. Intenta de nuevo."); show(CUR); upd(); }); });
+var PH=["Midiendo lo que ya está construido…","Leyendo tu bio y tus números…","Revisando tu feed frente a tu paleta…","Mirando tus destacados…","Comparando con tus planos…","Dibujando tu feed con sistema…","Escribiendo tu obra de la semana…"];
+function working(t){ var i=0; $("#rep").innerHTML='<div class="card work"><div class="ring"></div><p class="ph2" id="ph2">'+esc(t||PH[0])+'</p><p>Tu levantamiento tarda entre 1 y 3 minutos. Puedes quedarte aquí; si sales, lo encuentras luego en tu historial.</p></div>';
+  clearInterval(window.__ph); window.__ph=setInterval(function(){ var e=$("#ph2"); if(!e){ clearInterval(window.__ph); return; } i=(i+1)%PH.length; e.textContent=PH[i]; },6000); }
+function poll(id){ clearTimeout(POLL); working(); var t0=Date.now();
+  (function tick(){ POLL=setTimeout(function(){ L.api("/.netlify/functions/audit?id="+id).then(function(r){
+      if(r&&r.status==="done"){ POLL=null; clearInterval(window.__ph); CUR=r; show(r); hist(); L.toast("Tu levantamiento está listo ♡"); return; }
+      if(r&&r.status==="error"){ POLL=null; clearInterval(window.__ph); L.toast(r.msg||"No se pudo completar."); show(null,r.msg); hist(); return; }
+      if(Date.now()-t0>17*60000){ POLL=null; show(null,"Tardó demasiado. Revisa tu historial en unos minutos."); return; }
+      tick(); }).catch(function(){ tick(); }); },4000); })(); }
+
+/* ---- mostrar el informe ---- */
+function inline(t){ return esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/(^|[^*])\*(?!\s)(.+?)\*/g,"$1<i>$2</i>").replace(/`([^`]+)`/g,"<code>$1</code>"); }
+function md(t){ var out=[], lines=t.split("\n"), list=null, para=[], code=null;
+  function fl(){ if(para.length){ out.push("<p>"+para.map(inline).join("<br>")+"</p>"); para=[]; } } function fli(){ if(list){ out.push("</"+list+">"); list=null; } }
+  lines.forEach(function(l){
+    if(code!==null){ if(/^```/.test(l)){ out.push("<pre>"+esc(code.join("\n"))+"</pre>"); code=null; } else code.push(l); return; }
+    if(/^```/.test(l)){ fl(); fli(); code=[]; return; }
+    var m;
+    if((m=l.match(/^\s*[-•*]\s+(.*)/))){ fl(); if(list!=="ul"){ fli(); out.push("<ul>"); list="ul"; } out.push("<li>"+inline(m[1])+"</li>"); return; }
+    if((m=l.match(/^\s*\d+[.)]\s+(.*)/))){ fl(); if(list!=="ol"){ fli(); out.push("<ol>"); list="ol"; } out.push("<li>"+inline(m[1])+"</li>"); return; }
+    if((m=l.match(/^#{3,4}\s+(.*)/))){ fl(); fli(); out.push("<h4>"+inline(m[1])+"</h4>"); return; }
+    if(!l.trim()){ fl(); fli(); return; }
+    fli(); para.push(l); });
+  fl(); fli(); if(code) out.push("<pre>"+esc(code.join("\n"))+"</pre>"); return out.join(""); }
+function sections(rep){ var re=/^##\s*(\d)\s*[.)]?\s*(.+)$/gm, idx=[], m; while((m=re.exec(rep))) idx.push({n:m[1],t:m[2].trim(),i:m.index,e:re.lastIndex});
+  if(!idx.length) return [{n:"",t:"Tu levantamiento",body:rep}];
+  return idx.map(function(x,k){ return {n:x.n,t:x.t,body:rep.slice(x.e,k+1<idx.length?idx[k+1].i:undefined).trim()}; }); }
+function show(r,err,ns){ var R=$("#rep");
+  if(!r){ R.innerHTML='<div class="card empty"><div class="ic">09</div><h3>'+(err?"No se pudo completar":"Tu levantamiento aparecerá aquí")+'</h3><p>'+esc(err||(D.tier==="pm"?"Sube tus 3 capturas y toca Hacer mi auditoría. Tus planos ya van adentro.":"Sube tus 3 capturas, revisa que tu base Esencia Express esté guardada y toca Hacer mi auditoría."))+'</p></div>'; return; }
+  var s=r.summary||{}, h=[];
+  if(r.mode==="express") h.push('<div class="note-sc">'+esc(NOTA)+'</div>');
+  if(s.semaforo){ h.push('<div class="card"><h3>Diagnóstico</h3><p class="sub">Lo que hay hoy frente a lo que definiste · '+new Date(r.created).toLocaleDateString("es",{day:"numeric",month:"long",year:"numeric"})+'</p><div class="score">'+SEM.map(function(k){ var v=String(s.semaforo[k[0]]||"").toLowerCase(); return '<div><b>'+k[1]+'</b><i class="'+esc(v)+'" title="'+esc(v||"sin dato")+'"></i></div>'; }).join("")+'</div>'+(s.distancia?'<p class="dist">'+esc(s.distancia)+'</p>':'')+'</div>'); }
+  var rep=String(r.report||"");
+  if(r.director){ rep=rep.split(r.director).join(""); rep=rep.replace(/```[a-z]*\s*```/gi,""); }
+  rep=rep.replace(/Toca Copiar código y pégalo en tu Director Creativo\s*🚨?/i,"");
+  sections(rep).forEach(function(x){
+    var body=x.body; if(x.n==="7"){ var cut=body.search(/\n\s*(A\)|━|---)/); if(cut>0) body=body.slice(0,cut); }
+    h.push('<div class="card sec"><h3>'+(x.n?'<small>'+x.n+'</small>':'')+esc(x.t.replace(/^[^\wÁÉÍÓÚÑáéíóúñ¿¡]+/,""))+'</h3><div class="md">'+md(body)+'</div>'+(x.n==="5"?'<p style="margin:10px 0 0"><a class="btn sm" href="/canva">Ir a mis plantillas Canva →</a></p>':'')+'</div>');
+  });
+  if(r.director) h.push('<div class="card dir"><h3>Para tu Director Creativo</h3><p class="sub">Toca Copiar y pégalo en tu Director Creativo para que diseñe con lo nuevo 🚨</p><pre id="dirTx">'+esc(r.director)+'</pre><button type="button" class="btn" id="dirBtn">Copiar actualización</button></div>');
+  h.push('<div class="acts"><button type="button" class="btn sm" id="cpAll">Copiar informe</button><button type="button" class="btn sm" id="pdf">Guardar en PDF</button><a class="btn sm" href="/canva">Mis plantillas Canva</a></div>');
+  R.innerHTML=h.join("");
+  var db=$("#dirBtn"); if(db) db.onclick=function(){ L.copy(r.director,function(){ L.toast("Copiado ♡ Pégalo en tu Director Creativo"); }); };
+  $("#cpAll").onclick=function(){ L.copy((r.mode==="express"?NOTA+"\n\n":"")+String(r.report||""),function(){ L.toast("Informe copiado ♡"); }); };
+  $("#pdf").onclick=function(){ window.print(); };
+  if(!ns) window.scrollTo({top:R.getBoundingClientRect().top+window.scrollY-90,behavior:"smooth"}); }
+
+/* ---- historial ---- */
+var LIST=[];
+function hist(){ return L.api("/.netlify/functions/audit?list=1").then(function(j){ if(!j) return; if(j.account){ D.acc=j.account; upd(); } LIST=j.list||[]; var done=LIST.filter(function(x){ return x.status!=="error"; });
+  $("#hist").hidden=!done.length;
+  $("#histL").innerHTML=done.map(function(x){ return '<li><button type="button" data-h="'+esc(x.id)+'"'+(CUR&&CUR.id===x.id?' class="on"':'')+'><span>'+new Date(x.created).toLocaleDateString("es",{day:"numeric",month:"short",year:"numeric"})+(x.status==="working"?" · en marcha…":"")+'</span>'+(x.distancia?'<small>'+esc(L.cut(x.distancia,90))+'</small>':'')+'</button></li>'; }).join("");
+  return LIST; }); }
+document.addEventListener("click",function(e){ var hb=e.target.closest("[data-h]"); if(hb){ var id=hb.dataset.h; L.api("/.netlify/functions/audit?id="+id).then(function(r){ if(r&&r.status==="done"){ CUR=r; show(r); hist(); } else if(r&&r.status==="working") poll(id); }); return; }
+  if(e.target.id==="exEdit"){ var t=$("#exIn"); t.hidden=false; t.focus(); e.target.remove(); return; }
+  if(e.target.id==="fbBtn"){ var p=D.prompts.audit||""; if(!p) return; var txt=L.sealed(p.replace("{{PLANOS}}",plOk()?planosTxt():"Base inicial · Esencia Express:\n"+(D.express||"(pendiente)"))+"\n\nTe adjunto mis 3 capturas de Instagram: 1) perfil, 2) feed, 3) destacados.");
+    L.copy(txt,function(){ L.toast("Prompt copiado ♡ Pégalo con tus 3 capturas"); }); }
+  var lk=e.target.closest("[data-lock]"); if(lk){ e.preventDefault(); L.toast("🔒 Incluido en Proyecto Maestro completo"); } });
+
+/* ---- arranque ---- */
+if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","El levantamiento de tu marca"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); return; }
+L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/auditoria",D.tier);
+  if(D.tier!=="pm"&&D.tier!=="mem"){ $("#lock").innerHTML=L.lockHTML(D.tier,"El levantamiento de tu marca"); $("#lock").hidden=false; return; }
+  $("#app").hidden=false; $("#src").innerHTML=srcHTML(); upd(); show(null);
+  hist().then(function(list){ list=list||[]; var w=list.filter(function(x){ return x.status==="working"&&Date.now()-x.created<16*60000; })[0];
+    if(w){ poll(w.id); return; } var last=list.filter(function(x){ return x.status==="done"; })[0];
+    if(last) L.api("/.netlify/functions/audit?id="+last.id).then(function(r){ if(r&&r.status==="done"&&!POLL){ CUR=r; show(r,null,true); hist(); } }); });
+}).catch(function(){ $("#lock").innerHTML=L.lockHTML("none","El levantamiento de tu marca"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); });
+})();
+</script>
+</body>
+</html>

@@ -229,7 +229,8 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 body.locked #builderSec .pf-box{position:relative;pointer-events:none;user-select:none;filter:blur(1.5px) grayscale(.2);opacity:.55}
 body.locked #builderSec .pf-box *{pointer-events:none}
 .pf-lock{position:sticky;bottom:84px;z-index:20;margin:-160px 0 0;padding:0 0 20px}
-.pl-card{background:var(--vino);color:var(--ivory);padding:22px 20px;text-align:center;box-shadow:0 24px 50px rgba(91,52,59,.35);border:1px solid rgba(201,164,100,.6)}
+.pl-card{max-width:400px;margin:0 auto;background:rgba(91,52,59,.80);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);color:var(--ivory);padding:16px 18px;text-align:center;box-shadow:0 18px 40px rgba(91,52,59,.28);border:1px solid rgba(201,164,100,.6)}
+.pl-card h2{font-size:19px!important}.pl-card p{font-size:13px!important;margin-bottom:10px!important}
 .pl-ic{font-size:26px}
 .pl-card .eyebrow{color:var(--sand);margin:8px 0 4px}
 .pl-card h2{font-family:var(--disp);font-weight:500;color:var(--ivory);font-size:22px;line-height:1.2;margin:0 0 8px}
@@ -303,9 +304,15 @@ function show(){ document.getElementById("app").hidden=false; }
 function lock(){ document.body.classList.add("locked"); document.getElementById("app").hidden=false; document.getElementById("pfLock").hidden=false; document.querySelectorAll("#builderSec input,#builderSec textarea,#builderSec button").forEach(function(el){ el.setAttribute("tabindex","-1"); el.setAttribute("aria-disabled","true"); }); }
 function getAuth(){ try{ return JSON.parse(localStorage.getItem(AKEY)||sessionStorage.getItem(AKEY)); }catch(e){ return null; } }
 
+function tierOf(){ var x=getAuth(); if(!x) return Promise.resolve("none"); return fetch("/.netlify/functions/account",{headers:{Authorization:"Bearer "+x.at},cache:"no-store"}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(j){ var c=(j&&j.account)||{}; return c.status==="active"?c.tier:c.status==="expired"?"expired":"none"; }).catch(function(){ return "unknown"; }); }
+function gateP(){ tierOf().then(function(t){ if(t==="pm"||t==="unknown"){ show(); return; }
+  var c=document.querySelector("#pfLock .pl-card");
+  if(t==="mem"){ c.querySelector(".eyebrow").textContent="Incluido en Proyecto Maestro completo"; c.querySelector("p:not(.eyebrow)").textContent="Tu membresía te deja ver tu Portafolio por dentro. Para armar tus pedidos y trabajar con tu Director Creativo y tu Estudio Fotográfico, pasa a Proyecto Maestro completo."; c.querySelector(".pl-in").hidden=true; }
+  if(t==="expired"){ c.querySelector(".eyebrow").textContent="Tu membresía terminó"; c.querySelector("p:not(.eyebrow)").innerHTML="Tus datos siguen guardados. Inicia tu Proyecto Maestro completo y todo estará aquí esperándote."; c.querySelector(".pl-in").hidden=true; }
+  lock(); }); }
 var a=getAuth(); if(!a){ lock(); return; }
-fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+a.at}}).then(function(r){ if(!r.ok) throw 0; show(); }).catch(function(){
-  fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(t){ try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify({at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem})); }catch(e){} show(); }).catch(lock);
+fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+a.at}}).then(function(r){ if(!r.ok) throw 0; gateP(); }).catch(function(){
+  fetch("/.netlify/identity/token",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(a.rt)}).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(t){ try{ (a.rem===false?sessionStorage:localStorage).setItem(AKEY,JSON.stringify({at:t.access_token,rt:t.refresh_token,exp:Date.now()+t.expires_in*1000,rem:a.rem})); }catch(e){} gateP(); }).catch(lock);
 });
 document.addEventListener("click",function(e){ var f=e.target.closest("[data-z]"); if(!f) return; f.classList.toggle("open"); });
 document.addEventListener("pointermove",function(e){ var f=e.target.closest("[data-z].open"); if(!f) return; var r=f.getBoundingClientRect(); f.style.setProperty("--ox",((e.clientX-r.left)/r.width*100)+"%"); f.style.setProperty("--oy",((e.clientY-r.top)/r.height*100)+"%"); });

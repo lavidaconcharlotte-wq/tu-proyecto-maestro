@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plantillas Canva · Tu Proyecto Maestro</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/img/icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FAF6F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Aurantiaca';src:url('fonts/Aurantiaca.woff') format('woff'),url('fonts/Aurantiaca.ttf') format('truetype');font-display:swap}
+:root{--ivory:#FAF6F1;--sand:#E9DFC9;--olive:#6B705C;--champ:#D9C7A6;--vino:#5B343B;--ink:#2A2624;--paper:#FFFDF9;--disp:'Cinzel',Georgia,serif;--sans:'Montserrat',system-ui,sans-serif;--hand:'Caveat','Segoe Print',cursive}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background-image:linear-gradient(rgba(217,199,166,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(217,199,166,.22) 1px,transparent 1px);background-size:24px 24px;min-height:100vh}
+button,input{font:inherit;color:inherit}button{cursor:pointer}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:14px;padding:10px 18px;background:rgba(250,246,241,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--champ)}
+.top>a img{height:38px;width:auto;display:block}
+.top .ttl{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vino);white-space:nowrap}
+.tabs{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-decoration:none;padding:9px 13px;border:1px solid var(--champ);border-radius:16px 16px 4px 4px;background:var(--paper)}
+.tabs a.on{background:var(--vino);border-color:var(--vino);color:var(--ivory)}.tabs a[data-lock]{opacity:.55}
+main{max-width:1240px;margin:0 auto;padding:30px 18px 90px}
+.hd{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:end;margin-bottom:22px}
+.num{font-family:var(--disp);font-size:84px;line-height:.85;color:transparent;-webkit-text-stroke:1px var(--champ)}
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--olive);margin:0}
+h1{font-family:var(--disp);font-weight:500;font-size:clamp(28px,4.6vw,42px);line-height:1.06;margin:6px 0 8px}
+h1 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-size:1.25em;font-weight:400;margin-left:6px}
+h2.st{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(22px,3vw,28px);margin:34px 0 4px}
+p.sub{margin:0 0 18px;font-size:13.5px;color:var(--olive);max-width:46em;line-height:1.55}
+.lead{margin:0;font-size:14.5px;line-height:1.6;max-width:680px}
+.card{background:var(--paper);border:1px solid var(--champ);padding:18px 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 16px;border:1px solid var(--olive);border-radius:999px;background:transparent;color:var(--olive);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;text-align:center;white-space:nowrap}
+.btn.vino{background:var(--vino);border-color:var(--vino);color:var(--ivory)}.btn[disabled]{opacity:.5}
+.btn:active{transform:scale(.98)}
+/* tira de marca */
+.kit{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){ .kit{grid-template-columns:1.2fr 1fr .9fr;align-items:start} }
+.kit h3{margin:0 0 10px;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--olive)}
+.sw{display:flex;flex-wrap:wrap;gap:12px}
+.sw button{background:none;border:0;padding:0;text-align:center;width:66px}
+.sw i{display:block;width:52px;height:52px;border-radius:50%;margin:0 auto 6px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.sw b{display:block;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sw small{font-size:10.5px;color:var(--olive)}
+.ff{display:grid;gap:6px}
+.ff button{display:flex;align-items:baseline;gap:10px;background:none;border:0;padding:0;text-align:left}
+.ff small{width:56px;font-size:11px;color:var(--olive)}
+.ff span{font-size:20px;line-height:1.2}
+.phs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.phs span{width:44px;height:44px;border-radius:6px;background-size:cover;background-position:center;position:relative}
+.phs span button{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;border:0;background:var(--vino);color:#fff;font-size:12px;line-height:20px;padding:0}
+.upb{position:relative;overflow:hidden}.upb input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.mini{font-size:11.5px;color:var(--olive);margin:8px 0 0;line-height:1.45}
+.warn{margin:0 0 18px;padding:12px 14px;border-left:3px solid var(--vino);background:#F6EEEF;font-size:13.5px;line-height:1.5}
+/* filas de plantillas */
+.row{display:grid;gap:26px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:760px){ .row{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1080px){ .row{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.item .fit{position:relative;overflow:hidden}
+.item .fit>.art{position:absolute;left:0;top:0;transform-origin:0 0}
+.item .lab{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.item .lab small{font-size:12px;color:var(--olive)}
+.item .acts{display:flex;gap:6px;flex-wrap:wrap}
+.how{display:grid;gap:14px;grid-template-columns:minmax(0,1fr);margin-top:30px}
+@media (min-width:760px){ .how{grid-template-columns:repeat(3,1fr)} }
+.how div{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:13.5px;line-height:1.5}
+.how b{font-family:var(--disp);font-weight:400;font-size:30px;color:var(--champ);line-height:1}
+.ref{margin-top:26px;border:1px dashed var(--champ);background:var(--paper);padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;font-size:13.5px}
+.lock-card{max-width:520px;margin:6vh auto;text-align:center;background:var(--paper);border:1px solid var(--champ);padding:32px 24px}
+.lock-card h2{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:28px;margin:8px 0 10px}
+.lock-card p{font-size:14.5px;line-height:1.6;margin:0 0 16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--ivory);padding:12px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:760px){ .top{flex-wrap:wrap;padding:10px 14px} .top .ttl{display:none} .tabs{order:3;width:100%;margin-left:0} .num{font-size:60px} .hd{gap:14px} }
+
+/* ================= LAS PIEZAS (diseñadas a 600 px de ancho) ================= */
+.art{width:600px;font-family:var(--b);color:var(--c5);--t:'Cinzel',serif;--b:'Montserrat',sans-serif;--a:'Aurantiaca',cursive}
+.art *{box-sizing:border-box}
+.art .ph{background:#fff;border-radius:28px;padding:16px 10px 12px;box-shadow:0 18px 40px rgba(42,38,36,.14);border:1px solid #e6dfd4;overflow:hidden}
+.art .g{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.art .g>div{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:8px}
+.art .noph{background-image:linear-gradient(150deg,var(--c3),var(--c2))!important}
+/* 1 editorial tonal */
+.art .e .pal{display:flex;justify-content:space-between;padding:4px 8px 10px}.art .e .pal span{width:44px;height:44px;border-radius:50%}
+.art .e .tb{display:flex;justify-content:space-around;padding:4px 0 8px;border-bottom:2px solid #222;margin:0 4px 6px;font-size:14px}
+.art .e .k{font-size:6px;letter-spacing:.18em;text-transform:uppercase;color:var(--c4);opacity:.92}
+.art .e .h{font-family:var(--t);font-size:14px;line-height:1.05;color:var(--c4)}
+.art .e .h em{font-family:var(--a);font-style:normal;font-size:20px;display:block;line-height:1.1}
+.art .e .ov::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(20,18,16,.5))}
+.art .e .ov>*{position:relative;z-index:1}
+.art .e .btn2{margin-top:6px;align-self:flex-start;font-size:5.5px;letter-spacing:.14em;border:1px solid currentColor;padding:2px 5px;color:var(--c4)}
+/* perfil */
+.art .pf{display:flex;align-items:center;gap:12px;padding:0 6px 8px}
+.art .pf i{flex:0 0 58px;height:58px;border-radius:50%;background-size:cover;background-position:center;border:3px solid var(--c2);position:relative;overflow:hidden}
+.art .pf .n{display:flex;gap:12px;font-size:9px;text-align:center}.art .pf .n b{display:block;font-size:12px}
+.art .nm{font-weight:700;font-size:11px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.art .bio{font-size:9px;line-height:1.35;padding:2px 6px 6px;color:#333;white-space:pre-line}
+.art .lk{font-size:9px;color:#2d5fa3;padding:0 6px 8px}
+.art .hl{display:flex;justify-content:space-between;padding:0 6px 10px}.art .hl div{text-align:center;font-size:7.5px;color:#444;width:54px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.art .hl span{display:block;width:40px;height:40px;border-radius:50%;margin:0 auto 3px;background-size:cover;background-position:center;border:2px solid #fff;box-shadow:0 0 0 1px #ddd;position:relative;overflow:hidden}
+.art .f .g>div::after{content:"";position:absolute;inset:0;background:var(--c1);opacity:.06}
+/* 3 scrapbook */
+.art .sb{background:#F3EEE6}
+.art .sb .g>div{background:#F3EEE6;color:var(--c5)}
+.art .sb .g>div.p{background:#EAE3D8}
+.art .sb .tt{font-family:var(--t);font-size:11px;line-height:1.05;text-transform:uppercase;position:relative;z-index:1}
+.art .sb .hw{font-family:var(--a);font-size:16px;color:var(--c2);line-height:1.1}
+.art .sb .pol{position:absolute;right:7px;top:9px;width:46%;aspect-ratio:1;background:#fff;padding:3px 3px 9px;box-shadow:0 2px 4px rgba(0,0,0,.18);transform:rotate(4deg)}
+.art .sb .pol span{display:block;width:100%;height:100%;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.art .sb .tape{position:absolute;width:30px;height:9px;background:var(--c3);opacity:.85;top:4px;right:28px;transform:rotate(-12deg)}
+.art .sb .pill{display:inline-block;margin-top:5px;font-size:5.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--c2);color:#fff;padding:2px 5px;border-radius:2px;align-self:flex-start;position:relative;z-index:1}
+.art .sb .tear{position:absolute;left:0;right:0;bottom:0;width:100%;height:16%;display:block}
+.art .sb .arch{width:60%;aspect-ratio:3/4;border-radius:50% 50% 0 0;background-size:cover;background-position:center;margin:0 auto 4px;border:3px solid #fff;position:relative;overflow:hidden}
+.art .sb .q{font-family:var(--t);font-size:22px;color:var(--c2);line-height:.6}
+.art .sb .pf i{border:3px solid var(--c5)}
+.art .sb .btns{display:flex;gap:4px;padding:0 6px 10px}.art .sb .btns span{flex:1;font-size:7.5px;text-align:center;border:1px solid var(--c5);padding:4px 0;border-radius:4px}.art .sb .btns span:first-child{background:var(--c5);color:#fff}
+.art .sb .hl span{border:2px solid var(--c4);display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+.art .sm{font-size:5.5px;line-height:1.35;position:relative;z-index:1}
+/* boards */
+.art .bd{aspect-ratio:1920/3240;box-shadow:0 18px 40px rgba(42,38,36,.14);overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.art .k2{font-size:7px;letter-spacing:.3em;text-transform:uppercase;text-align:center;font-weight:600}
+.art .b1 .hd1{background:var(--c2);color:var(--c4);text-align:center;padding:26px 10px 18px}.art .b1 .hd1 b{display:block;font-family:var(--t);font-size:32px;font-weight:600;line-height:1.1}
+.art .b1 .lg{display:grid;grid-template-columns:1fr 1fr;height:15%}.art .b1 .lg>div:first-child{display:flex;align-items:center;justify-content:center}
+.art .b1 .ring{width:70px;height:70px;border:1px solid var(--c5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--t);font-size:24px}
+.art .b1 .lg .pp{background-size:cover;background-position:center 30%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--t);font-size:20px;text-shadow:0 2px 8px #0008;position:relative;overflow:hidden;text-align:center;padding:6px}
+.art .b1 .lg .pp b{position:relative;z-index:1;font-weight:500}
+.art .b1 .ft{background:var(--c4m);padding:12px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.art .b1 .ft div{font-size:6.5px;line-height:1.5;overflow:hidden}.art .b1 .ft em{display:block;font-style:normal;font-size:24px;line-height:1.1}
+.art .pal5{padding:12px 10px;display:flex;justify-content:center;gap:12px}.art .pal5 div{text-align:center;font-size:6px;letter-spacing:.06em}.art .pal5 span{display:block;width:40px;height:40px;margin:0 auto 4px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.art .b1 .mood{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:0 0 4px}.art .b1 .mood div{background-size:cover;background-position:center;position:relative;overflow:hidden}
+.art .b2{padding:12px 14px;background:var(--b2bg)}
+.art .b2 .rl{display:flex;align-items:center;gap:6px;margin:7px 0}.art .b2 .rl::before,.art .b2 .rl::after{content:"";flex:1;border-top:1px solid var(--rl)}.art .b2 .rl span{font-size:6.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--c1)}
+.art .b2 .main{text-align:center;color:var(--c1);padding:6px 0}.art .b2 .main b{font-family:var(--t);font-size:30px;font-weight:700}.art .b2 .main em{font-family:var(--a);font-style:normal;font-size:32px;margin-left:4px}
+.art .b2 .alt{display:flex;justify-content:space-around;align-items:center;padding:6px 0}.art .b2 .alt .c{width:52px;height:52px;border-radius:50%;background:var(--c1);color:var(--c4);display:flex;align-items:center;justify-content:center;font-family:var(--a);font-size:34px}
+.art .b2 .two{display:grid;grid-template-columns:1.2fr .8fr;gap:8px;align-items:start}.art .b2 .pal4{display:flex;gap:6px;justify-content:center}.art .b2 .pal4 div{text-align:center;font-size:5.5px}.art .b2 .pal4 span{display:block;width:32px;height:32px;border-radius:50%;margin-bottom:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.art .b2 .el{display:flex;justify-content:space-around;font-size:22px;color:var(--c3);padding-top:4px}
+.art .b2 .ty{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:6px;font-size:6px;color:var(--c1)}.art .b2 .ty b{display:block;font-family:var(--t);font-size:18px}
+.art .b2 .phg{flex:1;display:grid;grid-template-columns:1fr 1.3fr 1fr 1.3fr;grid-template-rows:1fr 1fr;gap:4px;margin-top:8px}.art .b2 .phg div{background-size:cover;background-position:center;border-radius:2px;position:relative;overflow:hidden}
+.art .b3 .hero{height:22%;background-size:cover;background-position:center 25%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--c4);position:relative;overflow:hidden;text-align:center}
+.art .b3 .hero::before{content:"";position:absolute;inset:0;background:rgba(20,18,16,.35)}.art .b3 .hero>*{position:relative;z-index:1}
+.art .b3 .hero b{font-family:var(--a);font-weight:400;font-size:48px;line-height:1}.art .b3 .hero span{font-size:6.5px;letter-spacing:.3em;text-transform:uppercase}
+.art .b3 .var{display:flex;justify-content:space-around;align-items:center;padding:6px 6px 10px;color:var(--c1)}.art .b3 .var div{text-align:center}.art .b3 .var b{font-family:var(--a);font-weight:400;font-size:28px;display:block;line-height:1}.art .b3 .var span{font-size:5.5px;letter-spacing:.2em;text-transform:uppercase}
+.art .b3 .var .ci{width:56px;height:56px;border:1px solid var(--c1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--t);font-size:18px}
+.art .b3 .ty{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px 14px 8px;font-size:6px}.art .b3 .ty b{display:block;font-family:var(--t);font-size:22px;color:var(--c1)}.art .b3 .ty i{display:block;font-family:var(--a);font-style:normal;font-size:24px;color:var(--c1)}
+.art .b3 .blocks{display:grid;grid-template-columns:1fr 1fr;height:12%}.art .b3 .blocks div{display:flex;align-items:center;justify-content:center;font-family:var(--a);font-size:26px}
+.art .b3 .foot{flex:1;background-size:cover;background-position:center;position:relative;overflow:hidden}
+.art .b2 .phg [data-r2]{grid-row:span 2}
+.art .clip1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+</style>
+</head>
+<body>
+<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" aria-label="Secciones"></nav></header>
+<main>
+  <div class="hd"><div class="num" aria-hidden="true">10</div><div><p class="eyebrow">Plano 10 · Plantillas Canva</p><h1>Tu feed, listo para <em>diseñar</em></h1><p class="lead">Tres estilos de feed y tres branding boards, pintados con tu marca. Elige el que sientas tuyo, ábrelo en Canva o descárgalo en alta resolución.</p></div></div>
+  <div id="lock" hidden></div>
+  <div id="app" hidden>
+    <div class="warn" id="noBrand" hidden></div>
+    <div class="card kit">
+      <div><h3>Tu paleta · toca para copiar</h3><div class="sw" id="sw"></div></div>
+      <div><h3>Tus tipografías</h3><div class="ff" id="ff"></div></div>
+      <div><h3>Tus fotos</h3><div class="phs" id="phs"></div><span class="btn upb">Agregar fotos<input type="file" accept="image/*" multiple id="phIn" aria-label="Agregar tus fotos"></span><p class="mini">Hasta 9 fotos tuyas para ver tus plantillas con tu imagen. Se guardan solo en este dispositivo.</p></div>
+    </div>
+
+    <h2 class="st">Tres estilos de feed</h2>
+    <p class="sub">Basados en las plantillas de Canva de Proyecto Maestro, con tus colores, tus tipografías, tu nombre, tu bio y tus destacados. Elige con el que te identificas.</p>
+    <div class="row" id="feeds"></div>
+
+    <h2 class="st">Tres branding boards</h2>
+    <p class="sub">Tu identidad visual en una sola lámina: tu nombre, tu paleta con sus códigos, tus tipografías y tus fotos. Descárgala o ábrela en Canva para editarla.</p>
+    <div class="row" id="boards"></div>
+
+    <div class="how"><div><b>1</b><span>Toca <strong>Usar en Canva</strong>: se abre una copia que es tuya.</span></div><div><b>2</b><span>Cambia los colores por los de tu paleta y los textos por los tuyos. Tus códigos HEX están arriba, listos para copiar.</span></div><div><b>3</b><span>Descarga y publica. Tu vista previa en PNG sirve como guía de tu marca.</span></div></div>
+    <div class="ref" id="ref" hidden><span>¿Aún no tienes Canva Pro? Con Pro guardas tu paleta y tus tipografías en un kit de marca y las aplicas en un clic.</span><a class="btn" id="refA" target="_blank" rel="noopener">Probar Canva Pro</a></div>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="pm-lib.js"></script>
+<script>
+(function(){
+"use strict";
+/* ============ CONFIGURACIÓN (editar aquí) ============ */
+var CANVA={
+  feeds:["https://canva.link/wxicuqizi02y5z5","https://canva.link/wxicuqizi02y5z5","https://canva.link/wxicuqizi02y5z5"], // las 3 hojas del mismo diseño
+  boards:["https://canva.link/0ykloxy07rvc6hj","https://canva.link/lhokardx3ywbcjv","https://canva.link/l86kdytinruvkea"],
+  referido:""   // tu enlace de referido de Canva Pro (vacío = no se muestra)
+};
+/* ===================================================== */
+var L=window.PMLib, esc=L.esc, D=null, B=null, PHOTOS=[], W=600;
+function $(s){ return document.querySelector(s); }
+var AMB=["mat-travertino","mat-marmol","mat-textil","mat-laton","mat-arco","mat-vino","mat-olive","mat-plano"];
+
+/* ---- fotos de la persona (solo en este dispositivo) ---- */
+function idb(){ return new Promise(function(ok,ko){ if(!window.indexedDB) return ko(); var r=indexedDB.open("pm-canva",1); r.onupgradeneeded=function(){ r.result.createObjectStore("f"); }; r.onsuccess=function(){ ok(r.result); }; r.onerror=ko; }); }
+function phKey(){ return "fotos:"+(D&&D.email||""); }
+function phLoad(){ return idb().then(function(db){ return new Promise(function(ok){ var t=db.transaction("f").objectStore("f").get(phKey()); t.onsuccess=function(){ ok(t.result||[]); }; t.onerror=function(){ ok([]); }; }); }).catch(function(){ return []; }); }
+function phSave(){ return idb().then(function(db){ db.transaction("f","readwrite").objectStore("f").put(PHOTOS,phKey()); }).catch(function(){}); }
+function shrink(file){ return new Promise(function(ok,ko){ var fr=new FileReader(); fr.onload=function(){ var im=new Image(); im.onload=function(){ var M=1400,w=im.naturalWidth,h=im.naturalHeight,k=Math.min(1,M/Math.max(w,h)); var c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); c.getContext("2d").drawImage(im,0,0,c.width,c.height); ok(c.toDataURL("image/jpeg",.84)); }; im.onerror=ko; im.src=fr.result; }; fr.onerror=ko; fr.readAsDataURL(file); }); }
+
+/* foto i: la de la persona o, mientras no suba fotos, una textura de materiales */
+function ph(i,kind){ if(PHOTOS.length) return ' style="background-image:url('+PHOTOS[i%PHOTOS.length]+')"';
+  return ' style="background-image:url(img/'+AMB[(i+(kind==="amb"?3:0))%AMB.length]+'.jpg)"'; }
+function cls(kind,extra){ return extra||""; }
+function T(s,n){ return esc(L.cut(s||"",n)); }
+
+/* ---- textos de la persona para las piezas ---- */
+function txt(){ var p=B.pilares, t=B.tres;
+  return { p1:p[0]||"tu tema", p2:p[1]||"tu método", p3:p[2]||"tu proceso", p4:p[3]||"tu historia",
+    frase:L.cut(B.promesa||B.nicho||"Construye desde lo que ya sabes.",70), esencia:t[0]||"esencia", rol:B.rol||B.nicho||"Marca personal",
+    bio:(B.bio||"Tu bio aparecerá aquí, con tu voz.\nPara quién es lo que haces\n👇 Tu llamado a la acción"), visible:B.nombreVisible||(B.nombre+(B.rol?" · "+L.cut(B.rol,24):"")) }; }
+
+/* ================= FEEDS ================= */
+function feed1(){ var x=txt(), c=B.c;
+  return '<div class="ph e"><div class="pal">'+["c1","c2","c3","c4","c5"].map(function(k){ return '<span style="background:'+c[k]+';box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)"></span>'; }).join("")+'</div><div class="tb"><span>▦</span><span>▶</span><span>☺</span></div><div class="g">'+
+   '<div class="ov '+cls("p")+'"'+ph(0,"p")+'><div class="k">'+T(B.first,18)+'</div><div class="h">Hola,<em>soy '+T(B.first,12)+'</em></div></div>'+
+   '<div style="background:var(--c2)"><div class="k" style="text-align:center">Tip</div><div class="h" style="text-align:center">3 claves<em>'+T(x.p1,18)+'</em></div></div>'+
+   '<div class="ov '+cls("p")+'"'+ph(1,"p")+'><div class="h" style="font-size:12px">Detrás<em>de cámaras</em></div></div>'+
+   '<div class="ov '+cls("p")+'"'+ph(2,"p")+'><div class="h" style="margin-top:auto;text-align:right">Mi <em>método</em></div><div class="btn2" style="align-self:flex-end">LEE LA LEYENDA</div></div>'+
+   '<div style="background:var(--c4)"><div class="k" style="color:var(--c2);text-align:center">Calendario</div><div class="h" style="color:var(--c1);text-align:center;font-size:12px">'+esc(new Date().toLocaleDateString("es",{month:"long"}).replace(/^./,function(m){ return m.toUpperCase(); }))+'<em style="color:var(--c2)">de contenido</em></div></div>'+
+   '<div style="background:var(--c1);padding:0"><div style="position:absolute;right:0;top:0;bottom:0;width:45%" class="'+cls("p")+'"'+ph(3,"p")+'></div><div class="h" style="width:55%;padding:8px;position:relative">Tu <em>'+T(x.esencia,12)+'</em></div></div>'+
+   '<div class="ov"'+ph(4,"amb")+'><div class="k">'+T(x.p2,22)+'</div><div class="h">Tu terreno<em>ya existe</em></div><div class="btn2">LEE LA LEYENDA</div></div>'+
+   '<div style="background:var(--c1);text-align:center"><div class="h" style="font-size:22px;line-height:.6">“</div><div class="h" style="font-size:9.5px;font-family:var(--b);font-style:italic;line-height:1.3">'+T(x.frase,70)+'</div><div class="h" style="font-size:22px;line-height:.6">”</div></div>'+
+   '<div class="'+cls("p")+'"'+ph(5,"p")+'></div></div></div>'; }
+function feed2(){ var x=txt();
+  return '<div class="ph f"><div class="pf"><i class="'+cls("p")+'"'+ph(0,"p")+'></i><div><div class="n"><div><b>120</b>posts</div><div><b>2.4K</b>seguidores</div><div><b>480</b>seguidos</div></div></div></div>'+
+   '<div class="nm">'+T(x.visible,40)+'</div><div class="bio">'+T(x.bio,150)+'</div><div class="lk">🔗 tu enlace</div>'+
+   '<div class="hl">'+B.destacados.map(function(d,i){ return '<div><span class="'+cls(i%2?"amb":"p")+'"'+ph(i+1,i%2?"amb":"p")+'></span>'+T(d,12)+'</div>'; }).join("")+'</div>'+
+   '<div class="g">'+[0,1,2,3,4,5].map(function(i){ return '<div class="'+cls("p")+'"'+ph(i+2,"p")+'></div>'; }).join("")+'</div></div>'; }
+function feed3(){ var x=txt(), ic=["✎","◆","▣","▶","✉"], bg=["var(--c2)","var(--c5)","var(--c3)","var(--c1)","var(--c2)"];
+  return '<div class="ph sb"><div class="pf"><i class="'+cls("p")+'"'+ph(0,"p")+'></i><div style="min-width:0"><div class="nm" style="padding:0;font-family:var(--t);font-size:13px">'+T(B.usuario.toUpperCase(),26)+'</div><div style="font-size:9px;font-family:var(--t)" class="clip1">'+T(x.visible,40)+'</div><div class="bio" style="padding:2px 0 0">'+T(x.bio,110)+'</div></div></div>'+
+   '<div class="btns"><span>Seguir</span><span>Mensaje</span><span>Correo</span></div>'+
+   '<div class="hl">'+B.destacados.map(function(d,i){ return '<div><span style="background:'+bg[i]+'">'+ic[i]+'</span>'+T(d,12)+'</div>'; }).join("")+'</div><div class="g">'+
+   '<div><div class="tt">Tu historia<br>importa</div><div class="sm" style="margin-top:3px;width:48%">y merece ser contada con estrategia</div><div class="pol"><span class="'+cls("p")+'"'+ph(1,"p")+'></span></div>'+tear(B.c.c5)+'</div>'+
+   '<div class="p" style="text-align:center"><div class="hw">'+T(x.esencia,14)+'</div><div class="tt" style="font-size:12px">'+T(x.p1,22)+'</div><div class="sm">tiene el poder de inspirar</div><div class="pill" style="align-self:center">Hazlo visible</div></div>'+
+   '<div style="background:var(--c5);color:var(--c4)"><div class="tt" style="font-size:9px">Nuevo<br>proyecto</div><div class="hw" style="color:var(--c3);font-size:13px">detrás de cámaras</div><div class="pol" style="top:auto;bottom:8px"><span class="'+cls("p")+'"'+ph(2,"p")+'></span></div><div class="tape"></div></div>'+
+   '<div><div class="pill">Guía rápida</div><div class="tt" style="margin-top:4px">3 pasos<br>para empezar</div><div class="sm" style="margin-top:3px">☐ '+T(x.p1,20)+'<br>☐ '+T(x.p2,20)+'<br>☐ '+T(x.p3,20)+'</div></div>'+
+   '<div class="p" style="text-align:center"><div class="tt" style="font-size:10px">Planifica<br>crea<br>conecta<br>impacta</div><div class="pill" style="align-self:center">Ese es el plan</div></div>'+
+   '<div style="text-align:center"><div class="hw">hoy</div><div class="tt" style="font-size:11px">Lo que aprendí esta semana</div><div class="sm" style="margin-top:4px">DESLIZA PARA VER →</div></div>'+
+   '<div class="p"><div class="arch '+cls("p")+'"'+ph(3,"p")+'></div><div class="tt" style="text-align:center;font-size:8px">'+T(x.p4,24)+'</div></div>'+
+   '<div style="text-align:center"><div class="q">“</div><div class="tt" style="font-size:8.5px">'+T(x.frase,60)+'</div></div>'+
+   '<div><div class="tt" style="font-size:9px">La constancia construye confianza</div><div class="pill">Sigue creando</div>'+tear(B.c.c2)+'</div>'+
+   '</div></div>'; }
+
+/* ================= BRANDING BOARDS ================= */
+function sw5(order,lab){ var c=B.c; return order.map(function(k){ return '<div><span style="background:'+c[k]+'"></span>'+(lab?esc(c[k]):esc(c[k].replace("#","")))+'</div>'; }).join(""); }
+function board1(){ var f=B.fonts, x=txt();
+  return '<div class="bd b1"><div class="hd1"><b>'+T(B.nombre,24)+'</b><div class="k2">'+T(x.rol,40)+'</div></div>'+
+   '<div class="lg"><div><div class="ring">'+esc(B.ini)+'</div></div><div class="pp '+cls("p")+'"'+ph(0,"p")+'><b>'+T(B.nombre,20)+'</b></div></div>'+
+   '<div class="ft"><div class="k2" style="grid-column:1/3">Tipografías</div><div><em style="font-family:var(--t)">Aa</em><b>'+T(f.t,22)+'</b> · títulos<br><span style="font-family:var(--t)">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></div><div><em style="font-family:var(--b)">Aa</em><b>'+T(f.b,22)+'</b> · texto<br>abcdefghijklmnopqrstuvwxyz 123</div></div>'+
+   '<div class="k2" style="padding-top:12px">Paleta de color</div><div class="pal5">'+sw5(["c4","c3","c2","c1","c5"],1)+'</div>'+
+   '<div class="k2" style="padding-bottom:8px">Moodboard</div><div class="mood">'+[0,1,2,3].map(function(i){ return '<div class="'+cls(i%2?"amb":"p")+'"'+ph(i+1,i%2?"amb":"p")+'></div>'; }).join("")+'</div></div>'; }
+function board2(){ var f=B.fonts, x=txt(), w=B.nombre.split(/\s+/), a=w[0]||"Tu", b=w.slice(1).join(" ")||"Studio";
+  return '<div class="bd b2"><div class="rl"><span>Logo principal</span></div><div class="main"><b>'+T(a,14)+'</b><em>'+T(b,16)+'</em><div class="k2" style="color:var(--c1)">'+T(x.rol,44)+'</div></div>'+
+   '<div class="rl"><span>Variaciones</span></div><div class="alt"><div class="c">'+esc(B.ini[0])+'</div><div style="font-family:var(--t);font-size:18px;color:var(--c1);font-weight:700">'+T(a,12)+' <span style="font-family:var(--a);font-weight:400;font-size:22px">'+T(b,12)+'</span></div><div style="font-family:var(--t);font-size:28px;color:var(--c1)">'+esc(B.ini)+'</div></div>'+
+   '<div class="two"><div><div class="rl"><span>Paleta</span></div><div class="pal4">'+sw5(["c1","c2","c3","c4","c5"])+'</div></div><div><div class="rl"><span>Elementos</span></div><div class="el">✦ ✧ ❋</div></div></div>'+
+   '<div class="rl"><span>Tipografía</span></div><div class="ty"><div><b>Aa</b>'+T(f.t,20)+'<br>títulos</div><div><b style="font-family:var(--a);font-weight:400;font-size:24px">Aa</b>'+T(f.a,20)+'<br>acento</div><div><b style="font-size:11px">TÍTULO GRANDE</b><span style="font-family:var(--b)">'+T(B.promesa||B.bio||"Tu promesa, escrita con tu voz.",90)+'</span></div></div>'+
+   '<div class="phg">'+[0,1,2,3,4,5].map(function(i){ var k=(i===2||i===5)?"amb":"p"; return '<div class="'+cls(k)+'"'+ph(i,k)+(i===0||i===3?' data-r2':'')+'></div>'; }).join("")+'</div></div>'; }
+function board3(){ var f=B.fonts, x=txt();
+  return '<div class="bd b3"><div class="hero '+cls("p")+'"'+ph(0,"p")+'><b>'+T(B.first,12)+'</b><span>'+T(x.rol,36)+'</span><span style="margin-top:4px;letter-spacing:.14em;font-size:6px">'+T(B.nicho||B.promesa||"",60)+'</span></div>'+
+   '<div class="k2" style="padding-top:12px">Paleta de colores</div><div class="pal5">'+sw5(["c4","c2","c3","c1","c5"],1)+'</div>'+
+   '<div class="k2">Variaciones de logo</div><div class="var"><div><b>'+T(B.first,12)+'</b><span>'+T((B.rol||"marca personal").split(/\s+/)[0],14)+'</span></div><div><b style="font-size:22px">'+T(B.nombre,18)+'</b><span>Studio</span></div><div class="ci">'+esc(B.ini)+'</div></div>'+
+   '<div class="k2">Tipografías</div><div class="ty"><div><b>Aa</b>'+T(f.t,22)+' · títulos<br><span style="font-family:var(--t)">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></div><div><i>Aa</i>'+T(f.a,22)+' · acento<br>abcdefghijklmnopqrstuvwxyz</div></div>'+
+   '<div class="blocks"><div style="background:var(--c1);color:var(--c4)">'+T(B.first,10)+'</div><div style="background:var(--c3);color:var(--c1)">'+T(B.first,10)+'</div></div>'+
+   '<div class="foot '+cls("amb")+'"'+ph(1,"amb")+'></div></div>'; }
+
+/* ================= pintar ================= */
+function tear(col){ return '<svg class="tear" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,6 10,2 22,7 35,3 48,6.4 60,2.4 74,6 86,2.8 100,5.6 100,20 0,20" fill="'+col+'"/></svg>'; }
+function vars(){ var c=B.c, f=B.fonts; return "--c4m:"+L.mix(c.c4,"#DDDDDD",.3)+";--b2bg:"+L.mix(c.c4,c.c3,.2)+";--rl:"+L.mix(c.c1,L.mix(c.c4,c.c3,.2),.7)+";--c1:"+c.c1+";--c2:"+c.c2+";--c3:"+c.c3+";--c4:"+c.c4+";--c5:"+c.c5+";--t:'"+f.t+"',Georgia,serif;--b:'"+f.b+"',system-ui,sans-serif;--a:'"+f.a+"','Aurantiaca',cursive"; }
+var FEEDS=[[feed1,"Estilo 1"],[feed2,"Estilo 2"],[feed3,"Estilo 3"]], BOARDS=[[board1,"Board 1"],[board2,"Board 2"],[board3,"Board 3"]];
+function item(kind,i,fn,lab){ var url=(kind==="f"?CANVA.feeds:CANVA.boards)[i];
+  return '<div class="item"><div class="fit"><div class="art" data-k="'+kind+i+'" style="'+vars()+'">'+fn()+'</div></div><div class="lab"><small>'+lab+(kind==="f"?' · página '+(i+1)+' en Canva':'')+'</small><span class="acts"><button type="button" class="btn" data-png="'+kind+i+'">PNG</button>'+(url?'<a class="btn vino" href="'+esc(url)+'" target="_blank" rel="noopener">Usar en Canva</a>':'')+'</span></div></div>'; }
+function paint(){
+  $("#feeds").innerHTML=FEEDS.map(function(f,i){ return item("f",i,f[0],f[1]); }).join("");
+  $("#boards").innerHTML=BOARDS.map(function(f,i){ return item("b",i,f[0],f[1]); }).join("");
+  fit(); }
+function fit(){ Array.prototype.forEach.call(document.querySelectorAll(".item .fit"),function(el){ var a=el.firstElementChild, k=el.clientWidth/W; a.style.transform="scale("+k+")"; el.style.height=Math.ceil(a.offsetHeight*k)+"px"; }); }
+window.addEventListener("resize",function(){ clearTimeout(window.__f); window.__f=setTimeout(fit,120); });
+function kit(){ var c=B.c, pal=B.pal.length?B.pal:[{n:"Principal",h:c.c1},{n:"Secundario",h:c.c2},{n:"Acento",h:c.c3},{n:"Fondo",h:c.c4},{n:"Texto",h:c.c5}];
+  $("#sw").innerHTML=pal.map(function(p){ return '<button type="button" data-cp="'+esc(p.h)+'"><i style="background:'+esc(p.h)+'"></i><b>'+esc(p.n||"")+'</b><small>'+esc(p.h)+'</small></button>'; }).join("");
+  var f=B.fonts, r=B.fontsReal;
+  $("#ff").innerHTML=[["Títulos",f.t,r.t],["Texto",f.b,r.b],["Acento",f.a,r.a]].map(function(x){ return '<button type="button" data-cp="'+esc(x[1])+'"><small>'+x[0]+'</small><span style="font-family:\''+esc(x[1])+'\'">'+esc(x[1])+'</span>'+(x[2]?'':'<small style="width:auto">(sugerida)</small>')+'</button>'; }).join("");
+  $("#phs").innerHTML=PHOTOS.map(function(u,i){ return '<span style="background-image:url('+u+')"><button type="button" data-rm="'+i+'" aria-label="Quitar foto">×</button></span>'; }).join(""); }
+
+/* ---- PNG en alta resolución ---- */
+function png(k,btn){ var src=document.querySelector('.art[data-k="'+k+'"]'); if(!src) return; btn.disabled=true; var old=btn.textContent; btn.textContent="Creando…";
+  var host=document.createElement("div"); host.style.cssText="position:fixed;left:-10000px;top:0;width:"+W+"px;background:#fff"; var cl=src.cloneNode(true); cl.style.transform="none"; cl.style.position="static"; host.appendChild(cl); document.body.appendChild(host);
+  var scale=k[0]==="b"?3.2:1.8;
+  Promise.all([L.h2c(), document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()]).then(function(){
+    return window.html2canvas(cl,{scale:scale,backgroundColor:k[0]==="b"?null:"#EFE9E0",useCORS:true,logging:false,width:W,height:cl.offsetHeight,windowWidth:W+40}); })
+  .then(function(cv){ return L.download(cv,(k[0]==="f"?"Feed-":"Branding-board-")+(+k[1]+1)+"-"+B.first.normalize("NFD").replace(/[^\w]+/g,"")+".png"); })
+  .then(function(){ L.toast("Listo ♡"); }).catch(function(){ L.toast("No se pudo crear la imagen. Intenta de nuevo."); })
+  .then(function(){ host.remove(); btn.disabled=false; btn.textContent=old; }); }
+
+document.addEventListener("click",function(e){ var t=e.target.closest("[data-cp]"); if(t){ L.copy(t.dataset.cp,function(){ L.toast("Copiado: "+t.dataset.cp); }); return; }
+  var p=e.target.closest("[data-png]"); if(p){ png(p.dataset.png,p); return; }
+  var r=e.target.closest("[data-rm]"); if(r){ PHOTOS.splice(+r.dataset.rm,1); phSave(); kit(); paint(); return; }
+  var lk=e.target.closest("[data-lock]"); if(lk){ e.preventDefault(); L.toast("🔒 Incluido en Proyecto Maestro completo"); } });
+document.addEventListener("change",function(e){ if(e.target.id!=="phIn") return; var fs=Array.prototype.slice.call(e.target.files||[]).slice(0,9-PHOTOS.length);
+  if(!fs.length){ L.toast("Ya tienes 9 fotos. Quita alguna para agregar otra."); return; }
+  Promise.all(fs.map(shrink)).then(function(us){ PHOTOS=PHOTOS.concat(us).slice(0,9); phSave(); kit(); paint(); L.toast("Tus fotos ya están en tus plantillas ♡"); }); e.target.value=""; });
+
+/* ---- arranque ---- */
+if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","Tus plantillas Canva"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); return; }
+L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/canva",D.tier);
+  if(D.tier!=="pm"&&D.tier!=="mem"){ $("#lock").innerHTML=L.lockHTML(D.tier,"Tus plantillas Canva"); $("#lock").hidden=false; return; }
+  return L.api("/.netlify/functions/audit?list=1").catch(function(){ return null; }).then(function(j){ var last=j&&(j.list||[]).filter(function(x){ return x.status==="done"; })[0];
+    return last?L.api("/.netlify/functions/audit?id="+last.id).catch(function(){ return null; }):null; })
+  .then(function(a){ B=L.brand({S:D.S,express:D.express,p00:D.p00,name:D.name,audit:a&&a.summary||{}});
+    if(!B.ok){ var n=$("#noBrand"); n.hidden=false; n.innerHTML=D.tier==="mem"?'Aún no tenemos tu base de marca. Haz tu <a href="/#express">Esencia Express</a> y pega tu código: tus plantillas se pintarán con tus colores y tus tipografías.':'Aún no tenemos tu identidad visual. Termina tu <a href="/#l3">Plano 3 · Fachada</a> y pega tu plano: tus plantillas se pintarán con tus colores y tus tipografías.'; }
+    else if(!B.pal.length){ var n2=$("#noBrand"); n2.hidden=false; n2.textContent="Tu paleta aún no tiene códigos HEX: por ahora ves colores de ejemplo."; }
+    if(CANVA.referido){ $("#ref").hidden=false; $("#refA").href=CANVA.referido; }
+    return phLoad(); })
+  .then(function(p){ PHOTOS=Array.isArray(p)?p:[]; $("#app").hidden=false; kit(); paint();
+    Promise.all([L.loadFont(B.fonts.t),L.loadFont(B.fonts.b),L.loadFont(B.fonts.a)]).then(fit); });
+}).catch(function(){ $("#lock").innerHTML=L.lockHTML("none","Tus plantillas Canva"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); });
+})();
+</script>
+</body>
+</html>
