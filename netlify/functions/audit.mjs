@@ -1,5 +1,5 @@
 // Auditoría (Plano 09 · El levantamiento de tu marca).
-//   POST /.netlify/functions/audit   {images:[{type,data}×3], planos:{p00,j1,j2,jc}, express}
+//   POST /.netlify/functions/audit   {images:[{type,data}×3], planos:{p00,j1,j2,jc}, planosTxt, express}
 //        → descuenta 1 auditoría, guarda el trabajo y lo envía a la función de fondo (Claude tarda ~1 a 2 minutos)
 //   GET  /.netlify/functions/audit?id=…   → estado y resultado de una auditoría
 //   GET  /.netlify/functions/audit?list=1 → historial + auditorías disponibles
@@ -39,10 +39,12 @@ export const handler = async (event, context) => {
   const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 3).filter((x) => x && TYPES.includes(x.type) && typeof x.data === "string" && x.data.length < MAXIMG);
   if (imgs.length < 3) return J(200, { ok: false, msg: "Sube las 3 capturas: perfil, feed y destacados." });
 
-  const pl = b.planos || {}, ex = str(b.express);
+  const pl = b.planos || {}, ex = str(b.express), txt = str(b.planosTxt);
   let planos = "", mode = "planos";
   const hasPl = ["j1", "j2", "jc"].some((k) => str(pl[k]));
-  if (v.tier === "pm" && hasPl) {
+  if (v.tier === "pm" && txt) {
+    planos = txt;
+  } else if (v.tier === "pm" && hasPl) {
     planos = "Plano 00 · Estudio del terreno (habilidades, historia, intereses, por qué la buscan):\n" + (str(pl.p00) || "(pendiente)") +
       "\n\nPlano 1 · Cimientos (perfil, esencia, historia, voz, valores, estilo):\n" + (str(pl.j1) || "(pendiente)") +
       "\n\nPlano 2 · Estructura (nicho, promesa, audiencia, pilares, bios, plan):\n" + (str(pl.j2) || "(pendiente)") +
@@ -51,7 +53,7 @@ export const handler = async (event, context) => {
     mode = "express";
     planos = "Base inicial de marca · Esencia Express (JSON). Esta persona trabaja con una base inicial, no con planos completos:\n" + ex;
   } else {
-    return J(200, { ok: false, msg: v.tier === "pm" ? "Primero guarda tus planos (al menos uno) en tu Proyecto Maestro." : "Primero pega el código de tu Esencia Express." });
+    return J(200, { ok: false, msg: v.tier === "pm" ? "Primero pega aquí tus planos completos o guarda al menos un plano en tu Proyecto Maestro." : "Primero pega el código de tu Esencia Express." });
   }
 
   // una sola auditoría a la vez

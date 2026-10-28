@@ -59,7 +59,7 @@ h1 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-
 .json{width:100%;border:1px dashed var(--olive);background:#fff;border-radius:10px;padding:10px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.45;min-height:84px;resize:vertical;margin-top:6px}
 .jst{font-size:12px;margin:6px 0 0;min-height:1em}.jst.ok{color:var(--olive);font-weight:600}.jst.warn{color:#9a5a2a}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border:1px solid var(--olive);border-radius:999px;background:transparent;color:var(--olive);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;text-align:center}
-.btn.vino{background:var(--vino);border-color:var(--vino);color:var(--ivory)}.btn.full{width:100%;margin-top:14px}.btn.sm{min-height:36px;padding:0 14px;font-size:10px}
+.btn.vino{background:var(--vino);border-color:var(--vino);color:var(--ivory)}.btn.oliva{background:var(--olive);border-color:var(--olive);color:var(--sand)}.btn.full{width:100%;margin-top:14px}.btn.sm{min-height:36px;padding:0 14px;font-size:10px}
 .btn[disabled]{opacity:.5;cursor:not-allowed}
 .btn:active{transform:scale(.98)}
 .mini{font-size:11.5px;color:var(--olive);margin:8px 0 0;line-height:1.45}
@@ -152,7 +152,7 @@ var NOTA="Nota: esta auditoría se hizo con tu base inicial Esencia Express. Con
 
 function exOk(t){ var j=L.parse(t); return !!(j&&(j.tipo==="esencia_express"||j.perfil||j.identidad_visual)); }
 function plOk(){ return !!(D&&D.S&&(D.S.j1||D.S.j2||D.S.jc)); }
-function ready(){ var imgs=IMGS.every(Boolean); var src=D.tier==="pm"?(plOk()||exOk(D.express)):exOk(D.express); var a=D.acc.audits||{used:0,limit:0}; return imgs&&src&&a.used<a.limit; }
+function ready(){ var imgs=IMGS.every(Boolean); var txt=D.S&&D.S.pmTxt&&D.S.pmTxt.trim(); var src=D.tier==="pm"?(plOk()||!!txt||exOk(D.express)):exOk(D.express); var a=D.acc.audits||{used:0,limit:0}; return imgs&&src&&a.used<a.limit; }
 function upd(){ $("#go").disabled=!ready()||!!POLL; var a=D.acc.audits||{used:0,limit:0};
   $("#cred").hidden=false; $("#credN").textContent=Math.max(0,a.limit-a.used); $("#credL").textContent=" de "+a.limit;
   $("#usesA").textContent="Auditorías"+(a.monthly?" este mes":"")+": "+a.used+" de "+a.limit;
@@ -164,18 +164,18 @@ function srcHTML(){
   if(D.tier==="pm"&&plOk()){ h+='<b>Tu marca adentro</b>Se usan tus planos guardados:<ul>'+[["p00","Plano 00 · Terreno"],["j1","Plano 1 · Cimientos"],["j2","Plano 2 · Estructura"],["jc","Plano 3 · Fachada"]].map(function(k){ var ok=k[0]==="p00"?!!(D.p00&&(D.p00.name||(D.p00.skills||[]).length)):!!S[k[0]]; return '<li class="'+(ok?"ok":"no")+'">'+k[1]+(ok?"":" (pendiente)")+'</li>'; }).join("")+'</ul>'; }
   var ok=exOk(D.express);
   h+='<b>Tu base · Esencia Express</b>';
-  h+='<p class="mini">Si vas directo a la auditoría, empieza aquí: copia el prompt, respóndelo en un chat nuevo de ChatGPT, Gemini o Claude, y pega abajo el bloque que te entrega.</p><button type="button" class="btn sm" id="exCopy">Copiar prompt Esencia Express</button>';
+  h+='<p class="mini">Si vas directo a la auditoría, empieza aquí: copia el prompt, respóndelo en un chat nuevo de ChatGPT, Gemini o Claude, y pega abajo el bloque que te entrega.</p><button type="button" class="btn oliva full" id="exCopy">Copiar prompt Esencia Express</button>';
   h+=(ok?'<span class="jst ok">✓ Tu base está guardada.</span> <button type="button" class="btn sm" id="exEdit" style="margin-top:6px">Cambiarla</button>':'Pega aquí el código de tu Esencia Express.')+
     '<textarea class="json" id="exIn" spellcheck="false" placeholder=\'{ "tipo": "esencia_express", … }\''+(ok?' hidden':'')+'>'+esc(D.express||"")+'</textarea><p class="jst" id="exSt"></p>';
-  h+='<p class="mini" style="margin-top:14px">¿Ya tienes toda tu información y tienes tu cuenta en Proyecto Maestro? Copia aquí tus planos:</p>'+
-    [["j1","Plano 1 · Cimientos","Pega aquí tu plano 1 (JSON de perfil)…"],["j2","Plano 2 · Estructura","Pega aquí tu plano 2 (JSON de estrategia)…"],["jc","Plano 3 · Fachada","Pega aquí tu plano 3 (JSON creativo)…"]].map(function(pl){ return '<label class="sr" for="plIn-'+pl[0]+'">'+pl[1]+'</label><textarea class="json" id="plIn-'+pl[0]+'" data-pl="'+pl[0]+'" spellcheck="false" placeholder="'+pl[2]+'">'+esc(S[pl[0]]||"")+'</textarea>'; }).join("")+'<p class="jst" id="plSt"></p>';
+  h+='<p class="mini" style="margin-top:14px"><span style="display:block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vino)">Si eres miembro de Proyecto Maestro</span>Simplemente copia acá tus planos completos: el contenido del archivo mis-planos.txt que descargaste en Mis planos con “Descargar mis planos”.</p>'+
+    '<label class="sr" for="pmTxt">Tus planos completos</label><textarea class="json" id="pmTxt" spellcheck="false" placeholder="Pega aquí el contenido de tu archivo mis-planos.txt…">'+esc(S.pmTxt||"")+'</textarea><p class="jst" id="pmTxtSt"></p>';
   return h; }
 
 /* ---- capturas: se reducen en el celular antes de enviarlas ---- */
 function shrink(file){ return new Promise(function(ok,ko){ var fr=new FileReader(); fr.onload=function(){ var im=new Image(); im.onload=function(){ var M=1600, w=im.naturalWidth, h=im.naturalHeight, k=Math.min(1,M/Math.max(w,h)); var c=document.createElement("canvas"); c.width=Math.round(w*k); c.height=Math.round(h*k); var x=c.getContext("2d"); x.fillStyle="#fff"; x.fillRect(0,0,c.width,c.height); x.drawImage(im,0,0,c.width,c.height); ok(c.toDataURL("image/jpeg",.82)); }; im.onerror=ko; im.src=fr.result; }; fr.onerror=ko; fr.readAsDataURL(file); }); }
 document.addEventListener("change",function(e){ var sl=e.target.closest(".slot"); if(!sl||!e.target.files||!e.target.files[0]) return; var i=+sl.dataset.slot;
   shrink(e.target.files[0]).then(function(u){ IMGS[i]=u; sl.classList.add("ok"); sl.querySelector(".ph").innerHTML='<img alt="" src="'+u+'">'; upd(); }).catch(function(){ L.toast("No pude leer esa imagen. Prueba con otra captura."); }); });
-document.addEventListener("input",function(e){ if(e.target.dataset&&e.target.dataset.pl){ var k=e.target.dataset.pl; D.S=D.S||{}; D.S[k]=e.target.value; var st=$("#plSt"), v=e.target.value.trim(), ok=false; try{ ok=!!(v&&JSON.parse(v)); }catch(err){} st.className="jst"+(ok?" ok":v?" warn":""); st.textContent=ok?"✓ Guardado.":v?"Revisa el bloque: debe empezar con { y terminar con }.":""; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email,JSON.stringify(D.S)); }catch(err){} clearTimeout(window.__pl); window.__pl=setTimeout(function(){ L.cloudPut("pm",D.S); },900); upd(); return; } if(e.target.id!=="exIn") return; D.express=e.target.value; var ok=exOk(D.express), st=$("#exSt"); st.className="jst"+(ok?" ok":D.express.trim()?" warn":""); st.textContent=ok?"✓ Guardado.":D.express.trim()?"No parece un código de Esencia Express: copia desde la primera { hasta la última }.":"";
+document.addEventListener("input",function(e){ if(e.target.id==="pmTxt"){ D.S=D.S||{}; D.S.pmTxt=e.target.value; var st=$("#pmTxtSt"), v=e.target.value.trim(); st.className="jst"+(v?" ok":""); st.textContent=v?"✓ Guardado.":""; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email,JSON.stringify(D.S)); }catch(err){} clearTimeout(window.__pl); window.__pl=setTimeout(function(){ L.cloudPut("pm",D.S); },900); upd(); return; } if(e.target.id!=="exIn") return; D.express=e.target.value; var ok=exOk(D.express), st=$("#exSt"); st.className="jst"+(ok?" ok":D.express.trim()?" warn":""); st.textContent=ok?"✓ Guardado.":D.express.trim()?"No parece un código de Esencia Express: copia desde la primera { hasta la última }.":"";
   var d={text:D.express,ts:Date.now()}; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email+":express",JSON.stringify(d)); }catch(err){} clearTimeout(window.__ex); window.__ex=setTimeout(function(){ L.cloudPut("express",d); },900); upd(); });
 
 /* ---- texto de los planos para Claude ---- */
@@ -187,6 +187,7 @@ function planosTxt(){ var S=D.S||{};
 $("#go").addEventListener("click",function(){ if(!ready()) return; var b=this; b.disabled=true;
   var body={images:IMGS.map(function(u){ return {type:"image/jpeg",data:u.split(",")[1]}; }),express:D.express||""};
   if(D.tier==="pm") body.planos={p00:p00txt(),j1:D.S.j1||"",j2:D.S.j2||"",jc:D.S.jc||""};
+  if(D.tier==="pm"&&D.S&&D.S.pmTxt) body.planosTxt=D.S.pmTxt;
   working("Enviando tus capturas…");
   L.api("/.netlify/functions/audit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(j){
     if(!j||!j.ok){ L.toast((j&&j.msg)||"No se pudo iniciar."); show(CUR); upd(); return; }
@@ -247,7 +248,7 @@ function hist(){ return L.api("/.netlify/functions/audit?list=1").then(function(
   return LIST; }); }
 document.addEventListener("click",function(e){ var hb=e.target.closest("[data-h]"); if(hb){ var id=hb.dataset.h; L.api("/.netlify/functions/audit?id="+id).then(function(r){ if(r&&r.status==="done"){ CUR=r; show(r); hist(); } else if(r&&r.status==="working") poll(id); }); return; }
   if(e.target.id==="exCopy"){ if(D.prompts.express) L.copy(L.sealed(D.prompts.express)); else L.toast("No pudimos cargar el prompt todavía."); return; } if(e.target.id==="exEdit"){ var t=$("#exIn"); t.hidden=false; t.focus(); e.target.remove(); return; }
-  if(e.target.id==="fbBtn"){ var p=D.prompts.audit||""; if(!p) return; var txt=L.sealed(p.replace("{{PLANOS}}",plOk()?planosTxt():"Base inicial · Esencia Express:\n"+(D.express||"(pendiente)"))+"\n\nTe adjunto mis 3 capturas de Instagram: 1) perfil, 2) feed, 3) destacados.");
+  if(e.target.id==="fbBtn"){ var p=D.prompts.audit||""; if(!p) return; var baseTxt=D.S.pmTxt||(plOk()?planosTxt():"Base inicial · Esencia Express:\n"+(D.express||"(pendiente)")); var txt=L.sealed(p.replace("{{PLANOS}}",baseTxt)+"\n\nTe adjunto mis 3 capturas de Instagram: 1) perfil, 2) feed, 3) destacados.");
     L.copy(txt,function(){ L.toast("Prompt copiado ♡ Pégalo con tus 3 capturas"); }); }
   var lk=e.target.closest("[data-lock]"); if(lk){ e.preventDefault(); L.toast("🔒 Incluido en Proyecto Maestro completo"); } });
 
