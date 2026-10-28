@@ -106,7 +106,7 @@ const PROX_MEM = "Según el diagnóstico, qué conviene trabajar primero, con un
 export function auditPrompt(tier) { return P.audit.replace("{{PROXIMO}}", tier === "pm" ? PROX_PM : PROX_MEM); }
 export function promptsFor(v) {
   if (!v || v.status !== "active") return {};
-  if (v.tier === "pm") return { p1: P.p1, p2: P.p2, p2u: P.p2u, p3: P.p3, p4: P.p4, p5: P.p5, audit: auditPrompt("pm") };
+  if (v.tier === "pm") return { p1: P.p1, p2: P.p2, p2u: P.p2u, p3: P.p3, p4: P.p4, p5: P.p5, audit: auditPrompt("pm"), express: P.express };
   if (v.tier === "mem") return { express: P.express };
   return {};
 }
