@@ -114,7 +114,11 @@ function nav(cur,tier){ var L=[["/","Mis planos"],["/historias","Bitácora"],["/
 var PM_URL="https://shop.beacons.ai/lauratovar/8821a8e8-a363-4f0f-839e-547d3d519b72";
 function lockHTML(tier,what){
   var exp=tier==="expired", none=tier==="none"||!tier;
+  if(none&&getAuth()){ return '<div class="lock-card"><p class="eyebrow">Sin acceso activo</p><h2>'+esc(what)+'</h2><p>Ya iniciaste sesión, pero tu cuenta aún no tiene un nivel de acceso. Escribe tu código MAESTRO del mes para activarlo.</p><form onsubmit="return PMLib.activateCode(event)"><input id="actCode" type="text" placeholder="Tu código MAESTRO" autocomplete="off"><button class="btn vino" type="submit">Activar mi acceso</button></form><p class="mini">Si entraste antes de los códigos, pídele a Laura tu código del mes.</p></div>'; }
   return '<div class="lock-card"><p class="eyebrow">'+(exp?"Tu membresía terminó":none?"Acceso exclusivo":"Incluido en Proyecto Maestro")+'</p><h2>'+esc(what)+'</h2><p>'+(exp?"Tus 30 días terminaron, pero <b>tu información sigue guardada</b>. Cuando inicies tu Proyecto Maestro completo, todo estará aquí esperándote.":none?"Inicia sesión en tu Proyecto Maestro para usar esta herramienta.":"Esta parte es de Proyecto Maestro completo.")+'</p><a class="btn vino" href="'+(none?"/":PM_URL)+'"'+(none?"":' target="_blank" rel="noopener"')+'>'+(none?"Iniciar sesión":"Iniciar mi Proyecto Maestro completo")+'</a>'+(exp?'<p class="mini"><a href="/">Tengo un código · activarlo</a></p>':"")+'</div>'; }
+function activateCode(ev){ ev.preventDefault(); var i=document.getElementById("actCode"); var c=i?i.value.trim():""; if(!c){ toast("Escribe tu código"); return false; }
+  api("/.netlify/functions/account?a=activate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:c})}).then(function(j){ if(j&&j.ok){ toast("Acceso activado ♡"); setTimeout(function(){ location.reload(); },900); } else { toast((j&&j.msg)||"No se pudo activar el código"); } }).catch(function(e){ if(e&&e.auth){ location.href="/"; } else { toast("No se pudo activar el código"); } });
+  return false; }
 function loadScript(src){ return new Promise(function(res,rej){ var s=document.createElement("script"); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
 function h2c(){ return window.html2canvas?Promise.resolve():loadScript("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"); }
 function download(canvas,name){ return new Promise(function(ok){ canvas.toBlob(function(b){ var file=null; try{ file=new File([b],name,{type:"image/png"}); }catch(e){}
@@ -122,5 +126,5 @@ function download(canvas,name){ return new Promise(function(ok){ canvas.toBlob(f
   var a=document.createElement("a"); a.href=URL.createObjectURL(b); a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); ok(); },800); },"image/png"); }); }
 
 window.PMLib={getAuth:getAuth,authHeader:authHeader,api:api,cloudGet:cloudGet,cloudPut:cloudPut,load:load,brand:brand,loadFont:loadFont,parse:parse,esc:esc,cut:cut,str:str,arr:arr,sealed:sealed,
-  toast:toast,copy:copy,nav:nav,lockHTML:lockHTML,h2c:h2c,download:download,onColor:onColor,mix:mix,contrast:contrast,lum:lum,PM_URL:PM_URL};
+  toast:toast,copy:copy,nav:nav,lockHTML:lockHTML,activateCode:activateCode,h2c:h2c,download:download,onColor:onColor,mix:mix,contrast:contrast,lum:lum,PM_URL:PM_URL};
 })();
