@@ -105,9 +105,11 @@ const PROX_PM = "Según el diagnóstico, por cuál plano conviene empezar la rem
 const PROX_MEM = "Según el diagnóstico, qué conviene trabajar primero, con una frase de por qué:\n- Bio confusa o sin esencia → ajustar tu esencia y tu promesa en tu chat de Esencia Express.\n- Feed sin coherencia visual → la pestaña Canva, con tu paleta y tus tipografías.\n- Sin constancia ni sistema → tu Bitácora de historias y contenido.";
 export function auditPrompt(tier) { return P.audit.replace("{{PROXIMO}}", tier === "pm" ? PROX_PM : PROX_MEM); }
 export function promptsFor(v) {
-  if (!v || v.status !== "active") return {};
-  if (v.tier === "pm") return { p1: P.p1, p2: P.p2, p2u: P.p2u, p3: P.p3, p4: P.p4, p5: P.p5, audit: auditPrompt("pm"), express: P.express };
-  if (v.tier === "mem") return { express: P.express };
+  if (!v) return {};
+  if (v.tier === "pm" && v.status === "active") return { p1: P.p1, p2: P.p2, p2u: P.p2u, p3: P.p3, p4: P.p4, p5: P.p5, audit: auditPrompt("pm"), express: P.express };
+  if (v.tier === "mem" && v.status === "active") return { express: P.express };
+  // Sesión sin nivel todavía: el prompt de Esencia Express es el punto de partida para crear desde cero, no un premio por tener nivel.
+  if (v.status === "none") return { express: P.express };
   return {};
 }
 
