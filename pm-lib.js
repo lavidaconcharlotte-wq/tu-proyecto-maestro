@@ -109,7 +109,7 @@ var tt; function toast(m){ var t=document.getElementById("toast"); if(!t) return
 function copy(text,ok){ ok=ok||function(){ toast("Copiado ♡"); };
   var fb=function(){ var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.top="-1000px"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,text.length); var r=false; try{ r=document.execCommand("copy"); }catch(e){} ta.remove(); if(r) ok(); else toast("No se pudo copiar"); };
   if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(text).then(ok,fb); else fb(); }
-function nav(cur,tier){ var L=[["/","Mis planos"],["/historias","Bitácora"],["/portafolio","Portafolio"],["/auditoria","Auditoría"],["/canva","Canva"]];
+function nav(cur,tier){ if(window.PMNav) return window.PMNav.top(/auditoria|canva/.test(cur)?"aud":cur==="/historias"?"bit":/portafolio|edicion/.test(cur)?"est":""); var L=[["/","Mis planos"],["/historias","Bitácora"],["/portafolio","Portafolio"],["/auditoria","Auditoría"],["/canva","Canva"]];
   return L.map(function(l){ var lock=tier==="mem"&&l[0]==="/portafolio"; return '<a href="'+l[0]+'"'+(l[0]===cur?' class="on" aria-current="page"':'')+(lock?' data-lock title="Incluido en Proyecto Maestro completo"':'')+'>'+l[1]+(lock?' 🔒':'')+'</a>'; }).join(""); }
 var PM_URL="https://shop.beacons.ai/lauratovar/8821a8e8-a363-4f0f-839e-547d3d519b72";
 function lockHTML(tier,what){

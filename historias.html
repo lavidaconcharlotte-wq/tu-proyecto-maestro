@@ -219,8 +219,8 @@ h1{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(30p
 .goal{margin:12px 0 0;padding:10px 12px;border-left:3px solid var(--vino,#5B343B);background:#FAF6F1;color:#2A2624;font-size:13px;line-height:1.5}.flow .fl-b p.goal{color:#2A2624}.goal b{color:var(--vino,#5B343B)}.goal a{color:var(--vino,#5B343B);text-decoration:underline}
 </style>
 </head>
-<body>
-<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Bitácora de Obra</span><span class="sp"></span><a class="pill dlp" href="/#instalar">Descargar app</a><a class="pill" href="/">← Mi obra</a></header>
+<body data-nav="bit">
+<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Bitácora de Obra</span><span class="sp"></span><nav data-pmnav aria-label="Secciones"></nav><a class="pill dlp" href="/#instalar">Descargar app</a></header>
 
 <div id="lock" class="lock" hidden>
   <p class="eyebrow">Acceso exclusivo</p>
@@ -592,5 +592,6 @@ fetch("/.netlify/identity/user",{headers:{Authorization:"Bearer "+a.at}}).then(f
 });
 })();
 </script>
+<script src="pm-nav.js"></script>
 </body>
 </html>

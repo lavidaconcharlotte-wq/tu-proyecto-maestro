@@ -239,10 +239,11 @@ body.locked #builderSec .pf-box *{pointer-events:none}
 .pl-in{display:block;margin-top:12px;color:var(--sand);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 </style>
 </head>
-<body>
-<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Plano 07 · Portafolio</span><span class="sp"></span><a class="pill dlp" href="/#instalar">Descargar app</a><a class="pill" href="/">← Mi obra</a></header>
+<body data-nav="est" data-sub="fotos">
+<header class="top"><img src="img/logo.png" alt="Laura Tovar Studio"><span class="ttl">Estudio · Fotos y videos</span><span class="sp"></span><nav data-pmnav aria-label="Secciones"></nav><a class="pill dlp" href="/#instalar">Descargar app</a></header>
 
 <main id="app" hidden>
+  <nav data-pmsub style="margin-top:4px"></nav>
   <section class="hero" aria-label="Portafolio">
     <img src="img/pf-hero.jpg" alt="Laura Tovar con una cámara profesional"><span class="arch" aria-hidden="true"></span>
     <div class="in"><p class="eyebrow">Plano 07 · Portafolio</p><h1>Fotografía y video con tu clon</h1><p>Fotos y videos de 8 segundos de ti, hiperrealistas y con movimientos naturales. Tú diriges; tu Director Creativo y tu Estudio Fotográfico producen.</p></div>
@@ -401,5 +402,6 @@ document.addEventListener("input",function(e){ if(e.target.dataset&&e.target.dat
 render();
 })();
 </script>
+<script src="pm-nav.js"></script>
 </body>
 </html>

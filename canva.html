@@ -77,7 +77,7 @@ p.sub{margin:0 0 18px;font-size:13.5px;color:var(--olive);max-width:46em;line-he
 .lock-card p{font-size:14.5px;line-height:1.6;margin:0 0 16px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--ivory);padding:12px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:92vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-@media (max-width:760px){ .top{flex-wrap:wrap;padding:10px 14px} .top .ttl{display:none} .tabs{order:3;width:100%;margin-left:0} .num{font-size:60px} .hd{gap:14px} }
+@media (max-width:760px){ .top{padding:10px 14px} .top .ttl{display:none} .num{font-size:60px} .hd{gap:14px} }
 
 /* ================= LAS PIEZAS (diseñadas a 600 px de ancho) ================= */
 .art{width:600px;font-family:var(--b);color:var(--c5);--t:'Cinzel',serif;--b:'Montserrat',sans-serif;--a:'Aurantiaca',cursive}
@@ -153,9 +153,10 @@ p.sub{margin:0 0 18px;font-size:13.5px;color:var(--olive);max-width:46em;line-he
 .art .clip1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 </style>
 </head>
-<body>
-<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" aria-label="Secciones"></nav></header>
+<body data-nav="aud" data-sub="canva">
+<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" data-pmnav aria-label="Secciones"></nav></header>
 <main>
+  <nav data-pmsub></nav>
   <div class="hd"><div class="num" aria-hidden="true">10</div><div><p class="eyebrow">Plano 10 · Plantillas Canva</p><h1>Tu feed, listo para <em>diseñar</em></h1><p class="lead">Tres estilos de feed y tres branding boards, pintados con tu marca. Elige el que sientas tuyo, ábrelo en Canva o descárgalo en alta resolución.</p></div></div>
   <div id="lock" hidden></div>
   <div id="app" hidden>
@@ -179,6 +180,7 @@ p.sub{margin:0 0 18px;font-size:13.5px;color:var(--olive);max-width:46em;line-he
   </div>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="pm-nav.js"></script>
 <script src="pm-lib.js"></script>
 <script>
 (function(){

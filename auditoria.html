@@ -110,13 +110,14 @@ h1 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-
 .lock-card p{font-size:14.5px;line-height:1.6;margin:0 0 16px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--ivory);padding:12px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:92vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-@media (max-width:760px){ .top{flex-wrap:wrap;padding:10px 14px} .top .ttl{display:none} .tabs{order:3;width:100%;margin-left:0} .cred{margin-left:auto} .num{font-size:60px} .hd{gap:14px} }
+@media (max-width:760px){ .top{padding:10px 14px} .top .ttl{display:none} .cred{margin-left:auto} .num{font-size:60px} .hd{gap:14px} }
 @media print{ .top,.side,.acts,.dir .btn,.next .btn,.toast{display:none!important} body{background:#fff} .grid{display:block} .card{break-inside:avoid;border-color:#ddd} }
 </style>
 </head>
-<body>
-<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" aria-label="Secciones"></nav><span class="cred" id="cred" hidden>Auditorías <b id="credN">0</b><span id="credL">/0</span></span></header>
+<body data-nav="aud" data-sub="levantamiento">
+<header class="top"><a href="/" aria-label="Mi obra"><img src="img/sublogo.png" alt="Laura Tovar Studio"></a><span class="ttl">Tu Proyecto Maestro</span><nav class="tabs" id="tabs" data-pmnav aria-label="Secciones"></nav><span class="cred" id="cred" hidden>Auditorías <b id="credN">0</b><span id="credL">/0</span></span></header>
 <main>
+  <nav data-pmsub></nav>
   <div class="hd"><div class="num" aria-hidden="true">09</div><div><p class="eyebrow">Plano 09 · Auditoría</p><h1>El levantamiento de <em>tu marca</em></h1><p class="lead">Antes de remodelar, se mide lo que ya está construido. Sube tu Instagram de hoy y lo comparamos con la marca que diseñaste.</p></div></div>
   <div id="lock" hidden></div>
   <div class="grid" id="app" hidden>
@@ -134,13 +135,14 @@ h1 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-
         <p class="mini">Claude lee tus capturas junto con tu marca. No publica ni cambia nada en tu cuenta. Tarda entre 1 y 3 minutos.</p>
         <div class="uses"><span id="usesA"></span><span id="usesB"></span></div>
         <div class="hist" id="hist" hidden><span class="hw">historial</span><ul id="histL"></ul></div>
-        <div class="fallback" id="fb" hidden><p class="mini" style="margin-top:0">¿Sin auditorías este mes? Copia el prompt con tus planos adentro y úsalo en tu <b>ChatGPT o Gemini</b> junto con tus 3 capturas.</p><button type="button" class="btn sm" id="fbBtn">Copiar prompt de auditoría</button></div>
+        <div class="fallback" id="fb" hidden><p class="mini" style="margin-top:0">¿Sin auditorías este mes? Copia el prompt con tus planos adentro y úsalo en tu <b>ChatGPT, Gemini o Claude</b> junto con tus 3 capturas.</p><button type="button" class="btn sm" id="fbBtn">Copiar prompt de auditoría</button></div>
       </div>
     </aside>
     <section class="rep" id="rep" aria-live="polite"></section>
   </div>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="pm-nav.js"></script>
 <script src="pm-lib.js"></script>
 <script>
 (function(){
