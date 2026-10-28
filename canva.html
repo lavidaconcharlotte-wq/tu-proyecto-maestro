@@ -306,7 +306,7 @@ document.addEventListener("change",function(e){ if(e.target.id!=="phIn") return;
 /* ---- arranque ---- */
 if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","Tus plantillas Canva"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); return; }
 L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/canva",D.tier);
-  if(D.tier!=="pm"&&D.tier!=="mem"){ $("#lock").innerHTML=L.lockHTML(D.tier,"Tus plantillas Canva"); $("#lock").hidden=false; return; }
+  
   return L.api("/.netlify/functions/audit?list=1").catch(function(){ return null; }).then(function(j){ var last=j&&(j.list||[]).filter(function(x){ return x.status==="done"; })[0];
     return last?L.api("/.netlify/functions/audit?id="+last.id).catch(function(){ return null; }):null; })
   .then(function(a){ B=L.brand({S:D.S,express:D.express,p00:D.p00,name:D.name,audit:a&&a.summary||{}});
@@ -316,7 +316,7 @@ L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/canva",D.tier);
     return phLoad(); })
   .then(function(p){ PHOTOS=Array.isArray(p)?p:[]; $("#app").hidden=false; kit(); paint();
     Promise.all([L.loadFont(B.fonts.t),L.loadFont(B.fonts.b),L.loadFont(B.fonts.a)]).then(fit); });
-}).catch(function(){ $("#lock").innerHTML=L.lockHTML("none","Tus plantillas Canva"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); });
+}).catch(function(){ $("#lock").innerHTML='<div class="lock-card"><p class="eyebrow">Sin conexión</p><h2>Tus plantillas Canva</h2><p>No pudimos cargar tu información. Cierra y vuelve a abrir la página.</p><a class="btn vino" href="/">Volver al inicio</a></div>'; $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); });
 })();
 </script>
 </body>

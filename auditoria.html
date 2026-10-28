@@ -248,12 +248,12 @@ document.addEventListener("click",function(e){ var hb=e.target.closest("[data-h]
 /* ---- arranque ---- */
 if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","El levantamiento de tu marca"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); return; }
 L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/auditoria",D.tier);
-  if(D.tier!=="pm"&&D.tier!=="mem"){ $("#lock").innerHTML=L.lockHTML(D.tier,"El levantamiento de tu marca"); $("#lock").hidden=false; return; }
+  
   $("#app").hidden=false; $("#src").innerHTML=srcHTML(); upd(); show(null);
   hist().then(function(list){ list=list||[]; var w=list.filter(function(x){ return x.status==="working"&&Date.now()-x.created<16*60000; })[0];
     if(w){ poll(w.id); return; } var last=list.filter(function(x){ return x.status==="done"; })[0];
     if(last) L.api("/.netlify/functions/audit?id="+last.id).then(function(r){ if(r&&r.status==="done"&&!POLL){ CUR=r; show(r,null,true); hist(); } }); });
-}).catch(function(){ $("#lock").innerHTML=L.lockHTML("none","El levantamiento de tu marca"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); });
+}).catch(function(){ $("#lock").innerHTML='<div class="lock-card"><p class="eyebrow">Sin conexión</p><h2>El levantamiento de tu marca</h2><p>No pudimos cargar tu información. Cierra y vuelve a abrir la página.</p><a class="btn vino" href="/">Volver al inicio</a></div>'; $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); });
 })();
 </script>
 </body>

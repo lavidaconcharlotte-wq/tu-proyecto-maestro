@@ -144,5 +144,6 @@ export async function loadAccount(store, user, identity) {
   let old = ca != null ? ca < cut.t : false;
   if (ca == null) { const a = await store.get(`${user.sub}/pm`, { type: "json" }); const b = await store.get(`${user.sub}/p00`, { type: "json" }); old = !!(a || b); }
   if (old) { rec = newRecord({ tier: "pm" }, now, "anterior"); await store.setJSON(key, rec); return rec; }
-  return null;
+  // Sesión iniciada = acceso: toda cuenta se creó con un código en el registro, así que una sesión sin registro previo entra como Proyecto Maestro completo.
+  rec = newRecord({ tier: "pm" }, now, "sesion"); await store.setJSON(key, rec); return rec;
 }
