@@ -11,7 +11,8 @@ export const STORE = "tu-proyecto";
    PM_CODIGOS_MAESTRO    códigos especiales que dan Proyecto Maestro completo, separados por coma (ej: REGALO-VIP)
    PM_AUDITORIAS_MES     auditorías al mes para Proyecto Maestro (por defecto 2)
    PM_AUDITORIAS_TOPE    tope total de auditorías al mes de toda la plataforma (por defecto 300)
-   PM_ADMIN_EMAILS       correos con Proyecto Maestro completo siempre y sin límite de auditorías, separados por coma
+   PM_ADMIN_EMAILS       correos con Proyecto Maestro completo siempre y sin límite de auditorías, separados por coma (los de Laura ya están incluidos)
+   PM_EMAILS_MAESTRO     correos extra con Proyecto Maestro completo, separados por coma
    PM_MODELO             modelo de Claude para la auditoría (por defecto claude-sonnet-5-5)            */
 /* Las tres membresías de 30 días (el código no distingue mayúsculas ni tildes: "Mentoría" = "MENTORIA") */
 const DEF_MEM = {
@@ -28,9 +29,18 @@ const num = (v, d) => { const n = parseInt(String(v == null ? "" : v).replace(/[
 export const AUD_MES = () => num(process.env.PM_AUDITORIAS_MES, 2);
 export const AUD_TOPE = () => num(process.env.PM_AUDITORIAS_TOPE, 300);
 export const MODEL = () => process.env.PM_MODELO || "claude-sonnet-5-5";
+const list = (v) => String(v || "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
+/* Correos de Laura: siempre Proyecto Maestro completo y sin límite de auditorías */
+const ADMIN = ["arq.lauratovar@gmail.com", "lavidaconcharlotte@gmail.com"];
 export function isAdmin(email) {
-  const l = (process.env.PM_ADMIN_EMAILS || "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
-  return !!email && l.includes(String(email).toLowerCase());
+  const e = String(email || "").toLowerCase();
+  return !!e && ADMIN.concat(list(process.env.PM_ADMIN_EMAILS)).includes(e);
+}
+/* Cuentas a las que Laura dio Proyecto Maestro antes de que existieran los códigos */
+const MAESTRO_EMAILS = ["caevajoyeriartesanal@gmail.com", "marketingbynata@gmail.com", "lizmaleiva@gmail.com", "nte2693m@gmail.com", "karenzamudio730@gmail.com"];
+export function isMaestroEmail(email) {
+  const e = String(email || "").toLowerCase();
+  return !!e && MAESTRO_EMAILS.concat(list(process.env.PM_EMAILS_MAESTRO)).includes(e);
 }
 
 /* Códigos mensuales de compra (MAESTRO-XXXXX), guardados como huella SHA-256.
@@ -145,7 +155,7 @@ export async function loadAccount(store, user, identity, req) {
   const key = accKey(user.sub);
   let rec = await store.get(key, { type: "json" });
   const now = Date.now();
-  if ((rolesOf(user).includes("maestro") || isAdmin(user.email)) && (!rec || rec.tier !== "pm")) {
+  if ((rolesOf(user).includes("maestro") || isAdmin(user.email) || isMaestroEmail(user.email)) && (!rec || rec.tier !== "pm")) {
     rec = Object.assign(newRecord({ tier: "pm" }, now, "rol"), rec ? { antes: { tier: rec.tier, code: rec.code } } : {});
     await store.setJSON(key, rec); return rec;
   }
