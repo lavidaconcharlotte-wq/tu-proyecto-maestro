@@ -308,7 +308,7 @@ document.addEventListener("change",function(e){ if(e.target.id!=="phIn") return;
 /* ---- arranque ---- */
 if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","Tus plantillas Canva"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/canva",""); return; }
 L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/canva",D.tier);
-  if(D.tier!=="pm"&&D.tier!=="mem"){ $("#lock").innerHTML=L.lockHTML(D.tier,"Tus plantillas Canva"); $("#lock").hidden=false; return; }
+  
   return L.api("/.netlify/functions/audit?list=1").catch(function(){ return null; }).then(function(j){ var last=j&&(j.list||[]).filter(function(x){ return x.status==="done"; })[0];
     return last?L.api("/.netlify/functions/audit?id="+last.id).catch(function(){ return null; }):null; })
   .then(function(a){ B=L.brand({S:D.S,express:D.express,p00:D.p00,name:D.name,audit:a&&a.summary||{}});
