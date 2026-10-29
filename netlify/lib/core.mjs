@@ -126,17 +126,22 @@ export const J = (code, obj, extra) => ({ statusCode: code, headers: Object.assi
 export function rolesOf(user) { const r = user && user.app_metadata && user.app_metadata.roles; return Array.isArray(r) ? r.map((x) => String(x).toLowerCase()) : []; }
 
 /* Busca la fecha de creación del usuario con la API de administración de Identity */
-export async function createdAt(identity, sub) {
-  try {
-    if (!identity || !identity.url || !identity.token) return null;
-    const r = await fetch(identity.url.replace(/\/$/, "") + "/admin/users/" + sub, { headers: { Authorization: "Bearer " + identity.token } });
-    if (!r.ok) return null;
-    const u = await r.json(); const t = Date.parse(u.created_at || ""); return isNaN(t) ? null : t;
-  } catch (e) { return null; }
+export async function createdAt(identity, sub, req) {
+  const read = async (url, token) => {
+    try { const r = await fetch(url, { headers: { Authorization: token } }); if (!r.ok) return null;
+      const u = await r.json(); const t = Date.parse(u.created_at || ""); return isNaN(t) ? null : t; } catch (e) { return null; } };
+  // 1) con la llave de administración de Identity
+  if (identity && identity.url && identity.token) { const t = await read(identity.url.replace(/\/$/, "") + "/admin/users/" + sub, "Bearer " + identity.token); if (t != null) return t; }
+  // 2) si falla, con la sesión de la misma persona (Identity devuelve su propia fecha de creación)
+  if (req && req.auth && req.origin) { const t = await read(req.origin + "/.netlify/identity/user", req.auth); if (t != null) return t; }
+  return null;
 }
+/* datos de la petición que sirven para leer la fecha de creación con la sesión de la persona */
+export function reqInfo(event) { const h = (event && event.headers) || {}; const host = h.host || h.Host; const proto = String(h["x-forwarded-proto"] || "https").split(",")[0];
+  return { auth: h.authorization || h.Authorization || "", origin: host ? proto + "://" + host : "" }; }
 
 /* Lee la cuenta; si no existe la crea con: rol "maestro" → código guardado al registrarse → compradoras anteriores a esta actualización. */
-export async function loadAccount(store, user, identity) {
+export async function loadAccount(store, user, identity, req) {
   const key = accKey(user.sub);
   let rec = await store.get(key, { type: "json" });
   const now = Date.now();
@@ -150,7 +155,7 @@ export async function loadAccount(store, user, identity) {
   // compradoras que ya tenían cuenta antes de esta actualización
   let cut = await store.get("global/cutover", { type: "json" });
   if (!cut) { cut = { t: now }; await store.setJSON("global/cutover", cut); }
-  const ca = await createdAt(identity, user.sub);
+  const ca = await createdAt(identity, user.sub, req);
   let old = ca != null && ca < cut.t;
   // si no se pudo leer la fecha: cuenta como anterior quien ya tenía datos guardados antes de esta actualización
   // (lo que se guarda desde ahora lleva la hora del servidor, así nadie puede "fabricar" datos viejos)
