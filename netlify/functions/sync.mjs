@@ -27,7 +27,7 @@ export const handler = async (event, context) => {
     try { data = JSON.parse(body); } catch (e) { return { statusCode: 400, body: "bad json" }; }
     if (!data || typeof data !== "object") return { statusCode: 400, body: "bad data" };
     data.updatedAt = data.updatedAt || Date.now();
-    await store.setJSON(key, data);
+    await store.setJSON(key, data, { metadata: { t: Date.now() } });
     return { statusCode: 200, headers, body: JSON.stringify({ ok: true, updatedAt: data.updatedAt }) };
   }
   return { statusCode: 405, body: "method not allowed" };

@@ -5,7 +5,7 @@
 //   GET  /.netlify/functions/audit?list=1 → historial + auditorías disponibles
 import { getStore, connectLambda } from "@netlify/blobs";
 import { randomBytes } from "node:crypto";
-import { STORE, J, loadAccount, view, accKey, monthKey, AUD_TOPE, isAdmin } from "../lib/core.mjs";
+import { STORE, J, loadAccount, view, accKey, monthKey, AUD_TOPE, isAdmin, reqInfo } from "../lib/core.mjs";
 
 const MAXTXT = 60000, MAXIMG = 2600000, TYPES = ["image/jpeg", "image/png", "image/webp"];
 const str = (v, n) => String(v == null ? "" : v).slice(0, n || MAXTXT).trim();
@@ -16,7 +16,7 @@ export const handler = async (event, context) => {
   if (!user || !user.sub) return J(401, { error: "unauthorized" });
   const store = getStore({ name: STORE, consistency: "strong" });
   const q = event.queryStringParameters || {};
-  const rec = await loadAccount(store, user, context.clientContext.identity);
+  const rec = await loadAccount(store, user, context.clientContext.identity, reqInfo(event));
   const v = view(rec, user.email);
 
   if (event.httpMethod === "GET") {
