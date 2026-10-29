@@ -24,7 +24,7 @@ export const handler = async (event, context) => {
 
   if (event.httpMethod === "GET") {
     const rec = await loadAccount(store, user, identity, reqInfo(event));
-    const v = view(rec, user.email);
+    const v = Object.assign(view(rec, user.email), { email: user.email || "" });
     return J(200, { account: v, prompts: promptsFor(v) });
   }
 

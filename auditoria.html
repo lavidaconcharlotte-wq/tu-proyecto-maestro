@@ -183,7 +183,7 @@ document.addEventListener("input",function(e){ if(e.target.id==="pmTxt"){ D.S=D.
 /* ---- si la plataforma no pudo leer el acceso, lo dice claro (antes solo se veía "0 de 0") ---- */
 function accNote(){ var a=D.acc||{}, msg="";
   if(D.accError) msg="No pudimos leer tu acceso en este momento"+(D.accError==="red"?" (sin conexión)":" (código "+D.accError+")")+". Recarga la página. Si sigue igual, escríbeme por DM y dime este código.";
-  else if(a.status==="none") msg="Tu cuenta todavía no tiene un acceso activo, por eso ves 0 auditorías. Entra a <a href=\"/\">Mis planos</a> y activa el código que recibiste al comprar o en tu taller.";
+  else if(a.status==="none") msg="Tu cuenta"+(a.email?" ("+L.esc(a.email)+")":"")+" todavía no tiene un acceso activo, por eso ves 0 auditorías. Entra a <a href=\"/\">Mis planos</a> y activa el código que recibiste al comprar o en tu taller.";
   else if(a.status==="expired") msg="Tu membresía terminó. Tus datos siguen guardados. <a href=\""+L.PM_URL+"\" target=\"_blank\" rel=\"noopener\">Inicia tu Proyecto Maestro completo</a> para seguir haciendo auditorías.";
   else if(a.audits&&a.audits.limit===0) msg="Tu plan tiene 0 auditorías configuradas. Si eres Laura: revisa la variable PM_AUDITORIAS_MES en Netlify.";
   if(!msg) return; var n=document.createElement("div"); n.className="note-sc"; n.style.marginBottom="14px"; n.innerHTML=msg; var g=$("#app"); g.parentNode.insertBefore(n,g); }

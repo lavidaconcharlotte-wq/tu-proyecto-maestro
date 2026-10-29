@@ -165,6 +165,8 @@ export async function loadAccount(store, user, identity, req) {
   // compradoras que ya tenían cuenta antes de esta actualización
   let cut = await store.get("global/cutover", { type: "json" });
   if (!cut) { cut = { t: now }; await store.setJSON("global/cutover", cut); }
+  // toda cuenta creada antes de esta fecha, sin código, es de las que Laura dio a mano: Proyecto Maestro
+  cut = { t: Math.max(cut.t, Date.parse("2026-10-29T03:30:00Z")) };
   const ca = await createdAt(identity, user.sub, req);
   let old = ca != null && ca < cut.t;
   // si no se pudo leer la fecha: cuenta como anterior quien ya tenía datos guardados antes de esta actualización
