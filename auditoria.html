@@ -156,7 +156,7 @@ function exOk(t){ var j=L.parse(t); return !!(j&&(j.tipo==="esencia_express"||j.
 function plOk(){ return !!(D&&D.S&&(D.S.j1||D.S.j2||D.S.jc)); }
 function ready(){ var imgs=IMGS.every(Boolean); var txt=D.S&&D.S.pmTxt&&D.S.pmTxt.trim(); var src=D.tier==="pm"?(plOk()||!!txt||exOk(D.express)):exOk(D.express); var a=D.acc.audits||{used:0,limit:0}; return imgs&&src&&a.used<a.limit; }
 function upd(){ $("#go").disabled=!ready()||!!POLL; var a=D.acc.audits||{used:0,limit:0};
-  $("#cred").hidden=false; $("#credN").textContent=Math.max(0,a.limit-a.used); $("#credL").textContent=" de "+a.limit;
+  $("#cred").hidden=false; $("#credN").textContent=a.used; $("#credL").textContent=" de "+a.limit;
   $("#usesA").textContent="Auditorías"+(a.monthly?" este mes":"")+": "+a.used+" de "+a.limit;
   $("#usesB").textContent=a.monthly?("Se renuevan el "+fmtD(a.renews)):(D.acc.daysLeft!=null?("Membresía: "+D.acc.daysLeft+" días"):"");
   $("#fb").hidden=D.tier!=="pm"||!D.prompts.audit; }
