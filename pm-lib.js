@@ -94,7 +94,8 @@ function brand(src){
 /* ---- cuenta + datos de la persona ---- */
 function load(){
   var out={}; return user().then(function(u){ out.user=u; out.email=(u.email||"").toLowerCase(); out.name=(u.user_metadata&&u.user_metadata.full_name)||"";
-    return Promise.all([api("/.netlify/functions/account").catch(function(){ return null; }), cloudGet("pm").catch(function(){ return null; }), cloudGet("p00").catch(function(){ return null; }), cloudGet("express").catch(function(){ return null; })]); })
+    var accTry=function(){ return api("/.netlify/functions/account"); };
+    return Promise.all([accTry().catch(function(){ return new Promise(function(r){ setTimeout(r,1200); }).then(accTry); }).catch(function(e){ out.accError=(e&&e.status)||(e&&e.auth?401:"red"); return null; }), cloudGet("pm").catch(function(){ return null; }), cloudGet("p00").catch(function(){ return null; }), cloudGet("express").catch(function(){ return null; })]); })
   .then(function(r){ out.acc=(r[0]&&r[0].account)||{tier:"none",status:"none"}; out.prompts=(r[0]&&r[0].prompts)||{};
     var ls=null; try{ ls=JSON.parse(localStorage.getItem("proyecto-maestro-v1:"+out.email)||"null"); }catch(e){}
     out.S=r[1]||ls||{}; if(ls&&r[1]){ ["j1","j2","jc","name"].forEach(function(k){ if(!out.S[k]&&ls[k]) out.S[k]=ls[k]; }); }

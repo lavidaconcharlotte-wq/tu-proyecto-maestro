@@ -180,6 +180,14 @@ document.addEventListener("change",function(e){ var sl=e.target.closest(".slot")
 document.addEventListener("input",function(e){ if(e.target.id==="pmTxt"){ D.S=D.S||{}; D.S.pmTxt=e.target.value; var st=$("#pmTxtSt"), v=e.target.value.trim(); st.className="jst"+(v?" ok":""); st.textContent=v?"✓ Guardado.":""; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email,JSON.stringify(D.S)); }catch(err){} clearTimeout(window.__pl); window.__pl=setTimeout(function(){ L.cloudPut("pm",D.S); },900); upd(); return; } if(e.target.id!=="exIn") return; D.express=e.target.value; var ok=exOk(D.express), st=$("#exSt"); st.className="jst"+(ok?" ok":D.express.trim()?" warn":""); st.textContent=ok?"✓ Guardado.":D.express.trim()?"No parece un código de Esencia Express: copia desde la primera { hasta la última }.":"";
   var d={text:D.express,ts:Date.now()}; try{ localStorage.setItem("proyecto-maestro-v1:"+D.email+":express",JSON.stringify(d)); }catch(err){} clearTimeout(window.__ex); window.__ex=setTimeout(function(){ L.cloudPut("express",d); },900); upd(); });
 
+/* ---- si la plataforma no pudo leer el acceso, lo dice claro (antes solo se veía "0 de 0") ---- */
+function accNote(){ var a=D.acc||{}, msg="";
+  if(D.accError) msg="No pudimos leer tu acceso en este momento"+(D.accError==="red"?" (sin conexión)":" (código "+D.accError+")")+". Recarga la página. Si sigue igual, escríbeme por DM y dime este código.";
+  else if(a.status==="none") msg="Tu cuenta todavía no tiene un acceso activo, por eso ves 0 auditorías. Entra a <a href=\"/\">Mis planos</a> y activa el código que recibiste al comprar o en tu taller.";
+  else if(a.status==="expired") msg="Tu membresía terminó. Tus datos siguen guardados. <a href=\""+L.PM_URL+"\" target=\"_blank\" rel=\"noopener\">Inicia tu Proyecto Maestro completo</a> para seguir haciendo auditorías.";
+  else if(a.audits&&a.audits.limit===0) msg="Tu plan tiene 0 auditorías configuradas. Si eres Laura: revisa la variable PM_AUDITORIAS_MES en Netlify.";
+  if(!msg) return; var n=document.createElement("div"); n.className="note-sc"; n.style.marginBottom="14px"; n.innerHTML=msg; var g=$("#app"); g.parentNode.insertBefore(n,g); }
+
 /* ---- texto de los planos para Claude ---- */
 function p00txt(){ var P=Object.assign({},D.p00||{}); delete P.step; delete P.done; return JSON.stringify(P); }
 function planosTxt(){ var S=D.S||{};
@@ -258,7 +266,7 @@ document.addEventListener("click",function(e){ var hb=e.target.closest("[data-h]
 if(!L.getAuth()){ $("#lock").innerHTML=L.lockHTML("none","El levantamiento de tu marca"); $("#lock").hidden=false; $("#tabs").innerHTML=L.nav("/auditoria",""); return; }
 L.load().then(function(d){ D=d; $("#tabs").innerHTML=L.nav("/auditoria",D.tier);
   
-  $("#app").hidden=false; $("#src").innerHTML=srcHTML(); upd(); show(null);
+  $("#app").hidden=false; $("#src").innerHTML=srcHTML(); upd(); show(null); accNote();
   hist().then(function(list){ list=list||[]; var w=list.filter(function(x){ return x.status==="working"&&Date.now()-x.created<16*60000; })[0];
     if(w){ poll(w.id); return; } var last=list.filter(function(x){ return x.status==="done"; })[0];
     if(last) L.api("/.netlify/functions/audit?id="+last.id).then(function(r){ if(r&&r.status==="done"&&!POLL){ CUR=r; show(r,null,true); hist(); } }); });

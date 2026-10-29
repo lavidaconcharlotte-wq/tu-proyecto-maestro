@@ -6,19 +6,27 @@ import * as P from "./prompts.mjs";
 export const STORE = "tu-proyecto";
 
 /* ===== Configuración (se puede cambiar con variables de entorno en Netlify) =====
-   PM_CODIGOS_MEMBRESIA  JSON, ej: {"CANVA30":{"dias":30,"auditorias":2,"hasta":"2027-01-31"}}
+   PM_CODIGOS_MEMBRESIA  JSON, ej: {"CANVA":{"dias":30,"auditorias":2,"nombre":"Taller Canva","hasta":"2027-01-31"}}
+                         (si la creas, reemplaza la lista de abajo completa)
    PM_CODIGOS_MAESTRO    códigos especiales que dan Proyecto Maestro completo, separados por coma (ej: REGALO-VIP)
    PM_AUDITORIAS_MES     auditorías al mes para Proyecto Maestro (por defecto 2)
    PM_AUDITORIAS_TOPE    tope total de auditorías al mes de toda la plataforma (por defecto 300)
-   PM_ADMIN_EMAILS       correos sin límite de auditorías, separados por coma
+   PM_ADMIN_EMAILS       correos con Proyecto Maestro completo siempre y sin límite de auditorías, separados por coma
    PM_MODELO             modelo de Claude para la auditoría (por defecto claude-sonnet-5-5)            */
-const DEF_MEM = { CANVA30: { dias: 30, auditorias: 2 } };
+/* Las tres membresías de 30 días (el código no distingue mayúsculas ni tildes: "Mentoría" = "MENTORIA") */
+const DEF_MEM = {
+  CANVA:     { dias: 30, auditorias: 2, nombre: "Taller Canva" },
+  MENTORIA:  { dias: 30, auditorias: 2, nombre: "Mentoría" },
+  AUDITORIA: { dias: 30, auditorias: 2, nombre: "Auditoría" },
+  CANVA30:   { dias: 30, auditorias: 2, nombre: "Taller Canva" } // código anterior del taller, sigue sirviendo
+};
 export function memCodes() {
   try { const j = JSON.parse(process.env.PM_CODIGOS_MEMBRESIA || ""); if (j && typeof j === "object") return j; } catch (e) {}
   return DEF_MEM;
 }
-export const AUD_MES = () => Math.max(0, parseInt(process.env.PM_AUDITORIAS_MES || "2", 10) || 0);
-export const AUD_TOPE = () => Math.max(0, parseInt(process.env.PM_AUDITORIAS_TOPE || "300", 10) || 0);
+const num = (v, d) => { const n = parseInt(String(v == null ? "" : v).replace(/[^0-9]/g, ""), 10); return isNaN(n) ? d : n; };
+export const AUD_MES = () => num(process.env.PM_AUDITORIAS_MES, 2);
+export const AUD_TOPE = () => num(process.env.PM_AUDITORIAS_TOPE, 300);
 export const MODEL = () => process.env.PM_MODELO || "claude-sonnet-5-5";
 export function isAdmin(email) {
   const l = (process.env.PM_ADMIN_EMAILS || "").toLowerCase().split(",").map((x) => x.trim()).filter(Boolean);
@@ -38,7 +46,7 @@ const ymOf = (y, m) => y + "-" + String(m).padStart(2, "0");
 export function monthKey(now = new Date()) { const p = nyParts(now); return ymOf(p.y, p.m); }
 export function nextMonthStart(now = new Date()) { const p = nyParts(now); return p.m === 12 ? ymOf(p.y + 1, 1) + "-01" : ymOf(p.y, p.m + 1) + "-01"; }
 
-export function normCode(c) { return String(c || "").trim().toUpperCase().replace(/\s+/g, ""); }
+export function normCode(c) { return String(c || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toUpperCase().replace(/\s+/g, ""); }
 function maestroOk(code, now = new Date()) {
   let c = normCode(code); if (!c) return false;
   if (!/^MAESTRO-/.test(c)) c = "MAESTRO-" + c.replace(/^MAESTRO/, "").replace(/^-/, "");
@@ -55,7 +63,7 @@ export function checkCode(code, now = new Date()) {
     if (normCode(k) !== c) continue;
     const v = mc[k] || {};
     if (v.hasta && now > new Date(v.hasta + "T23:59:59-05:00")) return null;
-    return { tier: "mem", code: normCode(k), dias: +v.dias || 30, auditorias: v.auditorias == null ? 2 : +v.auditorias };
+    return { tier: "mem", code: normCode(k), nombre: v.nombre || "", dias: +v.dias || 30, auditorias: v.auditorias == null ? 2 : +v.auditorias };
   }
   const extra = (process.env.PM_CODIGOS_MAESTRO || "").split(",").map(normCode).filter(Boolean);
   if (extra.includes(c)) return { tier: "pm" };
@@ -69,7 +77,7 @@ export function accKey(sub) { return `${sub}/account`; }
 
 export function newRecord(chk, now = Date.now(), via = "codigo") {
   if (chk.tier === "pm") return { tier: "pm", since: now, via, used: 0, period: "" };
-  return { tier: "mem", since: now, via, code: chk.code, until: now + chk.dias * DAY, limit: chk.auditorias, used: 0 };
+  return { tier: "mem", since: now, via, code: chk.code, plan: chk.nombre || "", until: now + chk.dias * DAY, limit: chk.auditorias, used: 0 };
 }
 
 /* Aplica un código a una cuenta existente (o vacía). Devuelve {rec, msg} o lanza {own}. */
@@ -89,14 +97,14 @@ export function applyCode(rec, code, now = Date.now()) {
 
 /* Vista pública de la cuenta para la plataforma */
 export function view(rec, email, now = new Date()) {
-  if (!rec) return { tier: "none", status: "none" };
+  if (!rec) return { tier: "none", status: "none", reason: "sin-acceso" };
   const admin = isAdmin(email);
   if (rec.tier === "pm") {
     const mk = monthKey(now), used = rec.period === mk ? rec.used || 0 : 0;
-    return { tier: "pm", status: "active", since: rec.since, audits: { used, limit: admin ? 999 : AUD_MES(), renews: nextMonthStart(now), monthly: true } };
+    return { tier: "pm", status: "active", since: rec.since, via: rec.via, audits: { used, limit: admin ? 999 : AUD_MES(), renews: nextMonthStart(now), monthly: true } };
   }
   const left = Math.ceil((rec.until - now.getTime()) / DAY);
-  return { tier: "mem", status: left > 0 ? "active" : "expired", since: rec.since, until: rec.until, daysLeft: Math.max(0, left),
+  return { tier: "mem", status: left > 0 ? "active" : "expired", plan: rec.plan || "", code: rec.code || "", since: rec.since, until: rec.until, daysLeft: Math.max(0, left),
     audits: { used: rec.used || 0, limit: admin ? 999 : rec.limit, monthly: false } };
 }
 
@@ -132,7 +140,7 @@ export async function loadAccount(store, user, identity) {
   const key = accKey(user.sub);
   let rec = await store.get(key, { type: "json" });
   const now = Date.now();
-  if (rolesOf(user).includes("maestro") && (!rec || rec.tier !== "pm")) {
+  if ((rolesOf(user).includes("maestro") || isAdmin(user.email)) && (!rec || rec.tier !== "pm")) {
     rec = Object.assign(newRecord({ tier: "pm" }, now, "rol"), rec ? { antes: { tier: rec.tier, code: rec.code } } : {});
     await store.setJSON(key, rec); return rec;
   }
@@ -143,9 +151,10 @@ export async function loadAccount(store, user, identity) {
   let cut = await store.get("global/cutover", { type: "json" });
   if (!cut) { cut = { t: now }; await store.setJSON("global/cutover", cut); }
   const ca = await createdAt(identity, user.sub);
-  let old = ca != null ? ca < cut.t : false;
-  if (ca == null) { const a = await store.get(`${user.sub}/pm`, { type: "json" }); const b = await store.get(`${user.sub}/p00`, { type: "json" }); old = !!(a || b); }
+  let old = ca != null && ca < cut.t;
+  // si no se pudo leer la fecha: cuenta como anterior quien ya tenía datos guardados antes de esta actualización
+  // (lo que se guarda desde ahora lleva la hora del servidor, así nadie puede "fabricar" datos viejos)
+  if (!old) { for (const k of ["pm", "p00", "hist"]) { const m = await store.getMetadata(`${user.sub}/${k}`); if (m && (!m.metadata || !m.metadata.t || m.metadata.t < cut.t)) { old = true; break; } } }
   if (old) { rec = newRecord({ tier: "pm" }, now, "anterior"); await store.setJSON(key, rec); return rec; }
-  // Sesión iniciada = acceso: toda cuenta se creó con un código en el registro, así que una sesión sin registro previo entra como Proyecto Maestro completo.
-  rec = newRecord({ tier: "pm" }, now, "sesion"); await store.setJSON(key, rec); return rec;
+  return null;
 }

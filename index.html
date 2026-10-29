@@ -775,6 +775,10 @@ body.tier-pm .pmcom-sec{display:block;max-width:1080px;margin:0 auto;padding:26p
 .pmcom-card .eyebrow{margin:0 0 6px}
 .pmcom-card h3{font-family:var(--disp);font-weight:500;color:var(--vino);font-size:clamp(20px,3vw,26px);line-height:1.15;margin:0 0 8px}
 .pmcom-card p{margin:0 0 14px;font-size:14px;line-height:1.6}
+.como-welcome{text-align:center;padding:8px 0 4px}
+.como-welcome h2{font-family:var(--disp);font-weight:500;color:var(--ink);font-size:clamp(26px,4.4vw,40px);line-height:1.1;margin:6px 0 8px}
+.como-welcome h2 em{font-family:'Aurantiaca',cursive;font-style:normal;color:var(--vino);font-size:1.25em}
+.como-welcome .como-sub{margin:0;font-size:15px;line-height:1.6}
 .mem-band{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:12px 16px;background:var(--vino);color:var(--ivory);font-size:13px;letter-spacing:.02em}
 .mem-band .mb-tag{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;background:var(--ivory);color:var(--vino);padding:5px 10px;border-radius:999px}
 .mem-band b{font-weight:600}
@@ -837,6 +841,165 @@ body.demo .mainnav [data-nav],body.demo .app-tab [data-nav]{opacity:.55}
 .next-sp a strong{font-family:var(--disp);font-weight:500;font-size:21px;color:var(--vino)}
 .next-sp a small{font-size:13.5px;line-height:1.5}
 .next-sp a span.go{margin-top:6px;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--olive)}
+
+/* ===== Cómo funciona · mapa conceptual de Tu Proyecto (horizontal en computador, vertical en celular) ===== */
+.pmap{position:relative;margin:26px 0 56px;padding:34px 26px 30px;background:var(--ivory);border:1px solid var(--champ);background-image:linear-gradient(rgba(217,199,166,.20) 1px,transparent 1px),linear-gradient(90deg,rgba(217,199,166,.20) 1px,transparent 1px);background-size:22px 22px;overflow:hidden}
+.pmap a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+.pm-orn{position:absolute;pointer-events:none}
+.pm-o1{left:10px;top:6px;width:190px}.pm-o2{right:22px;top:8px;width:120px}.pm-o3{left:6px;bottom:8px;width:170px;transform:scaleX(-1)}.pm-st{right:200px;top:70px;width:22px}
+.pm-hd{position:relative;text-align:center;margin:0 auto 26px;max-width:720px}
+.pm-k{margin:0;font-family:var(--disp);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
+.pm-tu{position:relative;font-family:'Aurantiaca',cursive;font-weight:400;color:var(--vino);font-size:clamp(64px,9vw,118px);line-height:1.15;padding-top:.32em;margin:0 0 4px;letter-spacing:0;text-transform:none}
+.pm-tu::before{content:"";position:absolute;left:12%;right:12%;top:38%;height:34%;background:rgba(217,199,166,.38);border-radius:40px;z-index:-1;transform:rotate(-1.5deg)}
+.pm-sub{margin:0;font-family:var(--sans);font-size:15px;letter-spacing:.14em;color:var(--ink)}
+.pm-root{display:none}
+.pm-br{display:block;background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;padding:14px 16px;text-align:center;box-shadow:7px 7px 0 var(--champ);position:relative;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.pm-br b{display:block;font-family:var(--disp);font-weight:500;font-size:clamp(18px,2vw,26px);letter-spacing:.04em;line-height:1.15;text-transform:uppercase;color:var(--ink)}
+.pm-full .pm-br{background:var(--vino);box-shadow:7px 7px 0 rgba(91,52,59,.35);padding:16px 22px 30px}
+.pm-full .pm-br b{color:var(--ivory)}
+.pm-full .pm-br em{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);white-space:nowrap;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:4px 16px;font-family:'Aurantiaca',cursive;font-style:normal;font-size:19px;color:var(--ink);box-shadow:4px 4px 0 rgba(91,52,59,.18)}
+.pm-short{display:none}
+.pm-mem .pm-br{background:var(--olive);box-shadow:7px 7px 0 rgba(107,112,92,.35)}
+.pm-mem .pm-br b{color:var(--ivory)}
+.pm-tag{display:table;margin:-1px auto 0;position:relative;z-index:1;background:var(--sand);border:1.5px solid var(--ink);border-top:0;border-radius:0 0 10px 10px;padding:4px 18px;font-size:13px;color:var(--ink)}
+.pm-free .pm-tag{background:#E8D9C2}.pm-mem .pm-tag{background:#DEDDD0}
+.pm-ic{width:30px;height:30px;color:var(--brass);flex:0 0 auto}
+.pm-node{display:block;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:10px 12px;box-shadow:5px 5px 0 rgba(91,52,59,.22);position:relative;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.pm-node b{display:block;font-family:var(--disp);font-weight:500;font-size:14px;line-height:1.2;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;overflow-wrap:break-word;hyphens:auto}
+.pm-node small{display:block;font-family:var(--sans);font-size:11.5px;line-height:1.4;color:#3a332e;margin-top:3px}
+.pm-soon{display:inline-block;margin-top:6px;background:var(--vino);color:var(--ivory);font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:999px}
+.pm-mem .pm-node{box-shadow:5px 5px 0 rgba(107,112,92,.35)}
+.pm-free .pm-node{box-shadow:5px 5px 0 #E2CFB2}
+.pm-node.pm-ico{display:flex;gap:12px;align-items:center}.pm-mem .pm-ic{color:var(--olive)}
+.pm-node.pm-ico b{font-size:15px}
+.pmap a:hover,.pmap a:focus-visible{transform:translate(-2px,-2px)}
+.pmap a:focus-visible{outline:2px solid var(--vino);outline-offset:3px}
+.pm-caj{position:relative;width:300px;margin:26px 0 0 auto;background:var(--paper)}
+.pm-caj td.pm-cajtu{font-family:'Aurantiaca',cursive;font-size:24px;color:var(--vino);line-height:1}
+/* ---- computador e iPad: tres columnas, de arriba hacia abajo ---- */
+@media (min-width:1180px){
+  .pmap{width:min(1440px,calc(100vw - 32px));margin-left:calc(50% - min(720px,calc(50vw - 16px)));padding:36px 28px 30px}
+  .pm-cols{position:relative;display:grid;grid-template-columns:.9fr 4fr .9fr;gap:22px;padding-top:34px;align-items:start}
+  .pm-cols::before{content:"";position:absolute;top:0;left:calc((100% - 44px) * .0776);right:calc((100% - 44px) * .0776);border-top:1.5px solid var(--ink)}
+  .pm-cols::after{content:"";position:absolute;top:-26px;left:calc(((100% - 44px) * .9 / 5.8) + 22px + ((100% - 44px) * 2 / 5.8));height:26px;border-left:1.5px solid var(--ink)}
+  .pm-col{position:relative}
+  .pm-head{position:relative}
+  .pm-col>.pm-head::before{content:"";position:absolute;top:-34px;left:50%;height:34px;border-left:1.5px solid var(--ink)}
+  .pm-col>.pm-head::after{content:"";position:absolute;top:-8px;left:calc(50% - 7px);width:14px;height:14px;border-radius:50%;background:var(--champ);border:1.5px solid var(--ink);z-index:2}
+  .pm-full>.pm-head::after{background:var(--vino)}.pm-mem>.pm-head::after{background:var(--olive)}
+  .pm-free>.pm-kids,.pm-mem>.pm-kids{margin-top:16px;display:grid;gap:14px}
+  .pm-mem>.pm-kids{position:relative;padding-left:22px}
+  .pm-mem>.pm-kids::before{content:"";position:absolute;left:4px;top:-16px;bottom:32px;border-left:1.5px solid var(--ink)}
+  .pm-mem>.pm-kids .pm-node::before{content:"";position:absolute;left:-23px;top:50%;width:22px;border-top:1.5px solid var(--ink)}
+  .pm-mem>.pm-kids .pm-node::after{content:"";position:absolute;left:-25px;top:calc(50% - 5px);width:10px;height:10px;border-radius:50%;background:var(--olive);border:1.5px solid var(--ink)}
+  .pm-free .pm-node b{text-transform:none;font-size:16px}
+  .pm-free .pm-node{text-align:center}
+  .pm-secs{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:44px;padding-top:24px}
+  .pm-secs::before{content:"";position:absolute;top:0;left:calc((100% - 60px) / 12);right:calc((100% - 60px) / 12);border-top:1.5px solid var(--ink)}
+  .pm-secs::after{content:"";position:absolute;top:-28px;left:50%;height:28px;border-left:1.5px solid var(--ink)}
+  .pm-sec{position:relative}
+  .pm-sh{position:relative;display:flex;flex-direction:column-reverse;justify-content:flex-end;min-height:92px;align-items:center;gap:6px;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:10px 6px 12px;text-align:center;box-shadow:5px 5px 0 rgba(91,52,59,.35)}
+  .pm-sh::before{content:"";position:absolute;top:-25px;left:50%;height:24px;border-left:1.5px solid var(--ink)}
+  .pm-sh::after{content:"";position:absolute;top:-6px;left:calc(50% - 6px);width:12px;height:12px;border-radius:50%;background:var(--vino);border:1.5px solid var(--ink)}
+  .pm-sh b{display:block;font-family:var(--disp);font-weight:500;font-size:clamp(12px,1.25vw,16px);letter-spacing:.03em;text-transform:uppercase;color:var(--ink)}
+  .pm-sh .pm-m{display:none}
+  .pm-sh .pm-ic{width:28px;height:28px}
+  .pm-sec .pm-kids{position:relative;margin:12px 0 0 4px;padding-left:12px;display:grid;gap:10px}
+  .pm-sec .pm-kids::before{content:"";position:absolute;left:0;top:-12px;bottom:20px;border-left:1.5px solid var(--ink)}
+  .pm-sec .pm-node{padding:8px 9px}
+  .pm-sec .pm-node::before{content:"";position:absolute;left:-13px;top:18px;width:14px;border-top:1.5px solid var(--ink)}
+  .pm-sec .pm-node::after{content:"";position:absolute;left:-17px;top:13px;width:9px;height:9px;border-radius:50%;background:#C9A9AE;border:1.5px solid var(--ink)}
+  .pm-sec .pm-node b{font-size:clamp(10.5px,1vw,13px)}
+  .pm-sec .pm-node small{font-size:clamp(10px,.9vw,11.5px)}
+  .pm-planos .pm-node+.pm-node{margin-top:4px}
+  .pm-planos .pm-node+.pm-node>b::before{content:"";position:absolute;left:50%;top:-12px;height:9px;border-left:1.5px solid var(--brass)}
+}
+/* ---- celular y tablet: de arriba hacia abajo, centrado, con una línea central como columna vertebral ---- */
+@media (max-width:1179px){
+  .pmap{padding:26px 14px 22px;margin:18px -4px 40px}
+  .pm-o1{width:96px;left:-14px;top:-4px;opacity:.8}.pm-o2{width:58px;right:4px;top:2px;opacity:.8}.pm-o3{width:110px}.pm-st{display:none}
+  .pm-hd{margin-bottom:18px}
+  .pm-k{font-size:clamp(8.5px,2.4vw,11px);letter-spacing:.16em;line-height:1.6;padding:0 22px}
+  .pm-tu{font-size:clamp(50px,15vw,74px);padding-top:.28em;line-height:1.1}
+  .pm-sub{font-size:12px;letter-spacing:.1em}
+  .pm-root{display:none}
+  .pm-tree{max-width:620px;margin:0 auto}
+  .pm-cols{position:relative;display:grid;gap:42px;padding-top:26px}
+  .pm-cols::before{content:"";position:absolute;top:0;left:50%;height:26px;border-left:1.5px solid var(--ink)}
+  .pm-col{position:relative;display:flex;flex-direction:column;align-items:center}
+  .pm-col+.pm-col::before{content:"";position:absolute;top:-42px;left:50%;height:42px;border-left:1.5px solid var(--ink)}
+  .pm-head{position:relative;width:min(300px,88%)}
+  .pm-head::after{content:"";position:absolute;top:-7px;left:calc(50% - 6px);width:12px;height:12px;border-radius:50%;background:var(--champ);border:1.5px solid var(--ink);z-index:2}
+  .pm-full>.pm-head::after{background:var(--vino)}.pm-mem>.pm-head::after{background:var(--olive)}
+  .pm-br{padding:12px 10px;box-shadow:5px 5px 0 var(--champ)}
+  .pm-br b{font-size:clamp(17px,5vw,22px)}
+  .pm-full .pm-br{padding:14px 10px 24px;box-shadow:5px 5px 0 rgba(91,52,59,.35)}
+  .pm-full .pm-br em{font-size:18px;padding:2px 16px;bottom:-15px}
+  .pm-long{display:none}.pm-short{display:inline}
+  .pm-mem .pm-br{box-shadow:5px 5px 0 rgba(107,112,92,.35)}
+  .pm-tag{font-size:12px;padding:3px 14px}
+  /* cajas */
+  .pm-node{padding:9px 10px;box-shadow:4px 4px 0 rgba(91,52,59,.2);text-align:center}
+  .pm-node b{font-size:12.5px}
+  .pm-node small{font-size:11px;line-height:1.38}
+  .pm-node.pm-ico{flex-direction:column;gap:4px;padding:10px 8px}
+  .pm-node.pm-ico .pm-ic{width:24px;height:24px}
+  .pm-node.pm-ico b{font-size:12.5px}
+  .pm-sh{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;padding:10px 8px 11px;text-align:center;box-shadow:4px 4px 0 rgba(91,52,59,.35)}
+  .pm-sh .pm-ic{width:26px;height:26px}
+  .pm-sh b{display:block;font-family:var(--disp);font-weight:500;font-size:13.5px;text-transform:uppercase;color:var(--ink);line-height:1.2;letter-spacing:.03em}
+  .pm-sh .pm-m{display:block;font-size:11px;line-height:1.38;color:#3a332e;margin-top:2px}
+  .pm-sh .pm-soon{margin-top:2px}
+  /* plan gratuito: una sola caja centrada debajo */
+  .pm-free>.pm-kids{position:relative;width:min(320px,92%);margin-top:26px}
+  .pm-free>.pm-kids::before{content:"";position:absolute;top:-26px;left:50%;height:20px;border-left:1.5px solid var(--ink)}
+  .pm-free .pm-node{box-shadow:4px 4px 0 #E2CFB2}
+  .pm-free .pm-node b{text-transform:none;font-size:14px}
+  /* rejillas de dos columnas con línea central (secciones, planos y membresía) */
+  .pm-secs,.pm-planos>.pm-kids,.pm-mem>.pm-kids{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:28px;row-gap:14px;width:100%}
+  .pm-secs{margin-top:34px}
+  .pm-secs::after,.pm-mem>.pm-kids::after{content:"";position:absolute;top:-28px;left:50%;height:22px;border-left:1.5px solid var(--ink)}
+  .pm-mem>.pm-kids{margin-top:28px}
+  .pm-secs>.pm-sec{position:relative}
+  /* línea central: baja por el lado derecho de cada caja de la columna izquierda */
+  .pm-secs>.pm-sec:nth-child(even)::before,.pm-planos>.pm-kids>.pm-node:nth-child(odd)::before,.pm-mem>.pm-kids>.pm-node:nth-child(odd)::before{content:"";position:absolute;right:-15px;top:-14px;bottom:-14px;border-right:1.5px solid var(--ink)}
+  /* puntos sobre la línea central */
+  .pm-secs>.pm-sec:nth-child(even)>.pm-sh::after,.pm-planos>.pm-kids>.pm-node:nth-child(odd)::after,.pm-mem>.pm-kids>.pm-node:nth-child(odd)::after{content:"";position:absolute;right:-20px;top:calc(50% - 5px);width:10px;height:10px;border-radius:50%;background:var(--vino);border:1.5px solid var(--ink);z-index:2}
+  /* trazo corto de cada caja hacia la línea */
+  .pm-secs>.pm-sec:nth-child(even)>.pm-sh::before{content:"";position:absolute;right:-15px;top:50%;width:14px;border-top:1.5px solid var(--ink)}
+  .pm-secs>.pm-sec:nth-child(odd):not(:first-child)>.pm-sh::before{content:"";position:absolute;left:-15px;top:50%;width:14px;border-top:1.5px solid var(--ink)}
+  .pm-planos>.pm-kids>.pm-node:nth-child(even)::before,.pm-mem>.pm-kids>.pm-node:nth-child(even)::before{content:"";position:absolute;left:-15px;top:50%;width:14px;border-top:1.5px solid var(--ink)}
+  /* Planos ocupa todo el ancho y se abre en sus 6 planos */
+  .pm-secs>.pm-planos{grid-column:1/-1;display:flex;flex-direction:column;align-items:center}
+  .pm-planos>.pm-sh{width:min(200px,60%);flex-direction:row;justify-content:center;gap:10px;padding:10px 12px}
+  .pm-planos>.pm-kids{margin-top:24px}
+  .pm-planos>.pm-kids::after{content:"";position:absolute;top:-24px;left:50%;height:18px;border-left:1.5px solid var(--ink)}
+  .pm-planos>.pm-kids>.pm-node{box-shadow:4px 4px 0 rgba(91,52,59,.2)}
+  .pm-planos>.pm-kids>.pm-node::after{background:#C9A9AE!important;width:9px!important;height:9px!important}
+  .pm-planos>.pm-kids>.pm-node:nth-child(5)::before{bottom:50%}
+  .pm-planos>.pm-kids>.pm-node:nth-child(odd)::before{width:0}
+  .pm-planos>.pm-kids::before{content:"";position:absolute;left:calc(50% + 0px);top:-6px;height:6px;border-left:1.5px solid var(--ink)}
+  /* tramo de línea entre Planos y la primera fila */
+  .pm-secs>.pm-planos::after{content:"";position:absolute;left:50%;bottom:-14px;height:14px;border-left:1.5px solid var(--ink)}
+  /* Mi historia cierra centrada abajo */
+  .pm-secs>.pm-his{grid-column:1/-1;justify-self:center;width:min(240px,62%)}
+  .pm-secs>.pm-his::before{content:"";position:absolute;left:50%;top:-14px;height:14px;border-left:1.5px solid var(--ink);border-right:0!important;right:auto!important;bottom:auto!important}
+  .pm-secs>.pm-his>.pm-sh::before{display:none}
+  .pm-secs>.pm-his>.pm-sh::after{left:calc(50% - 5px)!important;right:auto!important;top:-6px!important}
+  .pm-secs>.pm-edi::before{bottom:-14px}
+  .pm-sec .pm-kids{display:none}
+  .pm-planos .pm-kids{display:grid}
+  /* Membresía: Plantillas Canva cierra centrada abajo */
+  .pm-mem>.pm-kids>.pm-node{box-shadow:4px 4px 0 rgba(107,112,92,.35)}
+  .pm-mem>.pm-kids>.pm-node::after{background:var(--olive)!important}
+  .pm-mem>.pm-kids>.pm-node:nth-child(3){grid-column:1/-1;justify-self:center;width:min(220px,58%)}
+  .pm-mem>.pm-kids>.pm-node:nth-child(3)::before{right:auto!important;left:50%;top:-14px!important;bottom:auto!important;height:14px;border-right:0!important;border-left:1.5px solid var(--ink)}
+  .pm-mem>.pm-kids>.pm-node:nth-child(3)::after{right:auto!important;left:calc(50% - 5px);top:-6px!important}
+  .pm-caj{width:100%;max-width:300px;margin:26px auto 0}
+}
+@media (min-width:700px) and (max-width:1179px){ .pm-tu{font-size:96px} .pm-k{font-size:12px;letter-spacing:.3em} .pm-sub{font-size:14px} .pm-node b,.pm-sh b{font-size:15px} .pm-node small,.pm-sh .pm-m{font-size:12.5px} .pm-br b{font-size:24px} .pm-tree{max-width:680px} }
+@media (min-width:700px) and (max-width:1179px){ .pm-tu{font-size:96px} .pm-k{font-size:12px;letter-spacing:.3em} .pm-sub{font-size:14px} .pm-node b,.pm-sh b{font-size:15px} .pm-node small,.pm-sh .pm-m{font-size:12.5px} .pm-br b{font-size:24px} .pm-tree{max-width:680px} }
+@media (max-width:360px){ .pm-secs,.pm-planos>.pm-kids,.pm-mem>.pm-kids{column-gap:22px} .pm-node b,.pm-sh b{font-size:11.5px} .pm-node small,.pm-sh .pm-m{font-size:10.5px} }
 /* fondo general y vista previa en cuadrícula */
 html,body{background:#FAF6F1;color-scheme:light}
 body.demo{background-color:#FAF6F1;background-image:linear-gradient(rgba(107,112,92,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(107,112,92,.09) 1px,transparent 1px);background-size:24px 24px}
@@ -1727,14 +1890,6 @@ body{overflow-x:hidden}
 </header>
 
 <main>
-<section class="pmcom-sec" aria-labelledby="pmcomT">
-  <div class="pmcom-card">
-    <p class="eyebrow">Comunidad de Proyecto Maestro</p>
-    <h3 id="pmcomT">¿Dudas o preguntas sobre la plataforma?</h3>
-    <p>Este grupo es solo para las que están dentro de Proyecto Maestro. Pregunta lo que necesites sobre la plataforma y te ayudamos.</p>
-    <a class="btn vino" href="https://chat.whatsapp.com/HkC2S9qVvZK4UPRNWVj7w0?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">Unirme al grupo de WhatsApp →</a>
-  </div>
-</section>
 <!-- ============ PORTADA ============ -->
 <section class="hero" id="inicio">
   <svg class="sk px" style="left:-6%;bottom:-6%;width:112%" viewBox="-40 -40 880 580" fill="none" stroke="#6B705C" stroke-opacity="0.15" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M-20 420 L820 420" /><path pathLength="1" d="M40 -10 L40 440" /><path pathLength="1" d="M760 -10 L760 440" /><path pathLength="1" d="M30 90 H770 M30 110 H770" /><path pathLength="1" d="M90 420 V230 A100.0 100.0 0 0 1 290 230 V420" /><path pathLength="1" d="M104 420 V236 A86.0 86.0 0 0 1 276 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M190.0 130 L190.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M300 420 V230 A100.0 100.0 0 0 1 500 230 V420" /><path pathLength="1" d="M314 420 V236 A86.0 86.0 0 0 1 486 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M400.0 130 L400.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M510 420 V230 A100.0 100.0 0 0 1 710 230 V420" /><path pathLength="1" d="M524 420 V236 A86.0 86.0 0 0 1 696 236 V420" stroke-dasharray="1 0"/><path pathLength="1" d="M610.0 130 L610.0 420" stroke-dasharray=".004 .012"/><path pathLength="1" d="M60 420 V120 M82 420 V120" /><path pathLength="1" d="M290 420 V120 M312 420 V120" /><path pathLength="1" d="M500 420 V120 M522 420 V120" /><path pathLength="1" d="M710 420 V120 M732 420 V120" /><path pathLength="1" d="M40 470 H760 M40 460 V480 M760 460 V480" /><path pathLength="1" d="M400 -30 V60" /><circle pathLength="1" cx="190" cy="500" r="14"/><path pathLength="1" d="M190 486 L190 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="400" cy="500" r="14"/><path pathLength="1" d="M400 486 L400 440" stroke-dasharray=".02 .03"/><circle pathLength="1" cx="610" cy="500" r="14"/><path pathLength="1" d="M610 486 L610 440" stroke-dasharray=".02 .03"/><text x="190" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.24" stroke="none" text-anchor="middle">A</text><text x="400" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.24" stroke="none" text-anchor="middle">B</text><text x="610" y="505" font-size="13" font-family="Montserrat" fill="#6B705C" fill-opacity="0.24" stroke="none" text-anchor="middle">C</text></g></svg><svg class="sk px" style="left:1%;top:90px;width:150px" viewBox="-10 -10 300 360" fill="none" stroke="#5B343B" stroke-opacity="0.15" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><circle pathLength="1" cx="100" cy="30" r="12"/><path pathLength="1" d="M92 40 L30 260 M108 40 L170 260" /><path pathLength="1" d="M50 190 L150 190" stroke-dasharray=".03 .03"/><path pathLength="1" d="M170 260 A 140 140 0 0 0 30 260" stroke-dasharray=".01 .015"/><path pathLength="1" d="M0 300 L260 240 L268 262 L8 322 Z" /><path pathLength="1" d="M20 296.0 l3 12" /><path pathLength="1" d="M44 290.5 l3 12" /><path pathLength="1" d="M68 285.0 l3 12" /><path pathLength="1" d="M92 279.5 l3 12" /><path pathLength="1" d="M116 274.0 l3 12" /><path pathLength="1" d="M140 268.5 l3 12" /><path pathLength="1" d="M164 263.0 l3 12" /><path pathLength="1" d="M188 257.5 l3 12" /><path pathLength="1" d="M212 252.0 l3 12" /><path pathLength="1" d="M236 246.5 l3 12" /></g></svg><svg class="wc " style="left:-140px;top:60px;width:560px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.3" filter="url(#wc)"/></svg><svg class="wc " style="right:-160px;top:-40px;width:640px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#D9C7A6" fill-opacity="0.5" filter="url(#wc)"/></svg><svg class="wc " style="right:8%;bottom:-80px;width:340px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#5B343B" fill-opacity="0.14" filter="url(#wc)"/></svg>
@@ -1781,7 +1936,7 @@ body{overflow-x:hidden}
 <!-- ============ MEMBRESÍA · ESENCIA EXPRESS ============ -->
 <section class="mem-sec" id="express" aria-labelledby="exT">
   <div class="wrap">
-    <div class="mem-band"><span class="mb-tag">Membresía</span><span id="memDays">Tu membresía</span><span id="memAud">Auditorías</span><a class="mb-up" href="https://shop.beacons.ai/lauratovar/8821a8e8-a363-4f0f-839e-547d3d519b72" target="_blank" rel="noopener">Pasar a Proyecto Maestro completo →</a></div>
+    <div class="mem-band"><span class="mb-tag" id="memTag">Membresía</span><span id="memDays">Tu membresía</span><span id="memAud">Auditorías</span><a class="mb-up" href="https://shop.beacons.ai/lauratovar/8821a8e8-a363-4f0f-839e-547d3d519b72" target="_blank" rel="noopener">Pasar a Proyecto Maestro completo →</a></div>
     <div class="mem-card">
       <div class="mc-hd"><div class="num" aria-hidden="true">EX</div><div><p class="eyebrow">Tu base inicial · Esencia Express</p><h2 id="exT">Tu terreno firme, en una sola conversación</h2><p>Unas 20 preguntas en un solo chat de <span data-pn>ChatGPT</span> para levantar tu esencia, tu dirección, tu voz y tu paleta. Con esa base funcionan tu Auditoría, tus Plantillas Canva y tu Bitácora.</p></div></div>
       <ol class="mc-steps">
@@ -1799,6 +1954,41 @@ body{overflow-x:hidden}
 <section class="intro-sec" id="como" data-lamina="como">
   <svg class="sk px" style="right:-100px;top:30px;width:620px" viewBox="-20 -20 680 490" fill="none" stroke="#6B705C" stroke-opacity="0.16" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g filter="url(#pencil)"><path pathLength="1" d="M20 20 H580 V400 H20 Z" stroke-width="3"/><path pathLength="1" d="M20 180 H250 M250 20 V120 M250 160 V300 M250 300 H420 M420 300 V400 M420 20 V200 M420 240 V300 M20 300 H180 M220 300 H250" /><path pathLength="1" d="M250 120 A40 40 0 0 1 290 160 M180 300 A40 40 0 0 0 220 340 M420 200 A40 40 0 0 1 460 240" stroke-dasharray=".01 .01"/><path pathLength="1" d="M450 50 h110 v70 h-110 z" /><circle pathLength="1" cx="505" cy="85" r="18"/><path pathLength="1" d="M40 40 h160 v90 h-160 z" /><path pathLength="1" d="M300 340 h100 v40 h-100 z" /><path pathLength="1" d="M300 40 h90 v90 h-90 z M300 70 h90 M300 100 h90" /><path pathLength="1" d="M20 440 H580 M20 430 V450 M250 430 V450 M420 430 V450 M580 430 V450" /><path pathLength="1" d="M620 20 V400 M610 20 H630 M610 180 H630 M610 400 H630" /><path pathLength="1" d="M-10 20 H40 M560 -10 V40 M-10 400 H40 M560 380 V430" /></g></svg><svg class="wc " style="left:-160px;top:10%;width:620px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#E9DFC9" fill-opacity="0.75" filter="url(#wc)"/></svg><svg class="wc " style="right:-140px;bottom:-60px;width:520px" viewBox="0 0 400 300" aria-hidden="true"><ellipse cx="200" cy="150" rx="150" ry="100" fill="#6B705C" fill-opacity="0.24" filter="url(#wc)"/></svg>
   <div class="wrap">
+    <section class="pmcom-sec" aria-labelledby="pmcomT">
+      <div class="pmcom-card">
+        <p class="eyebrow">Comunidad de Proyecto Maestro</p>
+        <h3 id="pmcomT">¿Dudas o preguntas sobre la plataforma?</h3>
+        <p>Este grupo es solo para las que están dentro de Proyecto Maestro. Pregunta lo que necesites sobre la plataforma y te ayudamos.</p>
+        <a class="btn vino" href="https://chat.whatsapp.com/HkC2S9qVvZK4UPRNWVj7w0?s=cl&amp;p=i&amp;mlu=4&amp;ilr=4&amp;iam=2" target="_blank" rel="noopener">Unirme al grupo de WhatsApp →</a>
+      </div>
+    </section>
+
+    <section class="pmap" id="mapa" aria-labelledby="pmapT">
+      <svg class="pm-orn pm-o1" viewBox="0 0 220 200" fill="none" stroke="#6B705C" stroke-opacity=".35" stroke-width="1"><path d="M30 200V95a80 80 0 0 1 160 0v105"/><path d="M42 200V95a68 68 0 0 1 136 0v105"/><path d="M0 40h220M0 160h220M110 0v200" stroke-dasharray="2 4"/><path d="M60 150c20-30 40-55 75-75" stroke="#6B705C" stroke-opacity=".5"/><path d="M78 128c-12-2-20-8-24-16 10 0 19 5 24 16zM95 108c-11-4-17-11-19-19 9 2 17 8 19 19zM112 92c-9-6-13-13-13-21 8 3 14 10 13 21zM86 120c10-6 20-6 27-2-8 6-18 7-27 2zM104 100c9-7 19-8 27-5-8 7-18 9-27 5z" fill="#6B705C" fill-opacity=".12"/></svg><svg class="pm-orn pm-o2" viewBox="0 0 160 220" fill="none" stroke="#5B343B" stroke-opacity=".45" stroke-width="1.1"><circle cx="80" cy="22" r="9"/><circle cx="80" cy="22" r="3"/><path d="M80 31L40 210M80 31l40 179M52 150h56"/><path d="M40 210l-3 8M120 210l3 8"/><path d="M0 120h160M100 0v220" stroke-dasharray="2 4" stroke="#6B705C" stroke-opacity=".3"/></svg><svg class="pm-orn pm-o3" viewBox="0 0 160 120" fill="none" stroke="#6B705C" stroke-opacity=".45" stroke-width="1"><path d="M10 110C50 80 90 50 150 10"/><path d="M38 90c-14-1-24-8-28-18 12 0 23 6 28 18zM60 74c-13-3-21-11-24-21 11 1 21 9 24 21zM84 57c-11-5-18-13-19-23 10 3 18 11 19 23zM52 84c11-8 23-9 31-5-8 8-20 10-31 5zM76 66c11-8 22-10 31-6-9 8-21 10-31 6zM100 48c10-8 21-11 30-8-8 8-20 11-30 8z" fill="#6B705C" fill-opacity=".1"/></svg><svg class="pm-orn pm-st" viewBox="0 0 24 24" fill="#B8925A" fill-opacity=".7"><path d="M12 0l1.6 10.4L24 12l-10.4 1.6L12 24l-1.6-10.4L0 12l10.4-1.6z"/></svg>
+      <header class="pm-hd">
+        <p class="pm-k">Haz parte del proyecto más importante</p>
+        <h2 class="pm-tu" id="pmapT">Tu Proyecto</h2>
+        <p class="pm-sub">Acá vas a aprender a construirlo paso a paso.</p>
+      </header>
+      <div class="pm-tree">
+        <a class="pm-root" href="#como" aria-label="Tu Proyecto · Cómo funciona"><span>Tu Proyecto</span></a>
+        <div class="pm-cols">
+          <div class="pm-col pm-free">
+            <div class="pm-head"><a class="pm-br" href="#plano00" data-gop0><b>Plan gratuito</b></a><span class="pm-tag">Comienza sin costo</span></div>
+            <div class="pm-kids"><a class="pm-node" href="#plano00" data-gop0><b>Plano 00 · Descubre tu terreno</b><small>Tu historia, lo que ya sabes y lo que ya existe en ti.</small></a></div>
+          </div>
+          <div class="pm-col pm-full">
+            <div class="pm-head"><a class="pm-br" href="#l1"><b>Proyecto Maestro completo</b><em><span class="pm-long">el orden importa: cada plano usa lo que definiste en el anterior</span><span class="pm-short">el orden importa</span></em></a></div>
+            <div class="pm-secs"><div class="pm-sec pm-planos"><a class="pm-sh" href="#l1"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15h6M9 18h4"/></svg><span><b>Planos</b></span></a><div class="pm-kids"><a class="pm-node" href="#l1"><b>01 Cimientos</b><small>Manifiesto de marca: tu historia, esencia, voz y estilo.</small></a><a class="pm-node" href="#l2"><b>02 Estructura</b><small>Nicho y promesa: propósito, visión, nicho y audiencia.</small></a><a class="pm-node" href="#l3"><b>03 Fachada</b><small>Cerebro de marca: tu manual y tu estratega diario.</small></a><a class="pm-node" href="#l4"><b>04 Interiores</b><small>Director creativo: guiones, carruseles, diseños y feed.</small></a><a class="pm-node" href="#l5"><b>05 Estudio fotográfico</b><small>Tus fotos profesionales.</small></a><a class="pm-node" href="#entrega"><b>Entrega</b><small>Monta tu estudio.</small></a></div></div><div class="pm-sec pm-bit"><a class="pm-sh" href="/historias" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M8 3v18M11 8h5M11 11h5"/></svg><span><b>Bitácora</b><small class="pm-m">Tus historias y tu contenido.</small></span></a><div class="pm-kids"><a class="pm-node" href="/historias" data-nav="x"><b>Historias</b><small>Planifica tus recorridos: gancho, contexto, valor, prueba y cierre.</small></a><a class="pm-node" href="/historias#contenido" data-nav="x"><b>Contenido</b><small>Reels, carruseles y posts con tu voz, en tu calendario.</small></a></div></div><div class="pm-sec pm-aud"><a class="pm-sh" href="/auditoria" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg><span><b>Auditoría</b><small class="pm-m">Tu Instagram y tus plantillas Canva. 2 al mes.</small></span></a><div class="pm-kids"><a class="pm-node" href="/auditoria" data-nav="x"><b>Levantamiento de Instagram</b><small>Tu perfil, tu feed y tus destacados frente a tus planos. 2 al mes.</small></a><a class="pm-node" href="/canva" data-nav="x"><b>Plantillas Canva</b><small>3 estilos de feed y 3 branding boards con tu marca.</small></a></div></div><div class="pm-sec pm-edi"><a class="pm-sh" href="/edicion" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 9l1.5-5h15L21 9M8 4l2 5M13 4l2 5"/><path d="M10 13l5 2.5-5 2.5z"/></svg><span><b>Edición</b><small class="pm-m"><span class="pm-soon">Próximamente</span></small></span></a><div class="pm-kids"><a class="pm-node" href="/edicion" data-nav="x"><b>Subtítulos con tu marca</b><small>Tus colores y tus tipografías en tus videos.</small><span class="pm-soon">Próximamente</span></a><a class="pm-node" href="/edicion" data-nav="x"><b>Reels desde tus videos largos</b><small>Un video largo convertido en varios reels.</small><span class="pm-soon">Próximamente</span></a></div></div><div class="pm-sec pm-por"><a class="pm-sh" href="/portafolio" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="9" cy="9.5" r="1.8"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><span><b>Portafolio</b><small class="pm-m">Tu trabajo en foto y video.</small></span></a><div class="pm-kids"><a class="pm-node" href="/portafolio" data-nav="x"><b>Fotos</b><small>Tú hiperrealista, con tu identidad exacta.</small></a><a class="pm-node" href="/portafolio" data-nav="x"><b>Videos</b><small>Videos de 8 segundos con movimientos naturales.</small></a></div></div><div class="pm-sec pm-his"><a class="pm-sh" href="#historia" data-historia><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span><b>Mi historia</b><small class="pm-m">Tu historia, tu formación y tu tienda.</small></span></a><div class="pm-kids"><a class="pm-node" href="#historia" data-historia><b>Mi historia</b><small>Quién está detrás de tu proyecto.</small></a><a class="pm-node" href="#historia" data-mhgo="Mi formación digital"><b>Mi formación digital</b><small>La academia donde aprendí y hoy soy mentora.</small></a><a class="pm-node" href="#historia" data-mhgo="Mis productos"><b>Mi tienda</b><small>Todo lo que creé para acompañarte.</small></a></div></div></div>
+          </div>
+          <div class="pm-col pm-mem">
+            <div class="pm-head"><a class="pm-br" href="#express" data-exp><b>Membresía</b></a><span class="pm-tag">30 días</span></div>
+            <div class="pm-kids"><a class="pm-node pm-ico" href="/auditoria" data-exp><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L5 14h6l-1 8 8-12h-6z"/></svg><span><b>Esencia Express</b><small>Tu base de marca, sin los planos completos.</small></span></a><a class="pm-node pm-ico" href="/auditoria" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20v-8M10 20V8M15 20v-5M20 20V5M3 20h18"/></svg><span><b>Auditoría</b><small>Con tu base Express. 2 al mes.</small></span></a><a class="pm-node pm-ico" href="/canva" data-nav="x"><svg class="pm-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg><span><b>Plantillas Canva</b><small>Con tu marca, de uso ilimitado.</small></span></a></div>
+          </div>
+        </div>
+      </div>
+      <table class="cajetin pm-caj" aria-label="Cajetín"><tr><th>Proyecto</th><td class="pm-cajtu">Tu Proyecto</td></tr><tr><th>Lámina</th><td>Cómo funciona</td></tr><tr><th>Dirigido por</th><td>Laura Tovar Studio</td></tr></table>
+    </section>
     <div class="sec-head rv">
       <p class="eyebrow">Memoria descriptiva · Cómo funciona</p>
       <h2>Tu marca se construye en cuatro <img class="acc" src="img/acc-conversaciones.png" alt="conversaciones" width="708" height="107" style="height:1.12em;vertical-align:-0.39em"></h2>
@@ -2401,7 +2591,7 @@ function setAcc(j){ ACC=j.account||{tier:"none",status:"none"}; PROMPT=j.prompts
     if(exp||none){ $("#accT").textContent=exp?"Tu membresía terminó":"Activa tu acceso";
       $("#accP").innerHTML=exp?"Tus 30 días de membresía terminaron. <b>Tu información sigue guardada</b>: cuando inicies tu Proyecto Maestro completo, todo estará aquí esperándote.":"Tu cuenta todavía no tiene un acceso activo. Escribe el código que recibiste al comprar o en tu taller."; } }
   if(TIER==="mem"){ var d=ACC.daysLeft||0, au=ACC.audits||{used:0,limit:0};
-    $("#memDays").textContent=d===1?"Te queda 1 día":"Te quedan "+d+" días"; $("#memAud").textContent="Auditorías: "+au.used+" de "+au.limit;
+    $("#memTag").textContent="Membresía"+(ACC.plan?" · "+ACC.plan:""); $("#memDays").textContent=d===1?"Te queda 1 día":"Te quedan "+d+" días"; $("#memAud").textContent="Auditorías: "+au.used+" de "+au.limit;
     exLoad(); }
   refresh(); document.dispatchEvent(new CustomEvent("pm:account",{detail:ACC})); }
 document.addEventListener("pm:cloud",function(){ loadAcc(); });
@@ -2606,6 +2796,9 @@ document.addEventListener("click",function(e){
 if(location.hash==="#instalar"){ setTimeout(function(){ itab(guess()); document.getElementById("inst").hidden=false; },400); }
 var mh=document.getElementById("mh");
 function openMh(){ mh.hidden=false; mh.scrollTop=0; document.body.classList.add("mh-open"); }
+document.addEventListener("click",function(e){ var m=e.target.closest("[data-mhgo]"); if(!m) return; e.preventDefault(); openMh(); setTimeout(function(){ var a=mh.querySelector('[aria-label="'+m.dataset.mhgo+'"]'); if(a) mh.scrollTop=a.offsetTop-10; },60); });
+document.addEventListener("click",function(e){ var x=e.target.closest("[data-exp]"); if(!x) return; if(document.body.classList.contains("demo")) return; if(document.body.classList.contains("tier-mem")){ e.preventDefault(); var ex=document.getElementById("express"); if(ex) ex.scrollIntoView({behavior:"smooth"}); } else if(x.getAttribute("href")==="#express"){ e.preventDefault(); location.href="/auditoria"; } });
+
 function closeMh(){ mh.hidden=true; document.body.classList.remove("mh-open"); }
 if(location.hash==="#historia"){ history.replaceState(null,"",location.pathname); setTimeout(openMh,500); }
 document.addEventListener("click",function(e){
