@@ -46,7 +46,7 @@ export const handler = async (event) => {
   connectLambda(event);
   let b = {}; try { b = JSON.parse(event.body || "{}"); } catch (e) { return; }
   if (!/^[a-z0-9]{8,40}$/.test(b.id || "")) return;
-  const store = getStore({ name: STORE, consistency: "strong" });
+  const store = getStore({ name: STORE });
   const job = await store.get(`jobs/${b.id}`, { type: "json" });
   if (!job || job.key !== b.key) return;
   if (job.started) return; // Netlify reintenta si hay error: no repetir

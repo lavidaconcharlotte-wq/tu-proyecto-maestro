@@ -12,7 +12,7 @@ export const handler = async (event, context) => {
   if (!user || !user.sub) return { statusCode: 401, body: "unauthorized" };
   const k = (event.queryStringParameters && event.queryStringParameters.k) || "pm";
   if (!KEYS.has(k)) return { statusCode: 400, body: "bad key" };
-  const store = getStore({ name: "tu-proyecto", consistency: "strong" });
+  const store = getStore({ name: "tu-proyecto" });
   const key = `${user.sub}/${k}`;
   const headers = { "content-type": "application/json", "cache-control": "no-store" };
 

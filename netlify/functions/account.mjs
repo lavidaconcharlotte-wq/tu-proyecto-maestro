@@ -19,7 +19,7 @@ export const handler = async (event, context) => {
 
   const user = context.clientContext && context.clientContext.user;
   if (!user || !user.sub) return J(401, { error: "unauthorized" });
-  const store = getStore({ name: STORE, consistency: "strong" });
+  const store = getStore({ name: STORE });
   const identity = context.clientContext && context.clientContext.identity;
 
   if (event.httpMethod === "GET") {
